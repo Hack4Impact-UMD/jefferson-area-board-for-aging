@@ -7,12 +7,7 @@ import { ReactComponent as Logo } from '../../assets/logo.svg';
 const ExamplePage = () => {
 
     const [testObjects, setTestObjects] = useState<TestObject[]>([]);
-  
-    const handleClick = () => {
-      addSampleTestObject();
-      alert("Added Sample Test Object To Backend");
-    };
-
+    
     useEffect(() => {
       getTestObjects()
         .then((allTestObjects) => {
@@ -22,7 +17,20 @@ const ExamplePage = () => {
           console.log(error);
           alert(error);
         });
-    }, [testObjects]);
+    }, []);
+
+    const handleClick = () => {
+      addSampleTestObject();
+      getTestObjects()
+        .then((allTestObjects) => {
+          setTestObjects(allTestObjects);
+        })
+        .catch((error) => {
+          console.log(error);
+          alert(error);
+        });
+      alert("Added Sample Test Object To Backend");
+    };
 
     return (
       <>
