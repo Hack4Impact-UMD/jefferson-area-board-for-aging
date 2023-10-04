@@ -20,16 +20,14 @@ const ExamplePage = () => {
     }, []);
 
     const handleClick = () => {
-      addSampleTestObject();
-      getTestObjects()
-        .then((allTestObjects) => {
-          setTestObjects(allTestObjects);
-        })
-        .catch((error) => {
-          console.log(error);
-          alert(error);
-        });
-      alert("Added Sample Test Object To Backend");
+      addSampleTestObject().then((sampleTestObj) => {
+        setTestObjects([...testObjects, sampleTestObj]);
+        alert("Added Sample Test Object To Backend");
+      })
+      .catch((error) => {
+        console.log(error);
+        alert(error);
+      });
     };
 
     return (

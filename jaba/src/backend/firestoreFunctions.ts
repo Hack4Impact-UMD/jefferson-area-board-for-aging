@@ -54,7 +54,7 @@ export function addTestObject(testObjectData: TestObjectData): Promise<string> {
     });
 }
 
-export function addSampleTestObject(): Promise<string> {
+export function addSampleTestObject(): Promise<TestObject> {
   const testObjData: TestObjectData = {
     testField1: "sampleVal",
     testField2: 10,
@@ -65,7 +65,9 @@ export function addSampleTestObject(): Promise<string> {
   return new Promise((resolve, reject) => {
     addDoc(collection(db, 'testCollection'), testObjData)
       .then((docRef) => {
-        resolve(docRef.id);
+        let testObj:TestObject = testObjData as TestObject;
+        testObj.id = docRef.id;
+        resolve(testObj);
       })
       .catch((e) => {
         reject(e);
