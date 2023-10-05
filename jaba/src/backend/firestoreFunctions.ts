@@ -5,7 +5,7 @@ import {
     getDocs,
     getDoc,
 } from 'firebase/firestore';
-import { db } from '../firebase';
+import { db } from '../config/firebase';
 import { type TestObject, type TestObjectData, TestType } from '../models/TestObject';
 
 export function getTestObjects(): Promise<TestObject[]> {
