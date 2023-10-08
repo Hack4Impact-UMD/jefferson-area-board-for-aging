@@ -1,9 +1,11 @@
-import ExamplePage from "./pages/DisplayUsersPage/DisplayUsersPage";
+import ExamplePage from "./pages/ExamplePage/ExamplePage";
+import ResourcePage from "./pages/ResourcePage/ResourcePage"
 
 function App(): JSX.Element {
 
   return (
-    <ExamplePage/>
+    // <ExamplePage/>
+    <ResourcePage/>
   );
 }
 

@@ -7,6 +7,7 @@ import {
 } from 'firebase/firestore';
 import { db } from '../config/firebase';
 import { type TestObject, type TestObjectData, TestType } from '../models/TestObject';
+import { type Resource, type ResourceData, ServiceType} from '../models/ResourceObject'
 import { type User, type UserData } from '../models/User';
 
 export function getTestObjects(): Promise<TestObject[]> {
@@ -26,7 +27,23 @@ export function getTestObjects(): Promise<TestObject[]> {
   });
 }
 
-// megan was here
+// get data from resources database
+export function getResourceObjects(): Promise<Resource[]> {
+  const resourceCollectionRef = collection(db, 'resources');
+  return new Promise((resolve, reject) => {
+    getDocs(resourceCollectionRef).then((snapshot) => {
+      const allResourceObjects: Resource[] = [];
+      snapshot.docs.map((doc) => {
+        let resourceObject: Resource = doc.data() as Resource;
+        resourceObject.id = doc.id;
+        allResourceObjects.push(resourceObject);
+      });
+      resolve(allResourceObjects);
+    }).catch((e) => {
+      reject(e);
+    });
+  });
+}
   
 export function getTestObject(id: string): Promise<TestObject> {
     return new Promise((resolve, reject) => {
