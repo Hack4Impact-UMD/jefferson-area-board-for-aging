@@ -60,12 +60,17 @@ export function getTestObject(id: string): Promise<TestObject> {
     });
 }
   
-export function addTestObject(testObjectData: TestObjectData): Promise<string> {
+export function addTestObject(testObjectData: ResourceData): Promise<string> {
+    const resource: Resource = {
+      ...testObjectData,
+      id: '' 
+    };
+
     return new Promise((resolve, reject) => {
-      
-      addDoc(collection(db, 'testCollection'), testObjectData)
+      addDoc(collection(db, 'testCollection'), resource)
         .then((docRef) => {
-          resolve(docRef.id);
+          resource.id = docRef.id;
+          resolve(resource.id);
         })
         .catch((e) => {
           reject(e);
