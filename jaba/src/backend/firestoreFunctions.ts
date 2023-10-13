@@ -74,3 +74,22 @@ export function addSampleTestObject(): Promise<TestObject> {
       });
   });
 }
+
+/* TODO: 
+  * double check input params
+  * should i return anything?
+  * adding users one at a time or via a list? 
+  * should i create a User.ts file? what would that include?
+  * should i include checks for the email address? (ends in .XXX; has an "@" symbol, has text before the "@")
+  * what is promise?
+  * make is similar to addSampleTestObject(): Promise<TestObject> ?
+*/
+export function addNewUser(emailAddress: string) { 
+  const usersRef = collection(db, 'users');
+
+  const userData = {
+    email: emailAddress
+  };
+  
+  addDoc(usersRef, userData);
+}

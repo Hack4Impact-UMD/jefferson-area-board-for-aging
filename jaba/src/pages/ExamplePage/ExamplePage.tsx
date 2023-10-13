@@ -1,4 +1,4 @@
-import { getTestObjects, addSampleTestObject } from '../../backend/firestoreFunctions';
+import { getTestObjects, addSampleTestObject, addNewUser } from '../../backend/firestoreFunctions';
 import { useState, useEffect } from 'react';
 import { TestObject } from '../../models/TestObject';
 import styles from './ExamplePage.module.css';
@@ -20,6 +20,7 @@ const ExamplePage = () => {
     }, []);
 
     const handleClick = () => {
+      addNewUser("example@gmail.com");
       addSampleTestObject().then((sampleTestObj) => {
         setTestObjects([...testObjects, sampleTestObj]);
         alert("Added Sample Test Object To Backend");
