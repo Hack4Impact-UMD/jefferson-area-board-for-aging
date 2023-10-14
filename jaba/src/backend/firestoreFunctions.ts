@@ -7,6 +7,7 @@ import {
 } from 'firebase/firestore';
 import { db } from '../config/firebase';
 import { type TestObject, type TestObjectData, TestType } from '../models/TestObject';
+import { type TestUser, type TestUserData } from '../models/TestUser';
 
 export function getTestObjects(): Promise<TestObject[]> {
   const testCollectionRef = collection(db, 'testCollection');
@@ -75,21 +76,33 @@ export function addSampleTestObject(): Promise<TestObject> {
   });
 }
 
-/* TODO: 
-  * double check input params
-  * should i return anything?
-  * adding users one at a time or via a list? 
-  * should i create a User.ts file? what would that include?
-  * should i include checks for the email address? (ends in .XXX; has an "@" symbol, has text before the "@")
-  * what is promise?
-  * make is similar to addSampleTestObject(): Promise<TestObject> ?
-*/
-export function addNewUser(emailAddress: string) { 
-  const usersRef = collection(db, 'users');
-
-  const userData = {
-    email: emailAddress
+export function addSampleUser(): Promise<TestUser> { 
+  const testUserData: TestUserData = {
+    email: "exampletest@yahoo.com"
   };
   
-  addDoc(usersRef, userData);
+  return new Promise((resolve, reject) => {
+    addDoc(collection(db, 'users'), testUserData)
+      .then((docRef) => {
+        let testUsr:TestUser = testUserData as TestUser;
+        testUsr.id = docRef.id;
+        resolve(testUsr);
+      })
+      .catch((e) => {
+        reject(e);
+      });
+  });
+}
+
+export function addUser(testUserData: TestUserData): Promise<string> {
+  return new Promise((resolve, reject) => {
+    
+    addDoc(collection(db, 'users'), testUserData)
+      .then((docRef) => {
+        resolve(docRef.id);
+      })
+      .catch((e) => {
+        reject(e);
+      });
+  });
 }
