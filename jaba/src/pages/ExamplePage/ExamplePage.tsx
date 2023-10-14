@@ -1,17 +1,18 @@
-import { getTestObjects, addSampleTestObject } from '../../backend/firestoreFunctions';
+import { getTestUsers, addSampleTestUser } from '../../backend/firestoreFunctions';
+
 import { useState, useEffect } from 'react';
-import { TestObject } from '../../models/TestObject';
+import { TestUser } from '../../models/TestUser';
 import styles from './ExamplePage.module.css';
 import { ReactComponent as Logo } from '../../assets/logo.svg';
 
 const ExamplePage = () => {
 
-    const [testObjects, setTestObjects] = useState<TestObject[]>([]);
-    
+    const [testUsers, setTestUsers] = useState<TestUser[]>([]);
+
     useEffect(() => {
-      getTestObjects()
-        .then((allTestObjects) => {
-          setTestObjects(allTestObjects);
+      getTestUsers()
+        .then((allTestUsers) => {
+          setTestUsers(allTestUsers);
         })
         .catch((error) => {
           console.log(error);
@@ -20,9 +21,9 @@ const ExamplePage = () => {
     }, []);
 
     const handleClick = () => {
-      addSampleTestObject().then((sampleTestObj) => {
-        setTestObjects([...testObjects, sampleTestObj]);
-        alert("Added Sample Test Object To Backend");
+      addSampleTestUser().then((sampleTestUser) => {
+        setTestUsers([...testUsers, sampleTestUser]);
+        alert("Added Sample Test User To Backend");
       })
       .catch((error) => {
         console.log(error);
@@ -32,29 +33,33 @@ const ExamplePage = () => {
 
     return (
       <>
-        <h1>Displaying Info In testCollection</h1>
+        <h1>Displaying Normal User Data</h1>
         <p>Click the button!</p>
-        <button onClick={handleClick}>Add Test Object</button>
+        <button onClick={handleClick}>Add Test User</button>
         <table className={styles.dataTable}>
           <thead>
             <tr>
               <td className={styles.headerRow}>ID</td>
-              <td className={styles.headerRow}>Test Field 1</td>
+              <td className={styles.headerRow}>Email</td>
+              {/*
               <td className={styles.headerRow}>Test Field 2</td>
               <td className={styles.headerRow}>Test Field 3</td>
               <td className={styles.headerRow}>Test Field 4</td>
+              */}
             </tr>
           </thead>
           <tbody>
             {
-              testObjects.map( testObject => {
+              testUsers.map( testUser => {
                 return (
                   <tr>
-                    <td className={styles.dataRow}>{testObject.id}</td>
-                    <td className={styles.dataRow}>{testObject.testField1}</td>
+                    <td className={styles.dataRow}>{testUser.id}</td>
+                    <td className={styles.dataRow}>{testUser.email}</td>
+                    {/*
                     <td className={styles.dataRow}>{testObject.testField2}</td>
                     <td className={styles.dataRow}>{testObject.testField3.toString()}</td>
                     <td className={styles.dataRow}>{testObject.testField4}</td>
+                */}
                   </tr>
                 )
               })

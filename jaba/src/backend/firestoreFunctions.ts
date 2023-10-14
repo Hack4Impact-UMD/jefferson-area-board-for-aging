@@ -76,7 +76,24 @@ export function addSampleTestObject(): Promise<TestObject> {
   });
 }
 
-export function addSampleUser(): Promise<TestUser> { 
+export function getTestUsers(): Promise<TestUser[]> {
+  const testCollectionRef = collection(db, 'users');
+  return new Promise((resolve, reject) => {
+    getDocs(testCollectionRef).then((snapshot) => {
+      const allTestUsers: TestUser[] = [];
+      snapshot.docs.map((doc) => {
+        let testUser: TestUser = doc.data() as TestUser;
+        testUser.id = doc.id;
+        allTestUsers.push(testUser);
+      });
+      resolve(allTestUsers);
+    }).catch((e) => {
+      reject(e);
+    });
+  });
+}
+
+export function addSampleTestUser(): Promise<TestUser> { 
   const testUserData: TestUserData = {
     email: "exampletest@yahoo.com"
   };
