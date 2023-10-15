@@ -1,6 +1,5 @@
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, deleteUser } from "firebase/auth";
 
-
 const auth = getAuth();
 const user = auth.currentUser;
 const listOfUsers = [];
@@ -19,29 +18,18 @@ export function createUser(email: string, password: string){
     const errorMessage = error.message;
     console.log(errorCode);
     console.log(errorMessage);
-    // ..
   })
-
-
-
-
-
 }
 
-
-export function signInUser( email:string, password:string){
-  signInWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => { 
-    const user = userCredential.user;
-    console.log("you have successfully signed in!");
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log("Your Email/Password is incorrect!");
-    console.group(errorCode)
-  });
-
+export function signInUser(email: string, password: string): Promise<any|null>{
+  return signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      return userCredential.user;
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      return null;
+    });
 }
 
 
