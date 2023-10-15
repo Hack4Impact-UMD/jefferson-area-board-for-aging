@@ -3,5 +3,11 @@ export interface TestUser extends TestUserData {
 }
   
 export interface TestUserData {
-    email: string;
+    address: string,
+    admin: boolean,
+    agency: string,
+    email: string,
+    name: string,
+    phone: string,
+    title: string
 }

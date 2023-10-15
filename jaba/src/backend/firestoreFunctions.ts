@@ -95,7 +95,13 @@ export function getTestUsers(): Promise<TestUser[]> {
 
 export function addSampleTestUser(): Promise<TestUser> { 
   const testUserData: TestUserData = {
-    email: "exampletest@yahoo.com"
+    address: "",
+    admin: false,
+    agency: "",
+    email: "test@testemail.com",
+    name: "a doe",
+    phone: "12345678900",
+    title: ""
   };
   
   return new Promise((resolve, reject) => {
