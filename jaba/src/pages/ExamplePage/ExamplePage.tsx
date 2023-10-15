@@ -34,7 +34,7 @@ function ExamplePage() {
 
     return (
       <>
-        <h1>Displaying Info In testCollection</h1>
+        <h1>Displaying Info In testCollection Lakers in 5</h1>
         <p>Click the button!</p>
         <div>User: {user.email}</div>
         <button onClick={handleClick}>Add Test Object</button>
