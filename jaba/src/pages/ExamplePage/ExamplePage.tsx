@@ -32,7 +32,7 @@ const ExamplePage = () => {
 
     return (
       <>
-        <h1>Displaying Info In testCollection Lakers in 5</h1>
+        <h1>Displaying Info In testCollection</h1>
         <p>Click the button!</p>
         <button onClick={handleClick}>Add Test Object</button>
         <table className={styles.dataTable}>
