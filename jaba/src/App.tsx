@@ -1,9 +1,18 @@
 import ExamplePage from "./pages/ExamplePage/ExamplePage";
+import LoginPage from "./pages/LoginPage";
+import { useAuth, UserProvider } from './UserContext';
 
-function App(): JSX.Element {
 
+const ProtectedRoutes: React.FC = () => {
+  const { isUserLoggedIn } = useAuth();
+  return isUserLoggedIn ? <ExamplePage/> : <LoginPage/>;
+}
+
+const App: React.FC = () => {
   return (
-    <ExamplePage/>
+    <UserProvider>
+      <ProtectedRoutes />
+    </UserProvider>
   );
 }
 
