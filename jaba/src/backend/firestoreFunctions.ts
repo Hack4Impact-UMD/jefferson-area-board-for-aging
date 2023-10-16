@@ -59,24 +59,6 @@ export function getTestObject(id: string): Promise<TestObject> {
         });
     });
 }
-  
-export function addTestObject(testObjectData: ResourceData): Promise<string> {
-    const resource: Resource = {
-      ...testObjectData,
-      id: '' 
-    };
-
-    return new Promise((resolve, reject) => {
-      addDoc(collection(db, 'testCollection'), resource)
-        .then((docRef) => {
-          resource.id = docRef.id;
-          resolve(resource.id);
-        })
-        .catch((e) => {
-          reject(e);
-        });
-    });
-}
 
 export function addSampleTestObject(): Promise<TestObject> {
   const testObjData: TestObjectData = {
@@ -92,6 +74,44 @@ export function addSampleTestObject(): Promise<TestObject> {
         let testObj:TestObject = testObjData as TestObject;
         testObj.id = docRef.id;
         resolve(testObj);
+      })
+      .catch((e) => {
+        reject(e);
+      });
+  });
+}
+  
+export function addSampleResource(): Promise<Resource> {
+  const sampleResourceData: ResourceData = {
+    name: "Sample Resource",
+    phone: "9876543210",
+    Category: ServiceType.type1,
+    city: "Sample City",
+    state: "Sample State",
+    zip: 12345
+  };
+
+  return new Promise((resolve, reject) => {
+    addDoc(collection(db, 'resources'), sampleResourceData)
+      .then((docRef) => {
+        let sampleResource: Resource = {
+          ...sampleResourceData,
+          id: docRef.id
+        };
+        resolve(sampleResource);
+      })
+      .catch((e) => {
+        reject(e);
+      });
+  });
+}
+
+// Function to add a resource
+export function addResource(resourceData: ResourceData): Promise<string> {
+  return new Promise((resolve, reject) => {
+    addDoc(collection(db, 'resources'), resourceData)
+      .then((docRef) => {
+        resolve(docRef.id);
       })
       .catch((e) => {
         reject(e);

@@ -6,6 +6,9 @@ export interface ResourceData {
   name: string;
   phone: string;
   Category: ServiceType;
+  city: string;
+  state: string;
+  zip: number;
 }
 
 // maybe list out all service type categories...
