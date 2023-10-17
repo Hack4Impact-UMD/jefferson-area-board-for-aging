@@ -38,13 +38,13 @@ const DisplayUsersPage = () => {
         <table className={styles.dataTable}>
           <thead>
             <tr>
-              <td className={styles.headerRow}>ID</td>
+              <td className={styles.headerRow}>Name</td>
+              <td className={styles.headerRow}>Title</td>
+              <td className={styles.headerRow}>Address</td>
+              <td className={styles.headerRow}>Phone</td>
               <td className={styles.headerRow}>Email</td>
-              {/*
-              <td className={styles.headerRow}>Test Field 2</td>
-              <td className={styles.headerRow}>Test Field 3</td>
-              <td className={styles.headerRow}>Test Field 4</td>
-              */}
+              <td className={styles.headerRow}>Agency</td>
+              <td className={styles.headerRow}>Is Admin</td>
             </tr>
           </thead>
           <tbody>
@@ -53,12 +53,12 @@ const DisplayUsersPage = () => {
                 return (
                   <tr>
                     <td className={styles.dataRow}>{testUser.id}</td>
+                    <td className={styles.dataRow}>{testUser.title}</td>
+                    <td className={styles.dataRow}>{testUser.address}</td>
+                    <td className={styles.dataRow}>{testUser.phone}</td>
                     <td className={styles.dataRow}>{testUser.email}</td>
-                    {/*
-                    <td className={styles.dataRow}>{testObject.testField2}</td>
-                    <td className={styles.dataRow}>{testObject.testField3.toString()}</td>
-                    <td className={styles.dataRow}>{testObject.testField4}</td>
-                */}
+                    <td className={styles.dataRow}>{testUser.agency}</td>
+                    <td className={styles.dataRow}>{testUser.admin}</td>
                   </tr>
                 )
               })
