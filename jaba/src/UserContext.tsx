@@ -23,7 +23,7 @@ interface UserProviderProps {
 
 export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
   const loginState = localStorage.getItem('isLoggedIn') === 'true'
-  const [isUserLoggedIn, setIsUserLoggedIn] = useState<boolean>(false);
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState<boolean>(loginState);
   const [user, setUser] = useState<any|null>(null);
 
 
