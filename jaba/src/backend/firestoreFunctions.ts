@@ -9,6 +9,7 @@ import { db } from '../config/firebase';
 import { type TestObject, type TestObjectData, TestType } from '../models/TestObject';
 import { type Resource, type ResourceData, ServiceType} from '../models/ResourceObject'
 
+// demo
 export function getTestObjects(): Promise<TestObject[]> {
   const testCollectionRef = collection(db, 'testCollection');
   return new Promise((resolve, reject) => {
@@ -43,7 +44,8 @@ export function getResourceObjects(): Promise<Resource[]> {
     });
   });
 }
-  
+
+// demo
 export function getTestObject(id: string): Promise<TestObject> {
     return new Promise((resolve, reject) => {
       getDoc(doc(db, 'testCollection', id))
@@ -60,6 +62,7 @@ export function getTestObject(id: string): Promise<TestObject> {
     });
 }
 
+// demo
 export function addSampleTestObject(): Promise<TestObject> {
   const testObjData: TestObjectData = {
     testField1: "sampleVal",
@@ -80,31 +83,32 @@ export function addSampleTestObject(): Promise<TestObject> {
       });
   });
 }
-  
-export function addSampleResource(): Promise<Resource> {
-  const sampleResourceData: ResourceData = {
-    name: "Sample Resource",
-    phone: "9876543210",
-    Category: ServiceType.type1,
-    city: "Sample City",
-    state: "Sample State",
-    zip: 12345
-  };
 
-  return new Promise((resolve, reject) => {
-    addDoc(collection(db, 'resources'), sampleResourceData)
-      .then((docRef) => {
-        let sampleResource: Resource = {
-          ...sampleResourceData,
-          id: docRef.id
-        };
-        resolve(sampleResource);
-      })
-      .catch((e) => {
-        reject(e);
-      });
-  });
-}
+// demo
+// export function addSampleResource(): Promise<Resource> {
+//   const sampleResourceData: ResourceData = {
+//     name: "Sample Resource",
+//     phone: "9876543210",
+//     category: ServiceType.type1,
+//     city: "Sample City",
+//     state: "Sample State",
+//     zip: 12345
+//   };
+
+//   return new Promise((resolve, reject) => {
+//     addDoc(collection(db, 'resources'), sampleResourceData)
+//       .then((docRef) => {
+//         let sampleResource: Resource = {
+//           ...sampleResourceData,
+//           id: docRef.id
+//         };
+//         resolve(sampleResource);
+//       })
+//       .catch((e) => {
+//         reject(e);
+//       });
+//   });
+// }
 
 // Function to add a resource
 export function addResource(resourceData: ResourceData): Promise<string> {

@@ -45,10 +45,34 @@ const ResourcePage = () => {
     const sampleResourceData = {
       name,
       phone,
-      Category: ServiceType.type1,
       city,
       state,
-      zip
+      zip,
+      category: ServiceType.type1,
+      last_edited: "",
+      last_editor_name: "",
+      for_profit: false,
+      website: "",
+      email: "",
+      toll_free_phone: "",
+      phone_tty_tdd: "",
+      address_pt1: "",
+      address_pt2: "",
+      mailing_address: "",
+      ed_ceo_name: "",
+      ed_ceo_phone: "",
+      ed_ceo_email: "",
+      main_contact_name: "",
+      main_contact_phone: "",
+      department: "",
+      second_contact_name: "",
+      second_contact_phone: "",
+      notes: "",
+      office_hours: "",
+      application: "",
+      community_partner: false,
+      relationship_notes: "",
+      eligibility_notes: ""
     };
   
     addResource(sampleResourceData)
@@ -86,7 +110,7 @@ const ResourcePage = () => {
               <tr key={index}>
                 <td className={styles.dataRow}>{resourceObject.name}</td>
                 <td className={styles.dataRow}>{resourceObject.phone}</td>
-                <td className={styles.dataRow}>{resourceObject.Category}</td>
+                <td className={styles.dataRow}>{resourceObject.category}</td>
               </tr>
             );
           })}
