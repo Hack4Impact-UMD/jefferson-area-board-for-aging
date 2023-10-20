@@ -1,0 +1,52 @@
+.confirmation-outer {
+    display: flex;
+    width: 558px;
+    padding: 36px 50px 47px 50px;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 6px;
+    background: #FFF;
+}
+
+.confirmation-inner {
+    display: flex;
+    width: 558px;
+    padding: 36px 50px 47px 50px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    border-radius: 6px;
+    background: #FFF;
+}
+
+.confirmation-header {
+    color: #000;
+    font-family: DM Serif Text;
+    font-size: 31px;
+    font-style: bold;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.confirmation-text {
+    width: 458px;
+
+    color: var(--Black, #000);
+    text-align: center;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.another-req {
+    color: #7D7D7D;;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}

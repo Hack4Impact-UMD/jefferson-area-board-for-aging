@@ -1,0 +1,97 @@
+body {
+    background-color: #012146;
+}
+
+.request-page {
+    width: 1228px;
+    height: 888px;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    margin: 47px 142px 47px 142px;
+
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 0.5px solid #878787;
+    box-shadow: 0px 4px 64px 0px rgba(0, 0, 0, 0.05);
+}
+
+.request-header {
+    margin: 39px 769.57px 806px 62px;
+}
+
+.req-title {
+    color: #000;
+    font-family: DM Serif Text;
+    font-size: 31px;
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+}
+
+.req-text {
+    color: #000;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.input-text {
+    width: 479px;
+    height: 59px;
+    flex-shrink: 0;
+
+    border-radius: 6px;
+    border: 0.6px solid #282828;
+    background: #FFF;
+}
+
+.fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    grid-template-areas:
+        "fullname address"
+        "email create"
+        "phone priority"
+        "organization additional"
+        "position submit_btn";
+    gap: 20px;
+}
+.submit-response {
+    width: 423px;
+    height: 57px;
+    flex-shrink: 0;
+
+    border-radius: 6px;
+    background: #000;
+
+    color: #FFF;
+    font-family: DM Serif Text;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.reg-btn {
+    /* deal with white and black text and background color through a toggle and js function */
+    width: 62px;
+    height: 27px;
+    flex-shrink: 0;
+
+    border-radius: 6px;
+    border: 0.6px solid #000;
+
+    margin: 0px 16px; 
+
+    font-family: DM Serif Text;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+#format-header {
+    width: 688px; 
+}
