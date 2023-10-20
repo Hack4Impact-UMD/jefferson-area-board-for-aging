@@ -31,7 +31,7 @@ function LoginPage() {
     return (
       <div >
         <div >
-          <h1>Login as User or Admin</h1>
+          <h1>Login as Admin or User</h1>
           <form>
             <input className={classes.input} onChange={EmailChange} value={email} type="email" id="email" name="email" placeholder="me@example.com"/>
             <input className={classes.input} onChange={PasswordChange} value={password} type="password" id="password" name="password" placeholder="••••••••••" />
