@@ -7,7 +7,7 @@ import {
 } from 'firebase/firestore';
 import { db } from '../config/firebase';
 import { type TestObject, type TestObjectData, TestType } from '../models/TestObject';
-import { type TestUser, type TestUserData } from '../models/TestUser';
+import { type User, type UserData } from '../models/User';
 
 export function getTestObjects(): Promise<TestObject[]> {
   const testCollectionRef = collection(db, 'testCollection');
@@ -76,25 +76,24 @@ export function addSampleTestObject(): Promise<TestObject> {
   });
 }
 
-export function getTestUsers(): Promise<TestUser[]> {
-  const testCollectionRef = collection(db, 'users');
+export function getUsers(): Promise<User[]> {
   return new Promise((resolve, reject) => {
-    getDocs(testCollectionRef).then((snapshot) => {
-      const allTestUsers: TestUser[] = [];
+    getDocs(collection(db, 'users')).then((snapshot) => {
+      const allUsers: User[] = [];
       snapshot.docs.map((doc) => {
-        let testUser: TestUser = doc.data() as TestUser;
-        testUser.id = doc.id;
-        allTestUsers.push(testUser);
+        let user: User = doc.data() as User;
+        user.id = doc.id;
+        allUsers.push(user);
       });
-      resolve(allTestUsers);
+      resolve(allUsers);
     }).catch((e) => {
       reject(e);
     });
   });
 }
 
-export function addSampleTestUser(): Promise<TestUser> { 
-  const testUserData: TestUserData = {
+export function addSampleUser(): Promise<User> { 
+  const userData: UserData = {
     address: "",
     admin: false,
     agency: "",
@@ -105,11 +104,11 @@ export function addSampleTestUser(): Promise<TestUser> {
   };
   
   return new Promise((resolve, reject) => {
-    addDoc(collection(db, 'users'), testUserData)
+    addDoc(collection(db, 'users'), userData)
       .then((docRef) => {
-        let testUsr:TestUser = testUserData as TestUser;
-        testUsr.id = docRef.id;
-        resolve(testUsr);
+        let usr:User = userData as User;
+        usr.id = docRef.id;
+        resolve(usr);
       })
       .catch((e) => {
         reject(e);
@@ -117,10 +116,9 @@ export function addSampleTestUser(): Promise<TestUser> {
   });
 }
 
-export function addUser(testUserData: TestUserData): Promise<string> {
+export function addUser(userData: UserData): Promise<string> {
   return new Promise((resolve, reject) => {
-    
-    addDoc(collection(db, 'users'), testUserData)
+    addDoc(collection(db, 'users'), userData)
       .then((docRef) => {
         resolve(docRef.id);
       })
