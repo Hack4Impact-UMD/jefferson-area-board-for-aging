@@ -1,8 +1,8 @@
-export interface TestUser extends TestUserData {
+export interface User extends UserData {
     id: string;
 }
   
-export interface TestUserData {
+export interface UserData {
     address: string,
     admin: boolean,
     agency: string,

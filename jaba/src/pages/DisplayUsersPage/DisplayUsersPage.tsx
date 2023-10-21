@@ -1,17 +1,17 @@
-import { getTestUsers, addSampleTestUser } from '../../backend/firestoreFunctions';
+import { getUsers, addSampleUser } from '../../backend/firestoreFunctions';
 
 import { useState, useEffect } from 'react';
-import { TestUser } from '../../models/TestUser';
+import { User } from '../../models/User';
 import styles from './DisplayUsersPage.module.css';
 
 const DisplayUsersPage = () => {
 
-    const [testUsers, setTestUsers] = useState<TestUser[]>([]);
+    const [users, setUsers] = useState<User[]>([]);
 
     useEffect(() => {
-      getTestUsers()
-        .then((allTestUsers) => {
-          setTestUsers(allTestUsers);
+      getUsers()
+        .then((allUsers) => {
+          setUsers(allUsers);
         })
         .catch((error) => {
           console.log(error);
@@ -20,8 +20,8 @@ const DisplayUsersPage = () => {
     }, []);
 
     const handleClick = () => {
-      addSampleTestUser().then((sampleTestUser) => {
-        setTestUsers([...testUsers, sampleTestUser]);
+      addSampleUser().then((sampleUser) => {
+        setUsers([...users, sampleUser]);
         alert("Added Sample Test User To Backend");
       })
       .catch((error) => {
@@ -34,7 +34,7 @@ const DisplayUsersPage = () => {
       <>
         <h1>Displaying Normal User Data</h1>
         <p>Click the button!</p>
-        <button onClick={handleClick}>Add Test User</button>
+        <button onClick={handleClick}>Add User</button>
         <table className={styles.dataTable}>
           <thead>
             <tr>
@@ -49,16 +49,16 @@ const DisplayUsersPage = () => {
           </thead>
           <tbody>
             {
-              testUsers.map( testUser => {
+              users.map( user => {
                 return (
                   <tr>
-                    <td className={styles.dataRow}>{testUser.id}</td>
-                    <td className={styles.dataRow}>{testUser.title}</td>
-                    <td className={styles.dataRow}>{testUser.address}</td>
-                    <td className={styles.dataRow}>{testUser.phone}</td>
-                    <td className={styles.dataRow}>{testUser.email}</td>
-                    <td className={styles.dataRow}>{testUser.agency}</td>
-                    <td className={styles.dataRow}>{testUser.admin}</td>
+                    <td className={styles.dataRow}>{user.id}</td>
+                    <td className={styles.dataRow}>{user.title}</td>
+                    <td className={styles.dataRow}>{user.address}</td>
+                    <td className={styles.dataRow}>{user.phone}</td>
+                    <td className={styles.dataRow}>{user.email}</td>
+                    <td className={styles.dataRow}>{user.agency}</td>
+                    <td className={styles.dataRow}>{user.admin}</td>
                   </tr>
                 )
               })
