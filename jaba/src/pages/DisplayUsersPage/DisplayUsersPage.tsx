@@ -58,7 +58,7 @@ const DisplayUsersPage = () => {
                     <td className={styles.dataRow}>{user.phone}</td>
                     <td className={styles.dataRow}>{user.email}</td>
                     <td className={styles.dataRow}>{user.agency}</td>
-                    <td className={styles.dataRow}>{user.admin}</td>
+                    <td className={styles.dataRow}>{user.admin + ""}</td>
                   </tr>
                 )
               })

@@ -94,13 +94,13 @@ export function getUsers(): Promise<User[]> {
 
 export function addSampleUser(): Promise<User> { 
   const userData: UserData = {
-    address: "",
+    address: "college park",
     admin: false,
-    agency: "",
+    agency: "a1",
     email: "test@testemail.com",
     name: "a doe",
     phone: "12345678900",
-    title: ""
+    title: "dr."
   };
   
   return new Promise((resolve, reject) => {
