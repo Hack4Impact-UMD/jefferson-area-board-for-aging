@@ -1,6 +1,6 @@
 import { getResourceObjects, addResource } from '../../backend/firestoreFunctions';
 import { useState, useEffect } from 'react';
-import { Resource, ServiceType } from '../../models/ResourceObject';
+import { Resource, Address, EdCeo, Contact, ServiceType } from '../../models/ResourceObject';
 import styles from './ResourcePage.module.css';
 import { ClipLoader } from 'react-spinners';
 
@@ -29,50 +29,67 @@ const ResourcePage = () => {
   };
 
   const handleAddResource = () => {
-    const name = prompt('Enter name for the resource:');
-    const phone = prompt('Enter phone number for the resource:');
-    const city = prompt('Enter city for the resource:');
-    const state = prompt('Enter state for the resource:');
+    const nameInput = prompt('Enter name for the resource:');
+    const phoneInput = prompt('Enter phone number for the resource:');
+    const cityInput = prompt('Enter city for the resource:');
+    const stateInput = prompt('Enter state for the resource:');
     const zipInput = prompt('Enter zip code for the resource:');
     
-    if (!name || !phone || !city || !state || !zipInput) {
+    if (!nameInput || !phoneInput || !cityInput || !stateInput || !zipInput) {
       alert('All fields are required.');
       return;
     }
 
-
-    const zip = parseInt(zipInput, 10);
+    // zip codes can have a dash....
+    // const zip = parseInt(zipInput, 10);
     const sampleResourceData = {
-      name,
-      phone,
-      city,
-      state,
-      zip,
+      name: nameInput,
+      phone: phoneInput,
+      physicalAddress: {
+        street: "",
+        city: cityInput,
+        state: stateInput,
+        zip: zipInput},
+      // will need to add serviceArea
       category: ServiceType.type1,
-      last_edited: "",
-      last_editor_name: "",
-      for_profit: false,
+      lastEdited: "",
+      lastEditorName: "",
+
+      // optional fields
+      forProfit: false,
       website: "",
       email: "",
-      toll_free_phone: "",
-      phone_tty_tdd: "",
-      address_pt1: "",
-      address_pt2: "",
-      mailing_address: "",
-      ed_ceo_name: "",
-      ed_ceo_phone: "",
-      ed_ceo_email: "",
-      main_contact_name: "",
-      main_contact_phone: "",
-      department: "",
-      second_contact_name: "",
-      second_contact_phone: "",
+      tollFreePhone: "",
+      phoneTtyTdd: "",
+      mailingAddress: {
+        street: "",
+        city: "",
+        state: "",
+        zip: ""
+      },
+      edCeo: {
+        name: "",
+        phone: "",
+        email: "",
+      },
+      mainContact: {
+        name: "",
+        phone: "",
+        email: "",
+        department: "",
+      },
+      secondContact: {
+        name: "",
+        phone: "",
+        email: "",
+        department: "",
+      },
       notes: "",
       office_hours: "",
       application: "",
       community_partner: false,
       relationship_notes: "",
-      eligibility_notes: ""
+      eligibility_notes: "",
     };
   
     addResource(sampleResourceData)
