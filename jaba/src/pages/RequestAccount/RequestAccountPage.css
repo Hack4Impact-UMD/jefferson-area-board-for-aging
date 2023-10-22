@@ -8,7 +8,6 @@ body {
     flex-shrink: 0;
     box-sizing: border-box;
     margin: 47px 142px 47px 142px;
-
     background-color: #ffffff;
     border-radius: 10px;
     border: 0.5px solid #878787;
@@ -28,6 +27,13 @@ body {
     line-height: normal;
 }
 
+.heading-container {
+    width: 688px;
+    height: 86px;
+    top: 86px;
+    left: 204px;
+}
+
 .req-text {
     color: #000;
     font-family: Inter;
@@ -41,7 +47,6 @@ body {
     width: 479px;
     height: 59px;
     flex-shrink: 0;
-
     border-radius: 6px;
     border: 0.6px solid #282828;
     background: #FFF;
@@ -49,23 +54,17 @@ body {
 
 .fields {
     display: grid;
-    grid-template-columns: 1fr 1fr; 
-    grid-template-areas:
-        "fullname address"
-        "email create"
-        "phone priority"
-        "organization additional"
-        "position submit_btn";
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "fullname address" "email create" "phone priority" "organization additional" "position submit_btn";
     gap: 20px;
 }
+
 .submit-response {
     width: 423px;
     height: 57px;
     flex-shrink: 0;
-
     border-radius: 6px;
     background: #000;
-
     color: #FFF;
     font-family: DM Serif Text;
     font-size: 24px;
@@ -74,24 +73,51 @@ body {
     line-height: normal;
 }
 
-.reg-btn {
-    /* deal with white and black text and background color through a toggle and js function */
-    width: 62px;
-    height: 27px;
+.rounded-button {
+    width: 100px;
+    height: 40px;
     flex-shrink: 0;
-
-    border-radius: 6px;
+    border-radius: 25px;
     border: 0.6px solid #000;
-
-    margin: 0px 16px; 
-
+    margin: 0 10px;
     font-family: DM Serif Text;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #FFF;
+    color: #000;
 }
 
-#format-header {
-    width: 688px; 
+input[type="radio"] {
+    display: none;
+}
+
+label.rounded-button {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 25px;
+    margin: 0 10px;
+    font-family: DM Serif Text;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    cursor: pointer;
+    background-color: #FFF;
+    color: #000;
+}
+
+input[type="radio"]:checked+label.rounded-button {
+    background-color: #000;
+    color: #FFF;
+}
+
+.rounded-button.selected {
+    background-color: #000;
+    color: #FFF;
 }
