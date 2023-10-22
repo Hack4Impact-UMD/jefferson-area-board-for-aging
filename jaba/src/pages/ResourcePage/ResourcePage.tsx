@@ -1,4 +1,4 @@
-import { getResourceObjects, addResource } from '../../backend/firestoreFunctions';
+import { getResourceObjects, addResourceObject } from '../../backend/firestoreFunctions';
 import { useState, useEffect } from 'react';
 import { Resource, Address, EdCeo, Contact} from '../../models/ResourceObject';
 import styles from './ResourcePage.module.css';
@@ -93,7 +93,7 @@ const ResourcePage = () => {
       eligibility_notes: "",
     };
   
-    addResource(sampleResourceData)
+    addResourceObject(sampleResourceData)
       .then((addedResource) => {
         console.log('Resource added:', addedResource);
         alert("Added Sample Test Resource");
