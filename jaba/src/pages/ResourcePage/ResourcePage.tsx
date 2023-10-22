@@ -1,6 +1,6 @@
 import { getResourceObjects, addResource } from '../../backend/firestoreFunctions';
 import { useState, useEffect } from 'react';
-import { Resource, Address, EdCeo, Contact, ServiceType } from '../../models/ResourceObject';
+import { Resource, Address, EdCeo, Contact, PrimaryCategory } from '../../models/ResourceObject';
 import styles from './ResourcePage.module.css';
 import { ClipLoader } from 'react-spinners';
 
@@ -51,7 +51,7 @@ const ResourcePage = () => {
         state: stateInput,
         zip: zipInput},
       // will need to add serviceArea
-      category: ServiceType.type1,
+      category: PrimaryCategory.alzheimersAndDementia,
       lastEdited: "",
       lastEditorName: "",
 

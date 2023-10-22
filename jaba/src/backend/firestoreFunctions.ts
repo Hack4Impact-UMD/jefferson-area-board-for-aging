@@ -7,7 +7,7 @@ import {
 } from 'firebase/firestore';
 import { db } from '../config/firebase';
 import { type TestObject, type TestObjectData, TestType } from '../models/TestObject';
-import { type Resource, type ResourceData, ServiceType} from '../models/ResourceObject'
+import { type Resource, type ResourceData, PrimaryCategory} from '../models/ResourceObject'
 
 // demo
 export function getTestObjects(): Promise<TestObject[]> {

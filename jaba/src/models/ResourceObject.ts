@@ -8,7 +8,7 @@ export interface ResourceData {
   phone: string;
   physicalAddress: Address;
   // will need to add serviceArea
-  category: ServiceType;
+  category: PrimaryCategory;
   lastEdited: string;
   lastEditorName: string;
 
@@ -51,8 +51,41 @@ export interface Contact {
 }
 
 // maybe list out all service type categories...
-export enum ServiceType {
-  type1 = 'type1',
-  type2 = 'type2',
-  type3 = 'type3'
+export enum PrimaryCategory {
+  alzheimersAndDementia,
+  abuse,
+  areaAgenciesOnAging,
+  associations,
+  caregiverServices,
+  careManagement,
+  childCare,
+  childWelfare,
+  communityServiceOrganizations,
+  disabilityServices,
+  emergencyServices,
+  employment,
+  employmentAssistance,
+  endOfLife,
+  familyServices,
+  financialAssistance,
+  fraud,
+  housing,
+  inHomeCareSupplies,
+  insuranceCounselingQuestions,
+  internetBroadband,
+  legalServices,
+  longTermCare,
+  medicalCareNeeds,
+  mentalHealth,
+  multilingualServices,
+  nutrition,
+  socialServices,
+  socializationRecreation,
+  socialSecurity,
+  supportGroups,
+  taxes,
+  transportation,
+  tribalServices,
+  veterans,
+  volunteerOpportunities
 };
