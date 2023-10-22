@@ -8,7 +8,8 @@ export interface ResourceData {
   phone: string;
   physicalAddress: Address;
   // will need to add serviceArea
-  category: PrimaryCategory;
+  primaryCategory: string;
+  subCategory: string;
   lastEdited: string;
   lastEditorName: string;
 
@@ -51,41 +52,41 @@ export interface Contact {
 }
 
 // maybe list out all service type categories...
-export enum PrimaryCategory {
-  alzheimersAndDementia,
-  abuse,
-  areaAgenciesOnAging,
-  associations,
-  caregiverServices,
-  careManagement,
-  childCare,
-  childWelfare,
-  communityServiceOrganizations,
-  disabilityServices,
-  emergencyServices,
-  employment,
-  employmentAssistance,
-  endOfLife,
-  familyServices,
-  financialAssistance,
-  fraud,
-  housing,
-  inHomeCareSupplies,
-  insuranceCounselingQuestions,
-  internetBroadband,
-  legalServices,
-  longTermCare,
-  medicalCareNeeds,
-  mentalHealth,
-  multilingualServices,
-  nutrition,
-  socialServices,
-  socializationRecreation,
-  socialSecurity,
-  supportGroups,
-  taxes,
-  transportation,
-  tribalServices,
-  veterans,
-  volunteerOpportunities
-};
+// export enum PrimaryCategory {
+//   alzheimersAndDementia,
+//   abuse,
+//   areaAgenciesOnAging,
+//   associations,
+//   caregiverServices,
+//   careManagement,
+//   childCare,
+//   childWelfare,
+//   communityServiceOrganizations,
+//   disabilityServices,
+//   emergencyServices,
+//   employment,
+//   employmentAssistance,
+//   endOfLife,
+//   familyServices,
+//   financialAssistance,
+//   fraud,
+//   housing,
+//   inHomeCareSupplies,
+//   insuranceCounselingQuestions,
+//   internetBroadband,
+//   legalServices,
+//   longTermCare,
+//   medicalCareNeeds,
+//   mentalHealth,
+//   multilingualServices,
+//   nutrition,
+//   socialServices,
+//   socializationRecreation,
+//   socialSecurity,
+//   supportGroups,
+//   taxes,
+//   transportation,
+//   tribalServices,
+//   veterans,
+//   volunteerOpportunities
+// };

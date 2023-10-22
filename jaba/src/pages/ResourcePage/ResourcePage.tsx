@@ -1,6 +1,6 @@
 import { getResourceObjects, addResource } from '../../backend/firestoreFunctions';
 import { useState, useEffect } from 'react';
-import { Resource, Address, EdCeo, Contact, PrimaryCategory } from '../../models/ResourceObject';
+import { Resource, Address, EdCeo, Contact} from '../../models/ResourceObject';
 import styles from './ResourcePage.module.css';
 import { ClipLoader } from 'react-spinners';
 
@@ -34,14 +34,14 @@ const ResourcePage = () => {
     const cityInput = prompt('Enter city for the resource:');
     const stateInput = prompt('Enter state for the resource:');
     const zipInput = prompt('Enter zip code for the resource:');
+    const primaryCategoryInput = prompt('Enter primary category for the resource:');
+    const subCategoryInput = prompt('Enter sub category for the resource:');
     
-    if (!nameInput || !phoneInput || !cityInput || !stateInput || !zipInput) {
+    if (!nameInput || !phoneInput || !cityInput || !stateInput || !zipInput || !primaryCategoryInput || !subCategoryInput) {
       alert('All fields are required.');
       return;
     }
 
-    // zip codes can have a dash....
-    // const zip = parseInt(zipInput, 10);
     const sampleResourceData = {
       name: nameInput,
       phone: phoneInput,
@@ -51,7 +51,8 @@ const ResourcePage = () => {
         state: stateInput,
         zip: zipInput},
       // will need to add serviceArea
-      category: PrimaryCategory.alzheimersAndDementia,
+      primaryCategory: primaryCategoryInput,
+      subCategory: subCategoryInput,
       lastEdited: "",
       lastEditorName: "",
 
@@ -118,7 +119,9 @@ const ResourcePage = () => {
           <tr>
             <td className={styles.headerRow}>Org name</td>
             <td className={styles.headerRow}>Phone num</td>
-            <td className={styles.headerRow}>Service type</td>
+            <td className={styles.headerRow}>Physical Address</td>
+            <td className={styles.headerRow}>Primary category</td>
+            <td className={styles.headerRow}>Sub category</td>
           </tr>
         </thead>
         <tbody>
@@ -127,7 +130,9 @@ const ResourcePage = () => {
               <tr key={index}>
                 <td className={styles.dataRow}>{resourceObject.name}</td>
                 <td className={styles.dataRow}>{resourceObject.phone}</td>
-                <td className={styles.dataRow}>{resourceObject.category}</td>
+                <td className={styles.dataRow}>{resourceObject.physicalAddress.city}, {resourceObject.physicalAddress.state}, {resourceObject.physicalAddress.zip}</td>
+                <td className={styles.dataRow}>{resourceObject.primaryCategory}</td>
+                <td className={styles.dataRow}>{resourceObject.subCategory}</td>
               </tr>
             );
           })}
