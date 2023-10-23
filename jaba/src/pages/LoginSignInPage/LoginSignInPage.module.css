@@ -1,0 +1,25 @@
+.splitScreen {
+    height: calc(100vh);
+    display: flex;
+    flex-direction: row;   
+}
+
+.leftSide {    
+    width: 50%;    
+    display: flex;    
+    align-items: center;
+    justify-content: center;
+    background-color: #023C47;
+}
+
+.rightSide {    
+    width: 50%;    
+    display: flex;    
+    align-items: center;
+    justify-content: center;
+}
+
+.rightImage {
+    width: 50%;
+    height: 50%;
+}
