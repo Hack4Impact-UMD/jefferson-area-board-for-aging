@@ -10,6 +10,9 @@ const LoginSignInPage = () => {
     <>
       <div className={styles.splitScreen}>
         <div className={styles.leftSide}>
+          <div className={styles.loginRectangle}>
+
+          </div>
         </div>
         <div className={styles.rightSide}>
           <img className={styles.rightImage} src={SignIn}/>

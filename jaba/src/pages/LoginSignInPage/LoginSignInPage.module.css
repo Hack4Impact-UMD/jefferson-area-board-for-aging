@@ -12,6 +12,17 @@
     background-color: #023C47;
 }
 
+.loginRectangle {
+    width: 50%;
+    height: 65%;
+    top: 216px;
+    left: 125px;
+    border-radius: 10px;
+    border: 0.5px;
+    background: linear-gradient(0deg, #FFFFFF, #FFFFFF);
+    border: 0.5px solid #878787
+}
+
 .rightSide {    
     width: 50%;    
     display: flex;    

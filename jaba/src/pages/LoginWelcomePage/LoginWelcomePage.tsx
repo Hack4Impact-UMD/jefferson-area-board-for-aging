@@ -10,6 +10,9 @@ const LoginWelcomePage = () => {
       <>
         <div className={styles.splitScreen}>
           <div className={styles.leftSide}>
+            <div className={styles.welcomeRectangle}>
+
+            </div>
           </div>
           <div className={styles.rightSide}>
             <img className={styles.rightImage} src={Welcome}/>
