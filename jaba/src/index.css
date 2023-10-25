@@ -1,10 +1,10 @@
 @font-face {
-  font-family: DMSerifText;
+  font-family: 'DM Serif Text';
   src: url('./fonts/DMSerifText/DMSerifText-Regular.ttf');
 }
 
 @font-face {
-  font-family: Inter;
+  font-family: 'Inter';
   src: url('./fonts/Inter/Inter-Regular.ttf');
 }
 
