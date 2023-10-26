@@ -86,11 +86,11 @@ const ResourcePage = () => {
         department: "",
       },
       notes: "",
-      office_hours: "",
+      officeHours: "",
       application: "",
-      community_partner: false,
-      relationship_notes: "",
-      eligibility_notes: "",
+      communityPartner: false,
+      relationshipNotes: "",
+      eligibilityNotes: "",
     };
   
     addResourceObject(sampleResourceData)
