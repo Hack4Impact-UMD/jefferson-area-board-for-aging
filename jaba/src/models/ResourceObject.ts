@@ -24,11 +24,11 @@ export interface ResourceData {
   mainContact: Contact;
   secondContact: Contact;
   notes: string;
-  office_hours: string;
+  officeHours: string;
   application: string;
-  community_partner: boolean;
-  relationship_notes: string;
-  eligibility_notes: string;
+  communityPartner: boolean;
+  relationshipNotes: string;
+  eligibilityNotes: string;
 }
 
 export interface Address {
