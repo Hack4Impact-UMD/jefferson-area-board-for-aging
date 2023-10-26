@@ -1,3 +1,5 @@
+import { FieldValue } from "firebase/firestore";
+
 export interface Resource extends ResourceData {
   id: string;
 }
@@ -10,7 +12,7 @@ export interface ResourceData {
   // will need to add serviceArea
   primaryCategory: string;
   subCategory: string;
-  lastEdited: string;
+  lastEdited: FieldValue;
   lastEditorName: string;
 
   // optional fields

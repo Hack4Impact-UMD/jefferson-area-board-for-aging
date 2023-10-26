@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import { Resource, Address, EdCeo, Contact} from '../../models/ResourceObject';
 import styles from './ResourcePage.module.css';
 import { ClipLoader } from 'react-spinners';
+import { serverTimestamp } from 'firebase/firestore';
+
 
 const ResourcePage = () => {
   const [resourceObjects, setResourceObjects] = useState<Resource[]>([]);
@@ -53,7 +55,7 @@ const ResourcePage = () => {
       // will need to add serviceArea
       primaryCategory: primaryCategoryInput,
       subCategory: subCategoryInput,
-      lastEdited: "",
+      lastEdited: serverTimestamp(),
       lastEditorName: "",
 
       // optional fields
