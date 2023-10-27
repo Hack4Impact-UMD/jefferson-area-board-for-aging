@@ -13,8 +13,8 @@ function ResetPassword() {
             <input type="text" placeholder='Enter a new password'/>
           </div>
           <div className={classes.password_section}>
-            <div className={classes.password_section_header}>New Password</div>
-            <input type="text" placeholder='Enter a new password'/>
+            <div className={classes.password_section_header}>Confirm Password</div>
+            <input type="text" placeholder='Re-enter a new password'/>
           </div>
           <button onClick={() => window.open('https://www.google.com', '_blank')}>Reset and Login</button>
         </div>
