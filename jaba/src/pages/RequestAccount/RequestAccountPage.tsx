@@ -67,11 +67,12 @@ const RequestAccountPage = () => {
             To request an account, please fill out the form below with your details and requirements. An administrator will review your request and create your account accordingly.
           </p>
         </div>
-
+      </div>
+      <div className="request-body">
         <form onSubmit={handleFormSubmit}>
           <div className="fields">
             <div className="req-entry" style={{ gridArea: 'fullname' }}>
-              <p>Full name</p>
+              <p className="req-descrip">Full name</p>
               <textarea
                 className="input-text"
                 placeholder="Enter your full name"
@@ -81,7 +82,7 @@ const RequestAccountPage = () => {
             </div>
 
             <div className="req-entry" style={{ gridArea: 'email' }}>
-              <p>Email</p>
+              <p className="req-descrip">Email</p>
               <textarea
                 className="input-text"
                 placeholder="Enter your email linked to your account"
@@ -91,7 +92,7 @@ const RequestAccountPage = () => {
             </div>
 
             <div className="req-entry" style={{ gridArea: 'phone' }}>
-              <p>Phone</p>
+              <p className="req-descrip">Phone</p>
               <textarea
                 className="input-text"
                 placeholder="Enter your phone number"
@@ -101,7 +102,7 @@ const RequestAccountPage = () => {
             </div>
 
             <div className="req-entry" style={{ gridArea: 'organization' }}>
-              <p>Organization</p>
+              <p className="req-descrip">Organization</p>
               <textarea
                 className="input-text"
                 placeholder="Enter your organization's name"
@@ -111,7 +112,7 @@ const RequestAccountPage = () => {
             </div>
 
             <div className="req-entry" style={{ gridArea: 'position' }}>
-              <p>Position at Organization</p>
+              <p className="req-descrip">Position at Organization</p>
               <textarea
                 className="input-text"
                 placeholder="Enter your role"
@@ -121,7 +122,7 @@ const RequestAccountPage = () => {
             </div>
 
             <div className="req-entry" style={{ gridArea: 'address' }}>
-              <p>Address</p>
+              <p className="req-descrip">Address</p>
               <textarea
                 className="input-text"
                 placeholder="Enter your residential address"
@@ -130,8 +131,8 @@ const RequestAccountPage = () => {
               ></textarea>
             </div>
 
-            <div className="req-options" style={{ gridArea: 'create' }}>
-              <div>
+            <div className="req-options" style={{ gridArea: 'options' }}>
+              <div className="account-btn">
                 <p>Create Account as:</p>
                 <div
                   className={`rounded-button ${formData.accountType === 'Admin' ? 'selected' : ''}`}
@@ -147,9 +148,6 @@ const RequestAccountPage = () => {
                   User
                 </div>
               </div>
-            </div>
-
-            <div className="req-options" style={{ gridArea: 'priority' }}>
               <div className="priority-options">
                 <p>Priority:</p>
                 <div
@@ -169,7 +167,7 @@ const RequestAccountPage = () => {
             </div>
 
             <div className="req-entry" style={{ gridArea: 'additional' }}>
-              <p>Additional Information</p>
+              <p className="priority-options">Additional Information</p>
               <textarea
                 className="input-text"
                 placeholder="Use this space to enter any extra information or specific requirements they have for the account."
