@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { TestObject } from '../../models/TestObject';
 import styles from './ExamplePage.module.css';
 import { ReactComponent as Logo } from '../../assets/logo.svg';
-import { useAuth } from '../.././UserContext';
+import { useAuth } from '../../UserContext/UserContext';
 
 function ExamplePage() {
     const { user } = useAuth();

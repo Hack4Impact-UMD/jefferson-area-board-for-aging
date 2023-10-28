@@ -1,7 +1,7 @@
 import classes from './LoginPage.module.css';
 import {useState} from 'react';
-import { signInUser } from '../backend/authentication/AuthenticationFunctions';
-import { useAuth } from '.././UserContext';
+import { signInUser } from '../../backend/authentication/AuthenticationFunctions';
+import { useAuth } from '../../UserContext/UserContext';
 
 function LoginPage() {
     const [email, setEmail] = useState('me@example.com');
