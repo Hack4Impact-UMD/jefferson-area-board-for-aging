@@ -1,4 +1,4 @@
-import ExamplePage from "./pages/DisplayUsersPage/DisplayUsersPage";
+import ExamplePage from "./pages/AdminView/AdminPage";
 
 function App(): JSX.Element {
 
