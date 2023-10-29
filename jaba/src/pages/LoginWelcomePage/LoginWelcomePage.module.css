@@ -1,3 +1,5 @@
+
+
 .splitScreen {
     height: calc(100vh);
     display: flex;
@@ -13,8 +15,8 @@
 }
 
 .welcomeRectangle {
-    width: 50%;
-    height: 53%;
+    width: 505px;
+    height: 551px;
     top: 216px;
     left: 125px;
     border-radius: 10px;
@@ -33,4 +35,81 @@
 .rightImage {
     width: 45%;
     height: 45%;
+}
+
+.alignWelcome {
+    text-align: left;
+    padding-top: 80px;
+    padding-left: 43px;
+    font-family: 'DM Serif Text', serif;
+    font-size: 31px;
+}
+
+.alignWelcomeBlurb {
+    text-align: left;
+    font-family: 'Inter', serif;
+    padding-left: 43px;
+    padding-right: 43px;
+    font-size: 16px;
+
+}
+
+.alignWelcome, .alignWelcomeBlurb {
+    margin-bottom: -25px; /* Adjust this value as needed to control the spacing */
+  }
+
+  .alignWelcomeBlurb, .signInUserBox {
+    margin-bottom: -35px; /* Adjust this value as needed to control the spacing */
+  }
+
+.signInUserBox{
+    padding-left: 43px;
+    padding-right: 43px;
+    padding-top: 100px;
+    margin-bottom: -81px;
+}
+
+.signInAdminBox{
+    padding-left: 43px;
+    padding-right: 43px;
+    padding-top: 100px;
+    margin-bottom: 35px;
+}
+.signInUserButton {
+    /* font-family: 'DM Serif Text', serif; doesnt work? */
+    width: 423px;
+    height: 57px;
+    text-align: center;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    cursor: pointer; /* Change the cursor to a pointer when hovering */
+    font-family: 'DM Serif Text', serif;
+    font-size: 24px;
+    background-color: white;
+}
+
+.signInAdminButton {
+    /* font-family: 'DM Serif Text', serif; doesnt work? */
+    width: 423px;
+    height: 57px;
+    text-align: center;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    cursor: pointer; /* Change the cursor to a pointer when hovering */
+    font-family: 'DM Serif Text', serif;
+    font-size: 24px;
+    color: #FFFFFF;
+    background-color: black;
+}
+
+.registerBlurb {
+    font-family: 'Poppins', ;
+    font-size: 16px;
+    color: #7D7D7D;
+    text-align: center;
+}
+
+.boldText{
+    color: black;
+    text-decoration: none;
 }
