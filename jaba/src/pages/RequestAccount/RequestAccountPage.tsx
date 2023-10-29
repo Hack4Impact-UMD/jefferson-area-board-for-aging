@@ -152,15 +152,12 @@ const RequestAccountPage = () => {
                 <p>Priority:</p>
                 <div
                   className={`rounded-button ${formData.urgency === 'Regular' ? 'selected' : ''}`}
-                  onClick={() => handleInputChange('urgency', 'Regular')}
-                >
+                  onClick={() => handleInputChange('urgency', 'Regular')}>
                   Regular
                 </div>
-
                 <div
                   className={`rounded-button ${formData.urgency === 'Urgent' ? 'selected' : ''}`}
-                  onClick={() => handleInputChange('urgency', 'Urgent')}
-                >
+                  onClick={() => handleInputChange('urgency', 'Urgent')}>
                   Urgent
                 </div>
               </div>
