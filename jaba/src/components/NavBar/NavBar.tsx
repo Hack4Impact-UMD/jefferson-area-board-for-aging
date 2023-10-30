@@ -6,17 +6,26 @@ class NavBar extends Component {
         return (
             <div className={navStyles.sidebar}>
                 <h2 className={navStyles.headerStyle}>[name]</h2>
-                <ul>
-                    <li>
-                        <a className={navStyles.textStyle} href="/">Home</a>
-                    </li>
-                    <li>
-                        <a className={navStyles.textStyle} href="/settings">Settings</a>
-                    </li>
-                    <li>
-                        <a className={navStyles.textStyle} href="/users">Users</a>
-                    </li>
-                </ul>
+                <div>
+                    <ul>
+                        <li>
+                            <a className={navStyles.textStyle} href="/">Home</a>
+                        </li>
+                        <li>
+                            <a className={navStyles.textStyle} href="/settings">Settings</a>
+                        </li>
+                        <li>
+                            <a className={navStyles.textStyle} href="/users">Users</a>
+                        </li>
+                    </ul>
+                </div>
+                <div className={navStyles.logout}>
+                    <ul> 
+                        <li>
+                            <a className={navStyles.textStyle} href="/logout?">Logout</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         );
     }

@@ -6,6 +6,7 @@
     display: flex; 
     flex-direction: column; 
     align-items: center;
+    padding-top: 20px;
 }
 
 .textStyle {
@@ -17,6 +18,12 @@
 .headerStyle {
     font-family: 'DM Serif Text';
     color: #000000;
+}
+
+.logout {
+    position:absolute;
+    bottom:0;
+    padding-bottom:60px;
 }
 
 li {
