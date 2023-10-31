@@ -1,6 +1,8 @@
-import ExamplePage from "./pages/ExamplePage/ExamplePage";
+
 import LoginPage from "./pages/LoginPage/LoginPage";
 import { useAuth, UserProvider } from './UserContext/UserContext';
+import ExamplePage from "./pages/DisplayUsersPage/ExamplePage";
+
 
 
 const ProtectedRoutes: React.FC = () => {

@@ -7,6 +7,7 @@ import {
 } from 'firebase/firestore';
 import { db } from '../config/firebase';
 import { type TestObject, type TestObjectData, TestType } from '../models/TestObject';
+import { type User, type UserData } from '../models/User';
 
 export function getTestObjects(): Promise<TestObject[]> {
   const testCollectionRef = collection(db, 'testCollection');
@@ -68,6 +69,58 @@ export function addSampleTestObject(): Promise<TestObject> {
         let testObj:TestObject = testObjData as TestObject;
         testObj.id = docRef.id;
         resolve(testObj);
+      })
+      .catch((e) => {
+        reject(e);
+      });
+  });
+}
+
+export function getUsers(): Promise<User[]> {
+  return new Promise((resolve, reject) => {
+    getDocs(collection(db, 'users')).then((snapshot) => {
+      const allUsers: User[] = [];
+      snapshot.docs.map((doc) => {
+        let user: User = doc.data() as User;
+        user.id = doc.id;
+        allUsers.push(user);
+      });
+      resolve(allUsers);
+    }).catch((e) => {
+      reject(e);
+    });
+  });
+}
+
+export function addSampleUser(): Promise<User> { 
+  const userData: UserData = {
+    address: "college park",
+    admin: false,
+    agency: "a1",
+    email: "test@testemail.com",
+    name: "a doe",
+    phone: "12345678900",
+    title: "dr."
+  };
+  
+  return new Promise((resolve, reject) => {
+    addDoc(collection(db, 'users'), userData)
+      .then((docRef) => {
+        let usr:User = userData as User;
+        usr.id = docRef.id;
+        resolve(usr);
+      })
+      .catch((e) => {
+        reject(e);
+      });
+  });
+}
+
+export function addUser(userData: UserData): Promise<string> {
+  return new Promise((resolve, reject) => {
+    addDoc(collection(db, 'users'), userData)
+      .then((docRef) => {
+        resolve(docRef.id);
       })
       .catch((e) => {
         reject(e);
