@@ -32,7 +32,7 @@ const RequestAccountPage = () => {
         && formData.address.trim() !== ''
         && formData.accountType.trim() !== ''
         && formData.urgency.trim() !== '') {
-      console.log('Form Data:', formData);
+      console.log('Form Data to Send in Email:', formData);
     toggleModal();
     } else {
       alert('Please fill out all required fields.');
