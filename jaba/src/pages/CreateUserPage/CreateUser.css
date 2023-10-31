@@ -52,6 +52,7 @@ textarea::placeholder {
     flex-grow: 1;
     -ms-overflow-style: none; /* For Internet Explorer and Edge */
     scrollbar-width: none; /* For Firefox */
+    position: relative;
 }
 
 /* By default, set the scrollbar to be invisible */
@@ -113,12 +114,13 @@ textarea::placeholder {
     justify-content: center;
 }
 .submit {
-    margin-top: 5%;
-    margin-bottom: 5%;
-    margin-left: auto;
-    margin-right: auto;
-    /* display: flex; */
-    height: 100%;
+    position: relative;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 25%); 
+    width: 50%;  
+    height: 50%; 
+    margin: 0; 
 }
 
 .submit-response {
