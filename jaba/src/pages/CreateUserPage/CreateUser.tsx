@@ -152,7 +152,7 @@ const RequestAccountPage = () => {
 
             <div className="submit" style={{ gridArea: 'submit_btn' }}>
               <button type="submit" className="submit-response">
-                Submit Request
+                Create Profile
               </button>
             </div>
           </div>
