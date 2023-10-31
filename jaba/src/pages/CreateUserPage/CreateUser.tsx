@@ -185,17 +185,17 @@ const RequestAccountPage = () => {
           <div className="modal">
             <div onClick={toggleModal} className="overlay"></div>
             <div className="modal-content">
-              <h2>Request Submitted Successfully!</h2>
+              <h2>{formData.accountType} profile created successfully!</h2>
 
               <p className="description">
-                Please allow a few business days for our admin to process your application. Keep an eye on your email for any additional information or questions from our admins.
+                Your profile has been created successfully! You can now view and edit the profile in the User Directory
               </p>
 
               <img src={requestIconSuccess} alt="checkmark" />
 
               <p>
                 <span className="submitted">
-                  Submit another request?{' '}
+                  Create another profile?{' '}
                   <a className="click-here" onClick={resetPage}>
                     <strong>Click here</strong>
                   </a>
