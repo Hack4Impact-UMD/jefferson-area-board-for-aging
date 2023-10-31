@@ -60,13 +60,7 @@ const RequestAccountPage = () => {
   return (
     <div className="request-page">
       <div className="request-header">
-        <h1 className="req-title">Request for Account</h1>
-
-        <div id="format-header" className="heading-container">
-          <p className="req-text">
-            To request an account, please fill out the form below with your details and requirements. An administrator will review your request and create your account accordingly.
-          </p>
-        </div>
+        <h1 className="req-title">Create a New Profile</h1>
       </div>
       <div className="request-body">
         <form onSubmit={handleFormSubmit}>
