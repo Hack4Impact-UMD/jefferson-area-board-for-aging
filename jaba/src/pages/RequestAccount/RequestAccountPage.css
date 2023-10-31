@@ -15,7 +15,7 @@ textarea {
 }
 textarea::placeholder {
     color: #ABABAB;
-    font-family: Inter;
+    font-family: 'Inter';
     font-size: 14px;
     font-style: normal;
     font-weight: 300;
@@ -61,7 +61,7 @@ textarea::placeholder {
 
 .req-title {
     color: #000;
-    font-family: DM Serif Text;
+    font-family: 'DM Serif Text';
     font-size: 31px;
     font-style: normal;
     font-weight: bold;
@@ -82,7 +82,7 @@ textarea::placeholder {
 .req-text {
     width: 90%;
     color: #000;
-    font-family: Inter;
+    font-family: 'Inter';
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -128,7 +128,7 @@ textarea::placeholder {
     border-radius: 6px;
     background: #000;
     color: #FFF;
-    font-family: DM Serif Text;
+    font-family: 'DM Serif Text';
     font-size: 24px;
     font-style: normal;
     font-weight: 400;
@@ -149,7 +149,7 @@ textarea::placeholder {
     border-radius: 6px;
     border: 0.6px solid #000;
     margin: 0 10px;
-    font-family: DM Serif Text;
+    font-family: 'DM Serif Text';
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -171,7 +171,7 @@ label.rounded-button {
     padding: 10px 20px;
     border-radius: 25px;
     margin: 0 10px;
-    font-family: DM Serif Text;
+    font-family: 'DM Serif Text';
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
