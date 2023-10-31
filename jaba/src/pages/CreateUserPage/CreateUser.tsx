@@ -148,34 +148,11 @@ const RequestAccountPage = () => {
                   User
                 </div>
               </div>
-              <div className="priority-options">
-                <p>Priority:</p>
-                <div
-                  className={`rounded-button ${formData.urgency === 'Regular' ? 'selected' : ''}`}
-                  onClick={() => handleInputChange('urgency', 'Regular')}>
-                  Regular
-                </div>
-                <div
-                  className={`rounded-button ${formData.urgency === 'Urgent' ? 'selected' : ''}`}
-                  onClick={() => handleInputChange('urgency', 'Urgent')}>
-                  Urgent
-                </div>
-              </div>
-            </div>
-
-            <div className="req-entry" style={{ gridArea: 'additional' }}>
-              <p className="priority-options">Additional Information</p>
-              <textarea
-                className="input-text"
-                placeholder="Use this space to enter any extra information or specific requirements they have for the account."
-                value={formData.additionalInfo}
-                onChange={(e) => handleInputChange('additionalInfo', e.target.value)}
-              ></textarea>
             </div>
 
             <div className="submit" style={{ gridArea: 'submit_btn' }}>
               <button type="submit" className="submit-response">
-                Submit Request
+                Create Profile
               </button>
             </div>
           </div>
