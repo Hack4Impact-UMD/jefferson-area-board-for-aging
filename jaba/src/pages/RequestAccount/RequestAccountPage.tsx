@@ -133,7 +133,7 @@ const RequestAccountPage = () => {
 
             <div className="req-options" style={{ gridArea: 'options' }}>
               <div className="account-btn">
-                <p>Create Account as:</p>
+                <p className="req-descrip">Create Account as:</p>
                 <div
                   className={`rounded-button ${formData.accountType === 'Admin' ? 'selected' : ''}`}
                   onClick={() => handleInputChange('accountType', 'Admin')}
@@ -149,7 +149,7 @@ const RequestAccountPage = () => {
                 </div>
               </div>
               <div className="priority-options">
-                <p>Priority:</p>
+                <p className='req-descrip'>Priority:</p>
                 <div
                   className={`rounded-button ${formData.urgency === 'Regular' ? 'selected' : ''}`}
                   onClick={() => handleInputChange('urgency', 'Regular')}>
@@ -166,7 +166,7 @@ const RequestAccountPage = () => {
             <div className="req-entry" style={{ gridArea: 'additional' }}>
               <p className="priority-options">Additional Information</p>
               <textarea
-                className="input-text"
+                className="input-text-additional"
                 placeholder="Use this space to enter any extra information or specific requirements they have for the account."
                 value={formData.additionalInfo}
                 onChange={(e) => handleInputChange('additionalInfo', e.target.value)}
