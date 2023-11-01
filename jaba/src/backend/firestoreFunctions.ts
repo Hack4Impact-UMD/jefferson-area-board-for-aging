@@ -9,8 +9,9 @@ import {
 import { db } from '../config/firebase';
 import { type TestObject, type TestObjectData, TestType } from '../models/TestObject';
 import { type Resource, type ResourceData} from '../models/ResourceObject'
+import { type User, type UserData } from '../models/User';
 
-// get data from resources database
+// Get data from resources database
 export function getResourceObjects(): Promise<Resource[]> {
   const resourceCollectionRef = collection(db, 'resources');
   return new Promise((resolve, reject) => {
@@ -32,6 +33,84 @@ export function getResourceObjects(): Promise<Resource[]> {
 export function addResourceObject(resourceData: ResourceData): Promise<string> {
   return new Promise((resolve, reject) => {
     addDoc(collection(db, 'resources'), resourceData)
+      .then((docRef) => {
+        resolve(docRef.id);
+      })
+      .catch((e) => {
+        reject(e);
+      });
+  });
+}
+
+// demo
+// export function addSampleResource(): Promise<Resource> {
+//   const sampleResourceData: ResourceData = {
+//     name: "Sample Resource",
+//     phone: "9876543210",
+//     category: ServiceType.type1,
+//     city: "Sample City",
+//     state: "Sample State",
+//     zip: 12345
+//   };
+//
+//   return new Promise((resolve, reject) => {
+//     addDoc(collection(db, 'resources'), sampleResourceData)
+//       .then((docRef) => {
+//         let sampleResource: Resource = {
+//           ...sampleResourceData,
+//           id: docRef.id
+//         };
+//         resolve(sampleResource);
+//       })
+//       .catch((e) => {
+//         reject(e);
+//       });
+//   });
+// }
+
+export function getUsers(): Promise<User[]> {
+  return new Promise((resolve, reject) => {
+    getDocs(collection(db, 'users')).then((snapshot) => {
+      const allUsers: User[] = [];
+      snapshot.docs.map((doc) => {
+        let user: User = doc.data() as User;
+        user.id = doc.id;
+        allUsers.push(user);
+      });
+      resolve(allUsers);
+    }).catch((e) => {
+      reject(e);
+    });
+  });
+}
+
+export function addSampleUser(): Promise<User> { 
+  const userData: UserData = {
+    address: "college park",
+    admin: false,
+    agency: "a1",
+    email: "test@testemail.com",
+    name: "a doe",
+    phone: "12345678900",
+    title: "dr."
+  };
+  
+  return new Promise((resolve, reject) => {
+    addDoc(collection(db, 'users'), userData)
+      .then((docRef) => {
+        let usr:User = userData as User;
+        usr.id = docRef.id;
+        resolve(usr);
+      })
+      .catch((e) => {
+        reject(e);
+      });
+  });
+}
+
+export function addUser(userData: UserData): Promise<string> {
+  return new Promise((resolve, reject) => {
+    addDoc(collection(db, 'users'), userData)
       .then((docRef) => {
         resolve(docRef.id);
       })
@@ -78,48 +157,22 @@ export function getTestObjects(): Promise<TestObject[]> {
 
 // demo
 export function addSampleTestObject(): Promise<TestObject> {
-const testObjData: TestObjectData = {
-  testField1: "sampleVal",
-  testField2: 10,
-  testField3: true,
-  testField4: TestType.type3,
-};
+  const testObjData: TestObjectData = {
+    testField1: "sampleVal",
+    testField2: 10,
+    testField3: true,
+    testField4: TestType.type3,
+  };
 
-return new Promise((resolve, reject) => {
-  addDoc(collection(db, 'testCollection'), testObjData)
-    .then((docRef) => {
-      let testObj:TestObject = testObjData as TestObject;
-      testObj.id = docRef.id;
-      resolve(testObj);
-    })
-    .catch((e) => {
-      reject(e);
-    });
-});
+  return new Promise((resolve, reject) => {
+    addDoc(collection(db, 'testCollection'), testObjData)
+      .then((docRef) => {
+        let testObj:TestObject = testObjData as TestObject;
+        testObj.id = docRef.id;
+        resolve(testObj);
+      })
+      .catch((e) => {
+        reject(e);
+      });
+  });
 }
-
-// demo
-// export function addSampleResource(): Promise<Resource> {
-//   const sampleResourceData: ResourceData = {
-//     name: "Sample Resource",
-//     phone: "9876543210",
-//     category: ServiceType.type1,
-//     city: "Sample City",
-//     state: "Sample State",
-//     zip: 12345
-//   };
-
-//   return new Promise((resolve, reject) => {
-//     addDoc(collection(db, 'resources'), sampleResourceData)
-//       .then((docRef) => {
-//         let sampleResource: Resource = {
-//           ...sampleResourceData,
-//           id: docRef.id
-//         };
-//         resolve(sampleResource);
-//       })
-//       .catch((e) => {
-//         reject(e);
-//       });
-//   });
-// }
