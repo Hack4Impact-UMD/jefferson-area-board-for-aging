@@ -83,12 +83,15 @@
     height: 60px;
     border-radius: 10px;
     border: 1px solid #000000;
+    padding-left: 20px;
+    font-family: 'Inter', serif;
+    color: #4D4D4D;
     
 }
 
 
-.loginContainer, .signInAdminBox {
-    margin-bottom: -180px; /* Adjust this value as needed to control the spacing */
+.loginContainer, .checkboxProperty {
+    margin-bottom: -145px; /* Adjust this value as needed to control the spacing */
 }
 
 .loginBox{
@@ -98,8 +101,35 @@
     margin-bottom: 35px;
 }
 
+.flexContainer, .loginBox {
+    margin-bottom: -70px; /* Adjust this value as needed to control the spacing */
+}
+
+.loginBox, .registerBlurb {
+    margin-bottom: 40px;
+}
+
+.checkboxProperty {
+    padding-left: 43px;
+    flex: 1;
+
+}
+
+.forgotPassword {
+    color: #4D4D4D;
+    text-decoration: none;
+    flex: 1;
+    font-family: 'Inter', serif;
+    margin-left: 35px;
+    font-size: 14px;
+}
+
+.flexContainer {
+    display: flex;
+    
+}
+
 .loginButton {
-    /* font-family: 'DM Serif Text', serif; doesnt work? */
     width: 423px;
     height: 57px;
     text-align: center;
