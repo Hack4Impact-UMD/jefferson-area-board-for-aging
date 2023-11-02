@@ -3,10 +3,12 @@ import { useState, useEffect } from 'react';
 import { TestObject } from '../../models/TestObject';
 import styles from './ExamplePage.module.css';
 import { ReactComponent as Logo } from '../../assets/logo.svg';
+import { useAuth } from '../../UserContext/UserContext';
 
-const ExamplePage = () => {
-
+function ExamplePage() {
+    const { user } = useAuth();
     const [testObjects, setTestObjects] = useState<TestObject[]>([]);
+    console.log(user); 
     
     useEffect(() => {
       getTestObjects()
@@ -34,6 +36,7 @@ const ExamplePage = () => {
       <>
         <h1>Displaying Info In testCollection</h1>
         <p>Click the button!</p>
+        <div>User: {user.email}</div>
         <button onClick={handleClick}>Add Test Object</button>
         <table className={styles.dataTable}>
           <thead>
