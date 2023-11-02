@@ -1,7 +1,12 @@
 
+import ExamplePage from "./pages/ExamplePage/ExamplePage";
+import ResourcePage from "./pages/ResourcePage/ResourcePage"
+import DisplayUsersPage from "./pages/DisplayUsersPage/DisplayUsersPage";
+
+
 import LoginPage from "./pages/LoginPage/LoginPage";
 import { useAuth, UserProvider } from './UserContext/UserContext';
-import ExamplePage from "./pages/DisplayUsersPage/ExamplePage";
+
 
 
 
@@ -12,9 +17,16 @@ const ProtectedRoutes: React.FC = () => {
 
 const App: React.FC = () => {
   return (
+
+    <>
     <UserProvider>
       <ProtectedRoutes />
     </UserProvider>
+
+
+    <ResourcePage/>
+      </>
+
   );
 }
 
