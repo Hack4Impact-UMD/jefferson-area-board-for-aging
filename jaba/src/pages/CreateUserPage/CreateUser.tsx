@@ -14,8 +14,6 @@ const RequestAccountPage = () => {
     position: '',
     address: '',
     accountType: 'Admin',
-    urgency: 'Regular',
-    additionalInfo: '',
   });
 
   const toggleModal = () => {
@@ -30,8 +28,7 @@ const RequestAccountPage = () => {
         && formData.organization.trim() !== '' 
         && formData.position.trim() !== ''
         && formData.address.trim() !== ''
-        && formData.accountType.trim() !== ''
-        && formData.urgency.trim() !== '') {
+        && formData.accountType.trim() !== '') {
       console.log('Form Data:', formData);
     toggleModal();
     } else {
