@@ -22,7 +22,7 @@ textarea::placeholder {
     line-height: normal;
 }
 
-.request-page {
+.requestPage {
     width: 90%; 
     max-width: 1228px;
     height: 90vh;
@@ -39,12 +39,12 @@ textarea::placeholder {
     box-shadow: 0px 4px 64px 0px rgba(0, 0, 0, 0.05);
 }
 
-.request-header {
+.requestHeader {
     margin: 2% 5% 0% 5%;
     width: 100%;
 }
 
-.request-body {
+.requestBody {
     margin: 0% 5% 3% 5%;
     width: 100%;
     overflow-y: auto;
@@ -55,11 +55,11 @@ textarea::placeholder {
 }
 
 /* By default, set the scrollbar to be invisible */
-.request-body::-webkit-scrollbar {
+.requestBody::-webkit-scrollbar {
     width: 0; /* For Chrome, Safari, and newer versions of Opera */
 }
 
-.req-title {
+.reqTitle {
     color: #000;
     font-family: 'DM Serif Text';
     font-size: 31px;
@@ -69,7 +69,7 @@ textarea::placeholder {
     margin-bottom: 2%;
 }
 
-.heading-container {
+.headingContainer {
     width: 95%; 
     height: 100%;
     max-width: 688px;
@@ -79,7 +79,7 @@ textarea::placeholder {
     margin-top: 0px;
 }
 
-.req-text {
+.reqText {
     width: 90%;
     color: #000;
     font-family: 'Inter';
@@ -89,7 +89,7 @@ textarea::placeholder {
     line-height: normal;
 }
 
-.input-text, .input-text-additional{
+.inputText, .inputTextAdditional{
     width: 90%;
     max-width: 479px;
     height: 100%;
@@ -108,18 +108,18 @@ textarea::placeholder {
     font-family: "Inter";
 }
 
-textarea.input-text {
+textarea.inputText {
     box-sizing: border-box; /* Include padding in element's total height */
     padding-top: 4%;
     padding-left: 7.5%;
     height: calc(100% - 10%); 
 }
 
-textarea.input-text::placeholder {
+textarea.inputText::placeholder {
     font-weight: lighter;
 }
 
-textarea.input-text-additional {
+textarea.inputTextAdditional {
     box-sizing: border-box; /* Include padding in element's total height */
     padding-top: 2.5%;
     padding-left: 7.5%;
@@ -144,7 +144,7 @@ textarea.input-text-additional {
     height: 100%;
 }
 
-.submit-response {
+.submitResponse {
     width: 90%;
     max-width: 423px;
     height: 57px;
@@ -160,13 +160,13 @@ textarea.input-text-additional {
     position: relative;
 
 }
-.submit-response:hover {
+.submitResponse:hover {
     cursor: pointer;
     transform: scale(1.03);
     transition: 0.2s;
 }
 
-.rounded-button {
+.roundedButton {
     width: 62px;
     height: 27px;
     flex-shrink: 0;
@@ -190,7 +190,7 @@ input[type="radio"] {
     display: none;
 }
 
-label.rounded-button {
+label.roundedButton {
     display: inline-block;
     padding: 10px 20px;
     border-radius: 25px;
@@ -205,29 +205,29 @@ label.rounded-button {
     color: #000;
 }
 
-input[type="radio"]:checked+label.rounded-button {
+input[type="radio"]:checked+label.roundedButton {
     background-color: #000;
     color: #FFF;
 }
 
-.rounded-button.selected {
+.roundedButton.selected {
     background-color: #000;
     color: #FFF;
 }
 
-.account-btn, .priority-options{
+.accountBtn, .priorityOptions{
     width: 95%;
     display: flex;
     align-items: center;
     margin-bottom: 1%;
 }
-.priority-options >* {
+.priorityOptions >* {
     margin-top: 0.5%;
     margin-bottom: 0.5%;
 }
 
 
-.req-entry {
+.reqEntry {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -235,15 +235,11 @@ input[type="radio"]:checked+label.rounded-button {
     max-width: 479px;
     flex: 1;
 }
-.req-options {
+.reqOptions {
     width: 80%;
     justify-content: space-evenly;
 }
-.req-descrip {
+.reqDescrip {
     margin-bottom: 1%;
     font-family: "Inter";
-}
-
-.click-here:hover {
-    cursor: pointer;
 }
