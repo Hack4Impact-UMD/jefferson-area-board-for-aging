@@ -4,6 +4,9 @@ import SignIn from '../../assets/signin.png';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import invisibleeye from '../../assets/invisibleeye.svg';
+
+
 
 <head>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Inter:wght@600&family=Poppins:wght@500&display=swap" rel="stylesheet"></link>
@@ -28,7 +31,11 @@ const LoginSignInPage = () => {
               <p className={styles.labelProperties}>Email</p>
                 <input className={styles.textBox} placeholder="Enter your email linked to your account" />
               <p className={styles.labelProperties}>Password</p>
-                <input className={styles.textBox} placeholder="Enter your Password" />
+                <div className={styles.passwordContainer}>
+                  <input className={styles.textBox} placeholder="Enter your Password" />
+                  {/* need to figure out how to put the eye on the right side of the text field and also have it be interactable */}
+                  {/* <img className={styles.showpassword} src={invisibleeye}/> */}
+                </div>
             </div> 
             <div className={styles.flexContainer}>
               <div className={styles.checkboxProperty}>
@@ -49,7 +56,6 @@ const LoginSignInPage = () => {
             <div className={styles.loginBox}>
               <button className={styles.loginButton}>Login</button>
             </div>
-
               <div className={styles.registerBlurb}>
                 <p>Not a User? <a href="gotoresgisterpagefromhere" className={styles.boldText}><b>Switch to Admin Login</b></a></p>
                 <p>Don't have an account?<a href="gotoresgisterpagefromhere" className={styles.boldText}><b> Register</b></a></p>

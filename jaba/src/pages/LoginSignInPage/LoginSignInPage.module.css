@@ -108,6 +108,16 @@
     margin-bottom: 40px;
 }
 
+.passwordContainer {
+    position: relative;
+    display: inline-block;
+}
+
+.showpassword {
+    width: 20px;
+    height: 20px;
+}
+
 .checkboxProperty {
     padding-left: 43px;
     flex: 1;
@@ -125,7 +135,6 @@
 
 .flexContainer {
     display: flex;
-    
 }
 
 .loginButton {
