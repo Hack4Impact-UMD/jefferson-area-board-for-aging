@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './CreateUser.css';
+import styles from './CreateUser.module.css';
 import './popup.css';
 import requestIconSuccess from '../../assets/requestIconSuccess.svg';
 
@@ -55,85 +55,85 @@ const RequestAccountPage = () => {
   }
 
   return (
-    <div className="request-page">
-      <div className="request-header">
-        <h1 className="req-title">Create a New Profile</h1>
+    <div className={styles.requestPage}>
+      <div className={styles.requestHeader}>
+        <h1 className={styles.reqTitle}>Create a New Profile</h1>
       </div>
-      <div className="request-body">
+      <div className={styles.requestBody}>
         <form onSubmit={handleFormSubmit}>
-          <div className="fields">
-            <div className="req-entry" style={{ gridArea: 'fullname' }}>
-              <p className="req-descrip">Full name</p>
+          <div className={styles.fields}>
+            <div className={styles.reqEntry} style={{ gridArea: 'fullname' }}>
+              <p className={styles.reqDescrip}>Full name</p>
               <textarea
-                className="input-text"
+                className={styles.inputText}
                 placeholder="Enter your full name"
                 value={formData.fullname}
                 onChange={(e) => handleInputChange('fullname', e.target.value)}
               ></textarea>
             </div>
 
-            <div className="req-entry" style={{ gridArea: 'email' }}>
-              <p className="req-descrip">Email</p>
+            <div className={styles.reqEntry} style={{ gridArea: 'email' }}>
+              <p className={styles.reqDescrip}>Email</p>
               <textarea
-                className="input-text"
+                className={styles.inputText}
                 placeholder="Enter your email linked to your account"
                 value={formData.email}
                 onChange={(e) => handleInputChange('email', e.target.value)}
               ></textarea>
             </div>
 
-            <div className="req-entry" style={{ gridArea: 'phone' }}>
-              <p className="req-descrip">Phone</p>
+            <div className={styles.reqEntry} style={{ gridArea: 'phone' }}>
+              <p className={styles.reqDescrip}>Phone</p>
               <textarea
-                className="input-text"
+                className={styles.inputText}
                 placeholder="Enter your phone number"
                 value={formData.phone}
                 onChange={(e) => handleInputChange('phone', e.target.value)}
               ></textarea>
             </div>
 
-            <div className="req-entry" style={{ gridArea: 'organization' }}>
-              <p className="req-descrip">Organization</p>
+            <div className={styles.reqEntry} style={{ gridArea: 'organization' }}>
+              <p className={styles.reqDescrip}>Organization</p>
               <textarea
-                className="input-text"
+                className={styles.inputText}
                 placeholder="Enter your organization's name"
                 value={formData.organization}
                 onChange={(e) => handleInputChange('organization', e.target.value)}
               ></textarea>
             </div>
 
-            <div className="req-entry" style={{ gridArea: 'position' }}>
-              <p className="req-descrip">Position at Organization</p>
+            <div className={styles.reqEntry} style={{ gridArea: 'position' }}>
+              <p className={styles.reqDescrip}>Position at Organization</p>
               <textarea
-                className="input-text"
+                className={styles.inputText}
                 placeholder="Enter your role"
                 value={formData.position}
                 onChange={(e) => handleInputChange('position', e.target.value)}
               ></textarea>
             </div>
 
-            <div className="req-entry" style={{ gridArea: 'address' }}>
-              <p className="req-descrip">Address</p>
+            <div className={styles.reqEntry} style={{ gridArea: 'address' }}>
+              <p className={styles.reqDescrip}>Address</p>
               <textarea
-                className="input-text"
+                className={styles.inputText}
                 placeholder="Enter your residential address"
                 value={formData.address}
                 onChange={(e) => handleInputChange('address', e.target.value)}
               ></textarea>
             </div>
 
-            <div className="req-options" style={{ gridArea: 'options' }}>
-              <div className="account-btn">
+            <div className={styles.reqOptions} style={{ gridArea: 'options' }}>
+              <div className={styles.accountBtn}>
                 <p>Create Account as:</p>
                 <div
-                  className={`rounded-button ${formData.accountType === 'Admin' ? 'selected' : ''}`}
+                  className={`${styles.roundedButton} ${formData.accountType === 'Admin' ? styles.selected : ''}`}
                   onClick={() => handleInputChange('accountType', 'Admin')}
                 >
                   Admin
                 </div>
 
                 <div
-                  className={`rounded-button ${formData.accountType === 'User' ? 'selected' : ''}`}
+                  className={`${styles.roundedButton} ${formData.accountType === 'User' ? styles.selected : ''}`}
                   onClick={() => handleInputChange('accountType', 'User')}
                 >
                   User
@@ -143,8 +143,8 @@ const RequestAccountPage = () => {
 
             
           </div>
-          <div className="submit">
-              <button type="submit" className="submit-response">
+          <div className={styles.submit}>
+              <button type="submit" className={styles.submitResponse}>
                 Create Profile
               </button>
             </div>
@@ -154,7 +154,7 @@ const RequestAccountPage = () => {
         {modal && (
           <div className="modal">
             <div onClick={toggleModal} className="overlay"></div>
-            <div className="modal-content">
+            <div className="modalContent">
               <h2>{formData.accountType} profile created successfully!</h2>
 
               <p className="description">
@@ -166,7 +166,7 @@ const RequestAccountPage = () => {
               <p>
                 <span className="submitted">
                   Create another profile?{' '}
-                  <a className="click-here" onClick={resetPage}>
+                  <a className="clickHere" onClick={resetPage}>
                     <strong>Click here</strong>
                   </a>
                 </span>
