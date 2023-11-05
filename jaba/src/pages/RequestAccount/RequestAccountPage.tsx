@@ -1,7 +1,9 @@
+
 import { useState } from 'react';
 import styles from './RequestAccountPage.module.css';
 import './popup.css';
 import requestIconSuccess from '../../assets/requestIconSuccess.svg';
+import emailjs from '@emailjs/browser';
 
 const RequestAccountPage = () => {
   const [modal, setModal] = useState(false);
@@ -24,21 +26,50 @@ const RequestAccountPage = () => {
 
   const handleFormSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
-    if (formData.fullname.trim() !== '' 
-        && formData.email.trim() !== ''  
-        && formData.phone.trim() !== ''
-        && formData.organization.trim() !== '' 
-        && formData.position.trim() !== ''
-        && formData.address.trim() !== ''
-        && formData.accountType.trim() !== ''
-        && formData.urgency.trim() !== '') {
-      console.log('Form Data:', formData);
-    toggleModal();
+  
+    if (
+      formData.fullname.trim() !== '' &&
+      formData.email.trim() !== '' &&
+      formData.phone.trim() !== '' &&
+      formData.organization.trim() !== '' &&
+      formData.position.trim() !== '' &&
+      formData.address.trim() !== '' &&
+      formData.accountType.trim() !== '' &&
+      formData.urgency.trim() !== ''
+    ) {
+      // Initialize EmailJS with your user ID and service ID
+      emailjs.init('sNmlTgaIehDKX6viw');
+  
+      // Prepare the email parameters
+      const emailParams = {
+        to_name: 'Recipient Name',
+        to_email: formData.email, //will eventually be admin emails
+        fullname: formData.fullname, 
+        email: formData.email,
+        phone: formData.phone,
+        organization: formData.organization,
+        position: formData.position,
+        address: formData.address,
+        accountType: formData.accountType,
+        urgency: formData.urgency,
+        additionalInfo: formData.additionalInfo,
+      };
+  
+      // Send the email
+      emailjs.send('service_n84t7ou', 'template_fsv8pje', emailParams).then(
+        function (response) {
+          console.log('Email sent:', response);
+          toggleModal();
+        },
+        function (error) {
+          console.error('Email could not be sent:', error);
+          alert('Email could not be sent. Please try again later.');
+        }
+      );
     } else {
       alert('Please fill out all required fields.');
     }
   };
-
 
   const handleInputChange = (field: string, value: string) => {
     setFormData({
