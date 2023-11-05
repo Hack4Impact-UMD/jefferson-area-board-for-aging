@@ -1,4 +1,4 @@
-
+import RequestAccountPage from "./pages/RequestAccount/RequestAccountPage";
 import ExamplePage from "./pages/ExamplePage/ExamplePage";
 import ResourcePage from "./pages/ResourcePage/ResourcePage"
 import DisplayUsersPage from "./pages/DisplayUsersPage/DisplayUsersPage";
@@ -17,16 +17,13 @@ const ProtectedRoutes: React.FC = () => {
 
 const App: React.FC = () => {
   return (
-
     <>
     <UserProvider>
       <ProtectedRoutes />
     </UserProvider>
 
-
     <ResourcePage/>
       </>
-
   );
 }
 

@@ -1,0 +1,212 @@
+body {
+    background-color: #023C47;
+}
+
+p {
+    color: #000;
+    font-family: 'Inter';
+}
+
+.requestPage {
+    width: 90%; 
+    max-width: 1228px;
+    height: 90vh;
+    min-height: 400px;
+    max-height: 888px;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    margin: 2.5vh auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 0.5px solid #878787;
+    box-shadow: 0px 4px 64px 0px rgba(0, 0, 0, 0.05);
+}
+
+.requestHeader {
+    margin: 2% 5% 0% 5%;
+    width: 90%;
+}
+
+.requestBody {
+    margin: 0% 5% 3% 5%;
+    width: 90%;
+    overflow-y: auto;
+    overflow-x: auto;
+    flex-grow: 1;
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
+    scrollbar-width: none; /* For Firefox */
+}
+
+/* By default, set the scrollbar to be invisible */
+.requestBody::-webkit-scrollbar {
+    width: 0; /* For Chrome, Safari, and newer versions of Opera */
+}
+
+.reqTitle {
+    color: #000;
+    font-family: 'DM Serif Text';
+    font-size: 31px;
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+    margin-bottom: 2%;
+}
+
+.headingContainer {
+    max-width: 688px;
+    max-height: 86px;
+    margin-top: 0px;
+}
+
+.reqText {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.inputText::placeholder, .inputTextAdditional::placeholder {
+    color: #ABABAB;
+    font-family: 'Inter';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+.inputText, .inputTextAdditional{
+    max-width: 479px;
+    max-height: 59px;
+    flex-shrink: 0;
+    padding: 0.5em;
+    box-sizing: border-box;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 0;
+    padding-bottom: 0;
+    overflow: auto; 
+    border-radius: 6px;
+    border: 0.6px solid #282828;
+    background: #FFF;
+    font-family: "Inter";
+    
+}
+
+.inputText, .inputTextAdditional {
+    box-sizing: border-box; /* Include padding in element's total height */
+    padding-left: 7.5%;
+    padding-right: 7.5%;
+    height: 100px;
+} 
+
+.inputTextAdditional { 
+    padding-top: 2.5%;
+    resize: none;
+}
+
+.fields {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "fullname position" "email address" "phone options" "organization additional" "... submit_btn";
+    column-gap: 10%;
+    row-gap: 10%;
+}
+
+.submit {
+    display: flex;
+    justify-content: center;
+}
+
+.submitResponse {
+    width: 90%;
+    max-width: 423px;
+    height: 57px;
+    flex-shrink: 0;
+    border-radius: 6px;
+    background: #000;
+    color: #FFF;
+    font-family: 'DM Serif Text';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: relative;
+
+}
+
+.submitResponse:hover {
+    cursor: pointer;
+    transform: scale(1.03);
+    transition: 0.2s;
+}
+
+.roundedButton {
+    width: 62px;
+    height: 27px;
+    flex-shrink: 0;
+    border-radius: 6px;
+    border: 0.6px solid #000;
+    margin: 0 10px;
+    font-family: 'DM Serif Text';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #FFF;
+    color: #000;
+}
+
+label.roundedButton {
+    padding: 10px 20px;
+    border-radius: 25px;
+    margin: 0 10px;
+    font-family: 'DM Serif Text';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    cursor: pointer;
+    background-color: #FFF;
+    color: #000;
+}
+
+.roundedButton.selected {
+    background-color: #000;
+    color: #FFF;
+}
+
+.accountOptions, .priorityOptions{
+    display: flex;
+    align-items: center;
+}
+
+.accountOptions {
+    margin-bottom: 5%;
+}
+
+.reqEntry {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: fit-content;
+    max-width: 479px;
+    flex: 1;
+}
+
+.reqOptions {
+    width: 80%;
+}
+
+.reqDescrip {
+    margin-bottom: 3%;
+}
