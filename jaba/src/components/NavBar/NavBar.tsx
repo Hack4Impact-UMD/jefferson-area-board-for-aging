@@ -10,9 +10,11 @@ import UsersWhite from '../../assets/icons/usersWhite.png';
 import LogoutWhite from '../../assets/icons/logoutWhite.png';
 
 class NavBar extends Component<{}, { isAdmin: boolean }>{
+    admin = false;
+
     constructor(props: {isAdmin: boolean}) {
         super(props);
-        const admin = props.isAdmin;
+        this.admin = props.isAdmin;
     }
 
     render() {
@@ -34,10 +36,10 @@ class NavBar extends Component<{}, { isAdmin: boolean }>{
                             </a>
                         </li>
                         <li>
-                            <a className={window.location.href == 'http://localhost:3000/users' ? styles.blockStyle : styles.textStyle} href="/users">
+                            {this.admin && (<a className={window.location.href == 'http://localhost:3000/users' ? styles.blockStyle : styles.textStyle} href="/users">
                                 <img src ={window.location.href == 'http://localhost:3000/users' ? UsersWhite : UsersBlack}/>
                                 <span>Users</span>
-                            </a>
+                            </a>)}
                         </li>
                     </ul>
                 </div>
