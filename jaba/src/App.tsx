@@ -19,12 +19,13 @@ const App: React.FC = () => {
   return (
 
     <>
-    <UserProvider>
+    {/* <UserProvider>
       <ProtectedRoutes />
     </UserProvider>
 
 
-    <ResourcePage/>
+    <ResourcePage/> */}
+    
       </>
 
   );
