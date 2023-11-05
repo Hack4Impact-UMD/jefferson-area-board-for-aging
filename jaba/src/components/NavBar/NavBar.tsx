@@ -9,28 +9,33 @@ import SettingsWhite from '../../assets/icons/settingsWhite.png';
 import UsersWhite from '../../assets/icons/usersWhite.png';
 import LogoutWhite from '../../assets/icons/logoutWhite.png';
 
-class NavBar extends Component {
+class NavBar extends Component<{}, { isAdmin: boolean }>{
+    constructor(props: {isAdmin: boolean}) {
+        super(props);
+        const admin = props.isAdmin;
+    }
+
     render() {
         return (
             <div className={styles.sidebar}>
                 <h2 className={styles.headerStyle}>[ n a m e ]</h2>
                 <div>
                     <ul>
-                        <li id="homeBlock">
+                        <li>
                             <a className={window.location.href == 'http://localhost:3000/' ? styles.blockStyle : styles.textStyle} href="/">
-                                <img id="homeImg" src ={window.location.href == 'http://localhost:3000/' ? HomeWhite : HomeBlack}/>
+                                <img src ={window.location.href == 'http://localhost:3000/' ? HomeWhite : HomeBlack}/>
                                 <span>Home</span>
                             </a>
                         </li>
-                        <li id="settingsBlock">
+                        <li>
                             <a className={window.location.href == 'http://localhost:3000/settings' ? styles.blockStyle : styles.textStyle} href="/settings">
-                                <img id="settingsImg" src ={window.location.href == 'http://localhost:3000/settings' ? SettingsWhite : SettingsBlack}/>
+                                <img src ={window.location.href == 'http://localhost:3000/settings' ? SettingsWhite : SettingsBlack}/>
                                 <span>Settings</span>
                             </a>
                         </li>
-                        <li id="usersBlock">
+                        <li>
                             <a className={window.location.href == 'http://localhost:3000/users' ? styles.blockStyle : styles.textStyle} href="/users">
-                                <img id="usersImg" src ={window.location.href == 'http://localhost:3000/users' ? UsersWhite : UsersBlack}/>
+                                <img src ={window.location.href == 'http://localhost:3000/users' ? UsersWhite : UsersBlack}/>
                                 <span>Users</span>
                             </a>
                         </li>
@@ -38,9 +43,9 @@ class NavBar extends Component {
                 </div>
                 <div className={styles.logout}>
                     <ul> 
-                        <li id="logoutBlock">
-                            <a id="logoutLink" className={styles.textStyle} href="/logout?">
-                                <img id="logoutImg" src={LogoutBlack}/>
+                        <li>
+                            <a className={styles.textStyle} href="/logout?">
+                                <img src={LogoutBlack}/>
                                 <span>Logout</span>
                             </a>
                         </li>
