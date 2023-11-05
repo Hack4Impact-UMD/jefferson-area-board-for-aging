@@ -27,10 +27,7 @@
 .profile_container {
     margin: 1.25rem;
     font-size: 1rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 90%;
+    width: 40%;
 }
 
 .input_container {
@@ -79,31 +76,4 @@ img {
     padding: 0.5rem;
     font-size: 1rem;
     border-radius: 0.5rem;
-}
-
-.sides_container {
-    display: flex;
-    flex-direction: row;
-}
-
-.all_inputs_container {
-    width: 50%;
-}
-
-.edit_cat_button {
-    background-color:black;
-    color: white;
-    border: none;
-    font-family: 'DM Serif Text', serif;
-    padding: 0.5rem;
-    font-size: 1rem;
-    border-radius: 0.5rem;
-    width: 12rem;
-    margin-top: 1.25rem;
-}
-
-.dashboard_info {
-    font-size: 0.75rem;
-    margin-top: 0.75rem;
-    font-family: "Inter";
 }
