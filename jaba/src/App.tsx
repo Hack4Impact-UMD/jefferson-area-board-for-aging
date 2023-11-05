@@ -3,11 +3,10 @@ import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword/ResetPassword";
 
 function App(): JSX.Element {
-
   return (
     <>
-    {/* <ForgotPassword /> */}
-    {/* <ResetPassword /> */}
+      {/* <ForgotPassword /> */}
+      <ResetPassword />
     </>
   );
 }
