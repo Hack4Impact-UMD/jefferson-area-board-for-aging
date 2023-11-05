@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styles from './CreateUser.module.css';
 import './popup.css';
 import requestIconSuccess from '../../assets/requestIconSuccess.svg';
+import { addUser } from '../../backend/firestoreFunctions';
 
 const RequestAccountPage = () => {
   const [modal, setModal] = useState(false);
@@ -22,6 +23,7 @@ const RequestAccountPage = () => {
 
   const handleFormSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
+
     if (formData.fullname.trim() !== '' 
         && formData.email.trim() !== ''  
         && formData.phone.trim() !== ''
@@ -30,7 +32,27 @@ const RequestAccountPage = () => {
         && formData.address.trim() !== ''
         && formData.accountType.trim() !== '') {
       console.log('Form Data:', formData);
-    toggleModal();
+
+      const userData = {
+        address: formData.address.trim(),
+        admin: formData.accountType === "Admin",
+        agency: formData.organization.trim(),
+        email: formData.email.trim(),
+        name: formData.fullname.trim(),
+        phone: formData.phone.trim(),
+        title: ""
+      }
+
+      addUser(userData)
+        .then((addedUser) => {
+          console.log('User added:', addedUser);
+          alert("Added User ");
+        })
+        .catch((error) => {
+          console.error('Error adding user:', error);
+        });
+
+      toggleModal();
     } else {
       alert('Please fill out all required fields.');
     }
