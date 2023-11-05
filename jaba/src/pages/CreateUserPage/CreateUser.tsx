@@ -40,7 +40,7 @@ const RequestAccountPage = () => {
         email: formData.email.trim(),
         name: formData.fullname.trim(),
         phone: formData.phone.trim(),
-        title: ""
+        title: formData.position.trim()
       }
 
       addUser(userData)
