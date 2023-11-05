@@ -62,7 +62,7 @@ const RequestAccountPage = () => {
       <div className={styles.requestHeader}>
         <h1 className={styles.reqTitle}>Request for Account</h1>
 
-        <div id={styles.formatHeader} className={styles.headingContainer}>
+        <div className={styles.headingContainer}>
           <p className={styles.reqText}>
             To request an account, please fill out the form below with your details and requirements. An administrator will review your request and create your account accordingly.
           </p>
@@ -73,66 +73,66 @@ const RequestAccountPage = () => {
           <div className={styles.fields}>
             <div className={styles.reqEntry} style={{ gridArea: 'fullname' }}>
               <p className={styles.reqDescrip}>Full name</p>
-              <textarea
+              <input
                 className={styles.inputText}
                 placeholder="Enter your full name"
                 value={formData.fullname}
                 onChange={(e) => handleInputChange('fullname', e.target.value)}
-              ></textarea>
+              ></input>
             </div>
 
             <div className={styles.reqEntry} style={{ gridArea: 'email' }}>
               <p className={styles.reqDescrip}>Email</p>
-              <textarea
+              <input
                 className={styles.inputText}
                 placeholder="Enter your email linked to your account"
                 value={formData.email}
                 onChange={(e) => handleInputChange('email', e.target.value)}
-              ></textarea>
+              ></input>
             </div>
 
             <div className={styles.reqEntry} style={{ gridArea: 'phone' }}>
               <p className={styles.reqDescrip}>Phone</p>
-              <textarea
+              <input
                 className={styles.inputText}
                 placeholder="Enter your phone number"
                 value={formData.phone}
                 onChange={(e) => handleInputChange('phone', e.target.value)}
-              ></textarea>
+              ></input>
             </div>
 
             <div className={styles.reqEntry} style={{ gridArea: 'organization' }}>
               <p className={styles.reqDescrip}>Organization</p>
-              <textarea
+              <input
                 className={styles.inputText}
                 placeholder="Enter your organization's name"
                 value={formData.organization}
                 onChange={(e) => handleInputChange('organization', e.target.value)}
-              ></textarea>
+              ></input>
             </div>
 
             <div className={styles.reqEntry} style={{ gridArea: 'position' }}>
               <p className={styles.reqDescrip}>Position at Organization</p>
-              <textarea
+              <input
                 className={styles.inputText}
                 placeholder="Enter your role"
                 value={formData.position}
                 onChange={(e) => handleInputChange('position', e.target.value)}
-              ></textarea>
+              ></input>
             </div>
 
             <div className={styles.reqEntry} style={{ gridArea: 'address' }}>
               <p className={styles.reqDescrip}>Address</p>
-              <textarea
+              <input
                 className={styles.inputText}
                 placeholder="Enter your residential address"
                 value={formData.address}
                 onChange={(e) => handleInputChange('address', e.target.value)}
-              ></textarea>
+              ></input>
             </div>
 
             <div className={styles.reqOptions} style={{ gridArea: 'options' }}>
-              <div className={styles.accountBtn}>
+              <div className={styles.accountOptions}>
                 <p className={styles.reqDescrip}>Create Account as:</p>
                 <div
                   className={
@@ -172,7 +172,7 @@ const RequestAccountPage = () => {
             </div>
 
             <div className={styles.reqEntry} style={{ gridArea: 'additional' }}>
-              <p className={styles.priorityOptions}>Additional Information</p>
+              <p className={styles.reqDescrip}>Additional Information</p>
               <textarea
                 className={styles.inputTextAdditional}
                 placeholder="Use this space to enter any extra information or specific requirements they have for the account."

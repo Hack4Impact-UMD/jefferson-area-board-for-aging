@@ -1,25 +1,10 @@
 body {
     background-color: #023C47;
-    width: 100%; 
-    height: 100%;
 }
-textarea {
-    width: 100%;
-    height: 100%;
-    max-width: 479px; 
-    max-height: 59px;
-    resize: none;
-    padding: 19px;
-    text-align: left;
-    box-sizing: border-box;
-}
-textarea::placeholder {
-    color: #ABABAB;
+
+p {
+    color: #000;
     font-family: 'Inter';
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
 }
 
 .requestPage {
@@ -41,12 +26,12 @@ textarea::placeholder {
 
 .requestHeader {
     margin: 2% 5% 0% 5%;
-    width: 100%;
+    width: 90%;
 }
 
 .requestBody {
     margin: 0% 5% 3% 5%;
-    width: 100%;
+    width: 90%;
     overflow-y: auto;
     overflow-x: auto;
     flex-grow: 1;
@@ -70,35 +55,37 @@ textarea::placeholder {
 }
 
 .headingContainer {
-    width: 95%; 
-    height: 100%;
     max-width: 688px;
     max-height: 86px;
-    top: 86px;
-    left: 204px;
     margin-top: 0px;
 }
 
 .reqText {
-    width: 90%;
-    color: #000;
-    font-family: 'Inter';
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
 }
 
+.inputText::placeholder, .inputTextAdditional::placeholder {
+    color: #ABABAB;
+    font-family: 'Inter';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
 .inputText, .inputTextAdditional{
-    width: 90%;
     max-width: 479px;
-    height: 100%;
     max-height: 59px;
     flex-shrink: 0;
     padding: 0.5em;
     box-sizing: border-box;
-    display: flex;
     align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     padding-top: 0;
     padding-bottom: 0;
     overflow: auto; 
@@ -106,42 +93,33 @@ textarea::placeholder {
     border: 0.6px solid #282828;
     background: #FFF;
     font-family: "Inter";
+    
 }
 
-textarea.inputText {
+.inputText, .inputTextAdditional {
     box-sizing: border-box; /* Include padding in element's total height */
-    padding-top: 4%;
     padding-left: 7.5%;
-    height: calc(100% - 10%); 
-}
+    padding-right: 7.5%;
+    height: 100px;
+} 
 
-textarea.inputText::placeholder {
-    font-weight: lighter;
-}
-
-textarea.inputTextAdditional {
-    box-sizing: border-box; /* Include padding in element's total height */
+.inputTextAdditional { 
     padding-top: 2.5%;
-    padding-left: 7.5%;
-    height: calc(100% - 10%); 
+    resize: none;
 }
 
 .fields {
-    width: 95%;
-    height: 95%; 
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "fullname position" "email address" "phone options" "organization additional" "... submit_btn";
-    column-gap: 5%;
+    column-gap: 10%;
     row-gap: 10%;
-    justify-content: center;
 }
+
 .submit {
-    margin-top: 5%;
-    margin-bottom: 5%;
     display: flex;
-    height: 100%;
+    justify-content: center;
 }
 
 .submitResponse {
@@ -160,6 +138,7 @@ textarea.inputTextAdditional {
     position: relative;
 
 }
+
 .submitResponse:hover {
     cursor: pointer;
     transform: scale(1.03);
@@ -186,12 +165,7 @@ textarea.inputTextAdditional {
     color: #000;
 }
 
-input[type="radio"] {
-    display: none;
-}
-
 label.roundedButton {
-    display: inline-block;
     padding: 10px 20px;
     border-radius: 25px;
     margin: 0 10px;
@@ -205,41 +179,34 @@ label.roundedButton {
     color: #000;
 }
 
-input[type="radio"]:checked+label.roundedButton {
-    background-color: #000;
-    color: #FFF;
-}
-
 .roundedButton.selected {
     background-color: #000;
     color: #FFF;
 }
 
-.accountBtn, .priorityOptions{
-    width: 95%;
+.accountOptions, .priorityOptions{
     display: flex;
     align-items: center;
-    margin-bottom: 1%;
-}
-.priorityOptions >* {
-    margin-top: 0.5%;
-    margin-bottom: 0.5%;
 }
 
+.accountOptions {
+    margin-bottom: 5%;
+}
 
 .reqEntry {
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 100%;
+    height: fit-content;
     max-width: 479px;
     flex: 1;
 }
+
 .reqOptions {
     width: 80%;
-    justify-content: space-evenly;
 }
+
 .reqDescrip {
-    margin-bottom: 1%;
-    font-family: "Inter";
+    margin-bottom: 3%;
 }
