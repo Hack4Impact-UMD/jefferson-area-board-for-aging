@@ -24,17 +24,14 @@ function ResetPassword() {
         <div className={styles.main_info}>
           <div className={styles.main_info_header}>Reset Password</div>
           <div className={styles.main_info_details}>
-            We're here to help you get back into your account.
-          </div>
-          <div className={styles.main_info_details}>
-            Create a new password to secure your account and regain access!
+            We're here to help you get back into your account. Create a new
+            password to secure your account and regain access!
           </div>
           <div className={styles.password_section}>
             <div className={styles.password_section_header}>New Password</div>
             <div className={styles.input_container}>
               <input
                 type={isVisibleFirstEntry ? "text" : "password"}
-                className="input_val"
                 placeholder="Enter a new password"
               />
               <button
@@ -56,7 +53,6 @@ function ResetPassword() {
             <div className={styles.input_container}>
               <input
                 type={isVisibleSecondEntry ? "text" : "password"}
-                className="input_val"
                 placeholder="Re-enter a new password"
               />
               <button

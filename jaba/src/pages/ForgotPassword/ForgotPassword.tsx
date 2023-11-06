@@ -19,6 +19,7 @@ function ForgotPassword() {
             />
           </div>
           <button
+            className={styles.reset_button}
             onClick={() => window.open("https://www.google.com", "_blank")}
           >
             Send Reset Link
