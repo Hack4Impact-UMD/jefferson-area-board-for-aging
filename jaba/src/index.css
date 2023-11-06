@@ -1,3 +1,13 @@
+@font-face {
+  font-family: 'DM Serif Text';
+  src: url('./fonts/DMSerifText/DMSerifText-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('./fonts/Inter/Inter-Regular.ttf');
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
