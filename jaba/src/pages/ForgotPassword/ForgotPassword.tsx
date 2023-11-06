@@ -1,5 +1,5 @@
 import styles from "./ForgotPassword.module.css";
-import { ReactComponent as Side_Image } from "../../assets/ForgotPasswordSideImage.svg";
+import { ReactComponent as ForgotPasswordSideImage } from "../../assets/ForgotPasswordSideImage.svg";
 
 function ForgotPassword() {
   return (
@@ -32,7 +32,7 @@ function ForgotPassword() {
         </div>
       </div>
       <div className={styles.image_container}>
-        <Side_Image className={styles.svg_image} />
+        <ForgotPasswordSideImage className={styles.svg_image} />
       </div>
     </div>
   );

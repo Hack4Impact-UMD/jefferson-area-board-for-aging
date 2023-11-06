@@ -1,6 +1,8 @@
 /* eslint-disable react/jsx-pascal-case */
 import styles from "./ResetPassword.module.css";
-import { ReactComponent as Side_Image } from "../../assets/ResetPasswordSideImage.svg";
+import { ReactComponent as ResetPasswordSideImage } from "../../assets/ResetPasswordSideImage.svg";
+import { ReactComponent as EyeClosed } from "../../assets/eye-closed.svg";
+import { ReactComponent as EyeOpened } from "../../assets/eye-opened.svg";
 import { useState } from "react";
 
 function ResetPassword() {
@@ -40,17 +42,9 @@ function ResetPassword() {
                 onClick={toggleVisibilityFirstEntry}
               >
                 {isVisibleFirstEntry ? (
-                  <img
-                    src="https://www.svgrepo.com/show/380010/eye-password-show.svg"
-                    className={styles.eye_img}
-                    alt="bruh"
-                  />
+                  <EyeOpened className={styles.eye_img} />
                 ) : (
-                  <img
-                    src="https://www.svgrepo.com/show/380007/eye-password-hide.svg"
-                    className={styles.eye_img}
-                    alt="bruh"
-                  />
+                  <EyeClosed className={styles.eye_img} />
                 )}
               </button>
             </div>
@@ -70,17 +64,9 @@ function ResetPassword() {
                 onClick={toggleVisibilitySecondEntry}
               >
                 {isVisibleSecondEntry ? (
-                  <img
-                    src="https://www.svgrepo.com/show/380010/eye-password-show.svg"
-                    className={styles.eye_img}
-                    alt="bruh"
-                  />
+                  <EyeOpened className={styles.eye_img} />
                 ) : (
-                  <img
-                    src="https://www.svgrepo.com/show/380007/eye-password-hide.svg"
-                    className={styles.eye_img}
-                    alt="bruh"
-                  />
+                  <EyeClosed className={styles.eye_img} />
                 )}
               </button>
             </div>
@@ -94,7 +80,7 @@ function ResetPassword() {
         </div>
       </div>
       <div className={styles.image_container}>
-        <Side_Image className={styles.svg_image} />
+        <ResetPasswordSideImage className={styles.svg_image} />
       </div>
     </div>
   );
