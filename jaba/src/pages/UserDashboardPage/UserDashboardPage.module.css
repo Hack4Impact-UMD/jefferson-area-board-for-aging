@@ -1,0 +1,38 @@
+.background {
+    background-color: #023C47;    
+    width: 100%; 
+    height: calc(100vh); 
+    display: flex;    
+    flex-direction: column;
+}
+
+.innerBackground {
+    background-color: #FFFFFF;    
+    width: 74%; 
+    margin-left: 20%;
+    margin-top: 5%;
+    height: 80%;
+    display: flex;    
+    border-radius: 10px;
+}
+
+.topPart {
+    background-color: #000000;   
+    height: 80%;
+}
+
+.bottomPart {
+    flex-direction: row;
+}
+
+.leftScreen {
+    width: 33.33%;
+}
+
+.middleScreen {
+    width: 33.33%;
+}
+
+.rightScreen {
+    width: 33.33%;
+}
