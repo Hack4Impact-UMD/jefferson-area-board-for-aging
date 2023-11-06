@@ -24,20 +24,20 @@ class NavBar extends Component<{}, { isAdmin: boolean }>{
                 <div>
                     <ul>
                         <li>
-                            <a className={window.location.href == 'http://localhost:3000/' ? styles.blockStyle : styles.textStyle} href="/">
-                                <img src ={window.location.href == 'http://localhost:3000/' ? HomeWhite : HomeBlack}/>
+                            <a className={window.location.href === 'http://localhost:3000/' ? styles.blockStyle : styles.textStyle} href="/">
+                                <img src ={window.location.href === 'http://localhost:3000/' ? HomeWhite : HomeBlack}/>
                                 <span>Home</span>
                             </a>
                         </li>
                         <li>
-                            <a className={window.location.href == 'http://localhost:3000/settings' ? styles.blockStyle : styles.textStyle} href="/settings">
-                                <img src ={window.location.href == 'http://localhost:3000/settings' ? SettingsWhite : SettingsBlack}/>
+                            <a className={window.location.href === 'http://localhost:3000/settings' ? styles.blockStyle : styles.textStyle} href="/settings">
+                                <img src ={window.location.href === 'http://localhost:3000/settings' ? SettingsWhite : SettingsBlack}/>
                                 <span>Settings</span>
                             </a>
                         </li>
                         <li>
-                            {this.admin && (<a className={window.location.href == 'http://localhost:3000/users' ? styles.blockStyle : styles.textStyle} href="/users">
-                                <img src ={window.location.href == 'http://localhost:3000/users' ? UsersWhite : UsersBlack}/>
+                            {this.admin && (<a className={window.location.href === 'http://localhost:3000/users' ? styles.blockStyle : styles.textStyle} href="/users">
+                                <img src ={window.location.href === 'http://localhost:3000/users' ? UsersWhite : UsersBlack}/>
                                 <span>Users</span>
                             </a>)}
                         </li>
