@@ -16,17 +16,16 @@ const UserDashboardPage = () => {
         <div className={styles.background}>
             <div className={styles.innerBackground}>
                 <div className={styles.topPart}>
-                hi
+                    <div>
+                    </div>
                 </div>
                 <div className={styles.bottomPart}>
-                    <div className={styles.leftScreen}>
-                        
+                    <div className={styles.screens}>
                     </div>
-                    <div className={styles.middleScreen}>
-                        <img src={AdminHomeDashboard}/>
+                    <div className={styles.screens}>
+                        <img className={styles.middleImage} src={AdminHomeDashboard}/>
                     </div>
-                    <div className={styles.rightScreen}>
-                        
+                    <div className={styles.screens}>
                     </div>
                 </div>
             </div>
