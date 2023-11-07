@@ -19,64 +19,62 @@ function ResetPassword() {
   };
 
   return (
-    <div className={styles.main_container}>
-      <div className={styles.info_side}>
-        <div className={styles.main_info}>
-          <div className={styles.main_info_header}>Reset Password</div>
-          <div className={styles.main_info_details}>
+    <div className={styles.mainContainer}>
+      <div className={styles.infoSide}>
+        <div className={styles.mainInfo}>
+          <div className={styles.mainInfoHeader}>Reset Password</div>
+          <div className={styles.mainInfoDetails}>
             We're here to help you get back into your account. Create a new
             password to secure your account and regain access!
           </div>
-          <div className={styles.password_section}>
-            <div className={styles.password_section_header}>New Password</div>
-            <div className={styles.input_container}>
+          <div className={styles.passwordSection}>
+            <div className={styles.passwordSectionHeader}>New Password</div>
+            <div className={styles.inputContainer}>
               <input
                 type={isVisibleFirstEntry ? "text" : "password"}
                 placeholder="Enter a new password"
               />
               <button
-                className={styles.visible_input}
+                className={styles.visibleInput}
                 onClick={toggleVisibilityFirstEntry}
               >
                 {isVisibleFirstEntry ? (
-                  <EyeOpened className={styles.eye_img} />
+                  <EyeOpened className={styles.eyeImg} />
                 ) : (
-                  <EyeClosed className={styles.eye_img} />
+                  <EyeClosed className={styles.eyeImg} />
                 )}
               </button>
             </div>
           </div>
-          <div className={styles.password_section}>
-            <div className={styles.password_section_header}>
-              Confirm Password
-            </div>
-            <div className={styles.input_container}>
+          <div className={styles.passwordSection}>
+            <div className={styles.passwordSectionHeader}>Confirm Password</div>
+            <div className={styles.inputContainer}>
               <input
                 type={isVisibleSecondEntry ? "text" : "password"}
                 placeholder="Re-enter a new password"
               />
               <button
-                className={styles.visible_input}
+                className={styles.visibleInput}
                 onClick={toggleVisibilitySecondEntry}
               >
                 {isVisibleSecondEntry ? (
-                  <EyeOpened className={styles.eye_img} />
+                  <EyeOpened className={styles.eyeImg} />
                 ) : (
-                  <EyeClosed className={styles.eye_img} />
+                  <EyeClosed className={styles.eyeImg} />
                 )}
               </button>
             </div>
           </div>
           <button
-            className={styles.reset_button}
+            className={styles.resetButton}
             onClick={() => window.open("https://www.google.com", "_blank")}
           >
             Reset and Login
           </button>
         </div>
       </div>
-      <div className={styles.image_container}>
-        <ResetPasswordSideImage className={styles.svg_image} />
+      <div className={styles.imageContainer}>
+        <ResetPasswordSideImage className={styles.svgImage} />
       </div>
     </div>
   );
