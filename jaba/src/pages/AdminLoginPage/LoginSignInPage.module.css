@@ -1,5 +1,5 @@
 .splitScreen {
-    height: calc(100vh);
+    height: 100vh;
     display: flex;
     flex-direction: row;   
 }
@@ -13,13 +13,13 @@
 }
 
 .loginRectangle {
-    width: 505px;
-    height: 701px;
+    width: 60%;
+    height: 85%;
     top: 216px;
     left: 125px;
     border-radius: 10px;
     border: 0.5px;
-    background: linear-gradient(0deg, #FFFFFF, #FFFFFF);
+    background: white;
     border: 0.5px solid #878787
 }
 
@@ -31,13 +31,13 @@
 }
 
 .rightImage {
-    width: 50%;
-    height: 50%;
+    width: 60%;
+    height: 60%;
 }
 
 .alignWelcome {
     text-align: left;
-    padding-top: 80px;
+    padding-top: 30px;
     padding-left: 43px;
     font-family: 'DM Serif Text', serif;
     font-size: 31px;
@@ -53,21 +53,17 @@
 }
 
 .alignWelcome, .alignWelcomeBlurb {
-    margin-bottom: -25px; /* Adjust this value as needed to control the spacing */
-}
-
-.alignWelcomeBlurb, .loginContainer {
-    margin-bottom: 35px; /* Adjust this value as needed to control the spacing */
+    margin-bottom: 30px;
 }
 
 .labelProperties {
-    font-family: 'Poppins', ;
+    font-family: 'Inter', ;
     font-size: 17px;
     margin-bottom: 7px;
 }
 
 .placeholderProperties {
-    font-family: 'Poppins', ;
+    font-family: 'Inter', ;
     margin-left: 15px;
 }
 
@@ -96,12 +92,8 @@
 .loginBox{
     padding-left: 43px;
     padding-right: 43px;
-    padding-top: 100px;
+    padding-top: 20px;
     margin-bottom: 35px;
-}
-
-.flexContainer, .loginBox {
-    margin-bottom: -70px; /* Adjust this value as needed to control the spacing */
 }
 
 .loginBox, .registerBlurb {

@@ -89,7 +89,6 @@
 }
 
 .signInAdminButton {
-    /* font-family: 'DM Serif Text', serif; doesnt work? */
     width: 423px;
     height: 57px;
     text-align: center;
@@ -103,7 +102,7 @@
 }
 
 .registerBlurb {
-    font-family: 'Poppins', ;
+    font-family: 'Inter', ;
     font-size: 16px;
     color: #7D7D7D;
     text-align: center;

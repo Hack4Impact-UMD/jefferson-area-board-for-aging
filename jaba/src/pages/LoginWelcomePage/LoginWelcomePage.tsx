@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import styles from './LoginWelcomePage.module.css';
-import Welcome from '../../assets/welcome.png';
+import Welcome from '../../assets/welcome_actual.svg';
 
 <head>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Inter:wght@600&family=Poppins&display=swap" rel="stylesheet"></link>

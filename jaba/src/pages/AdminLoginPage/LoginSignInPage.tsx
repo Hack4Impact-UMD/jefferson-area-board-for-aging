@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import styles from './LoginSignInPage.module.css';
-import SignIn from '../../assets/signin.png';
+import SignIn from '../../assets/signin_actual.svg';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -21,12 +21,14 @@ const LoginSignInPage = () => {
       <div className={styles.splitScreen}>
         <div className={styles.leftSide}>
           <div className={styles.loginRectangle}>
-            <div className={styles.alignWelcome}>
-              <p>Welcome!</p>
+            <div className={styles.welcomeBox}>
+              <div className={styles.alignWelcome}>
+                <p>Welcome!</p>
+              </div>
+              <div className={styles.alignWelcomeBlurb}>
+                <p>Sign in as a Admin</p>
+              </div >
             </div>
-            <div className={styles.alignWelcomeBlurb}>
-              <p>Sign in as a Admin</p>
-            </div >
             <div className={styles.loginContainer}>
               <p className={styles.labelProperties}>Email</p>
                 <input className={styles.textBox} placeholder="Enter your email linked to your account" />
