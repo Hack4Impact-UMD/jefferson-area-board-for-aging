@@ -1,0 +1,217 @@
+.splitScreen {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;   
+}
+
+.leftSide {    
+    width: 50%;    
+    display: flex;    
+    align-items: center;
+    justify-content: center;
+    background-color: #023C47;
+}
+
+.loginRectangle {
+    width: 505px;
+    height: 701px;
+    top: 216px;
+    left: 125px;
+    border-radius: 10px;
+    border: 0.5px;
+    background: white;
+    border: 0.5px solid #878787;
+}
+
+.rightSide {    
+    width: 50%;    
+    display: flex;    
+    align-items: center;
+    justify-content: center;
+}
+
+.rightImage {
+    width: 60%;
+    height: 60%;
+}
+
+.alignWelcome {
+    text-align: left;
+    padding-top: 80px;
+    padding-left: 43px;
+    font-family: 'DM Serif Text', serif;
+    font-size: 31px;
+}
+
+.alignWelcomeBlurb {
+    text-align: left;
+    font-family: 'Inter', serif;
+    padding-left: 43px;
+    padding-right: 43px;
+    font-size: 16px;
+
+}
+
+.alignWelcome, .alignWelcomeBlurb {
+    margin-bottom: -25px; /* Adjust this value as needed to control the spacing */
+}
+
+.alignWelcomeBlurb, .loginContainer {
+    margin-bottom: 35px; /* Adjust this value as needed to control the spacing */
+}
+
+.labelProperties {
+    font-family: 'Inter';
+    font-size: 17px;
+    margin-bottom: 7px;
+}
+
+.placeholderProperties {
+    font-family: 'Inter';
+    margin-left: 15px;
+}
+
+.loginContainer {
+    width: 423px;
+    height: 358px;
+    padding-left: 43px;
+    padding-right: 43px;
+}
+
+.textBox {
+    width: 410px;
+    height: 60px;
+    border-radius: 0.25rem;
+    border: 1px solid #000000;
+    padding-left: 20px;
+    font-family: 'Inter', serif;
+    color: #4D4D4D;
+}
+
+
+.loginContainer, .checkboxProperty {
+    margin-bottom: -145px; /* Adjust this value as needed to control the spacing */
+}
+
+.loginBox{
+    padding-left: 43px;
+    padding-right: 43px;
+    padding-top: 100px;
+    margin-bottom: 35px;
+}
+
+.flexContainer, .loginBox {
+    margin-bottom: -70px; /* Adjust this value as needed to control the spacing */
+}
+
+.loginBox, .registerBlurb {
+    margin-bottom: 40px;
+}
+
+.passwordContainer {
+    position: relative;
+    display: inline-block;
+}
+
+.showpassword {
+    width: 20px;
+    height: 20px;
+}
+
+.checkboxProperty {
+    padding-left: 43px;
+    flex: 1;
+
+}
+
+.forgotPassword {
+    color: #4D4D4D;
+    text-decoration: none;
+    flex: 1;
+    font-family: 'Inter', serif;
+    margin-left: 35px;
+    font-size: 14px;
+}
+
+.flexContainer {
+    display: flex;
+}
+
+.loginButton {
+    width: 423px;
+    height: 57px;
+    text-align: center;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    cursor: pointer; /* Change the cursor to a pointer when hovering */
+    font-family: 'DM Serif Text', serif;
+    font-size: 24px;
+    color: #FFFFFF;
+    background-color: black;
+}
+
+.registerBlurb {
+    font-family: 'Inter';
+    font-size: 16px;
+    color: #7D7D7D;
+    text-align: center;
+}
+
+.boldText{
+    color: black;
+    text-decoration: none;
+}
+
+.eyeImg {
+    height: 100%;
+}
+
+.passwordContainer {
+    display: flex;
+    flex-direction: row;
+    width: 435px;
+}
+
+/* border-* CSS properties used to make borders of input textbox 
+ * and button look connected together
+ */
+.passwordContainer > input {
+    height: 60px;
+    font-family: 'Inter', serif;
+    color: #4D4D4D;
+    box-sizing: border-box;
+    border-style: solid;
+    font-size: 0.875rem;
+    font-family: 'Inter', sans-serif;
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+    border-top-right-radius: 0rem;
+    border-bottom-right-radius: 0rem;
+    border-right-width: 0rem;
+    border-left-width: 0.1rem;
+    border-top-width: 0.1rem;
+    border-bottom-width: 0.1rem;
+    outline: none;
+    border-color: black;
+}
+
+/* border-* CSS properties used to make borders of input textbox 
+ * and button look connected together
+ */
+.visiblityToggleButton {
+    appearance: none;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+    border-top-left-radius: 0rem;
+    border-bottom-left-radius: 0rem;
+    border-right-width: 0.1rem;
+    border-left-width: 0;
+    border-top-width: 0.1rem;
+    border-bottom-width: 0.1rem;
+    border-color: black;
+    width: 20%;
+}
