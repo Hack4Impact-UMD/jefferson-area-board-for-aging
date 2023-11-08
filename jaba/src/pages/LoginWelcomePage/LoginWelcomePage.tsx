@@ -1,14 +1,17 @@
 import { useState, useEffect } from 'react';
 import styles from './LoginWelcomePage.module.css';
+
 import Welcome from '../../assets/welcome_actual.svg';
 
 const LoginWelcomePage = () => {
+
 
     return (
       <>
         <div className={styles.splitScreen}>
           <div className={styles.leftSide}>
             <div className={styles.welcomeRectangle}>
+
               <div className={styles.alignWelcome}>
                 Welcome!
               </div>
