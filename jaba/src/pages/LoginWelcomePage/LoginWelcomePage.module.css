@@ -13,14 +13,15 @@
 }
 
 .welcomeRectangle {
-    width: 505px;
-    height: 551px;
-    top: 216px;
-    left: 125px;
+    max-width: 70%;
+    max-height: 60%;
     border-radius: 10px;
-    border: 0.5px;
     background: white;
-    border: 0.5px solid #878787
+    border: 0.5px solid #878787;
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    padding: 10% 5% 10% 5%;
 }
 
 .rightSide {    
@@ -37,71 +38,47 @@
 
 .alignWelcome {
     text-align: left;
-    padding-top: 80px;
-    padding-left: 43px;
     font-family: 'DM Serif Text', serif;
-    font-size: 31px;
+    font-size: 2rem;
 }
 
 .alignWelcomeBlurb {
     text-align: left;
     font-family: 'Inter', serif;
-    padding-left: 43px;
-    padding-right: 43px;
-    font-size: 16px;
-
+    font-size: 1rem;
+    margin-bottom: 2rem;
 }
 
-.alignWelcome, .alignWelcomeBlurb {
-    margin-bottom: -25px; /* Adjust this value as needed to control the spacing */
+.signInUserBox, .signInAdminBox {
+    text-align: center;
+    margin-bottom: 1rem;
 }
 
-.alignWelcomeBlurb, .signInUserBox {
-    margin-bottom: -35px; /* Adjust this value as needed to control the spacing */
-}
-
-.signInUserBox{
-    padding-left: 43px;
-    padding-right: 43px;
-    padding-top: 100px;
-    margin-bottom: -81px;
-}
-
-.signInAdminBox{
-    padding-left: 43px;
-    padding-right: 43px;
-    padding-top: 100px;
-    margin-bottom: 35px;
-}
-.signInUserButton {
+.signInUserButton, .signInAdminButton {
     font-family: 'DM Serif Text', serif;
-    width: 423px;
+    width: 100%;
     height: 57px;
     text-align: center;
     border: 1px solid #000000;
     border-radius: 10px;
     cursor: pointer; /* Change the cursor to a pointer when hovering */
     font-family: 'DM Serif Text', serif;
-    font-size: 24px;
+    font-size: 1.5rem;
+}
+
+.signInUserButton {
     background-color: white;
+    color: black;
 }
 
 .signInAdminButton {
-    width: 423px;
-    height: 57px;
-    text-align: center;
-    border: 1px solid #000000;
-    border-radius: 10px;
-    cursor: pointer; /* Change the cursor to a pointer when hovering */
-    font-family: 'DM Serif Text', serif;
-    font-size: 24px;
-    color: #FFFFFF;
     background-color: black;
+    color: white;
 }
 
 .registerBlurb {
     font-family: 'Inter';
-    font-size: 16px;
+    font-size: 1rem;
     color: #7D7D7D;
     text-align: center;
 }

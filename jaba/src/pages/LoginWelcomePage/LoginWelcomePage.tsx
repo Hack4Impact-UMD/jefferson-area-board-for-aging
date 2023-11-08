@@ -10,11 +10,11 @@ const LoginWelcomePage = () => {
           <div className={styles.leftSide}>
             <div className={styles.welcomeRectangle}>
               <div className={styles.alignWelcome}>
-                <p>Welcome!</p>
+                Welcome!
               </div>
-                <div className={styles.alignWelcomeBlurb}>
-                  <p>We're excited to have you on board. How would you like to continue?</p>
-                </div >
+              <div className={styles.alignWelcomeBlurb}>
+                We're excited to have you on board. How would you like to continue?
+              </div>
               <div className={styles.signInUserBox}>
                 <button className={styles.signInUserButton}>Sign in as User</button>
               </div>
