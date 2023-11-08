@@ -1,9 +1,7 @@
-/* eslint-disable react/jsx-pascal-case */
+import { useState } from "react";
 import styles from "./ResetPassword.module.css";
 import { ReactComponent as ResetPasswordSideImage } from "../../assets/ResetPasswordSideImage.svg";
-import { ReactComponent as EyeClosed } from "../../assets/eye-closed.svg";
-import { ReactComponent as EyeOpened } from "../../assets/eye-opened.svg";
-import { useState } from "react";
+import { UilEye as EyeOpened, UilEyeSlash as EyeClosed } from "@iconscout/react-unicons";
 
 function ResetPassword() {
   const [isVisibleFirstEntry, setIsVisibleFirstEntry] = useState(true);
