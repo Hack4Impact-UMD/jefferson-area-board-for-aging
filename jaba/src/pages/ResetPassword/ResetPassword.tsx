@@ -4,16 +4,16 @@ import { ReactComponent as ResetPasswordSideImage } from "../../assets/ResetPass
 import { UilEye as EyeOpened, UilEyeSlash as EyeClosed } from "@iconscout/react-unicons";
 
 function ResetPassword() {
-  const [isVisibleFirstEntry, setIsVisibleFirstEntry] = useState(true);
+  const [isVisibleNewPassword, setIsVisibleNewPassword] = useState(true);
 
-  const [isVisibleSecondEntry, setIsVisibleSecondEntry] = useState(true);
+  const [isVisibleConfirmPassword, setIsVisibleConfirmPassword] = useState(true);
 
   const toggleVisibilityFirstEntry = () => {
-    setIsVisibleFirstEntry(!isVisibleFirstEntry);
+    setIsVisibleNewPassword(!isVisibleNewPassword);
   };
 
   const toggleVisibilitySecondEntry = () => {
-    setIsVisibleSecondEntry(!isVisibleSecondEntry);
+    setIsVisibleConfirmPassword(!isVisibleConfirmPassword);
   };
 
   return (
@@ -29,14 +29,14 @@ function ResetPassword() {
             <div className={styles.passwordSectionHeader}>New Password</div>
             <div className={styles.inputContainer}>
               <input
-                type={isVisibleFirstEntry ? "text" : "password"}
+                type={isVisibleNewPassword ? "text" : "password"}
                 placeholder="Enter a new password"
               />
               <button
-                className={styles.visibleInput}
+                className={styles.visiblityToggleButton}
                 onClick={toggleVisibilityFirstEntry}
               >
-                {isVisibleFirstEntry ? (
+                {isVisibleNewPassword ? (
                   <EyeOpened className={styles.eyeImg} />
                 ) : (
                   <EyeClosed className={styles.eyeImg} />
@@ -48,14 +48,14 @@ function ResetPassword() {
             <div className={styles.passwordSectionHeader}>Confirm Password</div>
             <div className={styles.inputContainer}>
               <input
-                type={isVisibleSecondEntry ? "text" : "password"}
+                type={isVisibleConfirmPassword ? "text" : "password"}
                 placeholder="Re-enter a new password"
               />
               <button
-                className={styles.visibleInput}
+                className={styles.visiblityToggleButton}
                 onClick={toggleVisibilitySecondEntry}
               >
-                {isVisibleSecondEntry ? (
+                {isVisibleConfirmPassword ? (
                   <EyeOpened className={styles.eyeImg} />
                 ) : (
                   <EyeClosed className={styles.eyeImg} />
