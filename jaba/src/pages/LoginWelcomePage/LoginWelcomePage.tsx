@@ -2,12 +2,7 @@ import { useState, useEffect } from 'react';
 import styles from './LoginWelcomePage.module.css';
 import Welcome from '../../assets/welcome_actual.svg';
 
-<head>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Inter:wght@600&family=Poppins&display=swap" rel="stylesheet"></link>
-</head>
 const LoginWelcomePage = () => {
-    const handleClick = () => {
-    };
 
     return (
       <>
@@ -27,7 +22,7 @@ const LoginWelcomePage = () => {
                 <button className={styles.signInAdminButton}>Sign in as Admin</button>
               </div>
               <div className={styles.registerBlurb}>
-                <p>Don’t have an Account? <a href="gotoresgisterpagefromhere" className={styles.boldText}><b>Register</b></a></p>
+                <p>Don't have an Account? <a href="gotoresgisterpagefromhere" className={styles.boldText}><b>Register</b></a></p>
               </div>
             </div>
           </div>

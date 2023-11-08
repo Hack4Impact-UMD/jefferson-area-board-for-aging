@@ -1,7 +1,5 @@
-
-
 .splitScreen {
-    height: calc(100vh);
+    height: 100vh;
     display: flex;
     flex-direction: row;   
 }
@@ -21,7 +19,7 @@
     left: 125px;
     border-radius: 10px;
     border: 0.5px;
-    background: linear-gradient(0deg, #FFFFFF, #FFFFFF);
+    background: white;
     border: 0.5px solid #878787
 }
 
@@ -33,8 +31,8 @@
 }
 
 .rightImage {
-    width: 45%;
-    height: 45%;
+    width: 60%;
+    height: 60%;
 }
 
 .alignWelcome {
@@ -56,11 +54,11 @@
 
 .alignWelcome, .alignWelcomeBlurb {
     margin-bottom: -25px; /* Adjust this value as needed to control the spacing */
-  }
+}
 
-  .alignWelcomeBlurb, .signInUserBox {
+.alignWelcomeBlurb, .signInUserBox {
     margin-bottom: -35px; /* Adjust this value as needed to control the spacing */
-  }
+}
 
 .signInUserBox{
     padding-left: 43px;
@@ -76,7 +74,7 @@
     margin-bottom: 35px;
 }
 .signInUserButton {
-    /* font-family: 'DM Serif Text', serif; doesnt work? */
+    font-family: 'DM Serif Text', serif;
     width: 423px;
     height: 57px;
     text-align: center;
@@ -102,7 +100,7 @@
 }
 
 .registerBlurb {
-    font-family: 'Inter', ;
+    font-family: 'Inter';
     font-size: 16px;
     color: #7D7D7D;
     text-align: center;
