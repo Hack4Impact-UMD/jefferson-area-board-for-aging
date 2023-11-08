@@ -13,14 +13,14 @@
 }
 
 .loginRectangle {
-    width: 60%;
-    height: 85%;
+    width: 505px;
+    height: 701px;
     top: 216px;
     left: 125px;
     border-radius: 10px;
     border: 0.5px;
     background: white;
-    border: 0.5px solid #878787
+    border: 0.5px solid #878787;
 }
 
 .rightSide {    
@@ -37,7 +37,7 @@
 
 .alignWelcome {
     text-align: left;
-    padding-top: 30px;
+    padding-top: 80px;
     padding-left: 43px;
     font-family: 'DM Serif Text', serif;
     font-size: 31px;
@@ -53,17 +53,21 @@
 }
 
 .alignWelcome, .alignWelcomeBlurb {
-    margin-bottom: 30px;
+    margin-bottom: -25px; /* Adjust this value as needed to control the spacing */
+}
+
+.alignWelcomeBlurb, .loginContainer {
+    margin-bottom: 35px; /* Adjust this value as needed to control the spacing */
 }
 
 .labelProperties {
-    font-family: 'Inter', ;
+    font-family: 'Inter';
     font-size: 17px;
     margin-bottom: 7px;
 }
 
 .placeholderProperties {
-    font-family: 'Inter', ;
+    font-family: 'Inter';
     margin-left: 15px;
 }
 
@@ -77,7 +81,7 @@
 .textBox {
     width: 410px;
     height: 60px;
-    border-radius: 10px;
+    border-radius: 0.25rem;
     border: 1px solid #000000;
     padding-left: 20px;
     font-family: 'Inter', serif;
@@ -92,8 +96,12 @@
 .loginBox{
     padding-left: 43px;
     padding-right: 43px;
-    padding-top: 20px;
+    padding-top: 100px;
     margin-bottom: 35px;
+}
+
+.flexContainer, .loginBox {
+    margin-bottom: -70px; /* Adjust this value as needed to control the spacing */
 }
 
 .loginBox, .registerBlurb {
@@ -143,7 +151,7 @@
 }
 
 .registerBlurb {
-    font-family: 'Poppins', ;
+    font-family: 'Inter';
     font-size: 16px;
     color: #7D7D7D;
     text-align: center;
@@ -152,4 +160,58 @@
 .boldText{
     color: black;
     text-decoration: none;
+}
+
+.eyeImg {
+    height: 100%;
+}
+
+.passwordContainer {
+    display: flex;
+    flex-direction: row;
+    width: 435px;
+}
+
+/* border-* CSS properties used to make borders of input textbox 
+ * and button look connected together
+ */
+.passwordContainer > input {
+    height: 60px;
+    font-family: 'Inter', serif;
+    color: #4D4D4D;
+    box-sizing: border-box;
+    border-style: solid;
+    font-size: 0.875rem;
+    font-family: 'Inter', sans-serif;
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+    border-top-right-radius: 0rem;
+    border-bottom-right-radius: 0rem;
+    border-right-width: 0rem;
+    border-left-width: 0.1rem;
+    border-top-width: 0.1rem;
+    border-bottom-width: 0.1rem;
+    outline: none;
+    border-color: black;
+}
+
+/* border-* CSS properties used to make borders of input textbox 
+ * and button look connected together
+ */
+.visiblityToggleButton {
+    appearance: none;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+    border-top-left-radius: 0rem;
+    border-bottom-left-radius: 0rem;
+    border-right-width: 0.1rem;
+    border-left-width: 0;
+    border-top-width: 0.1rem;
+    border-bottom-width: 0.1rem;
+    border-color: black;
+    width: 20%;
 }

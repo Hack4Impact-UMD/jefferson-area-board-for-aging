@@ -1,19 +1,16 @@
 import { useState, useEffect } from 'react';
 import styles from './LoginSignInPage.module.css';
-import SignIn from '../../assets/signin.png';
+import { ReactComponent as SignIn } from '../../assets/signin_actual.svg';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import invisibleeye from '../../assets/invisibleeye.svg';
-
-
-
-<head>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Inter:wght@600&family=Poppins:wght@500&display=swap" rel="stylesheet"></link>
-</head>
+import { UilEye as EyeOpened, UilEyeSlash as EyeClosed } from "@iconscout/react-unicons";
 
 const LoginSignInPage = () => {
-  const handleClick = () => {
+
+  const [isVisiblePassword, setIsVisiblePassword] = useState(true);
+
+  const toggleVisibilityPassword = () => {
+    setIsVisiblePassword(!isVisiblePassword);
   };
 
   return (
@@ -25,18 +22,30 @@ const LoginSignInPage = () => {
               <p>Welcome!</p>
             </div>
             <div className={styles.alignWelcomeBlurb}>
-              <p>Sign in as a User</p>
-            </div >
+              <p>Sign in as an Admin</p>
+            </div>
             <div className={styles.loginContainer}>
               <p className={styles.labelProperties}>Email</p>
-                <input className={styles.textBox} placeholder="Enter your email linked to your account" />
+              <input className={styles.textBox} placeholder="Enter your email linked to your account" />
               <p className={styles.labelProperties}>Password</p>
-                <div className={styles.passwordContainer}>
-                  <input className={styles.textBox} placeholder="Enter your Password" />
-                  {/* need to figure out how to put the eye on the right side of the text field and also have it be interactable */}
-                  {/* <img className={styles.showpassword} src={invisibleeye}/> */}
-                </div>
-            </div> 
+              <div className={styles.passwordContainer}>
+                <input
+                  className={styles.textBox}
+                  type={isVisiblePassword ? "text" : "password"}
+                  placeholder="Enter your Password"
+                />
+                <button
+                  className={styles.visiblityToggleButton}
+                  onClick={toggleVisibilityPassword}
+                >
+                  {isVisiblePassword ? (
+                    <EyeOpened className={styles.eyeImg} />
+                  ) : (
+                    <EyeClosed className={styles.eyeImg} />
+                  )}
+                </button>
+              </div>
+            </div>
             <div className={styles.flexContainer}>
               <div className={styles.checkboxProperty}>
               <FormControlLabel
@@ -51,21 +60,18 @@ const LoginSignInPage = () => {
               <div className={styles.forgotPassword}> 
                 <p><a href="gotoresgisterpagefromhere" className={styles.forgotPassword}>Forgot Password?</a></p>
               </div>
-    
             </div>
             <div className={styles.loginBox}>
               <button className={styles.loginButton}>Login</button>
             </div>
               <div className={styles.registerBlurb}>
-                <p>Not a User? <a href="gotoresgisterpagefromhere" className={styles.boldText}><b>Switch to Admin Login</b></a></p>
+                <p>Not a User? <a href="gotoresgisterpagefromhere" className={styles.boldText}><b>Switch to User Login</b></a></p>
                 <p>Don't have an account?<a href="gotoresgisterpagefromhere" className={styles.boldText}><b> Register</b></a></p>
               </div>
             </div>
-            <div>
-          </div>
         </div>
         <div className={styles.rightSide}>
-          <img className={styles.rightImage} src={SignIn}/>
+          <SignIn className={styles.rightImage} />
         </div>
       </div>
     </>
