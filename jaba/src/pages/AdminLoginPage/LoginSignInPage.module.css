@@ -153,3 +153,29 @@
     color: black;
     text-decoration: none;
 }
+
+.visible_input {
+    appearance: none;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+    border-top-left-radius: 0rem;
+    border-bottom-left-radius: 0rem;
+    border-right-width: 0.1rem;
+    border-left-width: 0;
+    border-top-width: 0.1rem;
+    border-bottom-width: 0.1rem;
+    border-color: black;
+    width: 20%;
+}
+
+.eye_img {
+    height: 1.5rem;
+    width: 1.5rem;
+    padding: 0.8rem;
+    padding-top: 0.9rem;
+    outline: none;
+}

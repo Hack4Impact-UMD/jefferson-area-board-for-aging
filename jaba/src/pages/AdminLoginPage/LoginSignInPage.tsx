@@ -5,16 +5,33 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import invisibleeye from '../../assets/invisibleeye.svg';
-
-
+import EyeClosed from "../../assets/eye-closed.svg";
+import EyeOpened from "../../assets/eye-opened.png";
+// import UilReact from '@iconscout/react-unicons/icons/uil-react'
 
 <head>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Inter:wght@600&family=Poppins:wght@500&display=swap" rel="stylesheet"></link>
+<link rel="stylesheet" href="https://unicons.iconscout.com/release-pro/v4.0.0/css/solid.css"></link>
 </head>
 
 const LoginSignInPage = () => {
+  
+  // return <UilReact size="140" color="#61DAFB" />
+
   const handleClick = () => {
   };
+
+  // const [isVisibleFirstEntry, setIsVisibleFirstEntry] = useState(true);
+
+  // const [isVisibleSecondEntry, setIsVisibleSecondEntry] = useState(true);
+
+  // const toggleVisibilityFirstEntry = () => {
+  //   setIsVisibleFirstEntry(!isVisibleFirstEntry);
+  // };
+
+  // const toggleVisibilitySecondEntry = () => {
+  //   setIsVisibleSecondEntry(!isVisibleSecondEntry);
+  // };
 
   return (
     <>
@@ -34,9 +51,20 @@ const LoginSignInPage = () => {
                 <input className={styles.textBox} placeholder="Enter your email linked to your account" />
               <p className={styles.labelProperties}>Password</p>
                 <div className={styles.passwordContainer}>
-                  <input className={styles.textBox} placeholder="Enter your Password" />
-                  {/* need to figure out how to put the eye on the right side of the text field and also have it be interactable */}
-                  {/* <img className={styles.showpassword} src={invisibleeye}/> */}
+                  <input 
+                  // type={isVisibleSecondEntry ? "text" : "password"}
+                  className={styles.textBox} placeholder="Enter your Password" 
+                  />
+                 {/* <button
+                    className={styles.visible_input}
+                    onClick={toggleVisibilitySecondEntry}
+                  >
+                     {isVisibleSecondEntry ? (
+                      <EyeOpened className={styles.eye_img} />
+                    ) : (
+                      <EyeClosed className={styles.eye_img} />
+                    )}
+                  </button> */}
                 </div>
             </div> 
             <div className={styles.flexContainer}>
