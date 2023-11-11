@@ -36,12 +36,74 @@
 .screens {
     width: 33.33%;
     height: 100%;
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center;
+}
+
+.middleImageDiv {
+    width: 33.33%;
+    height: 100%;
     display: flex; 
+    flex-direction: column; /* Stack items vertically */
     justify-content: center;
-    align-items: center;  
+    align-items: center;
 }
 
 .middleImage {
     width: 66%;
     height: 53%;
+}
+
+.searchBar {
+    
+    display: flex;
+    align-items: center; /* Center items vertically */
+    justify-content: space-between;
+    width: 80%;
+}
+
+.textBox {
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid #000000;
+    padding-left: 20px;
+    font-family: 'Inter', serif;
+    color: #4D4D4D;
+    margin-right: 30px;
+}
+
+.filterImage {
+    height: 35px;
+    width: 35px;
+}
+
+.header {
+    font-size: 175%;
+    font-family: 'DM Serif Text', serif;
+    margin-bottom: 10px; /* Add margin between the paragraph and the input */
+}
+
+.filterSearchBar {
+    width: 60%; /* Make the input take up the full width */
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid grey;
+    padding-left: 20px;
+    font-family: 'Inter', serif;
+    color: #4D4D4D;
+}
+
+.searchButton {
+    width: 40%;
+    height: 57px;
+    text-align: center;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    cursor: pointer; /* Change the cursor to a pointer when hovering */
+    font-family: 'DM Serif Text', serif;
+    font-size: 1.5rem;
+    background-color: black;
+    color: white;
 }

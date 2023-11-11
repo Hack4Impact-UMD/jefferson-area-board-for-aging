@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import styles from './UserDashboardPage.module.css';
 import NavBar from '../../components/NavBar/NavBar';
 import AdminHomeDashboard from '../../assets/adminhomedashboard.png';
+import FilterIcon from '../../assets/filtericon.svg';
+import { PhMagnifyingGlass as MagnifyingGlass } from "@iconscout/react-unicons";
 
 const UserDashboardPage = () => {
     const handleClick = () => {
@@ -16,16 +18,22 @@ const UserDashboardPage = () => {
         <div className={styles.background}>
             <div className={styles.innerBackground}>
                 <div className={styles.topPart}>
-                    <div>
+                    <div className={styles.searchBar}>
+                        <input className={styles.textBox} placeholder="" />
+                        <img className={styles.filterImage} src={FilterIcon}/>
                     </div>
                 </div>
                 <div className={styles.bottomPart}>
                     <div className={styles.screens}>
+                        <p className={styles.header}>Category</p>
+                        <input className={styles.filterSearchBar} placeholder="Select" />
                     </div>
-                    <div className={styles.screens}>
+                    <div className={styles.middleImageDiv}>
                         <img className={styles.middleImage} src={AdminHomeDashboard}/>
+                        <button className={styles.searchButton}>Search</button>
                     </div>
                     <div className={styles.screens}>
+                        <p className={styles.header}>Region</p>
                     </div>
                 </div>
             </div>
