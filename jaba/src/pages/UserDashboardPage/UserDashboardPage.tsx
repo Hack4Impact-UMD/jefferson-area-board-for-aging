@@ -3,7 +3,7 @@ import styles from './UserDashboardPage.module.css';
 import NavBar from '../../components/NavBar/NavBar';
 import AdminHomeDashboard from '../../assets/adminhomedashboard.png';
 import FilterIcon from '../../assets/filtericon.svg';
-import { PhMagnifyingGlass as MagnifyingGlass } from "@iconscout/react-unicons";
+import MagnifyingGlass from '../../assets/magnifying-glass.svg';
 
 const UserDashboardPage = () => {
     const handleClick = () => {
@@ -19,6 +19,9 @@ const UserDashboardPage = () => {
             <div className={styles.innerBackground}>
                 <div className={styles.topPart}>
                     <div className={styles.searchBar}>
+                        <button className={styles.magnifyingGlassBox}>
+                            <img className={styles.magnifyingGlassImage} src={MagnifyingGlass}/>
+                        </button>
                         <input className={styles.textBox} placeholder="" />
                         <img className={styles.filterImage} src={FilterIcon}/>
                     </div>
