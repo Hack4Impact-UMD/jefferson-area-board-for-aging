@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import styles from './LoginWelcomePage.module.css';
 
 import Welcome from '../../assets/welcome_actual.svg';
+import {NavLink} from 'react-router-dom';
 
 const LoginWelcomePage = () => {
 
@@ -19,13 +20,13 @@ const LoginWelcomePage = () => {
                 We're excited to have you on board. How would you like to continue?
               </div>
               <div className={styles.signInUserBox}>
-                <button className={styles.signInUserButton}>Sign in as User</button>
+                <NavLink to = "/userLogin"><button className={styles.signInUserButton}>Sign in as User</button></NavLink>
               </div>
               <div className={styles.signInAdminBox}>
-                <button className={styles.signInAdminButton}>Sign in as Admin</button>
+                <NavLink to="/adminLogin"><button className={styles.signInAdminButton}>Sign in as Admin</button></NavLink>
               </div>
               <div className={styles.registerBlurb}>
-                <p>Don't have an Account? <a href="gotoresgisterpagefromhere" className={styles.boldText}><b>Register</b></a></p>
+                <p>Don't have an Account?<NavLink to="/requestAccount" className={styles.boldText}><b>Register</b></NavLink></p>
               </div>
             </div>
           </div>
