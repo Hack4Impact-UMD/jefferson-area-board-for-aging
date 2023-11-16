@@ -14,15 +14,24 @@ const ProtectedRoutes: React.FC = () => {
   return isUserLoggedIn ? <ExamplePage/> : <LoginPage/>;
 }
 
-const App: React.FC = () => {
-  return (
-    <>
-    <UserProvider>
-      <ProtectedRoutes />
-    </UserProvider>
+// const App: React.FC = () => {
+//   return (
+//     <>
+//     {/* <UserProvider>
+//       <ProtectedRoutes />
+//     </UserProvider> */}
 
-    <ResourcePage/>
-      </>
+//     <UserDashboardPage/>
+//       </>
+//   );
+// }
+
+// export default App;
+
+function App(): JSX.Element {
+
+  return (
+    <UserDashboardPage/>
   );
 }
 
