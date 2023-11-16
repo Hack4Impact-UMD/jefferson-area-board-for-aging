@@ -40,7 +40,7 @@ a {
     align-items: center;
 }
 
-a img {
+.list a img {
     height: 12%;
     width: 12%;
     padding-left: 15px;  
@@ -48,12 +48,12 @@ a img {
     padding-bottom: 8px;
 }
 
-a span {
+.list a span {
     padding-left: 15px;   
     padding-right: 15px; 
 }
 
-li {
+.list {
     list-style-type: none;
     margin: 20px 0;
 }

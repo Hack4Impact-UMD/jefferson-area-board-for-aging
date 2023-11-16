@@ -22,20 +22,20 @@ class NavBar extends Component<{}, { isAdmin: boolean }>{
             <div className={styles.sidebar}>
                 <h2 className={styles.headerStyle}>[ n a m e ]</h2>
                 <div>
-                    <ul>
-                        <li>
+                    <ul className={styles.ulist}>
+                        <li className={styles.list}>
                             <a className={window.location.href === 'http://localhost:3000/' ? styles.blockStyle : styles.textStyle} href="/">
                                 <img src ={window.location.href === 'http://localhost:3000/' ? HomeWhite : HomeBlack}/>
                                 <span>Home</span>
                             </a>
                         </li>
-                        <li>
+                        <li className={styles.list}>
                             <a className={window.location.href === 'http://localhost:3000/settings' ? styles.blockStyle : styles.textStyle} href="/settings">
                                 <img src ={window.location.href === 'http://localhost:3000/settings' ? SettingsWhite : SettingsBlack}/>
                                 <span>Settings</span>
                             </a>
                         </li>
-                        <li>
+                        <li className={styles.list}>
                             {this.admin && (<a className={window.location.href === 'http://localhost:3000/users' ? styles.blockStyle : styles.textStyle} href="/users">
                                 <img src ={window.location.href === 'http://localhost:3000/users' ? UsersWhite : UsersBlack}/>
                                 <span>Users</span>
@@ -44,8 +44,8 @@ class NavBar extends Component<{}, { isAdmin: boolean }>{
                     </ul>
                 </div>
                 <div className={styles.logout}>
-                    <ul> 
-                        <li>
+                    <ul className={styles.ulist}> 
+                        <li className={styles.list}>
                             <a className={styles.textStyle} href="/logout?">
                                 <img src={LogoutBlack}/>
                                 <span>Logout</span>
