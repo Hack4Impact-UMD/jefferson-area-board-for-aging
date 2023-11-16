@@ -3,7 +3,6 @@ import styles from './UserDashboardPage.module.css';
 import NavBar from '../../components/NavBar/NavBar';
 import AdminHomeDashboard from '../../assets/adminhomedashboard.png';
 import FilterIcon from '../../assets/filtericon.svg';
-import MagnifyingGlass from '../../assets/magnifying-glass.svg';
 
 const UserDashboardPage = () => {
     const handleClick = () => {
@@ -19,9 +18,7 @@ const UserDashboardPage = () => {
             <div className={styles.innerBackground}>
                 <div className={styles.topPart}>
                     <div className={styles.searchBar}>
-                        <button className={styles.magnifyingGlassBox}>
-                            <img className={styles.magnifyingGlassImage} src={MagnifyingGlass}/>
-                        </button>
+                        <button className={styles.magnifyingGlassBox}></button>
                         <input className={styles.textBox} placeholder="" />
                         <img className={styles.filterImage} src={FilterIcon}/>
                     </div>
@@ -29,7 +26,6 @@ const UserDashboardPage = () => {
                 <div className={styles.bottomPart}>
                     <div className={styles.screens}>
                         <p className={styles.header}>Category</p>
-                        <input className={styles.filterSearchBar} placeholder="Select" />
                     </div>
                     <div className={styles.middleImageDiv}>
                         <img className={styles.middleImage} src={AdminHomeDashboard}/>
