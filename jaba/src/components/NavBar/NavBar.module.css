@@ -32,7 +32,7 @@
     box-decoration-break: clone;
 } 
 
-a {
+.list a {
     font-family: 'Inter';
     text-decoration: none;
     display: flex;
@@ -58,7 +58,7 @@ a {
     margin: 20px 0;
 }
 
-ul {
+.ulist {
     padding-left: 0;
 }
   

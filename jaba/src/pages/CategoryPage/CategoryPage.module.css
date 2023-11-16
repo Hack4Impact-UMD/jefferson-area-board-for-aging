@@ -38,6 +38,9 @@
     align-items: center;
     justify-content: center;
     background-color: #023C47;
+    font-family: 'DM Serif Text';
+    color: #FFFFFF;
+    font-size: 25px;
 }
 
 .topPart2 {
@@ -80,17 +83,12 @@
     align-items: center;  
 }
 
-thead {
-    font-family: 'DM Serif Text';
-    color: #FFFFFF;
-    font-size: 25px;
+.icons {
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
-a {
-    height: 100%;
-    width: 100%;
-}
-
-a img {
-    height: 100%;
+.icons img {
+    height: 90%;
+    width: 90%;
 }

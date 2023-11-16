@@ -48,10 +48,10 @@ const CategoryPage = () => {
                     <td className={styles.screens}>Primary Category Name</td>
                     <td className={styles.screens}>None</td>
                     <td className={styles.screens}>
-                      <a href="/edit">
+                      <a className={styles.icons} href="/edit">
                         <img src ={Edit}/>
                       </a>
-                      <a href="/delete?">
+                      <a className={styles.icons} href="/delete?">
                         <img src ={Trash}/>
                       </a>
                     </td>
