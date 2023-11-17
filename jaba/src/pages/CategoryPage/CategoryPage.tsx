@@ -4,6 +4,7 @@ import NavBar from '../../components/NavBar/NavBar';
 import Edit from '../../assets/icons/edit.png';
 import Trash from '../../assets/icons/trash.png';
 import Back from '../../assets/icons/backIcon.png';
+import Plus from '../../assets/icons/plusSign.png';
 
 const CategoryPage = () => {
     const categories = [
@@ -27,6 +28,10 @@ const CategoryPage = () => {
     // }, []);
 
     // const categories = [];
+
+    
+    const handleClick = () => {
+    };
 
     const isAdmin = true;
     const props = {isAdmin};
@@ -72,6 +77,16 @@ const CategoryPage = () => {
                   }
                 </tbody>
                 <div className={styles.bottomNav}>
+                  <div className={styles.screens}>
+                  </div>
+                  <div className={styles.screens}>
+                  </div>
+                  <div className={styles.screens}>
+                    <button className={styles.button} onClick={handleClick}>
+                      <img src={Plus}/>
+                      <span>Add New</span>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
