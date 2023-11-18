@@ -5,6 +5,9 @@ import Edit from '../../assets/icons/edit.png';
 import Trash from '../../assets/icons/trash.png';
 import Back from '../../assets/icons/backIcon.png';
 import Plus from '../../assets/icons/plusSign.png';
+import Left from '../../assets/icons/arrow-left.png';
+import Right from '../../assets/icons/arrow-right.png';
+import { Pagination, PaginationItem } from '@mui/material';
 
 const CategoryPage = () => {
     const categories = [
@@ -80,6 +83,24 @@ const CategoryPage = () => {
                   <div className={styles.screens}>
                   </div>
                   <div className={styles.screens}>
+                  <Pagination
+                    count={10}
+                    renderItem={(item) => (
+                      <PaginationItem
+                        components={{
+                          previous: (props) => 
+                            <button {...props}>
+                              <img src={Left}/>
+                            </button>,
+                          next: (props) => 
+                            <button {...props}>
+                              <img src={Right}/>
+                            </button>
+                        }}
+                        {...item}
+                      />
+                    )}
+                  />
                   </div>
                   <div className={styles.screens}>
                     <button className={styles.button} onClick={handleClick}>
