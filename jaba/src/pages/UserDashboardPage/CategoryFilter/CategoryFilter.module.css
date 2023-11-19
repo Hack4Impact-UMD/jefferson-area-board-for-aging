@@ -1,0 +1,20 @@
+.dropDown {
+    display: 'flex'; 
+    flex-direction: 'column';
+}
+/* Adjust to be responsive later */
+.dropDownContent {
+    height: 300px;
+    overflow-y: 'auto';
+    margin-top: 10px;
+}
+
+.item {
+    padding: '10px';
+    margin: '5px';
+    cursor: 'pointer';
+}
+
+.itemSelected {
+    background-color: #5C9292;
+}
