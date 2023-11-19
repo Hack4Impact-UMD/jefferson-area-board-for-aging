@@ -8,17 +8,17 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import React from 'react';
 
-const names = [
-    'Oliver Hansen',
-    'Van Henry',
-    'April Tucker',
-    'Ralph Hubbard',
-    'Omar Alexander',
-    'Carlos Abbott',
-    'Miriam Wagner',
-    'Bradley Wilkerson',
-    'Virginia Andrews',
-    'Kelly Snyder',
+const categories = [
+    'Alzeheimers and Dementia',
+    'Abuse',
+    'Area Agencies on Aging',
+    'Associations',
+    'Caregiver Services',
+    'Care Management',
+    'Child Care',
+    'Child Welfare',
+    'Community Service organizations',
+    'Disability Services',
   ];
 
 const UserDashboardPage = () => {
@@ -74,7 +74,7 @@ const UserDashboardPage = () => {
                                     id: 'select-multiple-native',
                                 }}
                                 >
-                                {names.map((name) => (
+                                {categories.map((name) => (
                                     <option key={name} value={name}>
                                     {name}
                                     </option>
