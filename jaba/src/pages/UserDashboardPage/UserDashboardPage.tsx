@@ -8,18 +8,20 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import React from 'react';
 
-const categories = [
-    'Alzeheimers and Dementia',
-    'Abuse',
-    'Area Agencies on Aging',
-    'Associations',
-    'Caregiver Services',
-    'Care Management',
-    'Child Care',
-    'Child Welfare',
-    'Community Service organizations',
-    'Disability Services',
-  ];
+let categories = new Map<string, Array<string>>([
+    ["Alzheimers and Dementia", ["Alz Resource"]],
+    ["Abuse",["Social Services", "Local Law Enforcement"]],
+    ["Area Agencies on Aging",["Local AAA"]],
+    ["Abuse",["Federal-Local Associations"]],
+    ["Caregiver Services",["Caregiver Support/General", "Support Group"]],
+    ["Care Management",[]],
+    ["Child Care",[]],
+    ["Child Welfare",[]],
+    ["Community Service organizations",[]],
+    ["Disability Services",[]],
+]);
+
+let primary_categories = Array.from(categories.keys())
 
 const UserDashboardPage = () => {
     const handleClick = () => {
@@ -74,9 +76,9 @@ const UserDashboardPage = () => {
                                     id: 'select-multiple-native',
                                 }}
                                 >
-                                {categories.map((name) => (
-                                    <option key={name} value={name}>
-                                    {name}
+                                {primary_categories.map((category) => (
+                                    <option key={category} value={category}>
+                                    {category}
                                     </option>
                                 ))}
                                 </Select>
