@@ -60,6 +60,7 @@ img {
     background-color: transparent;
     color: blue;
     border: none;
+    width: 1.25rem;
 }
 
 .profileHeaderContainer {

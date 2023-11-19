@@ -1,5 +1,5 @@
 import styles from "./UserSettingsPage.module.css";
-import Pencil from "../../assets/pencil.svg";
+import { ReactComponent as PencilImage } from "../../assets/pencil.svg";
 
 const UserSettingsPage = () => {
   return (
@@ -16,7 +16,7 @@ const UserSettingsPage = () => {
                   window.open("https://www.google.com", "_blank");
                 }}
               >
-                <Pencil />
+                <PencilImage className={styles.editButton} />
               </button>
             </div>
             <div className={styles.inputContainer}>
