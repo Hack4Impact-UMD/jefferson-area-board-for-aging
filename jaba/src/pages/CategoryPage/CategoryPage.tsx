@@ -86,7 +86,7 @@ const CategoryPage = () => {
                   <Pagination
                     count={10}
                     renderItem={(item) => (
-                      <PaginationItem
+                      <PaginationItem className={styles.pagination}
                         components={{
                           previous: (props) => 
                             <button {...props}>

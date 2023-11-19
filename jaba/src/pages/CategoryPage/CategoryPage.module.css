@@ -150,4 +150,13 @@
 
 .pagination {
     font-family: 'DM Serif Text';
+    color: #000000;    
+    font-size: 20px;
+}
+
+.pagination button {
+    background-color: #FFFFFF;
+    filter: drop-shadow(1px 1px 1.5px #ABABAB);
+    border: none;
+    border-radius: 2px;
 }
