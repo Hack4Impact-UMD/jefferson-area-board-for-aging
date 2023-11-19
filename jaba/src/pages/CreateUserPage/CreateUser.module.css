@@ -3,7 +3,7 @@ body {
     width: 100%; 
     height: 100%;
 }
-textarea {
+input {
     width: 100%;
     height: 100%;
     max-width: 479px; 
@@ -13,7 +13,7 @@ textarea {
     text-align: left;
     box-sizing: border-box;
 }
-textarea::placeholder {
+input::placeholder {
     color: #ABABAB;
     font-family: 'Inter';
     font-size: 14px;
@@ -22,7 +22,7 @@ textarea::placeholder {
     line-height: normal;
 }
 
-.requestPage {
+.page {
     width: 90%; 
     max-width: 1228px;
     height: 90vh;
@@ -39,12 +39,12 @@ textarea::placeholder {
     box-shadow: 0px 4px 64px 0px rgba(0, 0, 0, 0.05);
 }
 
-.requestHeader {
+.header {
     margin: 2% 5% 0% 5%;
     width: 100%;
 }
 
-.requestBody {
+.body {
     margin: 0% 5% 3% 5%;
     width: 100%;
     overflow-y: auto;
@@ -55,11 +55,11 @@ textarea::placeholder {
 }
 
 /* By default, set the scrollbar to be invisible */
-.requestBody::-webkit-scrollbar {
+.body::-webkit-scrollbar {
     width: 0; /* For Chrome, Safari, and newer versions of Opera */
 }
 
-.reqTitle {
+.title {
     color: #000;
     font-family: 'DM Serif Text';
     font-size: 31px;
@@ -69,27 +69,7 @@ textarea::placeholder {
     margin-bottom: 2%;
 }
 
-.headingContainer {
-    width: 95%; 
-    height: 100%;
-    max-width: 688px;
-    max-height: 86px;
-    top: 86px;
-    left: 204px;
-    margin-top: 0px;
-}
-
-.reqText {
-    width: 90%;
-    color: #000;
-    font-family: 'Inter';
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-
-.inputText, .inputTextAdditional{
+.inputText {
     width: 90%;
     max-width: 479px;
     height: 100%;
@@ -108,22 +88,24 @@ textarea::placeholder {
     font-family: "Inter";
 }
 
-textarea.inputText {
+input.inputText {
     box-sizing: border-box; /* Include padding in element's total height */
     padding-top: 4%;
     padding-left: 7.5%;
     height: calc(100% - 10%); 
 }
 
-textarea.inputText::placeholder {
+input.inputText::placeholder {
     font-weight: lighter;
 }
 
-textarea.inputTextAdditional {
-    box-sizing: border-box; /* Include padding in element's total height */
-    padding-top: 2.5%;
-    padding-left: 7.5%;
-    height: calc(100% - 10%); 
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"]:checked+label.roundedButton {
+    background-color: #000;
+    color: #FFF;
 }
 
 .fields {
@@ -158,10 +140,6 @@ textarea.inputTextAdditional {
     color: #000;
 }
 
-input[type="radio"] {
-    display: none;
-}
-
 label.roundedButton {
     display: inline-block;
     padding: 10px 20px;
@@ -177,29 +155,19 @@ label.roundedButton {
     color: #000;
 }
 
-input[type="radio"]:checked+label.roundedButton {
-    background-color: #000;
-    color: #FFF;
-}
-
 .roundedButton.selected {
     background-color: #000;
     color: #FFF;
 }
 
-.accountBtn, .priorityOptions{
+.accountBtn {
     width: 95%;
     display: flex;
     align-items: center;
     margin-bottom: 1%;
 }
-.priorityOptions >* {
-    margin-top: 0.5%;
-    margin-bottom: 0.5%;
-}
 
-
-.reqEntry {
+.entry {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -207,11 +175,11 @@ input[type="radio"]:checked+label.roundedButton {
     max-width: 479px;
     flex: 1;
 }
-.reqOptions {
+.options {
     width: 80%;
     justify-content: space-evenly;
 }
-.reqDescrip {
+.description {
     margin-bottom: 1%;
     font-family: "Inter";
 }
