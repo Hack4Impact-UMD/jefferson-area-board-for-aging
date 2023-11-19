@@ -41,12 +41,12 @@ input::placeholder {
 
 .header {
     margin: 2% 5% 0% 5%;
-    width: 100%;
+    width: 90%;
 }
 
 .body {
     margin: 0% 5% 3% 5%;
-    width: 100%;
+    width: 90%;
     overflow-y: auto;
     overflow-x: auto;
     flex-grow: 1;
@@ -66,7 +66,7 @@ input::placeholder {
     font-style: normal;
     font-weight: bold;
     line-height: normal;
-    margin-bottom: 2%;
+    margin-bottom: 5%;
 }
 
 .inputText {
@@ -90,7 +90,7 @@ input::placeholder {
 
 input.inputText {
     box-sizing: border-box; /* Include padding in element's total height */
-    padding-top: 4%;
+    padding-top: 1%;
     padding-left: 7.5%;
     height: calc(100% - 10%); 
 }
@@ -109,14 +109,14 @@ input[type="radio"]:checked+label.roundedButton {
 }
 
 .fields {
-    width: 95%;
+    width: 100%;
     height: 95%; 
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "fullname position" "email address" "phone options" "organization additional" "... submit_btn";
     column-gap: 5%;
-    row-gap: 10%;
+    row-gap: 15%;
     justify-content: center;
 }
 
@@ -180,7 +180,7 @@ label.roundedButton {
     justify-content: space-evenly;
 }
 .description {
-    margin-bottom: 1%;
+    margin-bottom: 3%;
     font-family: "Inter";
 }
 
@@ -191,7 +191,7 @@ label.roundedButton {
     transform: translate(-50%, 250%); 
     width: 50%;  
     height: 50%; 
-    margin: 0; 
+    margin: 50px; 
 }
 
 .submitResponse {
