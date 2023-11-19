@@ -17,7 +17,7 @@ const CategoryPage = () => {
       {name: 'Primary Category Name2', classification: 'None'}, 
       {name: 'Mortgage2', classification: 'Finance'}, 
       {name: 'Social Services2', classification: 'Child Care'}
-    ]
+    ];
 
     // useEffect(() => {
     //   getCategories()
@@ -86,8 +86,8 @@ const CategoryPage = () => {
                   <Pagination
                     count={10}
                     renderItem={(item) => (
-                      <PaginationItem className={styles.pagination}
-                        components={{
+                      <PaginationItem className={item.selected ? styles.pagination2 : styles.pagination}
+                        slots={{
                           previous: (props) => 
                             <button {...props}>
                               <img src={Left}/>

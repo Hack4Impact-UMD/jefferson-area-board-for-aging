@@ -149,14 +149,22 @@
 }
 
 .pagination {
-    font-family: 'DM Serif Text';
-    color: #000000;    
-    font-size: 20px;
+    font-family: 'DM Serif Text' !important;
+    color: #ABABAB !important;    
+    font-size: 20px !important;
+    background-color: transparent !important;
+}
+
+.pagination2 {
+    font-family: 'DM Serif Text' !important;
+    color: #000000 !important;    
+    font-size: 20px !important;
+    background-color: transparent !important;
 }
 
 .pagination button {
     background-color: #FFFFFF;
-    filter: drop-shadow(1px 1px 1.5px #ABABAB);
+    box-shadow: 0px 0px 4px gray;
     border: none;
     border-radius: 2px;
 }
