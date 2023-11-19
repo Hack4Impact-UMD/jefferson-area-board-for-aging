@@ -1,9 +1,9 @@
-.main_container {
+.mainContainer {
     display: flex;
     justify-content: flex-end;
 }
 
-.color_container {
+.colorContainer {
     width: 80%;
     background-color: rgb(4,60,68);
     padding: 2rem;
@@ -14,7 +14,7 @@
     justify-content: center;
 }
 
-.content_container {
+.contentContainer {
     margin: 2rem;
     background-color: white;
     padding: 2rem;
@@ -24,7 +24,7 @@
     border-radius: 0.5rem;
 }
 
-.profile_container {
+.profileContainer {
     margin: 1.25rem;
     font-size: 1rem;
     display: flex;
@@ -33,11 +33,11 @@
     width: 90%;
 }
 
-.input_container {
+.inputContainer {
     margin-top: 1rem;
 }
 
-.input_header {
+.inputHeader {
     font-size: 0.75rem;
     font-family: 'Inter';
     margin-bottom: 0.5rem;
@@ -59,19 +59,19 @@ img {
     height: 1.25rem;
 }
 
-.edit_button {
+.editButton {
     background-color: transparent;
     color: blue;
     border: none;
 }
 
-.profile_header_container {
+.profileHeaderContainer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.reset_button {
+.resetButton {
     background-color:rgba(208, 87, 70, 0.50);
     color: black;
     border: none;
@@ -86,7 +86,7 @@ img {
     flex-direction: row;
 }
 
-.all_inputs_container {
+.allInputsContainer {
     width: 50%;
 }
 
@@ -102,7 +102,7 @@ img {
     margin-top: 1.25rem;
 }
 
-.dashboard_info {
+.dashboardInfo {
     font-size: 0.75rem;
     margin-top: 0.75rem;
     font-family: "Inter";

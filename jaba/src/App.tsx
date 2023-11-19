@@ -1,8 +1,8 @@
 import ExamplePage from "./pages/ExamplePage/ExamplePage";
 import ResourcePage from "./pages/ResourcePage/ResourcePage";
 import DisplayUsersPage from "./pages/DisplayUsersPage/DisplayUsersPage";
-import AdminPage from "./pages/SettingsPage/AdminPage";
-import UserPage from "./pages/SettingsPage/UserPage";
+import AdminSettingsPage from "./pages/SettingsPage/AdminSettingsPage";
+import UserSettingsPage from "./pages/SettingsPage/UserSettingsPage";
 
 import LoginPage from "./pages/LoginPage/LoginPage";
 import { useAuth, UserProvider } from "./UserContext/UserContext";
@@ -15,8 +15,8 @@ const ProtectedRoutes: React.FC = () => {
 const App: React.FC = () => {
   return (
     <>
-      <AdminPage />
-      <UserPage />
+      <AdminSettingsPage />
+      <UserSettingsPage />
       {/* <UserProvider>
       <ProtectedRoutes />
     </UserProvider>

@@ -1,17 +1,17 @@
-import classes from "./AdminPage.module.css";
+import styles from "./AdminSettingsPage.module.css";
 
-const UserPage = () => {
+const AdminSettingsPage = () => {
   return (
-    <div className={classes.main_container}>
-      <div className={classes.color_container}>
-        <div className={classes.content_container}>
-          <div className={classes.header}>Settings</div>
-          <div className={classes.profile_container}>
-            <div className={classes.all_inputs_container}>
-              <div className={classes.profile_header_container}>
-                <div className={classes.profile_header}>Profile Settings</div>
+    <div className={styles.mainContainer}>
+      <div className={styles.colorContainer}>
+        <div className={styles.contentContainer}>
+          <div className={styles.header}>Settings</div>
+          <div className={styles.profileContainer}>
+            <div className={styles.allInputsContainer}>
+              <div className={styles.profileHeaderContainer}>
+                <div className={styles.profileHeader}>Profile Settings</div>
                 <button
-                  className={classes.edit_button}
+                  className={styles.editButton}
                   onClick={() => {
                     window.open("https://www.google.com", "_blank");
                   }}
@@ -23,32 +23,32 @@ const UserPage = () => {
                   />
                 </button>
               </div>
-              <div className={classes.input_container}>
-                <div className={classes.input_header}>Full Name</div>
+              <div className={styles.inputContainer}>
+                <div className={styles.inputHeader}>Full Name</div>
                 <input type="text" className="name_input" value="John Adams" />
               </div>
-              <div className={classes.input_container}>
-                <div className={classes.input_header}>Email</div>
+              <div className={styles.inputContainer}>
+                <div className={styles.inputHeader}>Email</div>
                 <input
                   type="email"
                   className="email_input"
                   value="john.adams@org.com"
                 />
               </div>
-              <div className={classes.input_container}>
-                <div className={classes.input_header}>Phone</div>
+              <div className={styles.inputContainer}>
+                <div className={styles.inputHeader}>Phone</div>
                 <input type="tel" className="tel_input" value="202-123-4567" />
               </div>
-              <div className={classes.input_container}>
-                <div className={classes.input_header}>Residential Address</div>
+              <div className={styles.inputContainer}>
+                <div className={styles.inputHeader}>Residential Address</div>
                 <input
                   type="text"
                   className="res_input"
                   value="123 House Rd, City, State, Zip"
                 />
               </div>
-              <div className={classes.input_container}>
-                <div className={classes.input_header}>
+              <div className={styles.inputContainer}>
+                <div className={styles.inputHeader}>
                   Position at Organization
                 </div>
                 <input
@@ -61,20 +61,20 @@ const UserPage = () => {
             <div className="dashboard_container">
               <div className="dashboard_header">Dashboard Settings</div>
               <button
-                className={classes.edit_cat_button}
+                className={styles.edit_cat_button}
                 onClick={() => {
                   window.open("https://www.google.com", "_blank");
                 }}
               >
                 Edit Category
               </button>
-              <div className={classes.dashboard_info}>
+              <div className={styles.dashboardInfo}>
                 Edit the category options for the dashboard
               </div>
             </div>
           </div>
           <button
-            className={classes.reset_button}
+            className={styles.resetButton}
             onClick={() => {
               window.open("https://www.google.com", "_blank");
             }}
@@ -87,4 +87,4 @@ const UserPage = () => {
   );
 };
 
-export default UserPage;
+export default AdminSettingsPage;
