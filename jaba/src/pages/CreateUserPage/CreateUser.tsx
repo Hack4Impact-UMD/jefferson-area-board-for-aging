@@ -4,7 +4,7 @@ import './popup.css';
 import requestIconSuccess from '../../assets/requestIconSuccess.svg';
 import { addUser } from '../../backend/firestoreFunctions';
 
-const RequestAccountPage = () => {
+const CreateUser = () => {
   const [modal, setModal] = useState(false);
 
   const [formData, setFormData] = useState({
@@ -201,4 +201,4 @@ const RequestAccountPage = () => {
   );
 };
 
-export default RequestAccountPage;
+export default CreateUser;
