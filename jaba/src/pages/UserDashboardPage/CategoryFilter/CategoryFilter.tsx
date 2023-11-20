@@ -6,7 +6,9 @@ import styles from "./CategoryFilter.module.css"
 
 const CategoryFilter = () => {
     const [serviceCategory, setServiceCategory] = React.useState<string[]>([])
-    const [dropDownOpen, setDropDownOpen] = React.useState(false)
+    const [isSubCatBtnVisible, setisSubCatBtnVisible] = React.useState(true)
+    // const [isPrimCatBtnVisible, setisPrimCatBtnVisible] = React.useState(false)
+    const [subCategoryElts, setSubCategoryElts] = React.useState<string[]>([])
 
     let categories = new Map<string, Array<string>>([
         ["Alzheimers and Dementia", ["Alz Resource"]],
@@ -19,15 +21,22 @@ const CategoryFilter = () => {
         ["Child Welfare",[]],
         ["Community Service organizations",[]],
         ["Disability Services",[]],
+        ["E",[]],
+        ["F",[]],
+        ["G",[]],
+        ["H",[]],
+        ["I",[]]
     ]);
     
     let primary_categories = Array.from(categories.keys())
 
+    // Takes in type string for category
     const handleToggle = (category: string) => {
+        // Updates the state of serviceCategory, prev is the previous state
         setServiceCategory(prev => {
           const currentIndex = prev.indexOf(category);
           const newChecked = [...prev];
-    
+        // Create new array that represents the list of selected categories
           if (currentIndex === -1) {
             newChecked.push(category);
           } else {
@@ -37,152 +46,72 @@ const CategoryFilter = () => {
           return newChecked;
         });
       };
-      const isSelected = (category: string) => serviceCategory.includes(category);
+    const isSelected = (category: string) => serviceCategory.includes(category);
     
-      return (
+    // Start of task 11
+    const handleSubCategory = (categories: Map<string, Array<string>>) => {
+        let subCategoryArray = []
+        let toggleSubCategoriesBtn = true
+        for (const subCategory of Array.from(categories.keys())) {
+            const subCategories= categories.get(subCategory)
+            if (subCategories && subCategories.length > 0 && isSelected(subCategory)) {
+                subCategoryArray.push(...subCategories)
+                toggleSubCategoriesBtn = false
+            }
+        }
+        // Add a popup that warns the user to select a category if nothing was displayed
+        // update visibility
+        setisSubCatBtnVisible(toggleSubCategoriesBtn)
+
+        //Change list to subcategories
+        setSubCategoryElts(subCategoryArray)
+    }
+    // Return to primary category list
+    const handlePrimCategory = () => {
+        setisSubCatBtnVisible(true)
+    }
+    return (
+    <div className={styles.content}>
+        <button className={styles.primCategory}
+        onClick={handlePrimCategory}> 
+            {isSubCatBtnVisible ? 
+                (
+                <p className={styles.selectBtnText}>Select</p>
+                ) : (
+                <p className={styles.primCategoryText}>{'>> Primary Category'}</p>  
+                )
+            }
+        </button>
         <ThemeProvider theme={createTheme()}>
             <div className={styles.dropDown}>
-                <div className = {styles.dropDownContent}
-                style={{ height: 300, overflowY: 'auto', marginTop: 10 }}>
-                {Array.from(categories.keys()).map((category) => (
+                <div className = {styles.dropDownContent}>
+                {isSubCatBtnVisible ? (Array.from(categories.keys()).map((category) => (
                     <div
                     key={category}
                     onClick={() => handleToggle(category)}
-                    style={{
-                        padding: '10px',
-                        margin: '5px',
-                        cursor: 'pointer',
-                        backgroundColor: isSelected(category) ? '#e0e0e0' : 'transparent'
-                    }}
+                    className={`${styles.item} ${isSelected(category) ? styles.itemSelected: ''}`}
                     >
                     {category}
                     </div>
-                ))}
+                ))
+                ) : (
+                // Displays the subcategories when the button is clicked
+                subCategoryElts.map((subCat, index) => (
+                    <div key={index} 
+                    className={styles.subCatItems}>
+                        {subCat}
+                    </div>
+                ))
+                )}
                 </div>
             </div>
         </ThemeProvider>
-        // <ThemeProvider theme={createTheme()}>
-        //   <div style={{ display: 'flex', flexDirection: 'column' }}>
-        //     <TextField
-        //       id="filter-input"
-        //       variant="outlined"
-        //       label="Select Names"
-        //       placeholder="Names"
-        //       value={serviceCategory.join(', ')}
-        //     />
-        //     <FormGroup>
-        //         {Array.from(categories.entries()).map(([category, subcategories]) => (
-        //             // Render category and optionally its subcategories
-        //             <React.Fragment key={category}>
-        //             <FormControlLabel
-        //                 control={
-        //                 <Checkbox
-        //                     checked={serviceCategory.includes(category)}
-        //                     onChange={() => handleToggle(category)}
-        //                 />
-        //                 }
-        //                 label={category}
-        //             />
-        //             {/* Render subcategories if needed */}
-        //             {subcategories.map(subcategory => (
-        //                 <FormControlLabel
-        //                 key={subcategory}
-        //                 control={
-        //                     <Checkbox
-        //                     checked={serviceCategory.includes(subcategory)}
-        //                     onChange={() => handleToggle(subcategory)}
-        //                     />
-        //                 }
-        //                 label={`- ${subcategory}`}
-        //                 />
-        //             ))}
-        //             </React.Fragment>
-        //         ))}
-        //     </FormGroup>
-        //   </div>
-        // </ThemeProvider>
-      );
-    
-    // const options = Array.from(categories.entries()).flatMap(([category, subcategories]) => {
-    //     return subcategories.length > 0 ? subcategories.map(sub => `${category} - ${sub}`) : category;
-    // });
-
-    // return (
-    //     <ThemeProvider theme={createTheme()}>
-    //       <Autocomplete
-    //         multiple
-    //         id="tags-autocomplete"
-    //         options={options}
-    //         getOptionLabel={(option) => option}
-    //         value={serviceCategory}
-    //         open={dropDownOpen}
-    //         onOpen={() => setDropDownOpen(true)}
-    //         onChange={(event, newValue) => {
-    //             setServiceCategory(newValue);
-    //             // Prevent the dropdown from closing after selection
-    //             setDropDownOpen(true)
-    //         }}
-    //         onClose={(event, selecting) => {
-    //             // Only close the dropdown after clicking outside of the component
-    //             if (selecting === 'toggleInput' || selecting === 'blur') {
-    //                 setDropDownOpen(false)
-    //             }
-    //         }}
-    //         renderInput={(params) => (
-    //           <TextField
-    //             {...params}
-    //             variant="outlined"
-    //             label="Select Names"
-    //             placeholder="Names"
-    //           />
-    //         )}
-    //         // Ensure tags are not prompted on the top of the selection
-    //         renderTags={() => []}
-      
-    //       />
-    //     </ThemeProvider>
-    // )
-
+        {isSubCatBtnVisible && 
+        <button className={styles.subCategory}
+        onClick={() => handleSubCategory(categories)}>
+            {'Sub-Category>>'}
+        </button>}
+    </div>
+    );
 }
 export default CategoryFilter
-
-// // task 11 start
-// const [personName, setPersonName] = React.useState<string[]>([]);
-// const handleChangeMultiple = (event: React.ChangeEvent<HTMLSelectElement>) => {
-// const { options } = event.target;
-// const value: string[] = [];
-// for (let i = 0, l = options.length; i < l; i += 1) {
-//   if (options[i].selected) {
-//     value.push(options[i].value);
-//   }
-// }
-// setPersonName(value);
-// };
-// task 11 end
-
-//  {/* task 11 start*/}
-//  <div>
-//  <FormControl sx={{ m: 1, minWidth: 120, maxWidth: 300 }}>
-//      <InputLabel shrink htmlFor="select-multiple-native">
-//      Native
-//      </InputLabel>
-//      <Select
-//      multiple
-//      native
-//      value={personName}
-//      // @ts-ignore Typings are not considering `native`
-//      onChange={handleChangeMultiple}
-//      label="Native"
-//      inputProps={{
-//          id: 'select-multiple-native',
-//      }}
-//      >
-//      {primary_categories.map((category) => (
-//          <option key={category} value={category}>
-//          {category}
-//          </option>
-//      ))}
-//      </Select>
-//  </FormControl>
-// </div>
-// {/* task 11 end */}
