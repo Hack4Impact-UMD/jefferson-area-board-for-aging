@@ -145,7 +145,7 @@ const CreateUser = () => {
             </div>
 
             <div style={{ gridArea: 'options' }}>
-              <div className={styles.accountBtn}>
+              <div className={styles.accountTypeBtn}>
                 <p>Create Account as:</p>
                 <div
                   className={`${styles.roundedButton} ${formData.accountType === 'Admin' ? styles.selected : ''}`}

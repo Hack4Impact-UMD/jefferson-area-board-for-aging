@@ -2,25 +2,6 @@ body {
     background-color: #023C47;
 }
 
-input {
-    width: 100%;
-    height: 100%;
-    max-width: 479px; 
-    max-height: 59px;
-    resize: none;
-    padding: 19px;
-    text-align: left;
-    box-sizing: border-box;
-}
-input::placeholder {
-    color: #ABABAB;
-    font-family: 'Inter';
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 300;
-    line-height: normal;
-}
-
 .page {
     width: 90%; 
     max-width: 1228px;
@@ -38,13 +19,19 @@ input::placeholder {
     box-shadow: 0px 4px 64px 0px rgba(0, 0, 0, 0.05);
 }
 
-form {
-    height: 70vh;
-}
-
 .header {
     margin: 2% 5% 0% 5%;
     width: 90%;
+}
+
+.title {
+    color: #000;
+    font-family: 'DM Serif Text';
+    font-size: 31px;
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+    margin-bottom: 5%;
 }
 
 .body {
@@ -62,14 +49,51 @@ form {
     width: 0; /* For Chrome, Safari, and newer versions of Opera */
 }
 
-.title {
-    color: #000;
-    font-family: 'DM Serif Text';
-    font-size: 31px;
+form {
+    height: 70vh;
+}
+
+.fields {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "fullname position" "email address" "phone options" "organization additional" "... submit_btn";
+    column-gap: 10%;
+    row-gap: 15%;
+    justify-content: center;
+}
+
+.entry {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    max-width: 479px;
+    flex: 1;
+}
+
+.description {
+    margin-bottom: 3%;
+}
+
+input {
+    width: 100%;
+    height: 100%;
+    max-width: 479px; 
+    max-height: 59px;
+    resize: none;
+    padding: 19px;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+input::placeholder {
+    color: #ABABAB;
+    font-family: 'Inter';
+    font-size: 14px;
     font-style: normal;
-    font-weight: bold;
+    font-weight: 300;
     line-height: normal;
-    margin-bottom: 5%;
 }
 
 .inputText {
@@ -97,14 +121,11 @@ form {
     font-weight: lighter;
 }
 
-.fields {
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: "fullname position" "email address" "phone options" "organization additional" "... submit_btn";
-    column-gap: 10%;
-    row-gap: 15%;
-    justify-content: center;
+.accountTypeBtn {
+    width: 95%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1%;
 }
 
 .roundedButton {
@@ -127,44 +148,9 @@ form {
     color: #000;
 }
 
-label.roundedButton {
-    display: inline-block;
-    padding: 10px 20px;
-    border-radius: 25px;
-    margin: 0 10px;
-    font-family: 'DM Serif Text';
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    cursor: pointer;
-    background-color: #FFF;
-    color: #000;
-}
-
 .roundedButton.selected {
     background-color: #000;
     color: #FFF;
-}
-
-.accountBtn {
-    width: 95%;
-    display: flex;
-    align-items: center;
-    margin-bottom: 1%;
-}
-
-.entry {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    max-width: 479px;
-    flex: 1;
-}
-
-.description {
-    margin-bottom: 3%;
 }
 
 .submit {
@@ -188,6 +174,7 @@ label.roundedButton {
     font-weight: 400;
     line-height: normal;
 }
+
 .submitResponse:hover {
     cursor: pointer;
     transform: scale(1.03);
