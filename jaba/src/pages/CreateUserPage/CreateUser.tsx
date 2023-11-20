@@ -144,7 +144,7 @@ const CreateUser = () => {
               ></input>
             </div>
 
-            <div className={styles.options} style={{ gridArea: 'options' }}>
+            <div style={{ gridArea: 'options' }}>
               <div className={styles.accountBtn}>
                 <p>Create Account as:</p>
                 <div
@@ -166,10 +166,10 @@ const CreateUser = () => {
             
           </div>
           <div className={styles.submit}>
-              <button type="submit" className={styles.submitResponse}>
-                Create Profile
-              </button>
-            </div>
+            <button type="submit" className={styles.submitButton}>
+              Create Profile
+            </button>
+          </div>
           
         </form>
 

@@ -1,8 +1,7 @@
 body {
     background-color: #023C47;
-    width: 100%; 
-    height: 100%;
 }
+
 input {
     width: 100%;
     height: 100%;
@@ -39,6 +38,10 @@ input::placeholder {
     box-shadow: 0px 4px 64px 0px rgba(0, 0, 0, 0.05);
 }
 
+form {
+    height: 70vh;
+}
+
 .header {
     margin: 2% 5% 0% 5%;
     width: 90%;
@@ -70,17 +73,19 @@ input::placeholder {
 }
 
 .inputText {
-    width: 90%;
     max-width: 479px;
-    height: 100%;
     max-height: 59px;
     flex-shrink: 0;
     padding: 0.5em;
     box-sizing: border-box;
     display: flex;
     align-items: center;
-    padding-top: 0;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 1%;
+    padding-left: 7.5%;
     padding-bottom: 0;
+    padding-right: 7.5%;
     overflow: auto; 
     border-radius: 6px;
     border: 0.6px solid #282828;
@@ -88,34 +93,16 @@ input::placeholder {
     font-family: "Inter";
 }
 
-input.inputText {
-    box-sizing: border-box; /* Include padding in element's total height */
-    padding-top: 1%;
-    padding-left: 7.5%;
-    height: calc(100% - 10%); 
-}
-
-input.inputText::placeholder {
+.inputText::placeholder {
     font-weight: lighter;
 }
 
-input[type="radio"] {
-    display: none;
-}
-
-input[type="radio"]:checked+label.roundedButton {
-    background-color: #000;
-    color: #FFF;
-}
-
 .fields {
-    width: 100%;
-    height: 95%; 
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "fullname position" "email address" "phone options" "organization additional" "... submit_btn";
-    column-gap: 5%;
+    column-gap: 10%;
     row-gap: 15%;
     justify-content: center;
 }
@@ -175,30 +162,22 @@ label.roundedButton {
     max-width: 479px;
     flex: 1;
 }
-.options {
-    width: 80%;
-    justify-content: space-evenly;
-}
+
 .description {
     margin-bottom: 3%;
-    font-family: "Inter";
 }
 
 .submit {
+    display: flex;
+    justify-content: center;
     position: relative;
-    top: 100%;
-    left: 50%;
-    transform: translate(-50%, 250%); 
-    width: 50%;  
-    height: 50%; 
-    margin: 50px; 
+    top: 30%;
 }
 
-.submitResponse {
+.submitButton {
     width: 90%;
     max-width: 423px;
     height: 57px;
-    left: 5%;
     flex-shrink: 0;
     border-radius: 6px;
     background: #000;
@@ -208,8 +187,6 @@ label.roundedButton {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    position: relative;
-
 }
 .submitResponse:hover {
     cursor: pointer;
