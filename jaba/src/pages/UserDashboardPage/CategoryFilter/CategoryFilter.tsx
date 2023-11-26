@@ -10,6 +10,7 @@ const CategoryFilter = () => {
     // const [isPrimCatBtnVisible, setisPrimCatBtnVisible] = React.useState(false)
     const [subCategoryElts, setSubCategoryElts] = React.useState<string[]>([])
 
+    // Assume that the categories we have entered are in sorted order, at least by first letter
     let categories = new Map<string, Array<string>>([
         ["Alzheimers and Dementia", ["Alz Resource"]],
         ["Abuse",["Social Services", "Local Law Enforcement"]],
@@ -28,7 +29,51 @@ const CategoryFilter = () => {
         ["I",[]]
     ]);
     
-    let primary_categories = Array.from(categories.keys())
+    const processCategories = (categories: string[]): { key: string, content: string | JSX.Element }[] => {
+        const sortedCategories = categories.sort();
+        let processedCategories: { key: string, content: string | JSX.Element }[] = [];
+        let currentCharCode = 65
+
+        let currentLetter = '';
+
+        for (let category of sortedCategories) {
+            const firstLetter = category[0].toUpperCase();
+            const firstCharCode = firstLetter.charCodeAt(0);
+    
+            // Fill in the gaps with letter markers
+            while (currentCharCode < firstCharCode) {
+                const letter = String.fromCharCode(currentCharCode);
+                processedCategories.push({
+                    key: `letter-${letter}`,
+                    content: <div className={styles.letterMarker}>{letter}</div>
+                });
+                currentCharCode++;
+            }
+            if (firstLetter !== currentLetter) {
+                currentLetter = firstLetter
+                // Insert the letter marker
+                processedCategories.push({
+                    key: `letter-${currentLetter}`,
+                    content: <div className={styles.letterMarker}>{currentLetter}</div>
+                })
+            }
+    
+            // Update the currentCharCode and add the category
+            currentCharCode = firstCharCode + 1;
+            processedCategories.push({ key: category, content: category });
+        }
+    
+        // Fill in any remaining letters after the last category
+        while (currentCharCode <= 90) { // 'Z' ASCII code
+            const letter = String.fromCharCode(currentCharCode);
+            processedCategories.push({
+                key: `letter-${letter}`,
+                    content: <div className={styles.letterMarker}>{letter}</div>
+            });
+            currentCharCode++;
+        }
+        return processedCategories;
+    }    
 
     // Takes in type string for category
     const handleToggle = (category: string) => {
@@ -64,7 +109,7 @@ const CategoryFilter = () => {
         setisSubCatBtnVisible(toggleSubCategoriesBtn)
 
         //Change list to subcategories
-        setSubCategoryElts(subCategoryArray)
+        setSubCategoryElts(subCategoryArray.sort())
     }
     // Return to primary category list
     const handlePrimCategory = () => {
@@ -85,24 +130,31 @@ const CategoryFilter = () => {
         <ThemeProvider theme={createTheme()}>
             <div className={styles.dropDown}>
                 <div className = {styles.dropDownContent}>
-                {isSubCatBtnVisible ? (Array.from(categories.keys()).map((category) => (
-                    <div
-                    key={category}
-                    onClick={() => handleToggle(category)}
-                    className={`${styles.item} ${isSelected(category) ? styles.itemSelected: ''}`}
-                    >
-                    {category}
-                    </div>
-                ))
-                ) : (
-                // Displays the subcategories when the button is clicked
-                subCategoryElts.map((subCat, index) => (
-                    <div key={index} 
-                    className={styles.subCatItems}>
-                        {subCat}
-                    </div>
-                ))
-                )}
+                    {isSubCatBtnVisible ? (processCategories(Array.from(categories.keys())).map(({key, content}) => 
+                        React.isValidElement(content) ? (
+                            <div key={key}>{content}</div>
+                        ) : (
+                            <div
+                            key={key}
+                            onClick={() => handleToggle(content as string)}
+                            className={`${styles.item} ${isSelected(content as string) ? styles.itemSelected: ''}`}
+                            >
+                            {content}
+                            </div>
+                        ))
+                    ) : (
+                        processCategories(subCategoryElts).map(({key, content}) => {
+                            if ( React.isValidElement(content)) {
+                                return <div key={key}>{content}</div>
+                            } else {
+                                return (
+                                    <div key={key} className={styles.subCatItems}>
+                                        {content}
+                                    </div>
+                                )
+                            }
+                        })
+                    )}
                 </div>
             </div>
         </ThemeProvider>
