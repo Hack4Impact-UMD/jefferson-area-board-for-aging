@@ -33,20 +33,27 @@ const RegionFilter = () => {
     
     return (
         <div>
-            <FormControl>
-                <FormLabel id="demo-row-radio-buttons-group-label">Include National Services</FormLabel>
-                <RadioGroup
-                    row
-                    aria-labelledby="demo-row-radio-buttons-group-label"
-                    name="row-radio-buttons-group"
-                >
-                    <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel value="no" control={<Radio />} label="No" />
+            <div>
+                <FormControl>
+                    <FormLabel id="demo-row-radio-buttons-group-label">Include National Services</FormLabel>
+                    <RadioGroup
+                        row
+                        aria-labelledby="demo-row-radio-buttons-group-label"
+                        name="row-radio-buttons-group"
+                    >
+                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                        <FormControlLabel value="no" control={<Radio />} label="No" />
 
-                </RadioGroup>
-            </FormControl>
-
+                    </RadioGroup>
+                </FormControl>
+            </div>
             
+            <div>
+                <label htmlFor="zip-code">Zip code</label>
+                <input id="zip-code"></input>
+            </div>
+            
+
         </div>
     )
 
