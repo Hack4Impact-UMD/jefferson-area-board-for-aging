@@ -41,7 +41,7 @@ const CategoryPage = () => {
 
   const [page, setPage] = useState(0);
   
-  const maxRowsPerPage = 1; // can adjust the way maxRowsPerPage is decided
+  const maxRowsPerPage = 5; // can adjust the way maxRowsPerPage is decided
   const [rowsPerPage, setRowsPerPage] = useState(maxRowsPerPage);
 
   const handleChangePage = (event: any, newPage : any) => {
