@@ -1,14 +1,10 @@
-import { useState, useEffect } from 'react';
-import { Autocomplete } from '@mui/material';
 import styles from './UserDashboardPage.module.css';
 import NavBar from '../../components/NavBar/NavBar';
 import AdminHomeDashboard from '../../assets/adminhomedashboard.png';
 import FilterIcon from '../../assets/filtericon.svg';
-import InputLabel from '@mui/material/InputLabel';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
 import React from 'react';
 import CategoryFilter from './CategoryFilter/CategoryFilter';
+import RegionFilter from './RegionFilter/RegionFilter';
 
 
 
@@ -42,6 +38,7 @@ const UserDashboardPage = () => {
                     </div>
                     <div className={styles.screens}>
                         <p className={styles.header}>Region</p>
+                        <RegionFilter />
                     </div>
                 </div>
             </div>
