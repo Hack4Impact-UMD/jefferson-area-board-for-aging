@@ -40,15 +40,6 @@ const CategoryFilter = () => {
             const firstLetter = category[0].toUpperCase();
             const firstCharCode = firstLetter.charCodeAt(0);
     
-            // Fill in the gaps with letter markers
-            while (currentCharCode < firstCharCode) {
-                const letter = String.fromCharCode(currentCharCode);
-                processedCategories.push({
-                    key: `letter-${letter}`,
-                    content: <div className={styles.letterMarker}>{letter}</div>
-                });
-                currentCharCode++;
-            }
             if (firstLetter !== currentLetter) {
                 currentLetter = firstLetter
                 // Insert the letter marker
@@ -61,16 +52,6 @@ const CategoryFilter = () => {
             // Update the currentCharCode and add the category
             currentCharCode = firstCharCode + 1;
             processedCategories.push({ key: category, content: category });
-        }
-    
-        // Fill in any remaining letters after the last category
-        while (currentCharCode <= 90) { // 'Z' ASCII code
-            const letter = String.fromCharCode(currentCharCode);
-            processedCategories.push({
-                key: `letter-${letter}`,
-                    content: <div className={styles.letterMarker}>{letter}</div>
-            });
-            currentCharCode++;
         }
         return processedCategories;
     }    
