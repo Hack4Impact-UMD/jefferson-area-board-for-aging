@@ -1,0 +1,69 @@
+.content {
+    width: 90%;
+    max-width: 290px;
+    margin: 2% 8% 0% 8%;
+}
+
+
+
+.nationalServices {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    width: 100%;
+    color: #000;
+}
+
+.nationalServicesHeader {
+    font-family: 'DM Serif Text';
+    font-size: clamp(12px, 2vw, 15px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: #000;
+}
+
+.nationalServicesRadio {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    color: #000;
+    font-family: 'DM Serif Text';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
+.zip {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+.ziptext {
+    color: #000;
+    font-family: 'DM Serif Text';
+    font-size: clamp(12px, 2vw, 15px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.zipcode {
+    border-radius: 6px;
+    border: 0.6px solid #B1B1B1;
+    background: #FFF;
+    width: 60%;
+    height: 100%;
+    max-width: 222px;
+    max-height: 25px;
+    flex-shrink: 0;
+    font-family: 'DM Serif Text';
+    color: #B1B1B1;
+    font-weight: 100;
+    padding: 1% 1% 1% 2%;
+
+}

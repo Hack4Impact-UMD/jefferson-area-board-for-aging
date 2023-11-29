@@ -32,25 +32,25 @@ const RegionFilter = () => {
     ]
     
     return (
-        <div>
-            <div>
-                <FormControl>
-                    <FormLabel id="demo-row-radio-buttons-group-label">Include National Services</FormLabel>
-                    <RadioGroup
-                        row
-                        aria-labelledby="demo-row-radio-buttons-group-label"
-                        name="row-radio-buttons-group"
-                    >
-                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                        <FormControlLabel value="no" control={<Radio />} label="No" />
-
-                    </RadioGroup>
-                </FormControl>
+        <div className={styles.content}>
+            <div className={styles.nationalServices}>
+                <p className={styles.nationalServicesHeader}>Include National Services</p>
+                <div className={styles.nationalServicesRadio}>
+                    <div>
+                        <input type="radio" value="yes" name='nationalTypeRadio'/>
+                        <label htmlFor='radioYes'><span className='radiobtn'>Yes</span></label>
+                    </div>
+                    <div>
+                        <input type="radio" value="no" name='nationalTypeRadio'/>
+                        <label htmlFor='radioNo'><span className='radiobtn'>No</span></label>
+                    </div>
+                    
+                </div>
             </div>
             
-            <div>
-                <label htmlFor="zip-code">Zip code</label>
-                <input id="zip-code"></input>
+            <div className={styles.zip}>
+                <label className={styles.ziptext} htmlFor="zip-code">Zip code</label>
+                <input className={styles.zipcode}></input>
             </div>
             
 
