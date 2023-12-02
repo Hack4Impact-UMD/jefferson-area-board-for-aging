@@ -80,9 +80,11 @@
 .filterImage {
     height: 35px;
     width: 35px;
+    cursor: pointer;
 }
 
 .magnifyingGlassImage {
+    margin-left: 20px;
     height: 20px;
     width: 20px;
 }
@@ -101,7 +103,7 @@
     border-left-width: 0.1;
     border-top-width: 0.1rem;
     border-bottom-width: 0.1rem;
-    border-color: #4D4D4D;
+    color: #4D4D4D;
     /* width: 20%; */
 }
 
@@ -122,6 +124,7 @@
 }
 
 .searchButton {
+    margin-top: 5%;
     width: 40%;
     height: 57px;
     text-align: center;

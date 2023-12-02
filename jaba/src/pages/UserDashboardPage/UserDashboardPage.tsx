@@ -3,7 +3,7 @@ import styles from './UserDashboardPage.module.css';
 import NavBar from '../../components/NavBar/NavBar';
 import AdminHomeDashboard from '../../assets/adminhomedashboard.png';
 import FilterIcon from '../../assets/filtericon.svg';
-import MagnifyingGlass from '../../assets/magnifying-glass.svg';
+import MagnifyingGlass from '../../assets/magnifyingglass.svg';
 
 const UserDashboardPage = () => {
     const handleClick = () => {
