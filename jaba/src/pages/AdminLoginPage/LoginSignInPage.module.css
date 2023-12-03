@@ -156,13 +156,18 @@
     font-size: 16px;
     color: #7D7D7D;
     text-align: center;
-    display: block;
-   
+    display: flex;
+    flex-direction: column;
 }
 
-.boldText{
+.navlink{
     color: black;
     text-decoration: none;
+    display: inline-block;
+}
+
+span {
+    margin-bottom: 5px;
 }
 
 .label{

@@ -1,5 +1,4 @@
 .splitScreen {
-
     height: 100vh;
     display: flex;
     flex-direction: row;   
@@ -14,7 +13,6 @@
 }
 
 .welcomeRectangle {
-
     max-width: 70%;
     max-height: 60%;
     border-radius: 10px;
@@ -24,7 +22,6 @@
     flex-direction: column;
     justify-content: center;
     padding: 10% 5% 10% 5%;
-
 }
 
 .rightSide {    
@@ -88,8 +85,8 @@
     text-align: center;
 }
 
-.boldText{
+.navlink{
     color: black;
     text-decoration: none;
-
+    display: inline-block;
 }

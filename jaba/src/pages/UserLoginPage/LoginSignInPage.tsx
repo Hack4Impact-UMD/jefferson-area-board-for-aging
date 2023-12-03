@@ -59,15 +59,15 @@ const LoginSignInUserPage = () => {
               />
               </div>
               <div className={styles.forgotPassword}> 
-<p><NavLink to="/forgotPassword" className={styles.forgotPassword}>Forgot Password?</NavLink></p>
+                <p><NavLink to="/forgotPassword" className={styles.forgotPassword}>Forgot Password?</NavLink></p>
               </div>
             </div>
             <div className={styles.loginBox}>
               <button className={styles.loginButton}>Login</button>
             </div>
               <div className={styles.registerBlurb}>
-                <p>Not a User? <NavLink to="/adminLogin" className={styles.boldText}><b>Switch to Admin Login</b></NavLink></p>
-                <p>Don't have an account?<NavLink to="/requestAccount" className={styles.boldText}><b> Register</b></NavLink></p>
+                <span>Not a User? <NavLink to="/adminLogin" className={styles.navlink}>Switch to Admin Login</NavLink></span> 
+                <span>Don't have an account? <NavLink to="/requestAccount" className={styles.navlink}>Register</NavLink></span>
               </div>
             </div>
         </div>

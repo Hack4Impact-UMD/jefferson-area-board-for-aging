@@ -66,10 +66,8 @@ const LoginSignInAdminPage = () => {
               <NavLink to="navBar"> <button className={styles.loginButton}>Login</button></NavLink>
             </div>
               <div className={styles.registerBlurb}>
-
-                <span>Not an Admin?<NavLink to="/userLogin" className={styles.boldText}>Switch to User Login</NavLink></span>
-                <span>Don't have an account?<NavLink to="/requestAccount" className={styles.boldText}> Register</NavLink></span>
-  
+                <span>Not an Admin? <NavLink to="/userLogin" className={styles.navlink}>Switch to User Login</NavLink></span>
+                <span>Don't have an account? <NavLink to="/requestAccount" className={styles.navlink}>Register</NavLink></span>
               </div>
             </div>
         </div>
