@@ -67,7 +67,8 @@ const RegionFilter = () => {
             
             // console.log("selection", selection);
             // console.log("selected", selected);
-
+            
+            // don't allow simultaneous selection of states and districts
             if (selected.length > 0 && (states.includes(selected[0]) && states.includes(selection) || 
                 districts.includes(selected[0]) && districts.includes(selection)) || selected.length == 0) {
                 
@@ -184,7 +185,8 @@ const RegionFilter = () => {
 
             <div className={styles.districtBlock}>
                 <p className={`${styles.headerText} ${styles.stateHeader}`}>Planning Districts:</p>
-                {selected.length > 0 && <button className={styles.alreadySelected}>State Already Selected</button>}
+                {selected.length > 0 && states.includes(selected[0]) && <button className={styles.alreadySelected}>State Already Selected</button>}
+                {selected.length > 0 && districts.includes(selected[0]) && <button className={styles.alreadySelected}>District Already Selected</button>}
             </div>
             <div className={styles.stateBody}>      
                 <div className={styles.stateTable}>
