@@ -81,7 +81,7 @@ const CreateUser = () => {
       <div className={styles.header}>
         <h1 className={styles.title}>Create a New Profile</h1>
       </div>
-      <div className={styles.body}>
+      <div className={styles.formDiv}>
         <form onSubmit={handleFormSubmit}>
           <div className={styles.fields}>
             <div className={styles.entry} style={{ gridArea: 'fullname' }}>

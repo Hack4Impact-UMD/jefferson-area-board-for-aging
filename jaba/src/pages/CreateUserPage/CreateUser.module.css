@@ -1,7 +1,3 @@
-div {
-    border: 1px solid black;
-}
-
 body {
     background-color: #023C47;
 }
@@ -38,7 +34,7 @@ body {
     margin-bottom: 5%;
 }
 
-.body {
+.formDiv {
     margin: 0% 5% 3% 5%;
     width: 90%;
     overflow-y: auto;
@@ -49,7 +45,7 @@ body {
 }
 
 /* By default, set the scrollbar to be invisible */
-.body::-webkit-scrollbar {
+.formDiv::-webkit-scrollbar {
     width: 0; /* For Chrome, Safari, and newer versions of Opera */
 }
 
