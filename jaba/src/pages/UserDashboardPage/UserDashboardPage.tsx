@@ -12,7 +12,7 @@ import {
 
 interface Resource {
     zip: string;
-    primaryCatagory: string;
+    primaryCategory: string;
     name: string;
     // Only include the fields you need in your component
   }
@@ -51,14 +51,19 @@ const UserDashboardPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const q = query(collection(db, 'resources'), where('name', '==', inputText));
-        const snapshot = await getDocs(q);
+        const queryName = query(
+            collection(db, 'resources'),
+            where('name', '==', inputText),
+            // where('zip', '==', inputText),
+            where('primaryCategory', '==', inputText)
+          );
+
+        const snapshot = await getDocs(queryName);
 
         const data: Resource[] = snapshot.docs.map(doc => ({
           name: doc.data().name,
           zip: doc.data().zip,
-          primaryCatagory: doc.data().primaryCatagory,
-          // include other fields...
+          primaryCategory: doc.data().primaryCategory,
         })) as Resource[];
 
         setResults(data);
