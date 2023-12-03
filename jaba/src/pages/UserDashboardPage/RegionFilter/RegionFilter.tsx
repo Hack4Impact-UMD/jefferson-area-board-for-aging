@@ -126,7 +126,7 @@ const RegionFilter = () => {
             </div>
             
             <div className={styles.zip}>
-                <label className={`${styles.headerText} ${styles.ziptext}`} htmlFor="zip-code">Zip code</label>
+                <label className={`${styles.headerText} ${styles.ziptext}`} htmlFor="zip-code">Zip code:</label>
                 <input className={styles.zipcode}></input>
             </div>
             <div>

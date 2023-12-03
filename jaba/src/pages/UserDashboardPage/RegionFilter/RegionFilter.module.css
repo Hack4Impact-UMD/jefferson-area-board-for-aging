@@ -1,3 +1,5 @@
+/* div{ border: 1px solid black;} */
+
 .content {
     width: 90%;
     max-width: 290px;
@@ -165,7 +167,7 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    margin: 0% 5% 1% 5%;
+    margin: 0% 5% 1% 0%;
 }
 
 .selectBtnText {
