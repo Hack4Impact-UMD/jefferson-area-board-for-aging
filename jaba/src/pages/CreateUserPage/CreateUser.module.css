@@ -1,3 +1,7 @@
+div {
+    border: 1px solid black;
+}
+
 body {
     background-color: #023C47;
 }
@@ -59,8 +63,14 @@ form {
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "fullname position" "email address" "phone options" "organization additional" "... submit_btn";
     column-gap: 10%;
-    row-gap: 15%;
+    row-gap: 10vh;
     justify-content: center;
+}
+
+@media (min-height: 700px) {
+    .fields { /* Decrease size of row gap when screen zooms out past certain point */
+        row-gap: 5vh;
+    }
 }
 
 .entry {
@@ -157,7 +167,7 @@ input::placeholder {
     display: flex;
     justify-content: center;
     position: relative;
-    top: 30%;
+    margin-top: 5vh;
 }
 
 .submitButton {
