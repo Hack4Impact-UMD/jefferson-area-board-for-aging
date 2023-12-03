@@ -6,7 +6,9 @@ import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword/ResetPassword";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import AdminLoginPage from "./pages/AdminLoginPage/LoginSignInPage";
+import UserDashboardPage from "./pages/UserDashboardPage/UserDashboardPage";
 import { useAuth, UserProvider } from './UserContext/UserContext';
+
 
 
 const ProtectedRoutes: React.FC = () => {

@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import styles from './LoginSignInPage.module.css';
 import { ReactComponent as SignIn } from '../../assets/signin_actual.svg';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox from '@mui/material/Checkbox';
+// import FormControlLabel from '@mui/material/FormControlLabel';
+// import Checkbox from '@mui/material/Checkbox';
 import { UilEye as EyeOpened, UilEyeSlash as EyeClosed } from "@iconscout/react-unicons";
 
 const LoginSignInPage = () => {
@@ -48,14 +48,14 @@ const LoginSignInPage = () => {
             </div>
             <div className={styles.flexContainer}>
               <div className={styles.checkboxProperty}>
-              <FormControlLabel
+              {/* <FormControlLabel
                 control={<Checkbox value="remember"  sx={{ '& .MuiSvgIcon-root': { fontSize: 22 } }} />}
                 label={
                   <span style={{ color: '#4D4D4D', fontFamily: 'Inter', fontSize: '14px'}}>
                     Remember me
                   </span>
                 }
-              />
+              /> */}
               </div>
               <div className={styles.forgotPassword}> 
                 <p><a href="gotoresgisterpagefromhere" className={styles.forgotPassword}>Forgot Password?</a></p>

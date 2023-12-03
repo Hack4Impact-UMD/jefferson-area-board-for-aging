@@ -3,6 +3,7 @@ import styles from './UserDashboardPage.module.css';
 import NavBar from '../../components/NavBar/NavBar';
 import AdminHomeDashboard from '../../assets/adminhomedashboard.png';
 import FilterIcon from '../../assets/filtericon.svg';
+import TextField from "@mui/material/TextField";
 
 const UserDashboardPage = () => {
     const handleClick = () => {
@@ -10,6 +11,13 @@ const UserDashboardPage = () => {
 
     const isAdmin = true;
     const props = {isAdmin};
+
+    const [inputText, setInputText] = useState("");
+    let inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    //convert input text to lower case
+    var lowerCase = e.target.value.toLowerCase();
+    setInputText(lowerCase);
+  };
 
     return (
       <>
@@ -19,7 +27,7 @@ const UserDashboardPage = () => {
                 <div className={styles.topPart}>
                     <div className={styles.searchBar}>
                         <button className={styles.magnifyingGlassBox}></button>
-                        <input className={styles.textBox} placeholder="" />
+                        <input className={styles.textBox} type="text" value={inputText} onChange={inputHandler} placeholder="testestest" />
                         <img className={styles.filterImage} src={FilterIcon}/>
                     </div>
                 </div>
