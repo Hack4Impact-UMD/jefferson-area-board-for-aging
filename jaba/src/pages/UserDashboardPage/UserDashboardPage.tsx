@@ -62,6 +62,7 @@ const UserDashboardPage = () => {
         })) as Resource[];
 
         setResults(data);
+        console.log('Search results:', data);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
