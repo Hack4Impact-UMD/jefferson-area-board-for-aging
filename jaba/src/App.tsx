@@ -6,9 +6,10 @@ import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword/ResetPassword";
 import NavBar from "./components/NavBar/NavBar";
 import LoginWelcomePage from "./pages/LoginWelcomePage/LoginWelcomePage";
-import LoginSignInAdminPage from "./pages/AdminLoginPage/LoginSignInPage";
+import AdminLoginPage from "./pages/LoginPage/AdminLoginPage";
+import UserLoginPage from "./pages/LoginPage/UserLoginPage";
+
 import { useAuth, UserProvider } from './UserContext/UserContext';
-import LoginSignInUserPage from "./pages/UserLoginPage/LoginSignInPage";
 import {createBrowserRouter,createRoutesFromElements, RouterProvider, Route} from 'react-router-dom';
 
 
@@ -23,12 +24,12 @@ const router = createBrowserRouter([
     children: [
       {index: true, element:<LoginWelcomePage/>},
       {path: '/adminLogin', children:[
-        {index: true, element:<LoginSignInAdminPage/>},
+        {index: true, element:<AdminLoginPage/>},
         {path: "navBar", element: <NavBar admin={true}/>},
       ]
 
       },
-      {path: '/userLogin', element: <LoginSignInUserPage/>},
+      {path: '/userLogin', element: <UserLoginPage/>},
       {path: '/forgotPassword', element: <ForgotPassword/>},
       {path: '/requestAccount', element: <RequestAccountPage/>}
 

@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
-import styles from './LoginSignInPage.module.css';
+import styles from './LoginPage.module.css';
 import { ReactComponent as SignIn } from '../../assets/signin_actual.svg';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import { UilEye as EyeOpened, UilEyeSlash as EyeClosed } from "@iconscout/react-unicons";
 import {NavLink} from 'react-router-dom'
 
-const LoginSignInAdminPage = () => {
+const LoginAdminPage = () => {
 
   const [isVisiblePassword, setIsVisiblePassword] = useState(true);
 
@@ -80,4 +80,4 @@ const LoginSignInAdminPage = () => {
 
 }
   
-export default LoginSignInAdminPage;
+export default LoginAdminPage;
