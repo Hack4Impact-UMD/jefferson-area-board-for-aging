@@ -8,7 +8,8 @@ import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 
 const RegionFilter = () => {
-    const [stateSelect, setStateSelect] = React.useState<string[]>([])
+    const [selected, setSelect] = React.useState<string[]>([])
+
     const states = [
         "AL",
         "AK",
@@ -60,20 +61,37 @@ const RegionFilter = () => {
     }
 
     // Takes in type string for category
-    const handleToggle = (category: string) => {
+    const handleToggle = (selection: string) => {
         // Updates the state of serviceCategory, prev is the previous state
-        setStateSelect(prev => {
-          const currentIndex = prev.indexOf(category);
-          const newChecked = [...prev];
-        // Create new array that represents the list of selected categories
-          if (currentIndex === -1) {
-            newChecked.push(category);
-          } else {
-            newChecked.splice(currentIndex, 1);
-          }
-    
-          return newChecked;
+        setSelect(prev => {
+            
+            // console.log("selection", selection);
+            // console.log("selected", selected);
+
+            if (selected.length > 0 && (states.includes(selected[0]) && states.includes(selection) || 
+                districts.includes(selected[0]) && districts.includes(selection)) || selected.length == 0) {
+                
+                console.log("in if");
+
+                const currentIndex = prev.indexOf(selection);
+                const newChecked = [...prev];
+                // Create new array that represents the list of selected categories
+                if (currentIndex === -1) {
+                    newChecked.push(selection);
+                } else {
+                    newChecked.splice(currentIndex, 1);
+                }
+            
+                return newChecked;
+                
+            } 
+
+            return prev;
+            
         });
+
+        
+
       };
     
     const selectAllStates = () => {
@@ -106,7 +124,7 @@ const RegionFilter = () => {
         }
     }
     
-    const isSelected = (category: string) => stateSelect.includes(category);    
+    const isSelected = (category: string) => selected.includes(category);    
     
     return (
         <div className={styles.content}>
@@ -166,7 +184,7 @@ const RegionFilter = () => {
 
             <div className={styles.districtBlock}>
                 <p className={`${styles.headerText} ${styles.stateHeader}`}>Planning Districts:</p>
-                {stateSelect.length > 0 && <button className={styles.alreadySelected}>State Already Selected</button>}
+                {selected.length > 0 && <button className={styles.alreadySelected}>State Already Selected</button>}
             </div>
             <div className={styles.stateBody}>      
                 <div className={styles.stateTable}>
