@@ -27,8 +27,8 @@ const UserDashboardPage = () => {
     const [inputText, setInputText] = useState("");
     let inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         //convert input text to lower case
-        var lowerCase = e.target.value.toLowerCase();
-        setInputText(lowerCase);
+        // var lowerCase = e.target.value.toLowerCase();
+        setInputText(e.target.value);
     };
 
     const firebaseConfig = {
@@ -51,7 +51,7 @@ const UserDashboardPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const q = query(collection(db, 'resources'), where('name', '>=', inputText));
+        const q = query(collection(db, 'resources'), where('name', '==', inputText));
         const snapshot = await getDocs(q);
 
         const data: Resource[] = snapshot.docs.map(doc => ({
