@@ -10,6 +10,13 @@ import {
 } from 'firebase/firestore'
 
 
+interface Resource {
+    zip: string;
+    primaryCatagory: string;
+    name: string;
+    // Only include the fields you need in your component
+  }
+
 const UserDashboardPage = () => {
     const handleClick = () => {
     };
@@ -35,35 +42,35 @@ const UserDashboardPage = () => {
         measurementId: "G-86HY6DRMGQ"
     };
 
-    initializeApp(firebaseConfig)
+    const app = initializeApp(firebaseConfig)
+    const db = getFirestore(app);
 
-
-    const db = getFirestore()
-
-    const collectionReference = collection(db, 'resources')
-
-    // const q = query(collectionReference, where("zip", "==", "12345"))
-
-    getDocs(collectionReference)
-        .then((snapshot) => {
-            let resources: { id: string; }[] = []
-            snapshot.docs.forEach((doc) => {
-                resources.push({ ...doc.data(), id: doc.id })
-            })
-            console.log(resources)
-        })
-
-        .catch(err => {
-            console.log(err.message)
-        })
-
-    const docRef = doc(db, 'resources', '8jaI6WBs9gZGNjzwbfIP')
-
-    getDoc(docRef)
-        .then((doc) => {
-            console.log(doc.data, doc.id)
-        })
     
+  const [results, setResults] = useState<Resource[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const q = query(collection(db, 'resources'), where('name', '>=', inputText));
+        const snapshot = await getDocs(q);
+
+        const data: Resource[] = snapshot.docs.map(doc => ({
+          name: doc.data().name,
+          zip: doc.data().zip,
+          primaryCatagory: doc.data().primaryCatagory,
+          // include other fields...
+        })) as Resource[];
+
+        setResults(data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, [inputText]);
+
+
     return (
       <>
         <NavBar {...props}/>
