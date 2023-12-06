@@ -1,3 +1,5 @@
+import AdminSettingsPage from "./pages/SettingsPage/AdminSettingsPage";
+import UserSettingsPage from "./pages/SettingsPage/UserSettingsPage";
 import CreateUser from "./pages/CreateUserPage/CreateUser";
 import RequestAccountPage from "./pages/RequestAccount/RequestAccountPage";
 import ExamplePage from "./pages/ExamplePage/ExamplePage";
@@ -39,10 +41,8 @@ const router = createBrowserRouter([
 ])
 const App: React.FC = () => {
   return (
-   
   <RouterProvider router = {router}/>
-   
   );
-}
+};
 
 export default App;
