@@ -1,5 +1,4 @@
 import styles from './NavBar.module.css';
-import { Component } from 'react';
 import HomeBlack from '../../assets/icons/homeBlack.png';
 import SettingsBlack from '../../assets/icons/settingsBlack.png';
 import UsersBlack from '../../assets/icons/usersBlack.png';
@@ -9,15 +8,9 @@ import SettingsWhite from '../../assets/icons/settingsWhite.png';
 import UsersWhite from '../../assets/icons/usersWhite.png';
 import LogoutWhite from '../../assets/icons/logoutWhite.png';
 
-class NavBar extends Component<{}, { isAdmin: boolean }>{
-    admin = false;
+const NavBar = (props: any) => {
+    
 
-    constructor(props: {isAdmin: boolean}) {
-        super(props);
-        this.admin = props.isAdmin;
-    }
-
-    render() {
         return (
             <div className={styles.sidebar}>
                 <h2 className={styles.headerStyle}>[ n a m e ]</h2>
@@ -35,9 +28,11 @@ class NavBar extends Component<{}, { isAdmin: boolean }>{
                                 <span>Settings</span>
                             </a>
                         </li>
-                        <li className={styles.list}>
-                            {this.admin && (<a className={window.location.href === 'http://localhost:3000/users' ? styles.blockStyle : styles.textStyle} href="/users">
-                                <img src ={window.location.href === 'http://localhost:3000/users' ? UsersWhite : UsersBlack}/>
+
+                        <li>
+                            {props.admin && (<a className={window.location.href == 'http://localhost:3000/users' ? styles.blockStyle : styles.textStyle} href="/users">
+                                <img src ={window.location.href == 'http://localhost:3000/users' ? UsersWhite : UsersBlack}/>
+
                                 <span>Users</span>
                             </a>)}
                         </li>
@@ -56,6 +51,6 @@ class NavBar extends Component<{}, { isAdmin: boolean }>{
             </div>
         );
     }
-}
+
 
 export default NavBar;
