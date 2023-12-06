@@ -15,30 +15,32 @@ const NavBar = (props: any) => {
             <div className={styles.sidebar}>
                 <h2 className={styles.headerStyle}>[ n a m e ]</h2>
                 <div>
-                    <ul>
-                        <li>
-                            <a className={window.location.href == 'http://localhost:3000/' ? styles.blockStyle : styles.textStyle} href="/">
-                                <img src ={window.location.href == 'http://localhost:3000/' ? HomeWhite : HomeBlack}/>
+                    <ul className={styles.ulist}>
+                        <li className={styles.list}>
+                            <a className={window.location.href === 'http://localhost:3000/' ? styles.blockStyle : styles.textStyle} href="/">
+                                <img src ={window.location.href === 'http://localhost:3000/' ? HomeWhite : HomeBlack}/>
                                 <span>Home</span>
                             </a>
                         </li>
-                        <li>
-                            <a className={window.location.href == 'http://localhost:3000/settings' ? styles.blockStyle : styles.textStyle} href="/settings">
-                                <img src ={window.location.href == 'http://localhost:3000/settings' ? SettingsWhite : SettingsBlack}/>
+                        <li className={styles.list}>
+                            <a className={window.location.href === 'http://localhost:3000/settings' ? styles.blockStyle : styles.textStyle} href="/settings">
+                                <img src ={window.location.href === 'http://localhost:3000/settings' ? SettingsWhite : SettingsBlack}/>
                                 <span>Settings</span>
                             </a>
                         </li>
+
                         <li>
                             {props.admin && (<a className={window.location.href == 'http://localhost:3000/users' ? styles.blockStyle : styles.textStyle} href="/users">
                                 <img src ={window.location.href == 'http://localhost:3000/users' ? UsersWhite : UsersBlack}/>
+
                                 <span>Users</span>
                             </a>)}
                         </li>
                     </ul>
                 </div>
                 <div className={styles.logout}>
-                    <ul> 
-                        <li>
+                    <ul className={styles.ulist}> 
+                        <li className={styles.list}>
                             <a className={styles.textStyle} href="/logout?">
                                 <img src={LogoutBlack}/>
                                 <span>Logout</span>
