@@ -4,12 +4,73 @@ import NavBar from '../../components/NavBar/NavBar';
 import AdminHomeDashboard from '../../assets/adminhomedashboard.png';
 import FilterIcon from '../../assets/filtericon.svg';
 
+import { initializeApp } from 'firebase/app';
+import {
+    getFirestore, collection, getDocs, query, where, getDoc, doc, onSnapshot, or
+} from 'firebase/firestore'
+
+
+interface Resource {
+    zip: string;
+    primaryCategory: string;
+    name: string;
+    // Only include the fields you need in your component
+  }
+
 const UserDashboardPage = () => {
     const handleClick = () => {
     };
 
     const isAdmin = true;
     const props = {isAdmin};
+
+    const [inputText, setInputText] = useState("");
+    let inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+        //convert input text to lower case
+        // var lowerCase = e.target.value.toLowerCase();
+        setInputText(e.target.value);
+    };
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyAkQeokcnpcyhqzUX3_--AOeOCsaZ2fPe0",
+        authDomain: "jaba-fbac4.firebaseapp.com",
+        databaseURL: "https://jaba-fbac4-default-rtdb.firebaseio.com",
+        projectId: "jaba-fbac4",
+        storageBucket: "jaba-fbac4.appspot.com",
+        messagingSenderId: "155994837451",
+        appId: "1:155994837451:web:43027c84df3fdbef67664e",
+        measurementId: "G-86HY6DRMGQ"
+    };
+
+    const app = initializeApp(firebaseConfig)
+    const db = getFirestore(app);
+
+    
+  const [results, setResults] = useState<Resource[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const queryName = query(collection(db, 'resources'), or(where('name', '==', inputText), where('physicalAddress.zip', '==', inputText), where('primaryCategory', '==', inputText)));
+
+        const snapshot = await getDocs(queryName);
+
+        const data: Resource[] = snapshot.docs.map(doc => ({
+          name: doc.data().name,
+          zip: doc.data().physicalAddress.zip,
+          primaryCategory: doc.data().primaryCategory,
+        })) as Resource[];
+
+        setResults(data);
+        console.log('Search results:', data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, [inputText]);
+
 
     return (
       <>
@@ -19,7 +80,7 @@ const UserDashboardPage = () => {
                 <div className={styles.topPart}>
                     <div className={styles.searchBar}>
                         <button className={styles.magnifyingGlassBox}></button>
-                        <input className={styles.textBox} placeholder="" />
+                        <input className={styles.textBox} type="text" value={inputText} onChange={inputHandler} placeholder="testestest" />
                         <img className={styles.filterImage} src={FilterIcon}/>
                     </div>
                 </div>
