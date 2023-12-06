@@ -6,7 +6,7 @@ import FilterIcon from '../../assets/filtericon.svg';
 
 import { initializeApp } from 'firebase/app';
 import {
-    getFirestore, collection, getDocs, query, where, getDoc, doc, onSnapshot
+    getFirestore, collection, getDocs, query, where, getDoc, doc, onSnapshot, or
 } from 'firebase/firestore'
 
 
@@ -51,18 +51,13 @@ const UserDashboardPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const queryName = query(
-            collection(db, 'resources'),
-            where('name', '==', inputText),
-            // where('zip', '==', inputText),
-            where('primaryCategory', '==', inputText)
-          );
+        const queryName = query(collection(db, 'resources'), or(where('name', '==', inputText), where('physicalAddress.zip', '==', inputText), where('primaryCategory', '==', inputText)));
 
         const snapshot = await getDocs(queryName);
 
         const data: Resource[] = snapshot.docs.map(doc => ({
           name: doc.data().name,
-          zip: doc.data().zip,
+          zip: doc.data().physicalAddress.zip,
           primaryCategory: doc.data().primaryCategory,
         })) as Resource[];
 
