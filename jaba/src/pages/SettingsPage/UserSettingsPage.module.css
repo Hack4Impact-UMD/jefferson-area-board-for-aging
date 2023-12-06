@@ -1,9 +1,11 @@
 .mainContainer {
     display: flex;
     justify-content: flex-end;
+    height: 100vh;
 }
 
 .colorContainer {
+    height: 100%;
     width: 80%;
     background-color: rgb(4, 60, 68);
     padding: 2rem;
@@ -31,7 +33,7 @@
 }
 
 .inputContainer {
-    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 .inputHeader {
@@ -41,7 +43,7 @@
 }
 
 input {
-    height: 2rem;
+    height: 1.5rem;
     font: 0.75rem;
     padding: 0.5rem;
     border-radius: 0.25rem;
@@ -81,7 +83,7 @@ img {
 
 .deleteConfirmation {
     position: fixed;
-    top: 25%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
@@ -104,7 +106,7 @@ img {
 .popupContent {
     text-align: center;
     font-size: 1.25rem;
-    font-family: "Rubik";
+    font-family: 'Inter';
 }
 
 .emailImage {

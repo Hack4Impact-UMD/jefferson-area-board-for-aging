@@ -69,7 +69,7 @@ const AdminSettingsPage = () => {
             <div className={styles.dashboardContainer}>
               <div className={styles.dashboardHeader}>Dashboard Settings</div>
               <button
-                className={styles.edit_cat_button}
+                className={styles.editCategoryButton}
                 onClick={() => {
                   window.open("https://www.google.com", "_blank");
                 }}

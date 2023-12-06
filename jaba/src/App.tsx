@@ -15,7 +15,7 @@ const ProtectedRoutes: React.FC = () => {
 const App: React.FC = () => {
   return (
     <>
-      <AdminSettingsPage />
+      {/* <AdminSettingsPage /> */}
       <UserSettingsPage />
       {/* <UserProvider>
       <ProtectedRoutes />
