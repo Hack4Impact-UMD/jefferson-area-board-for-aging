@@ -1,7 +1,18 @@
 import styles from "./AdminSettingsPage.module.css";
 import { ReactComponent as PencilImage } from "../../assets/pencil.svg";
+import {ReactComponent as EmailImage} from "../../assets/email.svg";
+import React, { useState } from "react";
 
 const AdminSettingsPage = () => {
+  const [showDeleteConfirmation, setShowDeleteConfirmation] = useState(false);
+
+  const handleDeleteClick = () => {
+    setShowDeleteConfirmation(true);
+  };
+
+  const handleConfirmDelete = () => {
+    setShowDeleteConfirmation(false);
+  };
   return (
     <div className={styles.mainContainer}>
       <div className={styles.colorContainer}>
@@ -55,8 +66,8 @@ const AdminSettingsPage = () => {
                 />
               </div>
             </div>
-            <div className="dashboard_container">
-              <div className="dashboard_header">Dashboard Settings</div>
+            <div className={styles.dashboardContainer}>
+              <div className={styles.dashboardHeader}>Dashboard Settings</div>
               <button
                 className={styles.edit_cat_button}
                 onClick={() => {
@@ -72,12 +83,21 @@ const AdminSettingsPage = () => {
           </div>
           <button
             className={styles.resetButton}
-            onClick={() => {
-              window.open("https://www.google.com", "_blank");
-            }}
+            onClick={handleDeleteClick}
           >
             Delete Account
           </button>
+
+      {showDeleteConfirmation && (
+        <div className={styles.deleteConfirmation}>
+          <div className={styles.popupHeader}>Are you sure?</div>
+          <div className={styles.popupContent}>To delete your profile, check the email inbox associated with this account. We have sent you a confirmation email containing a verification to continue the profile deletion process.</div>
+          <EmailImage className={styles.emailImage}/>
+          <div className={styles.buttonContainer}>
+            <button className={styles.popupButton} onClick={handleConfirmDelete}>Okay</button>
+          </div>
+        </div>
+      )}
         </div>
       </div>
     </div>

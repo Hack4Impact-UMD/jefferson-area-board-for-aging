@@ -5,7 +5,7 @@
 
 .colorContainer {
     width: 80%;
-    background-color: rgb(4,60,68);
+    background-color: rgb(4, 60, 68);
     padding: 2rem;
     min-height: fit-content;
     box-sizing: border-box;
@@ -73,7 +73,7 @@ img {
 }
 
 .resetButton {
-    background-color:rgba(208, 87, 70, 0.50);
+    background-color: rgba(208, 87, 70, 0.50);
     color: black;
     border: none;
     font-family: 'DM Serif Text', serif;
@@ -92,7 +92,7 @@ img {
 }
 
 .edit_cat_button {
-    background-color:black;
+    background-color: black;
     color: white;
     border: none;
     font-family: 'DM Serif Text', serif;
@@ -103,8 +103,69 @@ img {
     margin-top: 1.25rem;
 }
 
+.dashboardContainer {
+    width: 50%;
+    margin-left: 10%;
+}
+
 .dashboardInfo {
     font-size: 0.75rem;
     margin-top: 0.75rem;
     font-family: "Inter";
+}
+
+.deleteConfirmation {
+    position: fixed;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.popupHeader {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    font-family: 'DM Serif Text', serif;
+}
+
+.popupContent {
+    text-align: center;
+    font-size: 1.25rem;
+    font-family: "Rubik";
+}
+
+.emailImage {
+    display: flex;
+    align-self: center;
+    margin-top: 1.5rem;
+    margin-bottom: 1.75rem;
+}
+
+.popupButton {
+    background-color: rgb(4, 60, 68);
+    border: none;
+    outline: none;
+    padding: 0;
+    color: white;
+    font-size: 1.5rem;
+    padding-inline: 5rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    width: min-content;
+    display: flex;
+    border-radius: 0.4rem;
+    font-family: 'DM Serif Text', serif;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: center;
 }
