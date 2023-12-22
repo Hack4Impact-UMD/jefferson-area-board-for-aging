@@ -29,6 +29,7 @@ Hosting for this project haven’t been set up yet, but we plan on using Firebas
 ## Project Structure
 ### Backend - Firebase
 - Contact Eric or Ricky to gain access to our firebase console
+- We used the Firestore database feature of firebase to store our data
 - For our project, we stored two collections on firebase:
   
 Resources: used to store all the services/resources provided by the organization
