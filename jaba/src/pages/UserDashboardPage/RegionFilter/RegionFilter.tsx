@@ -9,6 +9,8 @@ import FormLabel from '@mui/material/FormLabel';
 
 const RegionFilter = () => {
     const [selected, setSelect] = React.useState<string[]>([])
+    const [isSubCatBtnVisible, setIsSubCatBtnVisible] = React.useState(true)
+    const [subCategoryElts, setSubCategoryElts] = React.useState<string[]>([])
 
     const states = [
         "AL",
@@ -91,9 +93,6 @@ const RegionFilter = () => {
             return prev;
             
         });
-
-        
-
       };
     
     const selectAllStates = () => {
@@ -127,7 +126,30 @@ const RegionFilter = () => {
         }
     }
     
-    const isSelected = (category: string) => selected.includes(category);    
+    const isSelected = (category: string) => selected.includes(category);  
+    
+    const handleSubCategory = (categories: Map<string, Array<string>>) => {
+        let subCategoryArray = []
+        let toggleSubCategoriesBtn = true
+        for (const subCategory of Array.from(categories.keys())) {
+            const subCategories= categories.get(subCategory)
+            if (subCategories && subCategories.length > 0 && isSelected(subCategory)) {
+                subCategoryArray.push(...subCategories)
+                toggleSubCategoriesBtn = false
+            }
+        }
+        // Add a popup that warns the user to select a category if nothing was displayed
+        // update visibility
+        setIsSubCatBtnVisible(toggleSubCategoriesBtn)
+
+        //Change list to subcategories
+        setSubCategoryElts(subCategoryArray.sort())
+    }
+
+    // Return to primary category list
+    const handlePrimCategory = () => {
+        setIsSubCatBtnVisible(true)
+    }
     
     return (
         <div className={styles.content}>
@@ -198,21 +220,39 @@ const RegionFilter = () => {
                     <ThemeProvider theme={createTheme()}>
                         <div className={styles.dropDown}>
                             <div className = {styles.dropDownContent}>
-                                {processCategories(Array.from(districtsMapping.keys())).map(({key, content}) => 
-                                    React.isValidElement(content) ? (
-                                        <div key={key}>{content}</div>
-                                    ) : (
-                                        <div
-                                        key={key}
-                                        onClick={() => handleToggle(content as string)}
-                                        className={`${styles.item} ${isSelected(content as string) ? styles.itemSelected: ''}`}
-                                        >
-                                        {content}
+                            {isSubCatBtnVisible ? (processCategories(Array.from(districtsMapping.keys())).map(({key, content}) => 
+                            React.isValidElement(content) ? (
+                                <div key={key}>{content}</div>
+                            ) : (
+                                <div
+                                key={key}
+                                onClick={() => handleToggle(content as string)}
+                                className={`${styles.item} ${isSelected(content as string) ? styles.itemSelected: ''}`}
+                                >
+                                {content}
+                                </div>
+                            ))
+                        ) : (
+                            processCategories(subCategoryElts).map(({key, content}) => {
+                                if ( React.isValidElement(content)) {
+                                    return <div key={key}>{content}</div>
+                                } else {
+                                    return (
+                                        <div key={key} className={styles.item}>
+                                            {content}
                                         </div>
-                                    ))}
+                                    )
+                                }
+                            })
+                        )}
                             </div>
                         </div>
                     </ThemeProvider>
+                    {isSubCatBtnVisible && 
+                    <button className={styles.subCategory}
+                    onClick={() => handleSubCategory(districtsMapping)}>
+                        {'County>>'}
+                    </button>}
                 </div>
                 <button 
                         className={`${styles.headerText} ${styles.selectAll}`}

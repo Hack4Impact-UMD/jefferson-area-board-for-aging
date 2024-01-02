@@ -215,6 +215,20 @@
     flex-wrap: nowrap;
 }
 
+.subCategory {
+    background: transparent;
+    border: none;
+    color: #000;
+    font-family: 'DM Serif Text';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    cursor: pointer;
+    margin: 2% 0% 5% 40%;
+    white-space: nowrap;
+}
+
 .alreadySelected {
     width: 80%; 
     height: 100%;

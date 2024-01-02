@@ -6,7 +6,7 @@ import styles from "./CategoryFilter.module.css"
 
 const CategoryFilter = () => {
     const [serviceCategory, setServiceCategory] = React.useState<string[]>([])
-    const [isSubCatBtnVisible, setisSubCatBtnVisible] = React.useState(true)
+    const [isSubCatBtnVisible, setIsSubCatBtnVisible] = React.useState(true)
     // const [isPrimCatBtnVisible, setisPrimCatBtnVisible] = React.useState(false)
     const [subCategoryElts, setSubCategoryElts] = React.useState<string[]>([])
 
@@ -87,15 +87,17 @@ const CategoryFilter = () => {
         }
         // Add a popup that warns the user to select a category if nothing was displayed
         // update visibility
-        setisSubCatBtnVisible(toggleSubCategoriesBtn)
+        setIsSubCatBtnVisible(toggleSubCategoriesBtn)
 
         //Change list to subcategories
         setSubCategoryElts(subCategoryArray.sort())
     }
+
     // Return to primary category list
     const handlePrimCategory = () => {
-        setisSubCatBtnVisible(true)
+        setIsSubCatBtnVisible(true)
     }
+
     return (
     <div className={styles.content}>
         <button className={styles.primCategory}
@@ -129,7 +131,7 @@ const CategoryFilter = () => {
                                 return <div key={key}>{content}</div>
                             } else {
                                 return (
-                                    <div key={key} className={styles.subCatItems}>
+                                    <div key={key} className={styles.item}>
                                         {content}
                                     </div>
                                 )
