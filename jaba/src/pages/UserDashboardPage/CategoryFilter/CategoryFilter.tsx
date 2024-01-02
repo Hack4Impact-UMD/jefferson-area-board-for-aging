@@ -104,7 +104,7 @@ const CategoryFilter = () => {
                 (
                 <p className={styles.selectBtnText}>Select</p>
                 ) : (
-                <p className={styles.primCategoryText}>{'>> Primary Category'}</p>  
+                <p className={styles.primCategoryText}>{'<< Primary Category'}</p>  
                 )
             }
         </button>
