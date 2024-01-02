@@ -24,14 +24,14 @@ const RegionFilter = () => {
         "FL"
     ]
 
-    const districts = [
-        "A district",
-        "B district 1",
-        "B district 2",
-        "B district 3",
-        "C district",
-        "D district"
-    ]
+    const districtsMapping = new Map<string, Array<string>>([
+        ["A district", ["A county (D-A1)", "B county (D-A1)"]],
+        ["B district 1",["C county (D-B1)", "Z county (D-B1)"]],
+        ["B district 2",["D county (D-B2)", "F county (D-B2)", "G county (D-B2)"]],
+        ["B district 3",["A county (D-B3)", "M county (D-B3)", "N county (D-B3)", "O county (D-B3)"]],
+        ["C district",["X county (D-C1)"]],
+        ["D district",[]]
+    ]);
 
     const processCategories = (categories: string[]): { key: string, content: string | JSX.Element }[] => {
         const sortedCategories = categories.sort();
@@ -69,6 +69,7 @@ const RegionFilter = () => {
             // console.log("selected", selected);
             
             // don't allow simultaneous selection of states and districts
+            const districts = Array.from(districtsMapping.keys());
             if (selected.length > 0 && (states.includes(selected[0]) && states.includes(selection) || 
                 districts.includes(selected[0]) && districts.includes(selection)) || selected.length == 0) {
                 
@@ -111,6 +112,7 @@ const RegionFilter = () => {
     }
 
     const selectAllDistricts = () => {
+        const districts = Array.from(districtsMapping.keys());
         const areAllSelected = districts.every(district => isSelected(district));
         for (const district of districts) {
             if (areAllSelected) {
@@ -186,7 +188,7 @@ const RegionFilter = () => {
             <div className={styles.districtBlock}>
                 <p className={`${styles.headerText} ${styles.stateHeader}`}>Planning Districts:</p>
                 {selected.length > 0 && states.includes(selected[0]) && <button className={styles.alreadySelected}>State Already Selected</button>}
-                {selected.length > 0 && districts.includes(selected[0]) && <button className={styles.alreadySelected}>District Already Selected</button>}
+                {selected.length > 0 && Array.from(districtsMapping.keys()).includes(selected[0]) && <button className={styles.alreadySelected}>District Already Selected</button>}
             </div>
             <div className={styles.stateBody}>      
                 <div className={styles.stateTable}>
@@ -196,7 +198,7 @@ const RegionFilter = () => {
                     <ThemeProvider theme={createTheme()}>
                         <div className={styles.dropDown}>
                             <div className = {styles.dropDownContent}>
-                                {processCategories(districts).map(({key, content}) => 
+                                {processCategories(Array.from(districtsMapping.keys())).map(({key, content}) => 
                                     React.isValidElement(content) ? (
                                         <div key={key}>{content}</div>
                                     ) : (
