@@ -177,9 +177,9 @@ const RegionFilter = () => {
             </div>
             <div className={styles.stateBody}>      
                 <div className={styles.stateTable}>
-                    <div className={`${styles.paragraphText} ${styles.selectBtnText}`}>
-                        <p className={styles.textSelect}>Select</p>
-                    </div>
+                    <button className={styles.primCategory}>
+                        <p className={styles.selectBtnText}>Select</p>
+                    </button>
                     <ThemeProvider theme={createTheme()}>
                         <div className={styles.dropDown}>
                             <div className = {styles.dropDownContent}>
@@ -214,9 +214,16 @@ const RegionFilter = () => {
             </div>
             <div className={styles.stateBody}>      
                 <div className={styles.stateTable}>
-                    <div className={`${styles.paragraphText} ${styles.selectBtnText}`}>
-                        <p className={styles.textSelect}>Select</p>
-                    </div>
+                    <button className={styles.primCategory}
+                    onClick={handlePrimCategory}> 
+                        {isSubCatBtnVisible ? 
+                            (
+                            <p className={styles.selectBtnText}>Select</p>
+                            ) : (
+                            <p className={styles.primCategoryText}>{'<< Planning District'}</p>  
+                            )
+                        }
+                    </button>
                     <ThemeProvider theme={createTheme()}>
                         <div className={styles.dropDown}>
                             <div className = {styles.dropDownContent}>
