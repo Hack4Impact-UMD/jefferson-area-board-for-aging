@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
-import styles from './LoginSignInPage.module.css';
+import styles from './LoginPage.module.css';
 import { ReactComponent as SignIn } from '../../assets/signin_actual.svg';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import { UilEye as EyeOpened, UilEyeSlash as EyeClosed } from "@iconscout/react-unicons";
+import {NavLink} from 'react-router-dom';
 
-const LoginSignInPage = () => {
+const LoginUserPage = () => {
 
   const [isVisiblePassword, setIsVisiblePassword] = useState(true);
 
@@ -22,7 +23,7 @@ const LoginSignInPage = () => {
               <p>Welcome!</p>
             </div>
             <div className={styles.alignWelcomeBlurb}>
-              <p>Sign in as a User</p>
+              <p>Sign in as an User</p>
             </div>
             <div className={styles.loginContainer}>
               <p className={styles.labelProperties}>Email</p>
@@ -58,15 +59,15 @@ const LoginSignInPage = () => {
               />
               </div>
               <div className={styles.forgotPassword}> 
-                <p><a href="gotoresgisterpagefromhere" className={styles.forgotPassword}>Forgot Password?</a></p>
+                <p><NavLink to="/forgotPassword" className={styles.forgotPassword}>Forgot Password?</NavLink></p>
               </div>
             </div>
             <div className={styles.loginBox}>
               <button className={styles.loginButton}>Login</button>
             </div>
               <div className={styles.registerBlurb}>
-                <p>Not a User? <a href="gotoresgisterpagefromhere" className={styles.boldText}><b>Switch to Admin Login</b></a></p>
-                <p>Don't have an account?<a href="gotoresgisterpagefromhere" className={styles.boldText}><b> Register</b></a></p>
+                <span>Not a User? <NavLink to="/adminLogin" className={styles.navlink}>Switch to Admin Login</NavLink></span> 
+                <span>Don't have an account? <NavLink to="/requestAccount" className={styles.navlink}>Register</NavLink></span>
               </div>
             </div>
         </div>
@@ -76,7 +77,6 @@ const LoginSignInPage = () => {
       </div>
     </>
   );
-
 }
   
-export default LoginSignInPage;
+export default LoginUserPage;
