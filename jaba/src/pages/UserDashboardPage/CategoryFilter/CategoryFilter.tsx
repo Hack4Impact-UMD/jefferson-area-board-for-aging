@@ -144,7 +144,7 @@ const CategoryFilter = () => {
         {isSubCatBtnVisible && 
         <button className={styles.subCategory}
         onClick={() => handleSubCategory(categories)}>
-            {'Sub-Category>>'}
+            {'Sub-Category >>'}
         </button>}
     </div>
     );

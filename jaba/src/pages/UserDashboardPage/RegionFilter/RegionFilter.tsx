@@ -153,8 +153,8 @@ const RegionFilter = () => {
     
     return (
         <div className={styles.content}>
-            <div className={styles.nationalServices}>
-                <p className={`${styles.headerText} ${styles.nationalServicesHeader}`}>Include National Services:</p>
+            <div className={styles.nationalSection}>
+                <p className={`${styles.headerText} ${styles.nationalHeader}`}>Include National Services:</p>
                 <div className={`${styles.headerText} ${styles.radioBtns}`}>
                     <div>
                         <input className={styles.radioBtn} type="radio" value="yes" name='nationalTypeRadio'/>
@@ -168,15 +168,15 @@ const RegionFilter = () => {
                 </div>
             </div>
             
-            <div className={styles.zip}>
-                <label className={`${styles.headerText} ${styles.ziptext}`} htmlFor="zip-code">Zip code:</label>
-                <input className={styles.zipcode}></input>
+            <div className={styles.zipSection}>
+                <label className={`${styles.headerText} ${styles.zipHeader}`} htmlFor="zip-code">Zip code:</label>
+                <input className={styles.zipInput}></input>
             </div>
             <div>
-                <p className={`${styles.headerText} ${styles.stateHeader}`}>State:</p>
+                <p className={`${styles.headerText} ${styles.stateAndDistrictHeader}`}>State:</p>
             </div>
-            <div className={styles.stateBody}>      
-                <div className={styles.stateTable}>
+            <div className={styles.stateAndDistrictBody}>      
+                <div className={styles.stateAndDistrictTable}>
                     <button className={styles.primCategory}>
                         <p className={styles.selectBtnText}>Select</p>
                     </button>
@@ -207,13 +207,13 @@ const RegionFilter = () => {
                 </button>
             </div>
 
-            <div className={styles.districtBlock}>
-                <p className={`${styles.headerText} ${styles.stateHeader}`}>Planning Districts:</p>
+            <div className={styles.districtHeader}>
+                <p className={`${styles.headerText} ${styles.stateAndDistrictHeader}`}>Planning Districts:</p>
                 {selected.length > 0 && states.includes(selected[0]) && <button className={styles.alreadySelected}>State Already Selected</button>}
                 {selected.length > 0 && Array.from(districtsMapping.keys()).includes(selected[0]) && <button className={styles.alreadySelected}>District Already Selected</button>}
             </div>
-            <div className={styles.stateBody}>      
-                <div className={styles.stateTable}>
+            <div className={styles.stateAndDistrictBody}>      
+                <div className={styles.stateAndDistrictTable}>
                     <button className={styles.primCategory}
                     onClick={handlePrimCategory}> 
                         {isSubCatBtnVisible ? 
@@ -258,7 +258,7 @@ const RegionFilter = () => {
                     {isSubCatBtnVisible && 
                     <button className={styles.subCategory}
                     onClick={() => handleSubCategory(districtsMapping)}>
-                        {'County>>'}
+                        {'County >>'}
                     </button>}
                 </div>
                 <button 
