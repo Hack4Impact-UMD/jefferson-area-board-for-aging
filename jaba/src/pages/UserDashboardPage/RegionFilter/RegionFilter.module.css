@@ -2,7 +2,7 @@
 
 .content {
     width: 90%;
-    max-width: 290px;
+    max-width: 296px;
     margin: -5% 8% 0% 8%;
 }
 
@@ -27,13 +27,17 @@
     margin-top: 0%;
 }
 
-.radioBtn {
+.radioBtns {
     display: flex;
     justify-content: flex-start;
     flex-wrap: nowrap;
     font-size: 14px;
     margin-top: 5%;
     margin-left: 5%;
+}
+
+.radioBtn {
+    width: 30%;
 }
 
 .zip {

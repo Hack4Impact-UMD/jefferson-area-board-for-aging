@@ -9,8 +9,8 @@
 
 .innerBackground {
     background-color: #FFFFFF;    
-    width: 74%;
-    height: 80%;
+    width: 88%;
+    height: 85%;
     display: flex;    
     border-radius: 10px;
     flex-direction: column;
@@ -113,7 +113,7 @@
 }
 
 .middleImage {
-    width: 66%;
+    width: 75%;
     object-fit: contain;
     margin-bottom: 1%;
 }

@@ -154,15 +154,15 @@ const RegionFilter = () => {
     return (
         <div className={styles.content}>
             <div className={styles.nationalServices}>
-                <p className={`${styles.headerText} ${styles.nationalServicesHeader}`}>Include National Services</p>
-                <div className={`${styles.headerText} ${styles.radioBtn}`}>
+                <p className={`${styles.headerText} ${styles.nationalServicesHeader}`}>Include National Services:</p>
+                <div className={`${styles.headerText} ${styles.radioBtns}`}>
                     <div>
-                        <input type="radio" value="yes" name='nationalTypeRadio'/>
-                        <label htmlFor='radioYes'><span className='radiobtn'>Yes</span></label>
+                        <input className={styles.radioBtn} type="radio" value="yes" name='nationalTypeRadio'/>
+                        <label htmlFor='radioYes'><span>Yes</span></label>
                     </div>
                     <div>
-                        <input type="radio" value="no" name='nationalTypeRadio'/>
-                        <label htmlFor='radioNo'><span className='radiobtn'>No</span></label>
+                        <input className={styles.radioBtn} type="radio" value="no" name='nationalTypeRadio'/>
+                        <label htmlFor='radioNo'><span>No</span></label>
                     </div>
                     
                 </div>
