@@ -72,8 +72,11 @@ const RegionFilter = () => {
             
             // don't allow simultaneous selection of states and districts
             const districts = Array.from(districtsMapping.keys());
-            if (selected.length > 0 && (states.includes(selected[0]) && states.includes(selection) || 
-                districts.includes(selected[0]) && districts.includes(selection)) || selected.length == 0) {
+            const counties = Array.from(districtsMapping.values()).flat(Infinity);
+            if (selected.length > 0 && 
+                (states.includes(selected[0]) && states.includes(selection) || 
+                (districts.includes(selected[0]) || counties.includes(selected[0])) && (districts.includes(selection) || counties.includes(selection))) 
+                || selected.length == 0) {
                 
                 console.log("in if");
 
@@ -236,22 +239,26 @@ const RegionFilter = () => {
                                 onClick={() => handleToggle(content as string)}
                                 className={`${styles.item} ${isSelected(content as string) ? styles.itemSelected: ''}`}
                                 >
-                                {content}
+                                    {content}
                                 </div>
                             ))
-                        ) : (
-                            processCategories(subCategoryElts).map(({key, content}) => {
-                                if ( React.isValidElement(content)) {
-                                    return <div key={key}>{content}</div>
-                                } else {
-                                    return (
-                                        <div key={key} className={styles.item}>
-                                            {content}
-                                        </div>
-                                    )
-                                }
-                            })
-                        )}
+                            ) : (
+                                processCategories(subCategoryElts).map(({key, content}) => {
+                                    if ( React.isValidElement(content)) {
+                                        return <div key={key}>{content}</div>
+                                    } else {
+                                        return (
+                                            <div
+                                            key={key}
+                                            onClick={() => handleToggle(content as string)}
+                                            className={`${styles.item} ${isSelected(content as string) ? styles.itemSelected: ''}`}
+                                            >
+                                                {content}
+                                            </div>
+                                        )
+                                    }
+                                })
+                            )}
                             </div>
                         </div>
                     </ThemeProvider>

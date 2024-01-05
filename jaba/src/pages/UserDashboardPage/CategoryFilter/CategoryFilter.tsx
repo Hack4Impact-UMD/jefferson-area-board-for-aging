@@ -122,7 +122,7 @@ const CategoryFilter = () => {
                             onClick={() => handleToggle(content as string)}
                             className={`${styles.item} ${isSelected(content as string) ? styles.itemSelected: ''}`}
                             >
-                            {content}
+                                {content}
                             </div>
                         ))
                     ) : (
@@ -131,7 +131,11 @@ const CategoryFilter = () => {
                                 return <div key={key}>{content}</div>
                             } else {
                                 return (
-                                    <div key={key} className={styles.item}>
+                                    <div
+                                    key={key}
+                                    onClick={() => handleToggle(content as string)}
+                                    className={`${styles.item} ${isSelected(content as string) ? styles.itemSelected: ''}`}
+                                    >
                                         {content}
                                     </div>
                                 )
