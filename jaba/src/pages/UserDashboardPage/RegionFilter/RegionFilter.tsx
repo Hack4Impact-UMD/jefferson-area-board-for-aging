@@ -78,7 +78,7 @@ const RegionFilter = () => {
                 (districts.includes(selected[0]) || counties.includes(selected[0])) && (districts.includes(selection) || counties.includes(selection))) 
                 || selected.length == 0) {
                 
-                console.log("in if");
+                // console.log("in if");
 
                 const currentIndex = prev.indexOf(selection);
                 const newChecked = [...prev];
@@ -262,12 +262,9 @@ const RegionFilter = () => {
                             </div>
                         </div>
                     </ThemeProvider>
-                    {isSubCatBtnVisible && 
-                    <button className={styles.subCategory}
-                    onClick={() => handleSubCategory(districtsMapping)}>
-                        {'County >>'}
-                    </button>}
+                    
                 </div>
+                
                 <button 
                         className={`${styles.headerText} ${styles.selectAll}`}
                         onClick={() => selectAllDistricts()}
@@ -275,6 +272,11 @@ const RegionFilter = () => {
                         Select All
                 </button>
             </div>
+            {isSubCatBtnVisible && 
+                    <button className={styles.subCategory}
+                    onClick={() => handleSubCategory(districtsMapping)}>
+                        {'County >>'}
+                </button>}
         </div>
     )
 
