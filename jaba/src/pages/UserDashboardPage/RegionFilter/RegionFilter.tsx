@@ -1,16 +1,12 @@
 import * as React from 'react';
 import styles from "./RegionFilter.module.css"
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
 
 const RegionFilter = () => {
-    const [selected, setSelect] = React.useState<string[]>([])
-    const [isSubCatBtnVisible, setIsSubCatBtnVisible] = React.useState(true)
-    const [subCategoryElts, setSubCategoryElts] = React.useState<string[]>([])
+    const [selected, setSelect] = React.useState<string[]>([]);
+    const [isSubCatBtnVisible, setIsSubCatBtnVisible] = React.useState(true);
+    const [subCategoryElts, setSubCategoryElts] = React.useState<string[]>([]);
+    const [zipInput, setZipInput] = React.useState("");
 
     const states = [
         "AL",
@@ -153,6 +149,11 @@ const RegionFilter = () => {
     const handlePrimCategory = () => {
         setIsSubCatBtnVisible(true)
     }
+
+    const handleZipChange = (e: React.FormEvent<HTMLInputElement>) => {
+        const numericValue = (e.currentTarget.value || "").replace(/[^0-9]/g, "");
+        setZipInput(numericValue);
+    }
     
     return (
         <div className={styles.content}>
@@ -173,7 +174,7 @@ const RegionFilter = () => {
             
             <div className={styles.zipSection}>
                 <label className={`${styles.headerText} ${styles.zipHeader}`} htmlFor="zip-code">Zip code:</label>
-                <input className={styles.zipInput}></input>
+                <input className={styles.zipInput} value={zipInput} onInput={handleZipChange}></input>
             </div>
             <div>
                 <p className={`${styles.headerText} ${styles.stateAndDistrictHeader}`}>State:</p>
