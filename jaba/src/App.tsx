@@ -14,6 +14,7 @@ import UserLoginPage from "./pages/LoginPage/UserLoginPage";
 
 import { useAuth, UserProvider } from './UserContext/UserContext';
 import {createBrowserRouter,createRoutesFromElements, RouterProvider, Route} from 'react-router-dom';
+import UserDashboardPage from "./pages/UserDashboardPage/UserDashboardPage";
 
 
 const ProtectedRoutes: React.FC = () => {
@@ -41,7 +42,8 @@ const router = createBrowserRouter([
 ])
 const App: React.FC = () => {
   return (
-  <RouterProvider router = {router}/>
+  // <RouterProvider router = {router}/>
+  <UserDashboardPage/>
   );
 };
 

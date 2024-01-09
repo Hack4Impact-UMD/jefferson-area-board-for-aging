@@ -1,8 +1,12 @@
-import { useState, useEffect } from 'react';
 import styles from './UserDashboardPage.module.css';
 import NavBar from '../../components/NavBar/NavBar';
 import AdminHomeDashboard from '../../assets/adminhomedashboard.png';
 import FilterIcon from '../../assets/filtericon.svg';
+import React from 'react';
+import CategoryFilter from './CategoryFilter/CategoryFilter';
+import RegionFilter from './RegionFilter/RegionFilter';
+
+
 
 const UserDashboardPage = () => {
     const handleClick = () => {
@@ -26,6 +30,7 @@ const UserDashboardPage = () => {
                 <div className={styles.bottomPart}>
                     <div className={styles.screens}>
                         <p className={styles.header}>Category</p>
+                        <CategoryFilter />
                     </div>
                     <div className={styles.middleImageDiv}>
                         <img className={styles.middleImage} src={AdminHomeDashboard}/>
@@ -33,6 +38,7 @@ const UserDashboardPage = () => {
                     </div>
                     <div className={styles.screens}>
                         <p className={styles.header}>Region</p>
+                        <RegionFilter />
                     </div>
                 </div>
             </div>

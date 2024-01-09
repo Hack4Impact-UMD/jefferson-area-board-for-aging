@@ -1,0 +1,262 @@
+/* div{ border: 1px solid black;} */
+
+.content {
+    width: 90%;
+    max-width: 296px;
+    margin: -5% 8% 0% 8%;
+}
+
+.headerText {
+    font-family: "DM Serif Text";
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: #000;
+}
+
+.nationalSection {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    width: 100%;
+    color: #000;
+    margin-top: 0%;
+}
+
+.nationalHeader {
+    font-size: clamp(12px, 2vw, 15px);
+}
+
+.radioBtns {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    font-size: 14px;
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
+.radioBtn {
+    width: 30%;
+}
+
+.zipSection {
+    width: 100%;
+    margin: 2% 0% 3% 0%; 
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+}
+
+.zipHeader {
+    font-size: clamp(12px, 2vw, 15px);
+}
+
+.zipInput {
+    border-radius: 6px;
+    border: 0.6px solid #B1B1B1;
+    background: #FFF;
+    width: 60%;
+    height: 100%;
+    max-width: 222px;
+    max-height: 25px;
+    flex-shrink: 0;
+    font-family: 'DM Serif Text';
+    color: #B1B1B1;
+    font-weight: 100;
+    padding: 1% 1% 1% 2%;
+    margin-left: 5%;
+}
+
+.stateAndDistrictHeader {
+    margin-top: 2%;
+    margin-bottom: 0%;
+}
+
+.stateAndDistrictBody {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.stateAndDistrictTable {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0% 5% 1% 0%;
+}
+
+.paragraphText {
+    color: #000;
+    font-family: "Inter";
+    font-style: normal;
+    line-height: normal;
+}
+
+.primCategory {
+    width: 100%; 
+    height: 100%;
+    max-width: 296px;
+    max-height: 36px;
+    border-radius: 10px 10px 0px 0px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.5);;
+    cursor: pointer;
+    margin-bottom: 2%;
+}
+
+.selectBtnText {
+    color: #ABABAB;
+    font-family: "Inter";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    white-space: nowrap;
+    text-align: left;
+    margin-left: 5%;
+}
+
+.primCategoryText {
+    color: rgba(0, 0, 0);
+    font-family: 'DM Serif Text';
+    font-size: clamp(12px, 2vw, 20px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 0.6;
+    text-align: left;
+    margin-left: 5%;
+    font-size: 14px;
+}
+
+.dropDown {
+    display: flex; 
+    flex-direction: column;
+    width: 100%; 
+    height: 100%;
+    max-width: 238px;
+    min-height: 5vh;
+    max-height: 20vh;
+    position: relative;
+    margin-top: 0%;
+    margin-bottom: 5%;
+}
+
+.dropDownContent {
+    flex-shrink: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 5px;
+    border: 0.6px solid #000;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    /* width: 90%; */
+    height: 13vh;
+}
+
+/* For webkit browsers (Safari, Edge, Chrome) Otherwise, the scrollbar will NOT be styled */
+::-webkit-scrollbar {
+    width: 3.141px;
+    height: 402.688px;
+    transform: rotate(0.028deg);
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: rgba(92, 146, 146, 0.50);
+}
+
+::-webkit-scrollbar-thumb {
+    width: 3.141px;
+    height: 24.122px;
+    transform: rotate(0.329deg);
+    flex-shrink: 0;
+    border-radius: 20px;
+    background: #023C47;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+}
+
+.item {
+    width: 80%;
+    height: 100%;
+    max-height: 20px;
+    flex-shrink: 0;
+    padding: 3%;
+    margin: 1.5% 1.5% 1.5% 5%;
+    cursor: pointer;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 10px;
+    font-weight: 400;
+}
+
+.itemSelected {
+    background: rgba(92, 146, 146, 0.50);
+}
+
+.letterMarker {
+    width: 18px;
+    height: 18px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 18px;
+    margin: 10% 5% 10% 5%;
+    border-radius: 2px;
+    background: #FFF;
+    box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.25);
+    font-size: 8px;
+    font-weight: 300;
+}
+
+.selectAll {
+    max-width: 76px;
+    max-height: 28px;
+    width: 50%;
+    height: 100%;
+    flex-shrink: 0;
+    border-radius: 6px;
+    border: 0.6px solid #000;
+    background: var(--White, #FFF);
+    cursor: pointer;
+}
+
+.districtHeader {
+    margin-top: 2%;
+    margin-bottom: 0%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+.subCategory {
+    background: transparent;
+    border: none;
+    color: #000;
+    font-family: 'DM Serif Text';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    cursor: pointer;
+    margin: 2% 0% 5% 40%;
+    white-space: nowrap;
+}
+
+.alreadySelected {
+    width: 80%; 
+    height: 100%;
+    max-width: 160px;
+    max-height: 24px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #A74C4C;
+    color: #FFF;
+    text-align: center;
+    font-family: 'DM Serif Text';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
