@@ -251,10 +251,13 @@ const RegionFilter = () => {
                 </div>
                 
                 <button 
-                        className={`${styles.headerText} ${styles.selectAll}`}
-                        onClick={() => selectAll(Array.from(districtsMapping.keys()))}
-                    >
-                        Select All
+                className={`${styles.headerText} ${styles.selectAll}`}
+                onClick={
+                    () => isSubCatBtnVisible 
+                    ? (selectAll(Array.from(districtsMapping.keys()))) 
+                    : (selectAll(Array.from(districtsMapping.values()).flat(Infinity) as string[]))
+                }>
+                    Select All
                 </button>
             </div>
             {isSubCatBtnVisible && 
