@@ -64,7 +64,7 @@ const RegionFilter = () => {
         setSelect(prev => {
             
             // console.log("selection", selection);
-            // console.log("selected", selected);
+            console.log("selected", selected);
             
             // don't allow simultaneous selection of states and districts
             const districts = Array.from(districtsMapping.keys());
@@ -93,38 +93,22 @@ const RegionFilter = () => {
             
         });
       };
-    
-    const selectAllStates = () => {
-        const areAllSelected = states.every(state => isSelected(state));
-        for (const state of states) {
+
+    const selectAll = (group : string[]) => {
+        const areAllSelected = group.every(elem => isSelected(elem));
+        for (const elem of group) {
             if (areAllSelected) {
-                if (isSelected(state)) {
-                    handleToggle(state); // Deselect if all are currently selected
+                if (isSelected(elem)) {
+                    handleToggle(elem); // Deselect if all are currently selected
                 }
             } else {
-                if (!isSelected(state)) {
-                    handleToggle(state); // Select if not all are currently selected
+                if (!isSelected(elem)) {
+                    handleToggle(elem); // Select if not all are currently selected
                 }
             }
         }
     }
 
-    const selectAllDistricts = () => {
-        const districts = Array.from(districtsMapping.keys());
-        const areAllSelected = districts.every(district => isSelected(district));
-        for (const district of districts) {
-            if (areAllSelected) {
-                if (isSelected(district)) {
-                    handleToggle(district); // Deselect if all are currently selected
-                }
-            } else {
-                if (!isSelected(district)) {
-                    handleToggle(district); // Select if not all are currently selected
-                }
-            }
-        }
-    }
-    
     const isSelected = (category: string) => selected.includes(category);  
     
     const handleSubCategory = (categories: Map<string, Array<string>>) => {
@@ -205,7 +189,7 @@ const RegionFilter = () => {
                 </div>
                 <button 
                         className={`${styles.headerText} ${styles.selectAll}`}
-                        onClick={() => selectAllStates()}
+                        onClick={() => selectAll(states)}
                     >
                         Select All
                 </button>
@@ -268,7 +252,7 @@ const RegionFilter = () => {
                 
                 <button 
                         className={`${styles.headerText} ${styles.selectAll}`}
-                        onClick={() => selectAllDistricts()}
+                        onClick={() => selectAll(Array.from(districtsMapping.keys()))}
                     >
                         Select All
                 </button>
