@@ -12,8 +12,7 @@ import NavBar from "./components/NavBar/NavBar";
 import LoginWelcomePage from "./pages/LoginWelcomePage/LoginWelcomePage";
 import AdminLoginPage from "./pages/LoginPage/AdminLoginPage";
 import UserLoginPage from "./pages/LoginPage/UserLoginPage";
-
-
+import UserDashboardPage from "./pages/UserDashboardPage/UserDashboardPage";
 import { useAuth, UserProvider } from './UserContext/UserContext';
 import {createBrowserRouter,createRoutesFromElements, RouterProvider, Route} from 'react-router-dom';
 
@@ -31,7 +30,7 @@ const router = createBrowserRouter([
       {index: true, element:<LoginWelcomePage/>},
       {path: '/adminLogin', children:[
         {index: true, element:<AdminLoginPage/>},
-        {path: "navBar", element: <NavBar admin={true}/>},
+        {path: "navBar", element: <UserDashboardPage/>},
       ]
 
       },
