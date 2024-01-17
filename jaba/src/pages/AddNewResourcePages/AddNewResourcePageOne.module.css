@@ -1,0 +1,148 @@
+
+
+.leftSide {
+ width: 500px;
+ margin-left: 40px;
+ height: 1400px;
+ 
+
+
+
+}
+
+
+.rightSide {
+    width: 500px;
+    margin-left: 0px;
+}
+
+
+
+.dropDown {
+    width: 479px;
+    height: 51px;
+    border-radius: 10px;
+    border: 0.8px solid #282828;
+}
+
+.regions {
+    margin-bottom: 70px;
+}
+
+.shortInput {
+    width: 221px;
+    height: 51px;
+    border-radius: 10px;
+    border: 0.8px solid #282828;
+    
+}
+
+.page {
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-gap: 20px; 
+    width: 90%; 
+    max-width: 1228px;
+    height: 100vh;
+    min-height: 400px;
+    max-height: 1100px;
+    margin: 2.5vh auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 0.5px solid #878787;
+    box-shadow: 0px 4px 64px 0px rgba(0, 0, 0, 0.05);
+}
+
+
+.button {
+    background-color: #023c47;
+    width: 300px;
+    height: 57px;
+    border-radius:10px;
+    color:white;
+    font-size: 25px;
+    font-family: 'DM Serif Text';
+}
+
+.radioAlign {
+    display: flex;
+    flex-direction: row;
+    margin-right: 20px;
+
+}
+
+
+.stateSelect {
+    height: 27px;
+    width: 115px;
+    margin-left: 5px;
+}
+
+.planningSelect {
+    width: 243px;
+    height: 31px;
+    margin-left: 5px;
+}
+
+.countySelect {
+    width: 130px;
+    height: 31px;
+    margin-left: 5px;
+}
+
+.buttonArea {
+    margin-top: 130px;
+    margin-left: 220px;
+}
+
+.title {
+    margin-left: 20px;
+    color: #000;
+    font-family: 'DM Serif Text';
+    font-size: 31px;
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+    margin-bottom: 5%;
+}
+
+.inputText {
+    height: 200px;
+    max-width: 59px;
+    max-height: 120px;
+    padding: 0.5em;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 1%;
+    padding-left: 7.5%;
+    padding-bottom: 0;
+    padding-right: 7.5%;
+    overflow: auto; 
+    border-radius: 6px;
+    border: 0.6px solid #282828;
+    background: #FFF;
+    font-family: "Inter";
+}
+
+.input {
+    height: 51px;
+    width: 479px;
+    border-radius: 10px;
+    border: 0.8px solid #282828;
+ 
+
+}
+
+.gridParent {
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-gap: 20px; 
+   }
+
+
+.radioGroup {
+    display: flex;
+    flex-direction: row;
+}

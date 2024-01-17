@@ -11,6 +11,10 @@ import NavBar from "./components/NavBar/NavBar";
 import LoginWelcomePage from "./pages/LoginWelcomePage/LoginWelcomePage";
 import AdminLoginPage from "./pages/LoginPage/AdminLoginPage";
 import UserLoginPage from "./pages/LoginPage/UserLoginPage";
+import AddNewResourcePageTwo from "./pages/AddNewResourcePages/AddNewResourcePageTwo";
+import AddNewResourcePageOne from "./pages/AddNewResourcePages/AddNewResourcePageOne";
+import AddNewResourcePageThree from "./pages/AddNewResourcePages/AddNewResourcePageThree";
+
 
 import { useAuth, UserProvider } from './UserContext/UserContext';
 import {createBrowserRouter,createRoutesFromElements, RouterProvider, Route} from 'react-router-dom';
@@ -39,9 +43,13 @@ const router = createBrowserRouter([
     ]
   }
 ])
+
 const App: React.FC = () => {
   return (
-  <RouterProvider router = {router}/>
+    <AddNewResourcePageOne/>
+  /* <RouterProvider router = {router}/> */
+  
+
   );
 };
 
