@@ -1,0 +1,78 @@
+/* Once a global css file is greated, active-modal will be used there
+This css file is then used to style locally and will add a .modules*/
+body.active-modal {
+    overflow-y: hidden;
+}
+
+.btnModal {
+    padding: 10px 20px;
+    display: block;
+    margin: 100px auto 0;
+    font-size: 18px;
+}
+
+.modal,
+.overlay {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+}
+
+.overlay {
+    background: rgba(49, 49, 49, 0.8);
+}
+
+.modalContent {
+    font-family: 'DM Serif Text';
+    font-size: 21px;
+    font-weight: 400;
+    line-height: 43px;
+    letter-spacing: 0em;
+    text-align: center;
+    letter-spacing: 0em;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #f1f1f1;
+    padding: 30px 30px;
+    border-radius: 30px;
+    max-width: 458px;
+    min-width: 266px;
+}
+
+.description {
+    font-family: 'Inter';
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+
+.submitted {
+    font-family: 'Inter';
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #7D7D7D;
+}
+
+.clickHere {
+    font-family: 'Inter';
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #000000;
+}
+.clickHere:hover {
+    cursor: pointer;
+}
