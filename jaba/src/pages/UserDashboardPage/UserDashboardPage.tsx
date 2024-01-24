@@ -81,7 +81,7 @@ const UserDashboardPage = () => {
                     <div className={styles.searchBar}>
                         <button className={styles.magnifyingGlassBox}></button>
                         <input className={styles.textBox} type="text" value={inputText} onChange={inputHandler} placeholder="testestest" />
-                        <img className={styles.filterImage} src={FilterIcon}/>
+                        <img className={styles.filterImage} alt="filterImage" src={FilterIcon}/>
                     </div>
                 </div>
                 <div className={styles.bottomPart}>
@@ -89,7 +89,7 @@ const UserDashboardPage = () => {
                         <p className={styles.header}>Category</p>
                     </div>
                     <div className={styles.middleImageDiv}>
-                        <img className={styles.middleImage} src={AdminHomeDashboard}/>
+                        <img className={styles.middleImage} alt="middleImage" src={AdminHomeDashboard}/>
                         <button className={styles.searchButton}>Search</button>
                     </div>
                     <div className={styles.screens}>
