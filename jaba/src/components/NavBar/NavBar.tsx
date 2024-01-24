@@ -30,10 +30,10 @@ const NavBar = (props: any) => {
                         </li>
 
                         <li>
-                            {props.admin && (<a className={window.location.href == 'http://localhost:3000/users' ? styles.blockStyle : styles.textStyle} href="/users">
+                            {true && (<a className={window.location.href == 'http://localhost:3000/users' ? styles.blockStyle : styles.textStyle} href="/users">
                                 <img src ={window.location.href == 'http://localhost:3000/users' ? UsersWhite : UsersBlack}/>
 
-                                <span>Users</span>
+                                <span>User</span>
                             </a>)}
                         </li>
                     </ul>

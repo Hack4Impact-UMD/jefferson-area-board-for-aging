@@ -1,0 +1,25 @@
+
+.paginator {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin:8px;
+    padding:8px;
+  }
+  
+  .paginatorButton {
+    background-color: white;
+    padding:auto;
+    height:32px;
+    width:32px;
+    border: none;
+    margin:16px;
+    box-shadow: 0px 0px 4px gray;
+    border-radius: 4px;
+  }
+  .paginatorButton:hover {
+    box-shadow: 0px 0px 4px #045F5F;
+  }
+  .paginatorButton:active {
+    box-shadow: inset 0px 0px 4px #045F5F;
+  }

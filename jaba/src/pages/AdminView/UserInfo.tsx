@@ -1,8 +1,8 @@
 import { User } from '../../models/User'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro'
-//import Trash from './trash.png'; 
-// import Edit from './edit.png'; 
+import Trash from '../../assets/icons/trash.png'; 
+ import Edit from '../../assets/icons/edit.png'; 
 
 
 type UserInfoProps = {
@@ -21,8 +21,8 @@ const UserInfo: React.FC<UserInfoProps> = ({ user, onClose, onEdit, onDelete }) 
     <div style={styles.header}>
       <span style={styles.userIcon}>👤</span>
       <h2 style={styles.userName}>{user.name}</h2>
-      <span style={styles.icon} onClick={onEdit}>👤</span>
-      <span style={styles.icon} onClick={onDelete}>👤</span>
+      <span style={styles.icon} onClick={onEdit}><img src={Edit} alt="edit"></img></span>
+      <span style={styles.icon} onClick={onDelete}><img src={Trash} alt="trash"></img></span>
     </div>
     <div style={styles.detailRow}>
       <span style={styles.textTitle}>Role:</span>

@@ -1,5 +1,5 @@
 
-import ExamplePage from "./pages/AdminView/AdminPage";
+import AdminUsersPage from "./pages/AdminView/AdminPage";
 
 import AdminSettingsPage from "./pages/SettingsPage/AdminSettingsPage";
 import UserSettingsPage from "./pages/SettingsPage/UserSettingsPage";
@@ -7,7 +7,7 @@ import UserSettingsPage from "./pages/SettingsPage/UserSettingsPage";
 
 import CreateUser from "./pages/CreateUserPage/CreateUser";
 import RequestAccountPage from "./pages/RequestAccount/RequestAccountPage";
-import ExamplePage from "./pages/ExamplePage/ExamplePage";
+
 import ResourcePage from "./pages/ResourcePage/ResourcePage";
 import DisplayUsersPage from "./pages/DisplayUsersPage/DisplayUsersPage";
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
@@ -24,14 +24,14 @@ import {createBrowserRouter,createRoutesFromElements, RouterProvider, Route} fro
 
 const ProtectedRoutes: React.FC = () => {
   const { isUserLoggedIn } = useAuth();
-  return isUserLoggedIn ? <ExamplePage/> : <LoginWelcomePage/>;
+  return isUserLoggedIn ? <AdminUsersPage/> : <LoginWelcomePage/>;
 }
 
 const router = createBrowserRouter([
   {
     path: "/",
     children: [
-      {index: true, element:<LoginWelcomePage/>},
+      {index: true, element: <LoginWelcomePage/>},
       {path: '/adminLogin', children:[
         {index: true, element:<AdminLoginPage/>},
         {path: "navBar", element: <UserDashboardPage/>},
