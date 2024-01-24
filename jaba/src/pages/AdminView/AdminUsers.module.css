@@ -1,0 +1,39 @@
+.adminPage {
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    background-color: #023C47;
+    font-family: 'Inter';
+  }
+
+  .table {
+    width: 80%;
+    background-color: white;
+    border-radius: 16px;
+    padding:16px;
+  }
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right:auto;
+  }
+  .button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    font-family: 'DM Serif Text';
+  }
+
+
+  .popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+  }

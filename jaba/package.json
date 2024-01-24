@@ -4,6 +4,13 @@
   "private": true,
   "type": "module",
   "dependencies": {
+
+    "@fortawesome/fontawesome-svg-core": "^6.5.1",
+    "@fortawesome/free-brands-svg-icons": "^6.5.1",
+    "@fortawesome/free-regular-svg-icons": "^6.5.1",
+    "@fortawesome/free-solid-svg-icons": "^6.5.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+
     "@emailjs/browser": "^3.11.0",
 
     "@emotion/react": "^11.11.3",
@@ -56,6 +63,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.23.7",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
     "@typescript-eslint/eslint-plugin": "^5.54.0",
@@ -68,8 +76,16 @@
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-react": "^7.32.2",
     "prettier": "^2.8.4",
-    "typescript": "^4.9.5",
+
+    "typescript": "^4.9.5"
+  },
+  "babelMacros": {
+    "fontawesome-svg-core": {
+      "license": "free"
+    },
+
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4"
+
   }
 }

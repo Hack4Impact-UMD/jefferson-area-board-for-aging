@@ -1,0 +1,20 @@
+
+.tableTitle {
+    display: flex;
+    flex-direction: row;
+    margin-top:16px;
+    background-color: #023C47;
+    height:32px;
+    color:white;
+    margin-bottom:0px;
+    align-items: center;
+    padding:8px;
+    border-radius: 5px 5px 0px 0px;
+  }
+  .tableTitleName {
+    width: 80%;
+  }
+
+  .title{
+    font-family: 'DM Serif Text'
+  }

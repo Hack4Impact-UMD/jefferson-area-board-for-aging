@@ -26,5 +26,5 @@
   "types":["@mui/types"],
   "include": [
     "src"
-  ]
+, "babel.config.js"  ]
 }
