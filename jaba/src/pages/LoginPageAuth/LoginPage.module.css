@@ -1,0 +1,22 @@
+.buttonOne{
+    width: 50px;
+    height: 20px;
+    display: flex;
+}
+
+.buttonTwo{
+    width: 150px;
+    height: 20px;
+    display: flex;
+    
+}
+
+.input{
+    display: flex;
+    width: 200px;
+    height: 20px;
+    margin-bottom: 10px;
+    border: 1.5px solid #4949dc
+
+}
+
