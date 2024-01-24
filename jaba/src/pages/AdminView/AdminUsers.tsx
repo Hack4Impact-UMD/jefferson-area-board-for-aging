@@ -3,6 +3,7 @@ import UserTable from './UserTable';
 import UserInfo from './UserInfo';
 import WarningPopup from './WarningPopup';
 import { User } from '../../models/User'
+import Styles from './AdminUsers.module.css'
 
 
 const AdminUsers: React.FC = () => {
@@ -131,16 +132,16 @@ const AdminUsers: React.FC = () => {
   }
 
   return (
-    <div className="admin-page">
-      <div className = "table">
+    <div className={Styles.adminPage}>
+      <div className = {Styles.table}>
          <UserTable users={users} setUsers = {setUsers} onSelect={onSelectUser}/>
       </div>
-      <div className="sidebar">
-        <button className="button">Add Filter</button>
-        <button className="button">Add User</button>
+      <div className={Styles.sidebar}>
+        <button className= {Styles.button}>Sort</button>
+        <button className= {Styles.button}>Add User</button>
      </div>
-        {showSelectedUser && selectedUser && <div className="popup"><UserInfo user={selectedUser} onClose = {onClose} onEdit={() => {}} onDelete={() => onDelete()} /></div>}
-        {showDeleteWarning && <div className="popup"><WarningPopup onCancel={() => setShowDeleteWarning(false)} onConfirm={() => {}} /></div>}
+        {showSelectedUser && selectedUser && <div className={Styles.popup}><UserInfo user={selectedUser} onClose = {onClose} onEdit={() => {}} onDelete={() => onDelete()} /></div>}
+        {showDeleteWarning && <div className={Styles.popup}><WarningPopup onCancel={() => setShowDeleteWarning(false)} onConfirm={() => {}} /></div>}
     </div>
   );
 }

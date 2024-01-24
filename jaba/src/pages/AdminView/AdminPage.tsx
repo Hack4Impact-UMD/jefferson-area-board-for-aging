@@ -1,10 +1,11 @@
 import React from 'react';
 import AdminUsers from './AdminUsers';
-import './style.css';
+import Styles from './AdminPage.module.css';
 
 const MainPage: React.FC = () => {
   return (
-    <div className = "admin-users-page">
+
+    <div className={Styles.adminUsersPage}>
       <AdminUsers />
     </div>
   );

@@ -1,0 +1,53 @@
+.adminUsersPage {
+    height: 200%;
+    width: 100%;
+    
+}
+
+  
+  .table_title-role {
+
+  }
+  
+  .button:hover {
+    opacity: 80%;
+  }
+  .singleUser {
+    display: flex;
+    flex-direction: row;
+  }
+  .userName {
+    width: 80%;
+    margin-left:4px;
+  }
+  .userList {
+    border: 1px solid #ddd;
+    border-radius: 0px 0px 5px 5px;
+    height: 500px; /* or whatever height you prefer */
+    overflow-y: auto;
+  }
+  
+  .userList div {
+    display:flex;
+    justify-content: row;
+    align-items: center;
+    height:48px;
+  }
+  
+  .userList div:last-child {
+    border-bottom: none;
+  }
+  
+  
+  
+  .popup-buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .warning-text {
+    color: red;
+    font-weight: bold;
+  }  
+  
+  

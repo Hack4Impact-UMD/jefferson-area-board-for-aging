@@ -1,4 +1,5 @@
 import { User } from '../../models/User'
+import Styles from './AdminPage.module.css'
 
 type UserListProps = {
     users: User[];
@@ -7,13 +8,13 @@ type UserListProps = {
 
 const UserList: React.FC<UserListProps> = ({ users, onSelect }) => {
     return (
-      <div className="user-list">
+      <div className={Styles.userList}>
         {users.map(user => (
-          <div className = "single-user" key={user.id} onClick={() => onSelect(user)}>
-            <div className = "user-name">
+          <div className = {Styles.singleUser} key={user.id} onClick={() => onSelect(user)}>
+            <div className = {Styles.userName}>
               {user.name}
              </div>
-            <div className = "user-role">
+            <div className = {Styles.userRole}>
               {user.title}
             </div>
           </div>

@@ -1,0 +1,24 @@
+.search {
+    border-radius: 5px;
+    padding:8px;
+    width:100%;
+    margin-right:16px;
+  }
+  .searchButton {
+    height: 32px;
+    width: 96px;
+    background-color: black;
+    color: white;
+    border:0;
+    border-radius: 4px;
+
+  }
+.searchButton:hover {
+    opacity: 80%;
+}
+
+.searchBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
