@@ -1,0 +1,7 @@
+.loadingContainer {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  color: white;
+  text-align: center;
+}

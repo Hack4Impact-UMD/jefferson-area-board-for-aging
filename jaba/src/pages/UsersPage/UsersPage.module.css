@@ -1,0 +1,43 @@
+.background {
+  color: white;
+  height: 100vh;
+  margin-left: 17%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.muiBackground {
+  height: 500px;
+  padding: 10px 32px 32px 16px;
+}
+
+.title {
+  margin: 15px 0;
+  font-size: 1.5rem;
+  font-family: "DM Serif Text", serif;
+}
+.secondRow {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.searchBar {
+  width: 500px;
+  height: 30px;
+  padding: 10px 10px 10px 5px;
+  font-size: 1.2rem;
+}
+
+.table {
+  width: 700px;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+.tableContainer {
+  max-height: 60vh;
+}
