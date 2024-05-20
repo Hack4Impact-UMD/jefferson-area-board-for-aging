@@ -220,6 +220,88 @@ exports.deleteUser = onCall(
     });
   }
 );
+
+/**
+ * Let's a user delete themselves
+ * Argument: firebase_id - the user's firebase_id
+ */
+
+exports.deleteSelf = onCall(
+  { region: "us-east4", cors: true },
+  async ({ auth, data }) => {
+    return new Promise(async (resolve, reject) => {
+      const authorization = admin.auth();
+      if (
+        data.firebase_id != null &&
+        auth &&
+        auth.uid &&
+        auth.uid == data.firebase_id &&
+        (auth.token.role.toLowerCase() == "admin" ||
+          auth.token.role.toLowerCase() == "user")
+      ) {
+        const promises = [];
+        await db
+          .collection("Users")
+          .where("auth_id", "==", data.firebase_id)
+          .get()
+          .then((querySnapshot) => {
+            if (querySnapshot.docs.length == 0) {
+              reject(
+                new functions.https.HttpsError(
+                  "unknown",
+                  "Unable to find you in the database"
+                )
+              );
+              new functions.logger.error(
+                "unknown",
+                "Unable to find you in the database"
+              );
+            } else {
+              querySnapshot.forEach((documentSnapshot) => {
+                promises.push(documentSnapshot.ref.delete());
+              });
+            }
+          })
+          .catch((error) => {
+            reject(new functions.https.HttpsError("unknown", `${error}`));
+            functions.logger.error("unknown", `${error}`);
+          });
+        await Promise.all(promises)
+          .then(async () => {
+            await authorization
+              .deleteUser(data.firebase_id)
+              .then(async () => {
+                resolve();
+              })
+              .catch((error) => {
+                reject(
+                  new functions.https.HttpsError(
+                    "unknown",
+                    "Unable to delete user."
+                  )
+                );
+                functions.logger.error("Unknown", "Unable to delete user.");
+              });
+          })
+          .catch((error) => {
+            reject(new functions.https.HttpsError("unknown", `${error}`));
+            functions.logger.error("unknown", `${error}`);
+          });
+      } else {
+        reject(
+          new functions.https.HttpsError(
+            "unknown",
+            "Make sure you have the correct permissions to delete this account."
+          )
+        );
+        functions.logger.error(
+          "unknown",
+          "Make sure you have the correct permissions to delete this account."
+        );
+      }
+    });
+  }
+);
 /**
  * Updates a user's email
  * Arguments: email - the user's current email
@@ -250,11 +332,13 @@ exports.updateUserEmail = onCall(
               .get()
               .then(async (querySnapshot) => {
                 if (querySnapshot.docs.length == 0) {
-                  reject({
-                    reason: "Database Change Failed",
-                    text: "User's email has been changed for login, but failed to find user's email within the database.",
-                  });
-                  throw new functions.https.HttpsError(
+                  reject(
+                    new functions.https.HttpsError(
+                      "unknown",
+                      "Unable to find user with that email in the database"
+                    )
+                  );
+                  functions.logger.error(
                     "Unknown",
                     "Unable to find user with that email in the database"
                   );
@@ -271,11 +355,13 @@ exports.updateUserEmail = onCall(
                       });
                     })
                     .catch(() => {
-                      reject({
-                        reason: "Database Change Failed",
-                        text: "User's email has been changed for login, but failed to find user's email within the database.",
-                      });
-                      throw new functions.https.HttpsError(
+                      reject(
+                        new functions.https.HttpsError(
+                          "unknown",
+                          "Failed to change user's email within the database."
+                        )
+                      );
+                      functions.logger.error(
                         "Unknown",
                         "Failed to change user's email within the database."
                       );
@@ -283,34 +369,37 @@ exports.updateUserEmail = onCall(
                 }
               })
               .catch((error) => {
-                reject({
-                  reason: "Database Change Failed",
-                  text: "User's email has been changed for login, but failed to find user's email within the database.",
-                });
-                throw new functions.https.HttpsError(
+                reject(
+                  new functions.https.HttpsError(
+                    "unknown",
+                    "Unable to find user with that email in the database"
+                  )
+                );
+                functions.logger.error(
                   "Unknown",
                   "Unable to find user with that email in the database"
                 );
               });
           })
           .catch((error) => {
-            reject({
-              reason: "Auth Change Failed",
-              text: "Failed to change user's email within the login system.",
-            });
-            throw new functions.https.HttpsError(
-              "Unknown",
-              "Failed to change user's email."
+            reject(
+              new functions.https.HttpsError(
+                "unknown",
+                "Failed to change user's email."
+              )
             );
+            functions.logger.error("Unknown", "Failed to change user's email.");
           });
       } else {
-        reject({
-          reason: "Permissions",
-          text: "You do not have the correct permissions to update email. If you think you do, please make sure the new email is not already in use.",
-        });
-        throw new functions.https.HttpsError(
-          "permission-denied",
-          "You do not have the correct permissions to update email."
+        reject(
+          new functions.https.HttpsError(
+            "unknown",
+            "You do not have the correct permissions to update email. If you think you do, please make sure the new email is not already in use."
+          )
+        );
+        functions.logger.error(
+          "unknown",
+          "You do not have the correct permissions to update email. If you think you do, please make sure the new email is not already in use."
         );
       }
     });

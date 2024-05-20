@@ -1,12 +1,16 @@
 import styles from "./SettingsPage.module.css";
 import { ReactComponent as EmailImage } from "../../assets/email.svg";
-import { ReactComponent as PencilImage } from "../../assets/pencil.svg";
-import React, { useEffect, useState } from "react";
+import PencilImage from "../../assets/pencil.svg";
+import { useEffect, useState } from "react";
 import NavigationBar from "../../components/NavBar/NavBar";
 import { User } from "../../types/User";
 import { getAuth } from "firebase/auth";
 import { getUserByAuthId } from "../../backend/FirestoreCalls";
 import Loading from "../../components/LoadingScreen/Loading";
+import { useAuth } from "../../auth/AuthProvider";
+import ChangeEmail from "./ChangeEmail/ChangeEmail";
+import ChangePassword from "./ChangePassword/ChangePassword";
+import DeleteUser from "./DeleteUser/DeleteUser";
 
 type Status = {
   loading: boolean;
@@ -14,15 +18,21 @@ type Status = {
 };
 
 const SettingsPage = () => {
-  const auth = getAuth();
+  const auth = useAuth();
   const [user, setUser] = useState<User>();
   const [status, setStatus] = useState<Status>({
     loading: true,
     error: false,
   });
+  const [openChangeEmailModal, setOpenChangeEmailModal] =
+    useState<boolean>(false);
+  const [openChangePasswordModal, setOpenChangePasswordModal] =
+    useState<boolean>(false);
+  const [openDeleteModal, setOpenDeleteModal] = useState<boolean>(false);
+
   useEffect(() => {
-    if (auth.currentUser) {
-      getUserByAuthId(auth.currentUser.uid)
+    if (auth.user) {
+      getUserByAuthId(auth.user.uid)
         .then((result: User[]) => {
           if (result.length > 0) {
             setUser(result[0]);
@@ -39,6 +49,19 @@ const SettingsPage = () => {
 
   return (
     <>
+      <ChangeEmail
+        open={openChangeEmailModal}
+        handleClose={() => setOpenChangeEmailModal(false)}
+      />
+      <ChangePassword
+        open={openChangePasswordModal}
+        handleClose={() => setOpenChangePasswordModal(false)}
+      />
+      <DeleteUser
+        open={openDeleteModal}
+        handleClose={() => setOpenDeleteModal(false)}
+      />
+
       <NavigationBar />
       <div className={styles.background}>
         {status.loading ? (
@@ -49,49 +72,58 @@ const SettingsPage = () => {
           <div className={styles.contentContainer}>
             <div className={styles.header}>Settings</div>
             <div className={styles.profileContainer}>
-              <div className={styles.profileHeaderContainer}>
-                {/* <button
-                className={styles.editButton}
-                onClick={() => {
-                  window.open("https://www.google.com", "_blank");
-                }}
-              >
-                <PencilImage className={styles.editButton} />
-              </button> */}
-              </div>
               <div className={styles.inputContainer}>
                 <div className={styles.inputHeader}>Full Name</div>
-                <p>{user?.name}</p>
+                <p className={styles.name}>{user?.name}</p>
               </div>
               <div className={styles.inputContainer}>
                 <div className={styles.inputHeader}>Email</div>
-                <input
-                  type="email"
-                  className="email_input"
-                  value="john.adams@org.com"
-                />
+                <div className={styles.inputLine}>
+                  <input
+                    className={styles.input}
+                    value={user?.email}
+                    disabled
+                  />
+                  <button
+                    className={styles.editButton}
+                    onClick={() => {
+                      setOpenChangeEmailModal(true);
+                    }}
+                  >
+                    <img src={PencilImage} className={styles.editImage}></img>
+                  </button>
+                </div>
               </div>
               <div className={styles.inputContainer}>
                 <div className={styles.inputHeader}>Password</div>
-                <input type="text" className="tel_input" value="******" />
+                <div className={styles.inputLine}>
+                  <input
+                    type="text"
+                    className={styles.input}
+                    value="*********"
+                    disabled
+                  />
+                  <button
+                    className={styles.editButton}
+                    onClick={() => {
+                      setOpenChangePasswordModal(true);
+                    }}
+                  >
+                    <img src={PencilImage} className={styles.editImage}></img>
+                  </button>
+                </div>
+              </div>
+              <div className={styles.buttonMargin}>
+                <button
+                  className={styles.deleteButton}
+                  onClick={() => {
+                    setOpenDeleteModal(true);
+                  }}
+                >
+                  Delete Account
+                </button>
               </div>
             </div>
-            <button className={styles.resetButton}>Delete Account</button>
-
-            {false && (
-              <div className={styles.deleteConfirmation}>
-                <div className={styles.popupHeader}>Are you sure?</div>
-                <div className={styles.popupContent}>
-                  To delete your profile, check the email inbox associated with
-                  this account. We have sent you a confirmation email containing
-                  a verification to continue the profile deletion process.
-                </div>
-                <EmailImage className={styles.emailImage} />
-                <div className={styles.buttonContainer}>
-                  <button className={styles.popupButton}>Okay</button>
-                </div>
-              </div>
-            )}
           </div>
         )}
       </div>

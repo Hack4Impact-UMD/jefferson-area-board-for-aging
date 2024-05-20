@@ -10,6 +10,7 @@ import RequireAdminAuth from "./auth/RequireAdminAuth/RequireAdminAuth";
 import { ThemeProvider } from "@mui/material";
 import UsersPage from "./pages/UsersPage/UsersPage";
 import { theme } from "./muiTheme";
+import CreateResource from "./pages/CreateResource/CreateResource";
 
 function App(): JSX.Element {
   return (
@@ -47,9 +48,17 @@ function App(): JSX.Element {
             <Route
               path="/settings"
               element={
-                <RequireAdminAuth>
+                <RequireUserAuth>
                   <SettingsPage />
-                </RequireAdminAuth>
+                </RequireUserAuth>
+              }
+            />
+            <Route
+              path="/create"
+              element={
+                <RequireUserAuth>
+                  <CreateResource />
+                </RequireUserAuth>
               }
             />
             <Route path="/forgotpassword" element={<ForgotPassword />} />

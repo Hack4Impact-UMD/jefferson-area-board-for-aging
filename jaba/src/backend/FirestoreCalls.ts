@@ -198,11 +198,9 @@ export function getUsers(): Promise<User[]> {
 }
 
 export function getUserByAuthId(auth_id: string): Promise<User[]> {
-  console.log(auth_id);
   return new Promise((resolve, reject) => {
     getDocs(query(collection(db, "Users"), where("auth_id", "==", auth_id)))
       .then((snapshot) => {
-        console.log(snapshot);
         const allUsers: User[] = [];
         snapshot.docs.map((doc) => {
           let user: User = doc.data() as User;

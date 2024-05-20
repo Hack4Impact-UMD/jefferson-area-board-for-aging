@@ -10,9 +10,14 @@ import settingsWhite from "../../assets/icons/settingsWhite.png";
 import jabaLogo from "../../assets/jabaLogo.png";
 import styles from "./NavBar.module.css";
 import logout from "../../assets/icons/logoutBlack.png";
+import pencilBlack from "../../assets/icons/pencilBlack.svg";
+import pencilWhite from "../../assets/icons/pencilWhite.svg";
+
+import { useAuth } from "../../auth/AuthProvider";
 
 function NavigationBar() {
   // Add Error Handling
+  const auth = useAuth();
   const [submittedError, setSubmittedError] = useState<boolean>(false);
   const navigate = useNavigate();
   const location = useLocation().pathname;
@@ -57,10 +62,9 @@ function NavigationBar() {
             Home
           </NavLink>
         </div>
-
         <div className={styles.tabContainer}>
           <NavLink
-            to="/users"
+            to="/create"
             className={({ isActive }) =>
               isActive
                 ? `${styles.tab} ${styles.tabActive}`
@@ -70,18 +74,46 @@ function NavigationBar() {
             <div>
               <img
                 className={styles.iconActive}
-                src={usersWhite}
-                alt="users icon"
+                src={pencilWhite}
+                alt="pencil icon"
               />
               <img
                 className={styles.iconInactive}
-                src={usersBlack}
-                alt="users icon"
+                src={pencilBlack}
+                alt="pencil icon"
               />
             </div>
-            Users
+            Create
           </NavLink>
         </div>
+        {auth.token?.claims?.role?.toUpperCase() == "ADMIN" ? (
+          <div className={styles.tabContainer}>
+            <NavLink
+              to="/users"
+              className={({ isActive }) =>
+                isActive
+                  ? `${styles.tab} ${styles.tabActive}`
+                  : `${styles.tab} ${styles.tabInActive}`
+              }
+            >
+              <div>
+                <img
+                  className={styles.iconActive}
+                  src={usersWhite}
+                  alt="users icon"
+                />
+                <img
+                  className={styles.iconInactive}
+                  src={usersBlack}
+                  alt="users icon"
+                />
+              </div>
+              Users
+            </NavLink>
+          </div>
+        ) : (
+          <></>
+        )}
 
         <div className={styles.tabContainer}>
           <NavLink
