@@ -1,12 +1,6 @@
-import styles from "./FirstPage.module.css";
-import NavigationBar from "../../../components/NavBar/NavBar";
-import leftArrow from "../../assets/icons/arrow-left.png";
-import rightArrow from "../../assets/icons/arrow-right.png";
 import {
   FormControl,
   FormControlLabel,
-  Input,
-  InputAdornment,
   InputLabel,
   ListSubheader,
   MenuItem,
@@ -16,8 +10,8 @@ import {
   TextField,
 } from "@mui/material";
 import { useState } from "react";
-import Categories from "../../../constants/categories";
-import { Resource, ResourceData } from "../../../types/ResourceObject";
+import Categories, { getSubCategory } from "../../../constants/categories";
+import styles from "./FirstPage.module.css";
 
 const FirstPage = ({ resource, setResource, formReference }: any) => {
   const style = {
@@ -26,6 +20,8 @@ const FirstPage = ({ resource, setResource, formReference }: any) => {
     fontFamily: "'Inter', sans-serif",
   };
   const [primaryCategorySearch, setPrimaryCategorySearch] =
+    useState<string>("");
+  const [secondaryCategorySearch, setSecondaryCategorySearch] =
     useState<string>("");
   return (
     <form
@@ -127,21 +123,25 @@ const FirstPage = ({ resource, setResource, formReference }: any) => {
       <div className={styles.formColumn}>
         <FormControl variant="outlined">
           <InputLabel
-            id="test-select-label"
+            id="primary-test-select-label"
             className={styles.selectInput}
             required
           >
             Primary Category
           </InputLabel>
           <Select
-            labelId="test-select-label"
+            labelId="primary-test-select-label"
             // Disables auto focus on MenuItems and allows TextField to be in focus
             MenuProps={{
               PaperProps: { sx: { maxHeight: 300 } },
             }}
             value={resource.primaryCategory}
             onChange={(e) =>
-              setResource({ ...resource, primaryCategory: e?.target.value })
+              setResource({
+                ...resource,
+                primaryCategory: e?.target.value,
+                secondaryCategory: "",
+              })
             }
             onClose={() => setPrimaryCategorySearch("")}
             // This prevents rendering empty string in Select's value
@@ -182,6 +182,67 @@ const FirstPage = ({ resource, setResource, formReference }: any) => {
             )}
           </Select>
         </FormControl>
+
+        {/* Secondary Category Select */}
+
+        <FormControl>
+          <InputLabel
+            id="secondary-test-select-label"
+            className={styles.selectInput}
+          >
+            Secondary Category
+          </InputLabel>
+          <Select
+            labelId="secondary-test-select-label"
+            // Disables auto focus on MenuItems and allows TextField to be in focus
+            MenuProps={{
+              PaperProps: { sx: { maxHeight: 300 } },
+            }}
+            value={resource.secondaryCategory}
+            onChange={(e) =>
+              setResource({ ...resource, secondaryCategory: e?.target.value })
+            }
+            onClose={() => setSecondaryCategorySearch("")}
+            // This prevents rendering empty string in Select's value
+            // if search text would exclude currently selected option.
+            renderValue={() => resource.secondaryCategory}
+            className={styles.primarySelect}
+            variant="outlined"
+          >
+            {/* TextField is put into ListSubheader so that it doesn't
+              act as a selectable item in the menu
+              i.e. we can click the TextField without triggering any selection.*/}
+            <ListSubheader>
+              <TextField
+                size="small"
+                // Autofocus on textfield
+                autoFocus
+                placeholder="Type to search..."
+                fullWidth
+                onChange={(e) => setSecondaryCategorySearch(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key !== "Escape") {
+                    // Prevents autoselecting item while typing (default Select behaviour)
+                    e.stopPropagation();
+                  }
+                }}
+              />
+            </ListSubheader>
+            {getSubCategory(resource.primaryCategory).map(
+              (option: any, i: any) =>
+                option
+                  .toLowerCase()
+                  .indexOf(secondaryCategorySearch!.toLowerCase()) > -1 ? (
+                  <MenuItem key={i} value={option}>
+                    {option}
+                  </MenuItem>
+                ) : (
+                  <></>
+                )
+            )}
+          </Select>
+        </FormControl>
+
         {/* </FormControl>
         <FormControl variant="outlined">
           <InputLabel

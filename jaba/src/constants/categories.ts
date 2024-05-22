@@ -163,4 +163,13 @@ const Categories = {
   "Veterans": ["Veterans Affairs", "Veteran Supports/General"],
   "Volunteer Opportunities": [],
 };
+
+export const getSubCategory = (category: any) => {
+  if (category in Categories) {
+    // @ts-ignore
+    return Categories[category];
+  }
+  return [];
+};
+
 export default Categories;
