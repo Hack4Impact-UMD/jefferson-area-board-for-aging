@@ -1,0 +1,15 @@
+.selectInput {
+  font-size: 0.8rem !important;
+  font-family: "Inter", sans-serif !important;
+  margin: 5px 0 0 0 !important;
+  height: 20px !important;
+  width: 250px;
+}
+
+.primarySelect {
+  font-size: 0.8rem !important;
+  font-family: "Inter", sans-serif !important;
+  height: 43px;
+  width: 250px;
+  margin: 10px 0 30px 0 !important;
+}
