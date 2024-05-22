@@ -1,0 +1,47 @@
+.nationalRadioContainer {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: "DM Serif Text", serif;
+}
+
+.nationalRadioContainer p {
+  margin: 0;
+  padding-right: 5px;
+  font-size: 0.9rem;
+}
+
+.radioButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5px;
+  height: 10px;
+}
+
+.regionTypeSelectContainer {
+  padding-top: 15px;
+}
+
+.regionSelectInput {
+  font-size: 0.8rem !important;
+  font-family: "Inter", sans-serif !important;
+  margin: 5px 0 0 0 !important;
+  height: 20px !important;
+  width: 250px;
+}
+
+.regionSelect {
+  font-size: 0.8rem !important;
+  font-family: "Inter", sans-serif !important;
+  height: 43px;
+  width: 250px;
+  margin: 10px 0 30px 0 !important;
+}
+
+.regionSelectContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

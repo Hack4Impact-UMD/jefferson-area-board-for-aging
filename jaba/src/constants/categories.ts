@@ -1,8 +1,12 @@
-const Categories = {
+interface CategoriesType {
+  [key: string]: string[];
+}
+
+const Categories: CategoriesType = {
   "Alzeheimers and Dementia": [],
-  "Abuse": ["Social Services", "Local Law Enforcement"],
+  Abuse: ["Social Services", "Local Law Enforcement"],
   "Area Agencies on Aging": [],
-  "Associations": [],
+  Associations: [],
   "Caregiver Services": ["Caregiver Support/General", "Support Group"],
   "Care Management": [
     "Care Manager/Private Pay",
@@ -27,7 +31,7 @@ const Categories = {
     "Local Law Enforcement",
     "Rescue Squad",
   ],
-  "Employment": [],
+  Employment: [],
   "Employment Assistance": [],
   "End of Life": ["Documents", "Elder Law Attorneys", "Funeral Arrangements"],
   "Family Services": [
@@ -57,8 +61,8 @@ const Categories = {
     "Telephone/Low Income",
     "Utiliy Assistance",
   ],
-  "Fraud": ["Agencies", "Local Law Enforcement"],
-  "Housing": [
+  Fraud: ["Agencies", "Local Law Enforcement"],
+  Housing: [
     "Apartment Complexes",
     "Assisted Living",
     "Emergency Shelters",
@@ -131,7 +135,7 @@ const Categories = {
     "Interpretive Service",
     "Language Lines/Translation Services",
   ],
-  "Nutrition": [
+  Nutrition: [
     "Farmers Market/Community Co-op",
     "Food Bank",
     "Food Stamps/SNAP/WIC",
@@ -150,8 +154,8 @@ const Categories = {
   ],
   "Social Security": [],
   "Support Groups": [],
-  "Taxes": ["Tax Completion Assistance Program", "Tax Relief for Elderly"],
-  "Transportation": [
+  Taxes: ["Tax Completion Assistance Program", "Tax Relief for Elderly"],
+  Transportation: [
     "Local Transportation Provider",
     "Medicaid Transportation Providers",
     "Non-Medical Transportation",
@@ -160,7 +164,7 @@ const Categories = {
     "Ride Sharing Services",
   ],
   "Tribal Services": [],
-  "Veterans": ["Veterans Affairs", "Veteran Supports/General"],
+  Veterans: ["Veterans Affairs", "Veteran Supports/General"],
   "Volunteer Opportunities": [],
 };
 export default Categories;

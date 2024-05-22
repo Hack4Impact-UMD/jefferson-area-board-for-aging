@@ -16,8 +16,8 @@ const firebaseConfig = {
   projectId: "jaba-fbac4",
   storageBucket: "jaba-fbac4.appspot.com",
   messagingSenderId: "155994837451",
-  appId: "1:155994837451:web:b0b7f77100f7207067664e",
-  measurementId: "G-C1VRQPWRTZ",
+  appId: "1:155994837451:web:8c7d154578eefb9b67664e",
+  measurementId: "G-SVSWCYK0X0",
 };
 
 // Initialize Firebase
