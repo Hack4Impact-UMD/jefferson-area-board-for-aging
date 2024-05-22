@@ -7,7 +7,6 @@ import {
   Radio,
   RadioGroup,
   Select,
-  ListSubheader,
   TextField,
   MenuItem,
 } from "@mui/material";
@@ -38,11 +37,12 @@ const RegionSearch = ({ searchParams, setSearchParams }: any) => {
   const ZipCodeInput = () => {
     return (
       <TextField
+        autoFocus
         label="Zip Code"
         placeholder="Enter Zip Code"
-        value={searchParams.name}
+        value={searchParams.zipCode}
         onChange={(event) => {
-          setSearchParams({ ...searchParams, zipCode: event.target.value });
+          setSearchParams({ ...searchParams, zipCode: event?.target.value });
         }}
         InputLabelProps={{ shrink: true }}
         inputProps={{
@@ -94,11 +94,11 @@ const RegionSearch = ({ searchParams, setSearchParams }: any) => {
               MenuProps={{
                 PaperProps: { sx: { maxHeight: 300 } },
               }}
-              value={searchParams.secondaryCategory}
+              value={searchParams.county}
               onChange={(e) =>
                 setSearchParams({
                   ...searchParams,
-                  secondaryCategory: e?.target.value,
+                  county: e?.target.value,
                 })
               }
               className={styles.regionSelect}

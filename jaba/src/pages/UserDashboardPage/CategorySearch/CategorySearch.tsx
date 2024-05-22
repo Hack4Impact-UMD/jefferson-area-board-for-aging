@@ -124,7 +124,7 @@ const CategorySearch = ({ searchParams, setSearchParams }: any) => {
               option
                 .toLowerCase()
                 .indexOf(secondaryCategorySearch!.toLowerCase()) > -1 ? (
-                <MenuItem key={i} value={option}>
+                <MenuItem key={i} value={option} className={styles.menuItem}>
                   {option}
                 </MenuItem>
               ) : (

@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import styles from "./UserDashboardPage.module.css";
 import NavBar from "../../components/NavBar/NavBar";
 import AdminHomeDashboard from "../../assets/adminhomedashboard.png";
-import FilterIcon from "../../assets/filtericon.svg";
-import { Resource } from "../../types/ResourceObject";
 import CategorySearch from "./CategorySearch/CategorySearch";
 import RegionSearch from "./RegionSearch/RegionSearch";
 
@@ -71,12 +69,6 @@ const UserDashboardPage = () => {
                 type="text"
                 value={inputText}
                 onChange={(e) => setInputText(e.target.value)}
-                placeholder="testestest"
-              />
-              <img
-                className={styles.filterImage}
-                alt="filterImage"
-                src={FilterIcon}
               />
             </div>
           </div>
