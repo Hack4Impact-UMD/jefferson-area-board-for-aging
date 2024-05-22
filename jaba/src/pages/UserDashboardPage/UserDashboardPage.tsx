@@ -6,8 +6,6 @@ import CategorySearch from "./CategorySearch/CategorySearch";
 import RegionSearch from "./RegionSearch/RegionSearch";
 
 const UserDashboardPage = () => {
-  const handleClick = () => {};
-
   const isAdmin = true;
   const props = { isAdmin };
 

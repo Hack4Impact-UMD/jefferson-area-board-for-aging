@@ -1,4 +1,5 @@
 .nationalRadioContainer {
+  width: 200px;
   padding-top: 10px;
   display: flex;
   flex-direction: row;

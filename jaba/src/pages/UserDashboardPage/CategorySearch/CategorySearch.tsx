@@ -41,6 +41,7 @@ const CategorySearch = ({ searchParams, setSearchParams }: any) => {
             setSearchParams({
               ...searchParams,
               primaryCategory: e?.target.value,
+              secondaryCategory: "",
             })
           }
           onClose={() => setPrimaryCategorySearch("")}
@@ -71,7 +72,7 @@ const CategorySearch = ({ searchParams, setSearchParams }: any) => {
           {Object.keys(Categories).map((option, i) =>
             option.toLowerCase().indexOf(primaryCategorySearch!.toLowerCase()) >
             -1 ? (
-              <MenuItem key={i} value={option}>
+              <MenuItem key={i} value={option} className={styles.menuItem}>
                 {option}
               </MenuItem>
             ) : (
