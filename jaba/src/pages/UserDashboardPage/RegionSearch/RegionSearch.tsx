@@ -37,7 +37,6 @@ const RegionSearch = ({ searchParams, setSearchParams }: any) => {
   const ZipCodeInput = () => {
     return (
       <TextField
-        autoFocus
         label="Zip Code"
         placeholder="Enter Zip Code"
         value={searchParams.zipCode}
