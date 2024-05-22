@@ -9,11 +9,9 @@ const UserDashboardPage = () => {
   const isAdmin = true;
   const props = { isAdmin };
 
-  // State to handle input, selects, radio
-  const [inputText, setInputText] = useState("");
-
-  // State to handle search params themselves, stored as an object
+  // State to handle search params, stored as an object
   const [searchParams, setSearchParams] = useState<{
+    inputField: string;
     primaryCategory: string;
     secondaryCategory: string;
     includeNationalServices: string;
@@ -22,6 +20,7 @@ const UserDashboardPage = () => {
     county: string;
     planningDistrict: string;
   }>({
+    inputField: "",
     primaryCategory: "",
     secondaryCategory: "",
     includeNationalServices: "yes",
@@ -65,8 +64,13 @@ const UserDashboardPage = () => {
               <input
                 className={styles.textBox}
                 type="text"
-                value={inputText}
-                onChange={(e) => setInputText(e.target.value)}
+                value={searchParams.inputField}
+                onChange={(e) =>
+                  setSearchParams({
+                    ...searchParams,
+                    inputField: e.target.value,
+                  })
+                }
               />
             </div>
           </div>
