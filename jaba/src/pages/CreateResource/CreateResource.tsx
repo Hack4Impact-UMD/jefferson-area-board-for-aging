@@ -1,13 +1,10 @@
-import styles from "./CreateResource.module.css";
-import NavigationBar from "../../components/NavBar/NavBar";
+import { useRef, useState } from "react";
 import leftArrow from "../../assets/icons/arrow-left.png";
 import rightArrow from "../../assets/icons/arrow-right.png";
-import { Input, TextField } from "@mui/material";
-import { useRef, useState } from "react";
-import Categories from "../../constants/categories";
-import { Resource, ResourceData } from "../../types/ResourceObject";
+import NavigationBar from "../../components/NavBar/NavBar";
+import { ResourceData } from "../../types/ResourceObject";
+import styles from "./CreateResource.module.css";
 import FirstPage from "./FirstPage/FirstPage";
-import { ref } from "firebase/storage";
 import SecondPage from "./SecondPage/SecondPage";
 import ThirdPage from "./ThirdPage/ThirdPage";
 
@@ -53,12 +50,10 @@ const CreateResource = () => {
     if (page == 3) {
       currentForm = thirdFormRef;
     }
-    if (currentForm.current?.reportValidity()) {
+    if (currentForm.current?.reportValidity() || toAdd == -1) {
       setPage(page + toAdd);
     }
   };
-  //   console.log(Object.keys(Categories));
-  //   console.log(Categories["Long Term Care"]);
   return (
     <>
       <NavigationBar />
