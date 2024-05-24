@@ -1,23 +1,9 @@
 .muInput {
   font-size: 1rem !important;
   font-family: "Inter", sans-serif !important;
-  margin: 10px 0 40px 0 !important;
+  margin: 10px 0 30px 0 !important;
   height: 20px !important;
   width: 350px;
-}
-
-.radioButton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 5px;
-  height: 10px;
-}
-
-.radioGroup {
-  font-size: 1rem !important;
-  font-family: "Inter", sans-serif !important;
-  margin-bottom: 20px;
 }
 
 .formColumn {
@@ -38,7 +24,7 @@
   font-size: 1rem !important;
   font-family: "Inter", sans-serif !important;
   height: 43px;
-  width: 350px;
+  width: 160px;
   margin: 10px 0 40px 0 !important;
 }
 
@@ -48,4 +34,19 @@
   margin: 5px 0 0 0 !important;
   height: 20px !important;
   width: 350px;
+}
+
+.stateRow {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+.muInputHalfWidth {
+  width: 160px;
+}
+
+.tripleHeight {
+  height: 70px !important;
+  margin-bottom: 40px !important;
 }

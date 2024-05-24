@@ -1,11 +1,8 @@
-import { FieldValue } from "firebase/firestore";
-
 export interface Resource extends ResourceData {
   id: string;
 }
 
 export interface ResourceData {
-  // required fields
   name: string;
   npo: boolean;
   mainPhone: string;
@@ -14,32 +11,20 @@ export interface ResourceData {
   physicalAddress: Address;
   mailingAddress: Address;
   nationalResource: boolean;
+  zips: string[];
   planningDistricts: PlanningDistricts[];
-  states: string[];
+  states: { [state: string]: string[] };
   primaryCategory: string;
   subCategory: string;
-  // // will need to add serviceArea
-  // primaryCategory: string;
-  // subCategory: string;
-  // lastEdited: FieldValue;
-  // lastEditorName: string;
-
-  // // optional fields
-  // forProfit: boolean;
-  // website: string;
-  // email: string;
-  // tollFreePhone: string;
-  // phoneTtyTdd: string;
-  // mailingAddress: Address;
-  // edCeo: EdCeo
-  // mainContact: Contact;
-  // secondContact: Contact;
-  // notes: string;
-  // officeHours: string;
-  // application: string;
-  // communityPartner: boolean;
-  // relationshipNotes: string;
-  // eligibilityNotes: string;
+  edCeo: Contact;
+  officeHours: string;
+  communityPartner: boolean;
+  relationshipNotes: string;
+  mainContact: Contact;
+  secondContact: Contact;
+  applicationNotes: string;
+  eligibilityNotes: string;
+  otherNotes: string;
 }
 
 export interface Address {
@@ -47,12 +32,6 @@ export interface Address {
   city: string;
   state: string;
   zip: string;
-}
-
-export interface EdCeo {
-  name: string;
-  phone: string;
-  email: string;
 }
 
 export interface Contact {

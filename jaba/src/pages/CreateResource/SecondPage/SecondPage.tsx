@@ -1,16 +1,24 @@
-import { FormControl, MenuItem, Select, TextField } from "@mui/material";
-import { useState } from "react";
+import {
+  FormControl,
+  FormControlLabel,
+  MenuItem,
+  Radio,
+  RadioGroup,
+  Select,
+  TextField,
+} from "@mui/material";
 import States from "../../../constants/states";
 import styles from "./SecondPage.module.css";
 
 const SecondPage = ({ resource, setResource, formReference }: any) => {
-  const a = States;
   const style = {
     width: "250px",
     padding: "10px 10px 10px 10px",
     fontFamily: "'Inter', sans-serif",
   };
-  const [matchAddress, setMatchAddress] = useState<boolean>(false);
+  const heightStyle = {
+    height: "40px",
+  };
   return (
     <form
       onSubmit={(e) => e.preventDefault()}
@@ -203,15 +211,15 @@ const SecondPage = ({ resource, setResource, formReference }: any) => {
       <div className={styles.formColumn}>
         <TextField
           required
-          label="Organization Mailing Address"
-          placeholder="Enter Organization Address"
-          value={resource.mailingAddress.street}
+          label="Organization Name of ED/CEO"
+          placeholder="Enter ED/CEO Name"
+          value={resource.edCeo.name}
           onChange={(event) => {
             setResource({
               ...resource,
-              mailingAddress: {
-                ...resource.mailingAddress,
-                street: event.target.value,
+              edCeo: {
+                ...resource.edCeo,
+                name: event.target.value,
               },
             });
           }}
@@ -220,6 +228,113 @@ const SecondPage = ({ resource, setResource, formReference }: any) => {
             style,
           }}
           className={styles.muInput}
+        />
+
+        <div className={styles.stateRow}>
+          <TextField
+            required
+            label="ED/CEO Phone"
+            placeholder="Enter CEO Phone"
+            value={resource.edCeo.phone}
+            onChange={(event) => {
+              setResource({
+                ...resource,
+                edCeo: {
+                  ...resource.edCeo,
+                  phone: event.target.value,
+                },
+              });
+            }}
+            InputLabelProps={{ shrink: true }}
+            inputProps={{
+              style,
+            }}
+            className={`${styles.muInput} ${styles.muInputHalfWidth}`}
+          />
+          <TextField
+            required
+            label="ED/CEO Email"
+            placeholder="Enter CEO Email"
+            value={resource.edCeo.email}
+            onChange={(event) => {
+              setResource({
+                ...resource,
+                edCeo: {
+                  ...resource.edCeo,
+                  email: event.target.value,
+                },
+              });
+            }}
+            InputLabelProps={{ shrink: true }}
+            inputProps={{
+              style,
+            }}
+            className={`${styles.muInput} ${styles.muInputHalfWidth}`}
+          />
+        </div>
+        <RadioGroup
+          row
+          onChange={(e, value) => {
+            setResource({
+              ...resource,
+              communityPartner: value === "true",
+            });
+          }}
+          className={styles.radioGroup}
+          value={resource.communityPartner}
+        >
+          <FormControlLabel
+            value={true}
+            control={<Radio className={styles.radioButton} />}
+            label="Community Partner"
+          />
+          <FormControlLabel
+            value={false}
+            control={<Radio className={styles.radioButton} />}
+            label="Non-Community Partner"
+          />
+        </RadioGroup>
+
+        <TextField
+          size="medium"
+          required
+          label="Office Hours"
+          placeholder="Enter Office Hours"
+          value={resource.officeHours}
+          onChange={(event) => {
+            setResource({
+              ...resource,
+              officeHours: event.target.value,
+            });
+          }}
+          InputLabelProps={{ shrink: true }}
+          inputProps={{
+            style,
+          }}
+          className={`${styles.muInput} ${styles.tripleHeight}`}
+          multiline
+          minRows={3}
+          maxRows={3}
+        />
+        <TextField
+          required
+          label="Relationship Notes"
+          placeholder="Enter Relationship Notes"
+          value={resource.relationshipNotes}
+          onChange={(event) => {
+            setResource({
+              ...resource,
+              relationshipNotes: event.target.value,
+            });
+          }}
+          InputLabelProps={{ shrink: true }}
+          inputProps={{
+            style,
+          }}
+          className={`${styles.muInput} ${styles.tripleHeight}`}
+          multiline
+          minRows={3}
+          maxRows={3}
         />
       </div>
     </form>

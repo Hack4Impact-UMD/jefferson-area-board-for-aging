@@ -1,0 +1,94 @@
+.background {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 400px;
+  border: none;
+  box-shadow: 24;
+}
+.header {
+  margin: 25px 0 20px 0;
+  font-size: 1.5rem;
+  font-family: "DM Serif Text", serif;
+  text-align: center;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.submitButton {
+  margin-top: 30px !important;
+  background-color: #013b46 !important;
+  color: white !important;
+}
+.submitButton:mui-focused {
+  background-color: #013b46 !important;
+  color: white !important;
+}
+
+.redButton {
+  margin-top: 30px !important;
+  background-color: #cf0202 !important;
+  color: white !important;
+}
+
+.buttonHolder {
+  display: flex;
+  gap: 40px;
+}
+
+.regionSelect {
+  font-size: 0.8rem !important;
+  font-family: "Inter", sans-serif !important;
+  height: 43px;
+  width: 250px;
+  margin: 10px 0 20px 0 !important;
+}
+
+.regionSelectInput {
+  font-size: 0.8rem !important;
+  font-family: "Inter", sans-serif !important;
+  margin: 5px 0 0 0 !important;
+  height: 20px !important;
+  width: 250px;
+}
+
+.autocompleteHolder {
+  width: 250px;
+  height: 100px;
+}
+
+.radioButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5px;
+  height: 10px;
+}
+
+.radioGroup {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px 0 15px 0;
+}
+
+.nationalRadioContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  font-family: "DM Serif Text", serif;
+}
+
+.nationalRadioContainer p {
+  margin: 0;
+  padding-right: 5px;
+  font-size: 1rem;
+}

@@ -15,9 +15,8 @@
 }
 
 .radioGroup {
-  font-size: 1rem !important;
-  font-family: "Inter", sans-serif !important;
-  margin-bottom: 20px;
+  width: 120%;
+  margin: 10px 0 10px 0;
 }
 
 .formColumn {
@@ -58,4 +57,8 @@
 
 .muInputHalfWidth {
   width: 160px;
+}
+
+.tripleHeight {
+  height: 70px !important;
 }

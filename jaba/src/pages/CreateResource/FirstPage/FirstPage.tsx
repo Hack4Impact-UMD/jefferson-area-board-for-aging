@@ -47,7 +47,7 @@ const FirstPage = ({ resource, setResource, formReference }: any) => {
         <RadioGroup
           row
           onChange={(e, value) => {
-            setResource({ ...resource, npo: value });
+            setResource({ ...resource, npo: value === "true" });
           }}
           className={styles.radioGroup}
           value={resource.npo}
@@ -130,6 +130,7 @@ const FirstPage = ({ resource, setResource, formReference }: any) => {
             Primary Category
           </InputLabel>
           <Select
+            required
             labelId="primary-test-select-label"
             // Disables auto focus on MenuItems and allows TextField to be in focus
             MenuProps={{
@@ -140,7 +141,7 @@ const FirstPage = ({ resource, setResource, formReference }: any) => {
               setResource({
                 ...resource,
                 primaryCategory: e?.target.value,
-                secondaryCategory: "",
+                subCategory: "",
               })
             }
             onClose={() => setPrimaryCategorySearch("")}
@@ -198,14 +199,14 @@ const FirstPage = ({ resource, setResource, formReference }: any) => {
             MenuProps={{
               PaperProps: { sx: { maxHeight: 300 } },
             }}
-            value={resource.secondaryCategory}
+            value={resource.subCategory}
             onChange={(e) =>
-              setResource({ ...resource, secondaryCategory: e?.target.value })
+              setResource({ ...resource, subCategory: e?.target.value })
             }
             onClose={() => setSecondaryCategorySearch("")}
             // This prevents rendering empty string in Select's value
             // if search text would exclude currently selected option.
-            renderValue={() => resource.secondaryCategory}
+            renderValue={() => resource.subCategory}
             className={styles.primarySelect}
             variant="outlined"
           >
@@ -242,46 +243,6 @@ const FirstPage = ({ resource, setResource, formReference }: any) => {
             )}
           </Select>
         </FormControl>
-
-        {/* </FormControl>
-        <FormControl variant="outlined">
-          <InputLabel
-            id="test-select-label"
-            className={styles.selectInput}
-            required
-          >
-            Primary Category
-          </InputLabel>
-          <Select
-            labelId="test-select-label"
-            // Disables auto focus on MenuItems and allows TextField to be in focus
-            MenuProps={{
-              PaperProps: { sx: { maxHeight: 300 } },
-            }}
-            value={resource.primaryCategory}
-            onChange={(e) =>
-              setResource({ ...resource, primaryCategory: e?.target.value })
-            }
-            onClose={() => setPrimaryCategorySearch("")}
-            // This prevents rendering empty string in Select's value
-            // if search text would exclude currently selected option.
-            renderValue={() => resource.primaryCategory}
-            className={styles.primarySelect}
-            variant="outlined"
-          >
-            {Categories[resource.primaryCategory].map((option, i) =>
-              option
-                .toLowerCase()
-                .indexOf(primaryCategorySearch!.toLowerCase()) > -1 ? (
-                <MenuItem key={i} value={option}>
-                  {option}
-                </MenuItem>
-              ) : (
-                <></>
-              )
-            )}
-          </Select>
-        </FormControl> */}
       </div>
     </form>
   );

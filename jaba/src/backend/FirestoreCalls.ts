@@ -106,19 +106,10 @@
 //   });
 // }
 
-import {
-  collection,
-  doc,
-  addDoc,
-  getDocs,
-  getDoc,
-  serverTimestamp,
-  where,
-  query,
-} from "firebase/firestore";
+import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../config/firebase";
 import { type Resource, type ResourceData } from "../types/ResourceObject";
-import { type User, type UserData } from "../types/User";
+import { type User } from "../types/User";
 
 // Get data from resources database
 export function getResourceObjects(): Promise<Resource[]> {
@@ -141,15 +132,28 @@ export function getResourceObjects(): Promise<Resource[]> {
 }
 
 // Function to add a resource
-export function addResourceObject(resourceData: ResourceData): Promise<string> {
+export function addResourceObject(
+  resourceData: ResourceData,
+  user: string
+): Promise<string> {
   return new Promise((resolve, reject) => {
-    addDoc(collection(db, "resources"), resourceData)
-      .then((docRef) => {
-        resolve(docRef.id);
-      })
-      .catch((e) => {
-        reject(e);
-      });
+    getUserByAuthId(user)
+      .then((user) =>
+        addDoc(collection(db, "resources"), {
+          ...resourceData,
+          lastEditUser: user[0].name,
+          lastEditTime: new Date().toLocaleString("en-US", {
+            timeZone: "America/New_York",
+          }),
+        })
+          .then((docRef) => {
+            resolve(docRef.id);
+          })
+          .catch((e) => {
+            reject(e);
+          })
+      )
+      .catch((e) => reject(e));
   });
 }
 
