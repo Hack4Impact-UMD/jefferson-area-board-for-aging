@@ -25,6 +25,9 @@ export interface ResourceData {
   applicationNotes: string;
   eligibilityNotes: string;
   otherNotes: string;
+  lastEditTime: Date;
+  lastEditUser: string;
+  creationDate: Date;
 }
 
 export interface Address {

@@ -93,6 +93,9 @@ const CreateResource = () => {
     applicationNotes: "",
     eligibilityNotes: "",
     otherNotes: "",
+    lastEditTime: new Date(),
+    lastEditUser: "",
+    creationDate: new Date(),
   });
   const handlePageTurn = (toAdd: number) => {
     let currentForm = firstFormRef;

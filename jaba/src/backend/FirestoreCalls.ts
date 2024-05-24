@@ -145,6 +145,9 @@ export function addResourceObject(
           lastEditTime: new Date().toLocaleString("en-US", {
             timeZone: "America/New_York",
           }),
+          creationDate: new Date().toLocaleString("en-US", {
+            timeZone: "America/New_York",
+          }),
         })
           .then((docRef) => {
             resolve(docRef.id);
