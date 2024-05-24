@@ -35,7 +35,7 @@
   display: flex;
   align-items: center; /* Center items vertically */
   justify-content: center;
-  width: 85%;
+  width: 80%;
   height: 50%;
   box-sizing: border-box;
 }
@@ -48,8 +48,6 @@
   color: #4d4d4d;
   padding-left: 1rem;
   padding-right: 1rem;
-
-  margin-right: 5%;
 
   /* Make borders of input textbox and search icon look connected together */
   border-radius: 0.25rem;

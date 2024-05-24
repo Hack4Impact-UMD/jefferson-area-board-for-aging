@@ -7,7 +7,6 @@ import {
   Radio,
   RadioGroup,
   Select,
-  ListSubheader,
   TextField,
   MenuItem,
 } from "@mui/material";
@@ -34,120 +33,6 @@ const RegionSearch = ({ searchParams, setSearchParams }: any) => {
       setCounties(getCounties(searchParams.state));
     }
   }, [searchParams.state]);
-
-  const ZipCodeInput = () => {
-    return (
-      <TextField
-        label="Zip Code"
-        placeholder="Enter Zip Code"
-        value={searchParams.name}
-        onChange={(event) => {
-          setSearchParams({ ...searchParams, zipCode: event.target.value });
-        }}
-        InputLabelProps={{ shrink: true }}
-        inputProps={{
-          style,
-        }}
-      />
-    );
-  };
-
-  const StateSelect = () => {
-    return (
-      <FormControl variant="outlined">
-        <InputLabel className={styles.regionSelectInput}>
-          Select State
-        </InputLabel>
-        <Select
-          // Disables auto focus on MenuItems and allows TextField to be in focus
-          MenuProps={{
-            PaperProps: { sx: { maxHeight: 300 } },
-          }}
-          value={searchParams.state}
-          onChange={(e) =>
-            setSearchParams({
-              ...searchParams,
-              state: e?.target.value,
-            })
-          }
-          className={styles.regionSelect}
-          variant="outlined"
-        >
-          {States?.map((option, i) => (
-            <MenuItem key={i} value={option}>
-              {option}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-    );
-  };
-
-  const CountySelect = () => {
-    return (
-      <>
-        {counties.length > 0 ? (
-          <FormControl variant="outlined">
-            <InputLabel className={styles.regionSelectInput}>County</InputLabel>
-            <Select
-              // Disables auto focus on MenuItems and allows TextField to be in focus
-              MenuProps={{
-                PaperProps: { sx: { maxHeight: 300 } },
-              }}
-              value={searchParams.secondaryCategory}
-              onChange={(e) =>
-                setSearchParams({
-                  ...searchParams,
-                  secondaryCategory: e?.target.value,
-                })
-              }
-              className={styles.regionSelect}
-              variant="outlined"
-            >
-              {counties?.map((option, i) => (
-                <MenuItem key={i} value={option}>
-                  {option}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-        ) : (
-          <></>
-        )}
-      </>
-    );
-  };
-
-  const PlanningDistrictSelect = () => {
-    return (
-      <FormControl variant="outlined">
-        <InputLabel className={styles.regionSelectInput}>
-          Select Planning District
-        </InputLabel>
-        <Select
-          // Disables auto focus on MenuItems and allows TextField to be in focus
-          MenuProps={{
-            PaperProps: { sx: { maxHeight: 300 } },
-          }}
-          value={searchParams.planningDistrict}
-          onChange={(e) =>
-            setSearchParams({
-              ...searchParams,
-              planningDistrict: e?.target.value,
-            })
-          }
-          className={styles.regionSelect}
-          variant="outlined"
-        >
-          {PlanningDistricts.map((option, i) => (
-            <MenuItem key={i} value={option}>
-              {option}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-    );
-  };
 
   return (
     <>
@@ -221,14 +106,107 @@ const RegionSearch = ({ searchParams, setSearchParams }: any) => {
       <div className={styles.regionSelectContainer}>
         <>
           {searchRegion === "Zip Code" ? (
-            <ZipCodeInput />
+            <TextField
+              label="Zip Code"
+              placeholder="Enter Zip Code"
+              value={searchParams.zipCode}
+              onChange={(event) => {
+                setSearchParams({
+                  ...searchParams,
+                  zipCode: event?.target.value,
+                });
+              }}
+              InputLabelProps={{ shrink: true }}
+              inputProps={{
+                style,
+              }}
+            />
           ) : searchRegion === "State/County" ? (
             <>
-              <StateSelect />
-              <CountySelect />
+              <FormControl variant="outlined">
+                <InputLabel className={styles.regionSelectInput}>
+                  Select State
+                </InputLabel>
+                <Select
+                  // Disables auto focus on MenuItems and allows TextField to be in focus
+                  MenuProps={{
+                    PaperProps: { sx: { maxHeight: 300 } },
+                  }}
+                  value={searchParams.state}
+                  onChange={(e) =>
+                    setSearchParams({
+                      ...searchParams,
+                      state: e?.target.value,
+                    })
+                  }
+                  className={styles.regionSelect}
+                  variant="outlined"
+                >
+                  {States?.map((option, i) => (
+                    <MenuItem key={i} value={option}>
+                      {option}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+              {counties.length > 0 ? (
+                <FormControl variant="outlined">
+                  <InputLabel className={styles.regionSelectInput}>
+                    County
+                  </InputLabel>
+                  <Select
+                    // Disables auto focus on MenuItems and allows TextField to be in focus
+                    MenuProps={{
+                      PaperProps: { sx: { maxHeight: 300 } },
+                    }}
+                    value={searchParams.county}
+                    onChange={(e) =>
+                      setSearchParams({
+                        ...searchParams,
+                        county: e?.target.value,
+                      })
+                    }
+                    className={styles.regionSelect}
+                    variant="outlined"
+                  >
+                    {counties?.map((option, i) => (
+                      <MenuItem key={i} value={option}>
+                        {option}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+              ) : (
+                <></>
+              )}
             </>
           ) : searchRegion === "Planning District" ? (
-            <PlanningDistrictSelect />
+            <FormControl variant="outlined">
+              <InputLabel className={styles.regionSelectInput}>
+                Select Planning District
+              </InputLabel>
+              <Select
+                // Disables auto focus on MenuItems and allows TextField to be in focus
+                MenuProps={{
+                  PaperProps: { sx: { maxHeight: 300 } },
+                }}
+                value={searchParams.planningDistrict}
+                onChange={(e) =>
+                  setSearchParams({
+                    ...searchParams,
+                    planningDistrict: e?.target.value,
+                  })
+                }
+                className={styles.regionSelect}
+                variant="outlined"
+              >
+                {PlanningDistricts.map((option, i) => (
+                  <MenuItem key={i} value={option}>
+                    {option}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
           ) : (
             <></>
           )}
