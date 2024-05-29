@@ -106,10 +106,18 @@
 //   });
 // }
 
-import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
+import {
+  QueryConstraint,
+  addDoc,
+  collection,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
 import { db } from "../config/firebase";
 import { type Resource, type ResourceData } from "../types/ResourceObject";
 import { type User } from "../types/User";
+import { ResourceSearchParam } from "../types/ResourceObject";
 
 // Get data from resources database
 export function getResourceObjects(): Promise<Resource[]> {
@@ -215,6 +223,79 @@ export function getUserByAuthId(auth_id: string): Promise<User[]> {
           allUsers.push(user);
         });
         resolve(allUsers);
+      })
+      .catch((e) => {
+        reject(e);
+      });
+  });
+}
+
+export function getResourcesFromSearch(
+  searchParams: ResourceSearchParam
+): Promise<Resource[]> {
+  return new Promise((resolve, reject) => {
+    let queries: QueryConstraint[] = [];
+    // add query constraints to firestore query depending on searchParams
+    if (searchParams.primaryCategory != "")
+      queries.push(
+        where("primaryCategory", "==", searchParams.primaryCategory)
+      );
+
+    if (searchParams.secondaryCategory != "")
+      queries.push(where("subCategory", "==", searchParams.secondaryCategory));
+
+    if (searchParams.zipCode != "")
+      queries.push(where("zips", "array-contains", searchParams.zipCode));
+
+    if (searchParams.state != "" && searchParams.county != "")
+      queries.push(
+        where(
+          `states.${searchParams.state}`,
+          "array-contains",
+          searchParams.county
+        )
+      );
+
+    if (searchParams.planningDistrict != "")
+      queries.push(
+        where(
+          "planningDistricts",
+          "array-contains",
+          searchParams.planningDistrict
+        )
+      );
+
+    queries.push(
+      where(
+        "nationalResource",
+        "==",
+        searchParams.includeNationalServices === "yes" ? true : false
+      )
+    );
+
+    getDocs(query(collection(db, "resources"), ...queries))
+      .then((snapshot) => {
+        let resourceObjects: Resource[] = [];
+        snapshot.docs.map((doc) => {
+          let resourceObject: Resource = doc.data() as Resource;
+          resourceObject.id = doc.id;
+          resourceObjects.push(resourceObject);
+        });
+
+        // filter by remaining parameters not done by backend
+        if (searchParams.inputField !== "")
+          resourceObjects = resourceObjects.filter((resource) => {
+            return resource.name
+              .toLowerCase()
+              .includes(searchParams.inputField.toLowerCase());
+          });
+
+        if (searchParams.state !== "")
+          resourceObjects = resourceObjects.filter((resource) => {
+            return searchParams.state in resource.states;
+          });
+
+        resolve(resourceObjects);
       })
       .catch((e) => {
         reject(e);

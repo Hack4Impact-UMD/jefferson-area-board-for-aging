@@ -1,4 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { getResourcesFromSearch } from "../../backend/FirestoreCalls";
+import { ResourceSearchParam } from "../../types/ResourceObject";
 import styles from "./UserDashboardPage.module.css";
 import NavBar from "../../components/NavBar/NavBar";
 import AdminHomeDashboard from "../../assets/adminhomedashboard.png";
@@ -6,20 +9,10 @@ import CategorySearch from "./CategorySearch/CategorySearch";
 import RegionSearch from "./RegionSearch/RegionSearch";
 
 const UserDashboardPage = () => {
-  const isAdmin = true;
-  const props = { isAdmin };
-
+  const navigate = useNavigate();
+  const [errorMessage, setErrorMessage] = useState<string>("");
   // State to handle search params, stored as an object
-  const [searchParams, setSearchParams] = useState<{
-    inputField: string;
-    primaryCategory: string;
-    secondaryCategory: string;
-    includeNationalServices: string;
-    zipCode: string;
-    state: string;
-    county: string;
-    planningDistrict: string;
-  }>({
+  const [searchParams, setSearchParams] = useState<ResourceSearchParam>({
     inputField: "",
     primaryCategory: "",
     secondaryCategory: "",
@@ -30,28 +23,25 @@ const UserDashboardPage = () => {
     planningDistrict: "",
   });
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const queryName = query(collection(db, 'resources'), or(where('name', '==', inputText), where('physicalAddress.zip', '==', inputText), where('primaryCategory', '==', inputText)));
-
-  //       const snapshot = await getDocs(queryName);
-
-  //       const data: Resource[] = snapshot.docs.map(doc => ({
-  //         name: doc.data().name,
-  //         zip: doc.data().physicalAddress.zip,
-  //         primaryCategory: doc.data().primaryCategory,
-  //       })) as Resource[];
-
-  //       setResults(data);
-  //       console.log('Search results:', data);
-  //     } catch (error) {
-  //       console.error('Error fetching data:', error);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, [inputText]);
+  const handleSearch = () => {
+    setErrorMessage("");
+    getResourcesFromSearch(searchParams)
+      .then((resources) => {
+        if (resources.length > 0) {
+          navigate("/searchresults", {
+            state: {
+              fromApp: true,
+              resources: resources,
+            },
+          });
+        } else {
+          setErrorMessage("No Resources Match the Search Parameters**");
+        }
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
 
   return (
     <>
@@ -73,6 +63,7 @@ const UserDashboardPage = () => {
                 }
               />
             </div>
+            <div className={styles.errorMessage}>{errorMessage}</div>
           </div>
           <div className={styles.bottomPart}>
             <div className={styles.screens}>
@@ -88,7 +79,9 @@ const UserDashboardPage = () => {
                 alt="middleImage"
                 src={AdminHomeDashboard}
               />
-              <button className={styles.searchButton}>Search</button>
+              <button className={styles.searchButton} onClick={handleSearch}>
+                Search
+              </button>
             </div>
             <div className={styles.screens}>
               <p className={styles.header}>Region</p>

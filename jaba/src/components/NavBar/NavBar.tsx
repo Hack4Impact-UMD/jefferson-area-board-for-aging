@@ -42,7 +42,7 @@ function NavigationBar() {
           <NavLink
             to="/"
             className={({ isActive }) =>
-              isActive
+              isActive || location === "/searchresults"
                 ? `${styles.tab} ${styles.tabActive}`
                 : `${styles.tab} ${styles.tabInActive}`
             }

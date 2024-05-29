@@ -72,3 +72,14 @@ export enum PlanningDistricts {
   "Planning District 21",
   "Planning District 22",
 }
+
+export interface ResourceSearchParam {
+  inputField: string;
+  primaryCategory: string;
+  secondaryCategory: string;
+  includeNationalServices: string;
+  zipCode: string;
+  state: string;
+  county: string;
+  planningDistrict: string;
+}

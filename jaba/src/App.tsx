@@ -8,6 +8,7 @@ import CreateResource from "./pages/CreateResource/CreateResource";
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import SettingsPage from "./pages/SettingsPage/SettingsPage";
+import SearchResultPage from "./pages/SearchResultPage/SearchResultPage";
 import UserDashboardPage from "./pages/UserDashboardPage/UserDashboardPage";
 import UsersPage from "./pages/UsersPage/UsersPage";
 
@@ -33,6 +34,14 @@ const router = createBrowserRouter([
     element: (
       <RequireUserAuth>
         <UserDashboardPage />
+      </RequireUserAuth>
+    ),
+  },
+  {
+    path: "/searchresults",
+    element: (
+      <RequireUserAuth>
+        <SearchResultPage />
       </RequireUserAuth>
     ),
   },

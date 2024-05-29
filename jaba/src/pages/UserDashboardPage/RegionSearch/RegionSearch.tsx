@@ -137,6 +137,7 @@ const RegionSearch = ({ searchParams, setSearchParams }: any) => {
                     setSearchParams({
                       ...searchParams,
                       state: e?.target.value,
+                      county: "",
                     })
                   }
                   className={styles.regionSelect}
