@@ -84,6 +84,10 @@
   align-self: bottom;
 }
 
+.deleteButton:hover {
+  cursor: pointer;
+}
+
 .buttonMargin {
   height: 40%;
   display: flex;

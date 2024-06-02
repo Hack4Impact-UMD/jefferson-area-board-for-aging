@@ -166,6 +166,7 @@ const Categories: CategoriesType = {
   "Tribal Services": [],
   Veterans: ["Veterans Affairs", "Veteran Supports/General"],
   "Volunteer Opportunities": [],
+  "Other": [],
 };
 
 export const getSubCategory = (category: any) => {

@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getResourcesFromSearch } from "../../backend/FirestoreCalls";
-import { ResourceSearchParam } from "../../types/ResourceObject";
-import styles from "./UserDashboardPage.module.css";
-import NavBar from "../../components/NavBar/NavBar";
 import AdminHomeDashboard from "../../assets/adminhomedashboard.png";
+import { getResourcesFromSearch } from "../../backend/FirestoreCalls";
+import NavBar from "../../components/NavBar/NavBar";
+import { ResourceSearchParam } from "../../types/ResourceObject";
 import CategorySearch from "./CategorySearch/CategorySearch";
 import RegionSearch from "./RegionSearch/RegionSearch";
+import styles from "./UserDashboardPage.module.css";
 
 const UserDashboardPage = () => {
   const navigate = useNavigate();
@@ -40,6 +40,7 @@ const UserDashboardPage = () => {
       })
       .catch((e) => {
         console.log(e);
+        setErrorMessage("Failed to obtain resources. Please try again later**");
       });
   };
 

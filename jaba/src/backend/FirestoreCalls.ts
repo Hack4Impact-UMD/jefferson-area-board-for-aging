@@ -107,17 +107,22 @@
 // }
 
 import {
-  QueryConstraint,
+  QueryFilterConstraint,
   addDoc,
+  and,
   collection,
   getDocs,
+  or,
   query,
   where,
 } from "firebase/firestore";
 import { db } from "../config/firebase";
-import { type Resource, type ResourceData } from "../types/ResourceObject";
+import {
+  ResourceSearchParam,
+  type Resource,
+  type ResourceData,
+} from "../types/ResourceObject";
 import { type User } from "../types/User";
-import { ResourceSearchParam } from "../types/ResourceObject";
 
 // Get data from resources database
 export function getResourceObjects(): Promise<Resource[]> {
@@ -234,7 +239,7 @@ export function getResourcesFromSearch(
   searchParams: ResourceSearchParam
 ): Promise<Resource[]> {
   return new Promise((resolve, reject) => {
-    let queries: QueryConstraint[] = [];
+    let queries: QueryFilterConstraint[] = [];
     // add query constraints to firestore query depending on searchParams
     if (searchParams.primaryCategory != "")
       queries.push(
@@ -244,36 +249,82 @@ export function getResourcesFromSearch(
     if (searchParams.secondaryCategory != "")
       queries.push(where("subCategory", "==", searchParams.secondaryCategory));
 
-    if (searchParams.zipCode != "")
-      queries.push(where("zips", "array-contains", searchParams.zipCode));
+    if (searchParams.includeNationalServices == "no") {
+      queries.push(where("nationalResource", "==", false));
+    }
+    // Handles location constraints
+    if (searchParams.zipCode != "") {
+      if (searchParams.includeNationalServices == "yes") {
+        queries.push(
+          or(
+            where("nationalResource", "==", true),
+            where("zips", "array-contains", searchParams.zipCode)
+          )
+        );
+      } else {
+        queries.push(where("zips", "array-contains", searchParams.zipCode));
+      }
+    } else if (searchParams.state != "" && searchParams.county != "") {
+      if (searchParams.includeNationalServices == "yes") {
+        queries.push(
+          or(
+            where("nationalResource", "==", true),
+            or(
+              where(`states.${searchParams.state}`, "==", []),
+              where(
+                `states.${searchParams.state}`,
+                "array-contains",
+                searchParams.county
+              )
+            )
+          )
+        );
+      } else {
+        queries.push(
+          or(
+            where(`states.${searchParams.state}`, "==", []),
+            where(
+              `states.${searchParams.state}`,
+              "array-contains",
+              searchParams.county
+            )
+          )
+        );
+      }
+    } else if (searchParams.planningDistrict != "") {
+      if (searchParams.includeNationalServices == "yes") {
+        queries.push(
+          or(
+            where("nationalResource", "==", true),
+            where(
+              "planningDistricts",
+              "array-contains",
+              searchParams.planningDistrict
+            )
+          )
+        );
+      } else {
+        queries.push(
+          where(
+            "planningDistricts",
+            "array-contains",
+            searchParams.planningDistrict
+          )
+        );
+      }
+    }
 
-    if (searchParams.state != "" && searchParams.county != "")
-      queries.push(
-        where(
-          `states.${searchParams.state}`,
-          "array-contains",
-          searchParams.county
-        )
+    let functionInput = null;
+    if (queries.length == 0) {
+      functionInput = collection(db, "resources");
+    } else {
+      functionInput = functionInput = query(
+        collection(db, "resources"),
+        and(...queries)
       );
+    }
 
-    if (searchParams.planningDistrict != "")
-      queries.push(
-        where(
-          "planningDistricts",
-          "array-contains",
-          searchParams.planningDistrict
-        )
-      );
-
-    queries.push(
-      where(
-        "nationalResource",
-        "==",
-        searchParams.includeNationalServices === "yes" ? true : false
-      )
-    );
-
-    getDocs(query(collection(db, "resources"), ...queries))
+    getDocs(functionInput)
       .then((snapshot) => {
         let resourceObjects: Resource[] = [];
         snapshot.docs.map((doc) => {
@@ -283,16 +334,18 @@ export function getResourcesFromSearch(
         });
 
         // filter by remaining parameters not done by backend
-        if (searchParams.inputField !== "")
+        if (searchParams.inputField.trim() !== "")
           resourceObjects = resourceObjects.filter((resource) => {
             return resource.name
               .toLowerCase()
-              .includes(searchParams.inputField.toLowerCase());
+              .includes(searchParams.inputField.trim().toLowerCase());
           });
 
         if (searchParams.state !== "")
           resourceObjects = resourceObjects.filter((resource) => {
-            return searchParams.state in resource.states;
+            return (
+              searchParams.state in resource.states || resource.nationalResource
+            );
           });
 
         resolve(resourceObjects);

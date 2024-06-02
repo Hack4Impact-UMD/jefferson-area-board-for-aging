@@ -66,6 +66,7 @@
 
 .createButton {
   height: 40px;
+  width: 140px;
   background-color: #023c47;
   border: none;
   font-family: "DM Serif Text", serif;

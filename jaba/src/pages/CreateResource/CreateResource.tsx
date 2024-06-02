@@ -40,6 +40,7 @@ const CreateResource = () => {
     padding: "10px 10px 10px 10px",
     fontFamily: "'Inter', sans-serif",
   };
+
   const [page, setPage] = useState<number>(1);
   const [loading, setLoading] = useState<boolean>(false);
   const [snackbar, setSnackbar] = useState<boolean>(false);
@@ -119,6 +120,59 @@ const CreateResource = () => {
       .then(() => {
         setSnackbarMessage("Resource Created Successfully");
         setSnackbar(true);
+        setResource({
+          name: "",
+          npo: true,
+          mainPhone: "",
+          impairedPhone: "",
+          email: "",
+          physicalAddress: {
+            street: "",
+            city: "",
+            state: "",
+            zip: "",
+          },
+          mailingAddress: {
+            street: "",
+            city: "",
+            state: "",
+            zip: "",
+          },
+          nationalResource: false,
+          zips: [],
+          planningDistricts: [],
+          states: {},
+          primaryCategory: "",
+          subCategory: "",
+          edCeo: {
+            name: "",
+            phone: "",
+            email: "",
+            department: "",
+          },
+          officeHours: "",
+          communityPartner: true,
+          relationshipNotes: "",
+          mainContact: {
+            name: "",
+            phone: "",
+            email: "",
+            department: "",
+          },
+          secondContact: {
+            name: "",
+            phone: "",
+            email: "",
+            department: "",
+          },
+          applicationNotes: "",
+          eligibilityNotes: "",
+          otherNotes: "",
+          lastEditTime: new Date(),
+          lastEditUser: "",
+          creationDate: new Date(),
+        });
+        setPage(1);
       })
       .catch((e) => {
         setSnackbarMessage("Failed to create resource.");
@@ -141,125 +195,116 @@ const CreateResource = () => {
       <NavigationBar />
       <div className={styles.background}>
         <div className={styles.contentContainer}>
-          <div className={styles.header}>
-            {!(snackbarMessage == "Resource Created Successfully")
-              ? "Add New Resource"
-              : "Resource Created"}
-          </div>
-          {!(snackbarMessage == "Resource Created Successfully") ? (
+          <div className={styles.header}>Add New Resource</div>
+
+          <div className={styles.profileContainer}>
             <>
-              <div className={styles.profileContainer}>
-                <>
-                  {page == 1 ? (
-                    <FirstPage
-                      resource={resource}
-                      setResource={setResource}
-                      formReference={firstFormRef}
-                    />
-                  ) : page == 2 ? (
-                    <SecondPage
-                      resource={resource}
-                      setResource={setResource}
-                      formReference={secondFormRef}
-                    />
-                  ) : page == 3 ? (
-                    <ThirdPage
-                      resource={resource}
-                      setResource={setResource}
-                      formReference={thirdFormRef}
-                    />
-                  ) : (
-                    <FourthPage resource={resource} setResource={setResource} />
-                  )}
-                </>
-              </div>
-              <div className={styles.footer}>
-                <div className={styles.numberHolder}>
-                  {page != 1 ? (
-                    <button
-                      className={styles.arrowButton}
-                      onClick={() => handlePageTurn(-1)}
-                      type="submit"
-                    >
-                      <img
-                        src={leftArrow}
-                        className={styles.arrowImage}
-                        alt="Left Arrow Button"
-                      ></img>
-                    </button>
-                  ) : (
-                    <div className={styles.buttonFiller}>&nbsp;</div>
-                  )}
-                  <p
-                    className={
-                      page != 1
-                        ? `${styles.footerNumber} ${styles.footerNumberSurpressed}`
-                        : `${styles.footerNumber}`
-                    }
-                  >
-                    1
-                  </p>
-                  <p
-                    className={
-                      page != 2
-                        ? `${styles.footerNumber} ${styles.footerNumberSurpressed}`
-                        : `${styles.footerNumber}`
-                    }
-                  >
-                    2
-                  </p>
-                  <p
-                    className={
-                      page != 3
-                        ? `${styles.footerNumber} ${styles.footerNumberSurpressed}`
-                        : `${styles.footerNumber}`
-                    }
-                  >
-                    3
-                  </p>
-                  <p
-                    className={
-                      page != 4
-                        ? `${styles.footerNumber} ${styles.footerNumberSurpressed}`
-                        : `${styles.footerNumber}`
-                    }
-                  >
-                    4
-                  </p>
-                  {page != 4 ? (
-                    <button
-                      className={styles.arrowButton}
-                      onClick={() => handlePageTurn(1)}
-                      type="submit"
-                    >
-                      <img
-                        src={rightArrow}
-                        className={styles.arrowImage}
-                        alt="Right Arrow Button"
-                      ></img>
-                    </button>
-                  ) : (
-                    <div className={styles.buttonFiller}>&nbsp;</div>
-                  )}
-                </div>
-                {page == 4 ? (
-                  <div className={styles.createButtonHolder}>
-                    <button
-                      className={styles.createButton}
-                      onClick={handleSubmit}
-                      disabled={loading}
-                    >
-                      {loading ? <Loading /> : "Create Resource"}
-                    </button>
-                  </div>
-                ) : (
-                  <></>
-                )}
-              </div>
+              {page == 1 ? (
+                <FirstPage
+                  resource={resource}
+                  setResource={setResource}
+                  formReference={firstFormRef}
+                />
+              ) : page == 2 ? (
+                <SecondPage
+                  resource={resource}
+                  setResource={setResource}
+                  formReference={secondFormRef}
+                />
+              ) : page == 3 ? (
+                <ThirdPage
+                  resource={resource}
+                  setResource={setResource}
+                  formReference={thirdFormRef}
+                />
+              ) : (
+                <FourthPage resource={resource} setResource={setResource} />
+              )}
             </>
-          ) : (
-            <></>
-          )}
+          </div>
+          <div className={styles.footer}>
+            <div className={styles.numberHolder}>
+              {page != 1 ? (
+                <button
+                  className={styles.arrowButton}
+                  onClick={() => handlePageTurn(-1)}
+                  type="submit"
+                >
+                  <img
+                    src={leftArrow}
+                    className={styles.arrowImage}
+                    alt="Left Arrow Button"
+                  ></img>
+                </button>
+              ) : (
+                <div className={styles.buttonFiller}>&nbsp;</div>
+              )}
+              <p
+                className={
+                  page != 1
+                    ? `${styles.footerNumber} ${styles.footerNumberSurpressed}`
+                    : `${styles.footerNumber}`
+                }
+              >
+                1
+              </p>
+              <p
+                className={
+                  page != 2
+                    ? `${styles.footerNumber} ${styles.footerNumberSurpressed}`
+                    : `${styles.footerNumber}`
+                }
+              >
+                2
+              </p>
+              <p
+                className={
+                  page != 3
+                    ? `${styles.footerNumber} ${styles.footerNumberSurpressed}`
+                    : `${styles.footerNumber}`
+                }
+              >
+                3
+              </p>
+              <p
+                className={
+                  page != 4
+                    ? `${styles.footerNumber} ${styles.footerNumberSurpressed}`
+                    : `${styles.footerNumber}`
+                }
+              >
+                4
+              </p>
+              {page != 4 ? (
+                <button
+                  className={styles.arrowButton}
+                  onClick={() => handlePageTurn(1)}
+                  type="submit"
+                >
+                  <img
+                    src={rightArrow}
+                    className={styles.arrowImage}
+                    alt="Right Arrow Button"
+                  ></img>
+                </button>
+              ) : (
+                <div className={styles.buttonFiller}>&nbsp;</div>
+              )}
+            </div>
+            {page == 4 ? (
+              <div className={styles.createButtonHolder}>
+                <button
+                  className={styles.createButton}
+                  onClick={handleSubmit}
+                  disabled={loading}
+                >
+                  {loading ? <Loading /> : "Create Resource"}
+                </button>
+              </div>
+            ) : (
+              <></>
+            )}
+          </div>
         </div>
       </div>
     </>

@@ -1,9 +1,3 @@
-import { useState, useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
-import { ResourceData } from "../../types/ResourceObject";
-import Loading from "../../components/LoadingScreen/Loading";
-import NavBar from "../../components/NavBar/NavBar";
-import styles from "./SearchResultPage.module.css";
 import {
   Table,
   TableBody,
@@ -12,9 +6,15 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import leftArrow from "../../assets/icons/arrow-left.png";
 import rightArrow from "../../assets/icons/arrow-right.png";
 import print from "../../assets/print.svg";
+import Loading from "../../components/LoadingScreen/Loading";
+import NavBar from "../../components/NavBar/NavBar";
+import { ResourceData } from "../../types/ResourceObject";
+import styles from "./SearchResultPage.module.css";
 
 const headerCellStyle = {
   color: "white",
@@ -31,7 +31,7 @@ const SearchResultPage = () => {
     []
   );
   const [page, setPage] = useState<number>(1);
-  const rowsPerPage = 5;
+  const rowsPerPage = 4;
   let totalPages = Math.ceil(resources.length / rowsPerPage);
 
   const handlePageTurn = (direction: number) => {

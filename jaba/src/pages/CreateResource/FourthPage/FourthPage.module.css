@@ -75,7 +75,7 @@
   width: 140px;
   height: 40px;
   font-size: 0.8rem;
-  margin: 10px 10px 10px 0;
+  margin: 10px 10px 10px 0 !important;
   background-color: #071dca !important;
   color: white !important;
 }

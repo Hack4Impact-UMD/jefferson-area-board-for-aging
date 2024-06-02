@@ -27,6 +27,7 @@
 }
 
 .tableContainer {
+  height: 80%;
   width: 95%;
   margin: 0 auto 0 auto;
   background-color: #f5f5f5;

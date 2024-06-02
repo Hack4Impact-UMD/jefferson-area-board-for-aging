@@ -185,64 +185,67 @@ const FirstPage = ({ resource, setResource, formReference }: any) => {
         </FormControl>
 
         {/* Secondary Category Select */}
-
-        <FormControl>
-          <InputLabel
-            id="secondary-test-select-label"
-            className={styles.selectInput}
-          >
-            Secondary Category
-          </InputLabel>
-          <Select
-            labelId="secondary-test-select-label"
-            // Disables auto focus on MenuItems and allows TextField to be in focus
-            MenuProps={{
-              PaperProps: { sx: { maxHeight: 300 } },
-            }}
-            value={resource.subCategory}
-            onChange={(e) =>
-              setResource({ ...resource, subCategory: e?.target.value })
-            }
-            onClose={() => setSecondaryCategorySearch("")}
-            // This prevents rendering empty string in Select's value
-            // if search text would exclude currently selected option.
-            renderValue={() => resource.subCategory}
-            className={styles.primarySelect}
-            variant="outlined"
-          >
-            {/* TextField is put into ListSubheader so that it doesn't
+        {getSubCategory(resource.primaryCategory).length > 0 ? (
+          <FormControl>
+            <InputLabel
+              id="secondary-test-select-label"
+              className={styles.selectInput}
+            >
+              Secondary Category
+            </InputLabel>
+            <Select
+              labelId="secondary-test-select-label"
+              // Disables auto focus on MenuItems and allows TextField to be in focus
+              MenuProps={{
+                PaperProps: { sx: { maxHeight: 300 } },
+              }}
+              value={resource.subCategory}
+              onChange={(e) =>
+                setResource({ ...resource, subCategory: e?.target.value })
+              }
+              onClose={() => setSecondaryCategorySearch("")}
+              // This prevents rendering empty string in Select's value
+              // if search text would exclude currently selected option.
+              renderValue={() => resource.subCategory}
+              className={styles.primarySelect}
+              variant="outlined"
+            >
+              {/* TextField is put into ListSubheader so that it doesn't
               act as a selectable item in the menu
               i.e. we can click the TextField without triggering any selection.*/}
-            <ListSubheader>
-              <TextField
-                size="small"
-                // Autofocus on textfield
-                autoFocus
-                placeholder="Type to search..."
-                fullWidth
-                onChange={(e) => setSecondaryCategorySearch(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key !== "Escape") {
-                    // Prevents autoselecting item while typing (default Select behaviour)
-                    e.stopPropagation();
-                  }
-                }}
-              />
-            </ListSubheader>
-            {getSubCategory(resource.primaryCategory).map(
-              (option: any, i: any) =>
-                option
-                  .toLowerCase()
-                  .indexOf(secondaryCategorySearch!.toLowerCase()) > -1 ? (
-                  <MenuItem key={i} value={option}>
-                    {option}
-                  </MenuItem>
-                ) : (
-                  <></>
-                )
-            )}
-          </Select>
-        </FormControl>
+              <ListSubheader>
+                <TextField
+                  size="small"
+                  // Autofocus on textfield
+                  autoFocus
+                  placeholder="Type to search..."
+                  fullWidth
+                  onChange={(e) => setSecondaryCategorySearch(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key !== "Escape") {
+                      // Prevents autoselecting item while typing (default Select behaviour)
+                      e.stopPropagation();
+                    }
+                  }}
+                />
+              </ListSubheader>
+              {getSubCategory(resource.primaryCategory).map(
+                (option: any, i: any) =>
+                  option
+                    .toLowerCase()
+                    .indexOf(secondaryCategorySearch!.toLowerCase()) > -1 ? (
+                    <MenuItem key={i} value={option}>
+                      {option}
+                    </MenuItem>
+                  ) : (
+                    <></>
+                  )
+              )}
+            </Select>
+          </FormControl>
+        ) : (
+          <></>
+        )}
       </div>
     </form>
   );
