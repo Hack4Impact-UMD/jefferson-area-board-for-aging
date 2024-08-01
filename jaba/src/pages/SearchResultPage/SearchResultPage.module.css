@@ -39,6 +39,9 @@
   background-color: #ebebeb !important;
 }
 
+.tableLastRow {
+  border-bottom: none;
+}
 .resourceCheckbox {
   cursor: pointer;
 }

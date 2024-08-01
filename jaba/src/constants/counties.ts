@@ -3319,6 +3319,6 @@ const Counties = {
 };
 const getCounties = (state: any) => {
   // @ts-ignore
-  return Counties[state];
+  return Counties[state].sort();
 };
 export default getCounties;

@@ -20,6 +20,19 @@ const headerCellStyle = {
   color: "white",
   fontFamily: "DM Serif Text, serif",
   fontSize: "1.1rem",
+  maxWidth: "100px",
+  minWidth: "100px",
+  padding: "16px 4px",
+};
+
+const childCellStyle = {
+  fontFamily: "DM Serif Text, serif",
+  fontSize: ".9rem",
+  maxWidth: "100px",
+  minWidth: "100px",
+  textWrap: "wrap",
+  wordBreak: "break-word",
+  padding: "4px",
 };
 
 const SearchResultPage = () => {
@@ -55,6 +68,14 @@ const SearchResultPage = () => {
     }
   };
 
+  const handleCheckAll = (checked: boolean) => {
+    if (checked) {
+      setSelectedResources(resources);
+    } else {
+      setSelectedResources([]);
+    }
+  };
+
   useEffect(() => {
     // Get data from navigation state, otherwise navigate to home page
     if (location.state?.fromApp && location.state.resources) {
@@ -64,7 +85,6 @@ const SearchResultPage = () => {
       navigate("/");
     }
   }, []);
-
   return (
     <>
       <NavBar />
@@ -90,8 +110,23 @@ const SearchResultPage = () => {
                   <Table>
                     <TableHead>
                       <TableRow sx={{ backgroundColor: "#023c47" }}>
-                        <TableCell sx={headerCellStyle}></TableCell>
+                        <TableCell
+                          sx={{
+                            minWidth: "20px",
+                            maxWidth: "20px",
+                            padding: "8px",
+                          }}
+                        >
+                          <input
+                            type="checkbox"
+                            onChange={(e) => {
+                              handleCheckAll(e.target.checked);
+                            }}
+                            className={styles.resourceCheckbox}
+                          />
+                        </TableCell>
                         <TableCell sx={headerCellStyle}>Resource</TableCell>
+                        <TableCell sx={headerCellStyle}>Category</TableCell>
                         <TableCell sx={headerCellStyle}>Address</TableCell>
                         <TableCell sx={headerCellStyle}>Contact</TableCell>
                       </TableRow>
@@ -103,17 +138,91 @@ const SearchResultPage = () => {
                           (page - 1) * rowsPerPage + rowsPerPage
                         )
                         .map((resource, index) => (
-                          <TableRow key={index} className={styles.tableRow}>
-                            <TableCell>
+                          <TableRow
+                            key={index}
+                            className={styles.tableRow}
+                            sx={index % 4 == 3 ? { "& td": { border: 0 } } : {}}
+                          >
+                            <TableCell
+                              sx={{
+                                minWidth: "20px",
+                                maxWidth: "20px",
+                                padding: "8px",
+                              }}
+                            >
                               <input
                                 type="checkbox"
                                 onChange={(e) => handleCheckbox(e, resource)}
                                 className={styles.resourceCheckbox}
+                                checked={selectedResources.includes(resource)}
                               />
                             </TableCell>
-                            <TableCell>{resource.name}</TableCell>
-                            <TableCell>{`${resource.physicalAddress.street}, ${resource.physicalAddress.city}, ${resource.physicalAddress.state}, ${resource.physicalAddress.zip}`}</TableCell>
-                            <TableCell>
+                            {/* On click is used in each child instead of 
+                            the entire row so that clicking the checkbox 
+                            does not navigate to the other page */}
+                            <TableCell
+                              sx={childCellStyle}
+                              onClick={() => {
+                                navigate("/create", {
+                                  state: {
+                                    fromApp: true,
+                                    resource: resource,
+                                  },
+                                });
+                              }}
+                            >
+                              {resource.name}
+                            </TableCell>
+                            <TableCell
+                              sx={childCellStyle}
+                              onClick={() => {
+                                navigate("/create", {
+                                  state: {
+                                    fromApp: true,
+                                    resource: resource,
+                                  },
+                                });
+                              }}
+                            >
+                              {resource.primaryCategory}
+                              <br />{" "}
+                              <div
+                                style={{
+                                  fontStyle: "italic",
+                                  fontSize: ".8rem",
+                                  color: "dimgray",
+                                }}
+                              >
+                                {resource?.subCategory}
+                              </div>
+                            </TableCell>
+
+                            <TableCell
+                              sx={childCellStyle}
+                              onClick={() => {
+                                navigate("/create", {
+                                  state: {
+                                    fromApp: true,
+                                    resource: resource,
+                                  },
+                                });
+                              }}
+                            >
+                              {resource.physicalAddress.street}
+                              <br />
+                              {`${resource.physicalAddress.city}, ${resource.physicalAddress.state}, ${resource.physicalAddress.zip}`}
+                            </TableCell>
+                            <TableCell
+                              sx={childCellStyle}
+                              onClick={() => {
+                                navigate("/create", {
+                                  state: {
+                                    fromApp: true,
+                                    resource: resource,
+                                  },
+                                });
+                              }}
+                            >
                               <div>{resource.mainContact.name}</div>
                               <div>
                                 {resource.mainContact.phone.slice(0, 3) +
@@ -183,7 +292,17 @@ const SearchResultPage = () => {
                   )}
                 </div>
                 {/* TBD */}
-                <button className={styles.printButton}>
+                <button
+                  className={styles.printButton}
+                  onClick={() => {
+                    navigate("/printreport", {
+                      state: {
+                        fromApp: true,
+                        resource: selectedResources,
+                      },
+                    });
+                  }}
+                >
                   <img src={print} alt="Print Icon" />
                   Print
                 </button>

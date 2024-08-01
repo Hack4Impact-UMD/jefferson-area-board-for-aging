@@ -14,7 +14,7 @@ import Zips from "../../../constants/zips";
 import AddState from "./AddState/AddState";
 import styles from "./FourthPage.module.css";
 
-const FourthPage = ({ resource, setResource }: any) => {
+const FourthPage = ({ resource, setResource, givenMode }: any) => {
   const style = {
     width: "250px",
     padding: "10px 10px 10px 10px",
@@ -22,6 +22,10 @@ const FourthPage = ({ resource, setResource }: any) => {
   };
   const [openAddStateModal, setOpenAddStateModal] = useState<boolean>(false);
   const [startingModalState, setStartingModalState] = useState<string>("");
+  const [startingModalCounties, setStartingModalCounties] = useState<string[]>(
+    []
+  );
+
   const [primaryCategorySearch, setPrimaryCategorySearch] =
     useState<string>("");
   const [neededFilters, setNeededFilters] = useState({
@@ -52,10 +56,13 @@ const FourthPage = ({ resource, setResource }: any) => {
         handleClose={() => {
           setOpenAddStateModal(false);
           setStartingModalState("");
+          setStartingModalCounties([]);
         }}
         resource={resource}
         setResource={setResource}
         startingModalState={startingModalState}
+        startingModalCounties={startingModalCounties}
+        givenMode={givenMode}
       />
       <form
         onSubmit={(e) => {
@@ -67,6 +74,7 @@ const FourthPage = ({ resource, setResource }: any) => {
           <RadioGroup
             row
             onChange={(e, value) => {
+              if (givenMode === "VIEW") return;
               const booleanValue = value === "true";
               setResource({ ...resource, nationalResource: booleanValue });
               setNeededFilters({
@@ -96,6 +104,8 @@ const FourthPage = ({ resource, setResource }: any) => {
           <RadioGroup
             row
             onChange={(e, value) => {
+              if (givenMode === "VIEW") return;
+
               setNeededFilters({
                 ...neededFilters,
                 zip: value === "true",
@@ -132,6 +142,8 @@ const FourthPage = ({ resource, setResource }: any) => {
                 )}
                 open={openZip}
                 onInputChange={(_, value) => {
+                  if (givenMode === "VIEW") return;
+
                   if (value.length < 3) {
                     if (openZip) setOpenZip(false);
                   } else {
@@ -139,6 +151,7 @@ const FourthPage = ({ resource, setResource }: any) => {
                   }
                 }}
                 onChange={(event, newValue) => {
+                  if (givenMode === "VIEW") return;
                   setResource({ ...resource, zips: newValue });
                 }}
                 value={resource.zips}
@@ -160,7 +173,10 @@ const FourthPage = ({ resource, setResource }: any) => {
                     {...params}
                     label="Zip Codes"
                     placeholder="Enter Zip Codes Served"
-                    InputLabelProps={{ shrink: true }}
+                    InputLabelProps={{
+                      shrink: true,
+                    }}
+                    disabled={givenMode === "VIEW"}
                   />
                 )}
               />
@@ -175,6 +191,8 @@ const FourthPage = ({ resource, setResource }: any) => {
           <RadioGroup
             row
             onChange={(e, value) => {
+              if (givenMode === "VIEW") return;
+
               setNeededFilters({
                 ...neededFilters,
                 planningDistrict: value === "true",
@@ -232,6 +250,7 @@ const FourthPage = ({ resource, setResource }: any) => {
                     label="Planning Districts"
                     placeholder="Enter Planning Districts Served"
                     InputLabelProps={{ shrink: true }}
+                    disabled={givenMode === "VIEW"}
                   />
                 )}
               />
@@ -248,6 +267,7 @@ const FourthPage = ({ resource, setResource }: any) => {
           <RadioGroup
             row
             onChange={(e, value) => {
+              if (givenMode === "VIEW") return;
               setNeededFilters({
                 ...neededFilters,
                 state: value === "true",
@@ -274,6 +294,7 @@ const FourthPage = ({ resource, setResource }: any) => {
                 variant="outlined"
                 className={styles.addButton}
                 onClick={() => setOpenAddStateModal(true)}
+                disabled={givenMode === "VIEW"}
               >
                 Add State
               </Button>
@@ -286,6 +307,7 @@ const FourthPage = ({ resource, setResource }: any) => {
                       className={styles.stateButton}
                       onClick={() => {
                         setStartingModalState(key);
+                        setStartingModalCounties(resource.states[key]);
                         setOpenAddStateModal(true);
                       }}
                       key={key}

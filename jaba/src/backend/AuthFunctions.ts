@@ -1,17 +1,16 @@
 import {
-  getAuth,
-  updatePassword,
-  reauthenticateWithCredential,
   EmailAuthProvider,
-  signOut,
-  signInWithEmailAndPassword,
+  getAuth,
+  reauthenticateWithCredential,
   sendPasswordResetEmail,
+  signInWithEmailAndPassword,
+  signOut,
+  updatePassword,
   type AuthError,
   type User,
 } from "firebase/auth";
-import app, { functions } from "../config/firebase";
 import { httpsCallable } from "firebase/functions";
-import { useAuth } from "../auth/AuthProvider";
+import app, { functions } from "../config/firebase";
 
 /*
 Updates the logged-in user's password.
@@ -58,6 +57,43 @@ export async function updateUserPassword(
     } else {
       reject("Session expired. Please sign in again.");
     }
+  });
+}
+/*
+ * Creates a user and sends a password reset email to that user.
+ */
+export function createFirstAdmin(
+  name: string,
+  newEmail: string,
+  newRole: string
+): Promise<void> {
+  return new Promise((resolve, reject) => {
+    /* If role isn't one of the expected ones, reject it.*/
+    if (!name || !newEmail || !newRole) {
+      reject();
+    }
+    if (newRole.toUpperCase() != "USER" && newRole.toUpperCase() != "ADMIN") {
+      reject();
+    }
+    const createUserCloudFunction = httpsCallable(
+      functions,
+      "createFirstAdmin"
+    );
+    const auth = getAuth(app);
+
+    createUserCloudFunction({ name, email: newEmail, role: newRole })
+      .then(async () => {
+        await sendPasswordResetEmail(auth, newEmail)
+          .then(() => {
+            resolve();
+          })
+          .catch((error: any) => {
+            reject();
+          });
+      })
+      .catch((error: any) => {
+        reject(error);
+      });
   });
 }
 

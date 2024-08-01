@@ -26,8 +26,8 @@ exports.createUser = onCall(
         data.role &&
         data.email &&
         auth &&
-        auth.token
-        // auth.token.role.toLowerCase() == "admin"
+        auth.token &&
+        auth.token.role.toLowerCase() == "admin"
       ) {
         const pass = crypto.randomBytes(32).toString("hex");
         await authorization

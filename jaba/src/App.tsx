@@ -1,18 +1,44 @@
 import { ThemeProvider } from "@mui/material";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import {
+  Navigate,
+  RouterProvider,
+  createBrowserRouter,
+} from "react-router-dom";
 import { AuthProvider } from "./auth/AuthProvider";
 import RequireAdminAuth from "./auth/RequireAdminAuth/RequireAdminAuth";
 import RequireUserAuth from "./auth/RequireUserAuth/RequireUserAuth";
+import { createFirstAdmin } from "./backend/AuthFunctions";
 import { theme } from "./muiTheme";
 import CreateResource from "./pages/CreateResource/CreateResource";
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
 import LoginPage from "./pages/LoginPage/LoginPage";
-import SettingsPage from "./pages/SettingsPage/SettingsPage";
+import PrintReport from "./pages/PrintReport/PrintReport";
 import SearchResultPage from "./pages/SearchResultPage/SearchResultPage";
+import SettingsPage from "./pages/SettingsPage/SettingsPage";
 import UserDashboardPage from "./pages/UserDashboardPage/UserDashboardPage";
 import UsersPage from "./pages/UsersPage/UsersPage";
 
 const router = createBrowserRouter([
+  {
+    path: "/test",
+    element: (
+      <button
+        onClick={async () => {
+          await createFirstAdmin(
+            "sahiladmin",
+            "sgaba@terpmail.umd.edu",
+            "ADMIN"
+          )
+            .then(() => {
+              console.log("done!");
+            })
+            .catch((error) => console.log(error));
+        }}
+      >
+        Hi
+      </button>
+    ),
+  },
   {
     path: "/login",
     element: <LoginPage />,
@@ -58,6 +84,22 @@ const router = createBrowserRouter([
     element: (
       <RequireUserAuth>
         <SettingsPage />
+      </RequireUserAuth>
+    ),
+  },
+  {
+    path: "/printreport",
+    element: (
+      <RequireUserAuth>
+        <PrintReport />
+      </RequireUserAuth>
+    ),
+  },
+  {
+    path: "/*",
+    element: (
+      <RequireUserAuth>
+        <Navigate replace to="/" />
       </RequireUserAuth>
     ),
   },

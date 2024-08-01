@@ -2,7 +2,12 @@ import { TextField } from "@mui/material";
 import { useState } from "react";
 import styles from "./ThirdPage.module.css";
 
-const ThirdPage = ({ resource, setResource, formReference }: any) => {
+const ThirdPage = ({
+  resource,
+  setResource,
+  formReference,
+  givenMode,
+}: any) => {
   const style = {
     width: "250px",
     padding: "10px 10px 10px 10px",
@@ -35,6 +40,7 @@ const ThirdPage = ({ resource, setResource, formReference }: any) => {
             InputLabelProps={{ shrink: true }}
             inputProps={{
               style,
+              readOnly: givenMode === "VIEW",
             }}
             className={`${styles.muInput} ${styles.muInputHalfWidth}`}
           />
@@ -55,6 +61,7 @@ const ThirdPage = ({ resource, setResource, formReference }: any) => {
             InputLabelProps={{ shrink: true }}
             inputProps={{
               style,
+              readOnly: givenMode === "VIEW",
             }}
             className={`${styles.muInput} ${styles.muInputHalfWidth}`}
           />
@@ -76,6 +83,7 @@ const ThirdPage = ({ resource, setResource, formReference }: any) => {
           InputLabelProps={{ shrink: true }}
           inputProps={{
             style,
+            readOnly: givenMode === "VIEW",
           }}
           className={styles.muInput}
         />
@@ -96,6 +104,7 @@ const ThirdPage = ({ resource, setResource, formReference }: any) => {
           InputLabelProps={{ shrink: true }}
           inputProps={{
             style,
+            readOnly: givenMode === "VIEW",
           }}
           className={styles.muInput}
         />
@@ -117,6 +126,7 @@ const ThirdPage = ({ resource, setResource, formReference }: any) => {
             InputLabelProps={{ shrink: true }}
             inputProps={{
               style,
+              readOnly: givenMode === "VIEW",
             }}
             className={`${styles.muInput} ${styles.muInputHalfWidth}`}
           />
@@ -138,6 +148,7 @@ const ThirdPage = ({ resource, setResource, formReference }: any) => {
             InputLabelProps={{ shrink: true }}
             inputProps={{
               style,
+              readOnly: givenMode === "VIEW",
             }}
             className={`${styles.muInput} ${styles.muInputHalfWidth}`}
           />
@@ -159,6 +170,7 @@ const ThirdPage = ({ resource, setResource, formReference }: any) => {
           InputLabelProps={{ shrink: true }}
           inputProps={{
             style,
+            readOnly: givenMode === "VIEW",
           }}
           className={styles.muInput}
         />
@@ -179,6 +191,7 @@ const ThirdPage = ({ resource, setResource, formReference }: any) => {
           InputLabelProps={{ shrink: true }}
           inputProps={{
             style,
+            readOnly: givenMode === "VIEW",
           }}
           className={styles.muInput}
         />
@@ -198,6 +211,7 @@ const ThirdPage = ({ resource, setResource, formReference }: any) => {
           InputLabelProps={{ shrink: true }}
           inputProps={{
             style,
+            readOnly: givenMode === "VIEW",
           }}
           className={`${styles.muInput} ${styles.tripleHeight}`}
           multiline
@@ -219,6 +233,7 @@ const ThirdPage = ({ resource, setResource, formReference }: any) => {
           InputLabelProps={{ shrink: true }}
           inputProps={{
             style,
+            readOnly: givenMode === "VIEW",
           }}
           className={`${styles.muInput} ${styles.tripleHeight}`}
           multiline
@@ -240,6 +255,7 @@ const ThirdPage = ({ resource, setResource, formReference }: any) => {
           InputLabelProps={{ shrink: true }}
           inputProps={{
             style,
+            readOnly: givenMode === "VIEW",
           }}
           className={`${styles.muInput} ${styles.tripleHeight}`}
           multiline

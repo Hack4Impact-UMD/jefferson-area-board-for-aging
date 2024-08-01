@@ -13,11 +13,17 @@ import { useState } from "react";
 import Categories, { getSubCategory } from "../../../constants/categories";
 import styles from "./FirstPage.module.css";
 
-const FirstPage = ({ resource, setResource, formReference }: any) => {
+const FirstPage = ({
+  resource,
+  setResource,
+  formReference,
+  givenMode,
+}: any) => {
   const style = {
     width: "250px",
     padding: "10px 10px 10px 10px",
     fontFamily: "'Inter', sans-serif",
+    WebkitTextFillColor: "black",
   };
   const [primaryCategorySearch, setPrimaryCategorySearch] =
     useState<string>("");
@@ -41,12 +47,14 @@ const FirstPage = ({ resource, setResource, formReference }: any) => {
           InputLabelProps={{ shrink: true }}
           inputProps={{
             style,
+            readOnly: givenMode === "VIEW",
           }}
           className={styles.muInput}
         />
         <RadioGroup
           row
           onChange={(e, value) => {
+            if (givenMode === "VIEW") return;
             setResource({ ...resource, npo: value === "true" });
           }}
           className={styles.radioGroup}
@@ -74,6 +82,7 @@ const FirstPage = ({ resource, setResource, formReference }: any) => {
           InputLabelProps={{ shrink: true }}
           inputProps={{
             style,
+            readOnly: givenMode === "VIEW",
           }}
           className={styles.muInput}
         />
@@ -88,6 +97,7 @@ const FirstPage = ({ resource, setResource, formReference }: any) => {
           InputLabelProps={{ shrink: true }}
           inputProps={{
             style,
+            readOnly: givenMode === "VIEW",
           }}
           className={styles.muInput}
         />
@@ -102,6 +112,7 @@ const FirstPage = ({ resource, setResource, formReference }: any) => {
           InputLabelProps={{ shrink: true }}
           inputProps={{
             style,
+            readOnly: givenMode === "VIEW",
           }}
           className={styles.muInput}
         />
@@ -116,11 +127,62 @@ const FirstPage = ({ resource, setResource, formReference }: any) => {
           InputLabelProps={{ shrink: true }}
           inputProps={{
             style,
+            readOnly: givenMode === "VIEW",
           }}
           className={styles.muInput}
         />
       </div>
       <div className={styles.formColumn}>
+        <TextField
+          required
+          label="Description"
+          placeholder="Enter Resource Description"
+          value={resource.description}
+          onChange={(event) => {
+            setResource({
+              ...resource,
+              description: event.target.value,
+            });
+          }}
+          InputLabelProps={{ shrink: true }}
+          inputProps={{
+            style,
+            readOnly: givenMode === "VIEW",
+          }}
+          className={`${styles.muInput} ${styles.tripleHeight}`}
+          multiline
+          minRows={3}
+          maxRows={3}
+        />
+        {givenMode != "ADD" ? (
+          <>
+            {" "}
+            <TextField
+              required
+              label="Creation Date"
+              value={resource.creationDate}
+              InputLabelProps={{ shrink: true }}
+              inputProps={{
+                style,
+                readOnly: true,
+              }}
+              className={styles.muInput}
+            />
+            <TextField
+              required
+              label="Last Edit Date and User"
+              value={`${resource.lastEditUser} edited at ${resource.lastEditTime}`}
+              InputLabelProps={{ shrink: true }}
+              inputProps={{
+                style,
+                readOnly: true,
+              }}
+              className={styles.muInput}
+            />
+          </>
+        ) : (
+          <></>
+        )}
         <FormControl variant="outlined">
           <InputLabel
             id="primary-test-select-label"

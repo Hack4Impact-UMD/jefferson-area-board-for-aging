@@ -1,11 +1,13 @@
 import {
   getAuth,
   onIdTokenChanged,
-  type User,
+  setPersistence,
   type IdTokenResult,
-} from '@firebase/auth';
-import React, { createContext, useContext, useEffect, useState } from 'react';
-import app from '../config/firebase';
+  type User,
+} from "@firebase/auth";
+import { browserSessionPersistence } from "firebase/auth";
+import React, { createContext, useContext, useEffect, useState } from "react";
+import app from "../config/firebase";
 
 interface Props {
   children: JSX.Element;
@@ -30,6 +32,9 @@ export const AuthProvider = ({ children }: Props): React.ReactElement => {
 
   useEffect(() => {
     const auth = getAuth(app);
+    setPersistence(auth, browserSessionPersistence)
+      .then(() => {})
+      .catch(() => {});
     onIdTokenChanged(auth, (newUser) => {
       setUser(newUser);
       if (newUser != null) {

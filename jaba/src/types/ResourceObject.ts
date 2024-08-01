@@ -4,6 +4,7 @@ export interface Resource extends ResourceData {
 
 export interface ResourceData {
   name: string;
+  description: string;
   npo: boolean;
   mainPhone: string;
   impairedPhone: string;
@@ -28,6 +29,7 @@ export interface ResourceData {
   lastEditTime: Date;
   lastEditUser: string;
   creationDate: Date;
+  website: string;
 }
 
 export interface Address {

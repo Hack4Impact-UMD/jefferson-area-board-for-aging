@@ -1,3 +1,4 @@
+import DeleteIcon from "@mui/icons-material/Delete";
 import {
   Autocomplete,
   Box,
@@ -25,24 +26,29 @@ const AddState = ({
   resource,
   setResource,
   startingModalState,
+  startingModalCounties,
+  givenMode,
 }: any) => {
   const style = {
     width: "250px",
     padding: "10px 10px 10px 10px",
     fontFamily: "'Inter', sans-serif",
   };
-
   const [selectedState, setSelectedState] =
     useState<string>(startingModalState);
+  const [selectCounty, setSelectCounty] = useState<boolean>(false);
+
+  const [counties, setCounties] = useState<string[]>([]);
 
   useEffect(() => {
     if (startingModalState != "") {
       setSelectedState(startingModalState);
     }
-  }, [startingModalState]);
-
-  const [selectCounty, setSelectCounty] = useState<boolean>(false);
-  const [counties, setCounties] = useState<string[]>([]);
+    if (startingModalCounties.length > 0) {
+      setCounties(startingModalCounties);
+      setSelectCounty(true);
+    }
+  }, [startingModalState, startingModalCounties]);
 
   const handleSubmit = () => {
     const currentStates = resource.states || {};
@@ -57,11 +63,33 @@ const AddState = ({
     setCounties([]);
     handleClose();
   };
+
+  const handleDeleteState = () => {
+    const currentStates = resource.states || {};
+    delete currentStates[selectedState];
+    setResource({ ...resource, states: currentStates });
+    handleFullClose();
+  };
+
   return (
     <>
       <Modal open={open} onClose={handleFullClose}>
         <Paper className={styles.background}>
-          <p className={styles.header}>Add State</p>
+          <div className={styles.header}>
+            <p className={styles.headerText}>Add State</p>
+            {startingModalCounties.length > 0 || startingModalState != "" ? (
+              <DeleteIcon
+                className={styles.trashIcon}
+                onClick={() => {
+                  if (givenMode === "VIEW") return;
+                  handleDeleteState();
+                }}
+              />
+            ) : (
+              <></>
+            )}
+          </div>
+
           <form
             onSubmit={(event) => {
               event.preventDefault();
@@ -101,6 +129,8 @@ const AddState = ({
             <RadioGroup
               row
               onChange={(e, value) => {
+                if (givenMode === "VIEW") return;
+
                 setSelectCounty(value === "true");
               }}
               value={selectCounty}
@@ -133,6 +163,8 @@ const AddState = ({
                     </Box>
                   )}
                   onChange={(event, newValue) => {
+                    if (givenMode === "VIEW") return;
+
                     setCounties(newValue);
                   }}
                   value={counties || []}
@@ -152,6 +184,7 @@ const AddState = ({
                       label="Counties"
                       placeholder="Enter Desired Counties"
                       InputLabelProps={{ shrink: true }}
+                      disabled={givenMode === "VIEW"}
                     />
                   )}
                 />
@@ -166,6 +199,7 @@ const AddState = ({
                 variant="outlined"
                 className={styles.redButton}
                 onClick={handleFullClose}
+                disabled={givenMode === "VIEW"}
               >
                 Cancel
               </Button>
@@ -174,6 +208,7 @@ const AddState = ({
                 variant="outlined"
                 className={styles.submitButton}
                 onClick={handleSubmit}
+                disabled={givenMode === "VIEW"}
               >
                 Add
               </Button>

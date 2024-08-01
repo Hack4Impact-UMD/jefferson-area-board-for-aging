@@ -18,12 +18,24 @@
   border-radius: 0.5rem;
   color: black;
 }
+
 .header {
-  font-family: "DM Serif Text", serif;
-  font-size: 2rem;
   margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
+.headerText {
+  margin: 0;
+  font-family: "DM Serif Text", serif;
+  font-size: 2rem;
+  width: 99%;
+}
+.editIcon {
+  cursor: pointer;
+}
 .profileContainer {
   height: 75%;
   margin: 1.25rem;

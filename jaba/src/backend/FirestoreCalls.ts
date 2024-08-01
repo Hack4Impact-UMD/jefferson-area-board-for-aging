@@ -111,9 +111,11 @@ import {
   addDoc,
   and,
   collection,
+  doc,
   getDocs,
   or,
   query,
+  updateDoc,
   where,
 } from "firebase/firestore";
 import { db } from "../config/firebase";
@@ -164,6 +166,32 @@ export function addResourceObject(
         })
           .then((docRef) => {
             resolve(docRef.id);
+          })
+          .catch((e) => {
+            reject(e);
+          })
+      )
+      .catch((e) => reject(e));
+  });
+}
+
+// Function to update a resource
+export function updateResourceObject(
+  resourceData: Resource,
+  user: string
+): Promise<string> {
+  return new Promise((resolve, reject) => {
+    getUserByAuthId(user)
+      .then((user) =>
+        updateDoc(doc(db, "resources", resourceData.id), {
+          ...resourceData,
+          lastEditUser: user[0].name,
+          lastEditTime: new Date().toLocaleString("en-US", {
+            timeZone: "America/New_York",
+          }),
+        })
+          .then((docRef) => {
+            resolve(resourceData.id);
           })
           .catch((e) => {
             reject(e);

@@ -8,12 +8,27 @@
   border: none;
   box-shadow: 24;
 }
+
 .header {
-  margin: 25px 0 20px 0;
+  margin: 0 0 0 0;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.headerText {
   font-size: 1.5rem;
   font-family: "DM Serif Text", serif;
-  text-align: center;
+  width: 90%;
+  text-indent: 43%;
 }
+
+.trashIcon:hover {
+  cursor: pointer;
+}
+
 .form {
   display: flex;
   flex-direction: column;

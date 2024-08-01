@@ -10,7 +10,12 @@ import {
 import States from "../../../constants/states";
 import styles from "./SecondPage.module.css";
 
-const SecondPage = ({ resource, setResource, formReference }: any) => {
+const SecondPage = ({
+  resource,
+  setResource,
+  formReference,
+  givenMode,
+}: any) => {
   const style = {
     width: "250px",
     padding: "10px 10px 10px 10px",
@@ -43,6 +48,7 @@ const SecondPage = ({ resource, setResource, formReference }: any) => {
           InputLabelProps={{ shrink: true }}
           inputProps={{
             style,
+            readOnly: givenMode === "VIEW",
           }}
           className={styles.muInput}
         />
@@ -63,6 +69,7 @@ const SecondPage = ({ resource, setResource, formReference }: any) => {
           InputLabelProps={{ shrink: true }}
           inputProps={{
             style,
+            readOnly: givenMode === "VIEW",
           }}
           className={styles.muInput}
         />
@@ -76,6 +83,7 @@ const SecondPage = ({ resource, setResource, formReference }: any) => {
               }}
               value={resource.mailingAddress.state}
               onChange={(event) => {
+                if (givenMode === "VIEW") return;
                 setResource({
                   ...resource,
                   mailingAddress: {
@@ -112,6 +120,7 @@ const SecondPage = ({ resource, setResource, formReference }: any) => {
             InputLabelProps={{ shrink: true }}
             inputProps={{
               style,
+              readOnly: givenMode === "VIEW",
             }}
             className={`${styles.muInput} ${styles.muInputHalfWidth}`}
           />
@@ -134,6 +143,7 @@ const SecondPage = ({ resource, setResource, formReference }: any) => {
           InputLabelProps={{ shrink: true }}
           inputProps={{
             style,
+            readOnly: givenMode === "VIEW",
           }}
           className={styles.muInput}
         />
@@ -154,6 +164,7 @@ const SecondPage = ({ resource, setResource, formReference }: any) => {
           InputLabelProps={{ shrink: true }}
           inputProps={{
             style,
+            readOnly: givenMode === "VIEW",
           }}
           className={styles.muInput}
         />
@@ -167,6 +178,8 @@ const SecondPage = ({ resource, setResource, formReference }: any) => {
               }}
               value={resource.physicalAddress.state}
               onChange={(event) => {
+                if (givenMode === "VIEW") return;
+
                 setResource({
                   ...resource,
                   physicalAddress: {
@@ -203,6 +216,7 @@ const SecondPage = ({ resource, setResource, formReference }: any) => {
             InputLabelProps={{ shrink: true }}
             inputProps={{
               style,
+              readOnly: givenMode === "VIEW",
             }}
             className={`${styles.muInput} ${styles.muInputHalfWidth}`}
           />
@@ -226,6 +240,7 @@ const SecondPage = ({ resource, setResource, formReference }: any) => {
           InputLabelProps={{ shrink: true }}
           inputProps={{
             style,
+            readOnly: givenMode === "VIEW",
           }}
           className={styles.muInput}
         />
@@ -248,6 +263,7 @@ const SecondPage = ({ resource, setResource, formReference }: any) => {
             InputLabelProps={{ shrink: true }}
             inputProps={{
               style,
+              readOnly: givenMode === "VIEW",
             }}
             className={`${styles.muInput} ${styles.muInputHalfWidth}`}
           />
@@ -268,6 +284,7 @@ const SecondPage = ({ resource, setResource, formReference }: any) => {
             InputLabelProps={{ shrink: true }}
             inputProps={{
               style,
+              readOnly: givenMode === "VIEW",
             }}
             className={`${styles.muInput} ${styles.muInputHalfWidth}`}
           />
@@ -275,6 +292,7 @@ const SecondPage = ({ resource, setResource, formReference }: any) => {
         <RadioGroup
           row
           onChange={(e, value) => {
+            if (givenMode === "VIEW") return;
             setResource({
               ...resource,
               communityPartner: value === "true",
@@ -310,6 +328,7 @@ const SecondPage = ({ resource, setResource, formReference }: any) => {
           InputLabelProps={{ shrink: true }}
           inputProps={{
             style,
+            readOnly: givenMode === "VIEW",
           }}
           className={`${styles.muInput} ${styles.tripleHeight}`}
           multiline
@@ -330,6 +349,7 @@ const SecondPage = ({ resource, setResource, formReference }: any) => {
           InputLabelProps={{ shrink: true }}
           inputProps={{
             style,
+            readOnly: givenMode === "VIEW",
           }}
           className={`${styles.muInput} ${styles.tripleHeight}`}
           multiline

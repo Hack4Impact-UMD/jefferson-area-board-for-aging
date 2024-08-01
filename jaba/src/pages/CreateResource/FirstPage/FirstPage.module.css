@@ -17,7 +17,8 @@
 .radioGroup {
   font-size: 1rem !important;
   font-family: "Inter", sans-serif !important;
-  margin-bottom: 20px;
+  margin-bottom: 20px !important;
+  height: 20px !important;
 }
 
 .formColumn {
@@ -48,4 +49,8 @@
   margin: 5px 0 0 0 !important;
   height: 20px !important;
   width: 350px;
+}
+
+.tripleHeight {
+  height: 70px !important;
 }
