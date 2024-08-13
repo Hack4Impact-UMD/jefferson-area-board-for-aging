@@ -20,26 +20,6 @@ import UsersPage from "./pages/UsersPage/UsersPage";
 
 const router = createBrowserRouter([
   {
-    path: "/test",
-    element: (
-      <button
-        onClick={async () => {
-          await createFirstAdmin(
-            "sahiladmin",
-            "sgaba@terpmail.umd.edu",
-            "ADMIN"
-          )
-            .then(() => {
-              console.log("done!");
-            })
-            .catch((error) => console.log(error));
-        }}
-      >
-        Hi
-      </button>
-    ),
-  },
-  {
     path: "/login",
     element: <LoginPage />,
   },
